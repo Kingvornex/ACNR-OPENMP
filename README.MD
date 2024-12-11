@@ -7,6 +7,7 @@ https://github.com/srafay/SAMP-Server/tree/master \n
 https://github.com/PatrickGTR/sf-cnr?tab=readme-ov-file /n
 https://github.com/philip1337/samp-plugin-mapandreas/tree/master /n
 https://github.com/Southclaws/samp-plugin-mapandreas /n
+https://github.com/PatrickGTR/gta-open /n
 \n
 ## CURRENT STATE \n
 ./pawncc -;+ -(+ -\ -Z- "-i...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "-r...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "-i...ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2.1.5.pwn"
