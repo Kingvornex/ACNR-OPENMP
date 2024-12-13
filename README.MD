@@ -83,14 +83,36 @@ Here's a blank template to get started. To avoid retyping too much info, do a se
 
 ### Built With PAWN
 
-* [![The Pawn language][https://www.compuphase.com/images/pawnlogo128.png]][https://www.compuphase.com/pawn/pawn.htm]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* CompuPhase
+https://www.compuphase.com/pawn/pawn.htm
+The Pawn language
+* GitHub
+https://github.com/compuphase/pawn
+* AlliedModders LLC
+https://wiki.alliedmods.net/Pawn_tutorial
+* GitHub
+https://github.com/pawn-lang
+* Visual Studio Marketplace
+PAWN Language for Visual Studio Code
+https://marketplace.visualstudio.com/items?itemName=Qoo.pawn
+* open.mp
+Pawn Style Guide
+https://www.open.mp/docs/scripting/language/Style
+* SA-MP Forums
+[Tutorial] PAWN For Beginners : 1 - Understanding PAWN
+https://sampforum.blast.hk/showthread.php?tid=451445
+* SA-MP Forums
+https://sampforum.blast.hk › showth...
+[Tutorial] PAWN Syntax and Compiler for Visual Studio Code
+* GitHub
+https://github.com › Southclaws › s...
+Southclaws/sampctl: The Swiss Army Knife of SA:MP - vital tools for any ...
+* open.mp forum
+https://forum.open.mp › printthread
+How to use SAMPCTL vscode/sublime. - Printable Version
+* SA-MP Forums
+https://sampforum.blast.hk › showth...
+[Tutorial] sampctl hello world - learn the sampctl workflow in 10 minutes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
