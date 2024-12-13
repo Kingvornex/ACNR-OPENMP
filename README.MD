@@ -1,14 +1,299 @@
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
+<a id="readme-top"></a>
+
+
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![project_license][license-shield]][license-url]
+
+
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+<h3 align="center">project_title</h3>
+
+  <p align="center">
+    project_description
+    <br />
+    <a href="https://github.com/hello/hello"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    ·
+    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Built With
+
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+5. Change git remote url to avoid accidental pushes to base project
+   ```sh
+   git remote set-url origin github_username/repo_name
+   git remote -v # confirm the changes
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [ ] updating to OPEN.mp
+- [ ] adding features from Grand Larceny gamemode
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+- [ ] adding features from sf-cnr gamemode
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+- [ ] adding features from GTAopen gamemode
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+- [ ] updating Anti-Cheat
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+
+See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## LIST \n
+
 https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc \n
+
 https://github.com/ZiggyMaes/Everystuff-SAMP/blob/master/Development/2.0/include/gl_common.inc \n
+
 https://github.com/WoutProvost/samp-util/tree/master \n 
+
 https://github.com/srafay/SAMP-Server/tree/master \n
+
 \n https://github.com/Cocanuta/SAHeaven/tree/master  \n
+
 https://github.com/PatrickGTR/sf-cnr?tab=readme-ov-file /n
+
 https://github.com/philip1337/samp-plugin-mapandreas/tree/master /n
+
 https://github.com/Southclaws/samp-plugin-mapandreas /n
+
 https://github.com/PatrickGTR/gta-open /n
 \n
+
+
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Top contributors:
+
+<a href="https://github.com/github_username/repo_name/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
+</a>
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the project_license. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+
+Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* []()
+* []()
+* []()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo_name/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-url]: https://github.com/github_username/repo_name/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/repo_name/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
+
+
 ## CURRENT STATE \n
 ./pawncc -;+ -(+ -\ -Z- "-i...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "-r...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "-i...ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2.1.5.pwn"
 
@@ -172,341 +457,4 @@ ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10837) : warning 202: numb
 ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10839) : warning 202: number of arguments does not match definition
 ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10842) : warning 202: number of arguments does not match definition
 ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10844) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10846) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10847) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10849) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10852) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10854) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10856) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10859) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10862) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10865) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10868) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10871) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10874) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10877) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10880) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10883) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10886) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10889) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10892) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10895) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10898) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10901) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10904) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10907) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10910) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10913) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10916) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10919) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10922) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10925) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10928) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10931) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10934) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10936) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10938) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10940) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10942) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10944) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10974) : error 001: expected token: ";", but found "||"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10976) : error 017: undefined symbol "p"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10978) : error 017: undefined symbol "p"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10979) : error 017: undefined symbol "p"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10980) : error 017: undefined symbol "p"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10981) : error 017: undefined symbol "p"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10974) : warning 203: symbol is never used: "Y_FOREACH_SECOND"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11020) : error 001: expected token: ";", but found "||"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11022) : error 017: undefined symbol "playid"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11023) : error 017: undefined symbol "playid"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11024) : error 017: undefined symbol "playid"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11025) : error 017: undefined symbol "playid"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11026) : error 017: undefined symbol "playid"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11020) : warning 203: symbol is never used: "Y_FOREACH_SECOND"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11994) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11995) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11996) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11997) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11998) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(11999) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(12000) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(12001) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(12002) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(12003) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(12004) : warning 239: literal array/string passed to a non-const parameter
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(13074) : warning 214: possibly a "const" array argument was intended: "FV"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(13074) : warning 214: possibly a "const" array argument was intended: "CP"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(13433) : warning 214: possibly a "const" array argument was intended: "ip"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(14227) : warning 235: public function lacks forward declaration (symbol "OnPlayerCheat")
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(14580) : error 017: undefined symbol "VerifyCheckpointe"; did you mean "VerifyCheckpoint"?
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(22762) : error 017: undefined symbol "_ALS"; did you mean "ALS"?
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(22762) : error 029: invalid expression, assumed zero
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(22762) : error 017: undefined symbol "_ALS_go"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(22762) : fatal error 107: too many error messages on one line
-
-Compilation aborted.
-
-Pawn compiler 3.10.11	 	 	Copyright (c) 1997-2006, ITB CompuPhase
-
-
-19 Errors.
-
-
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a id="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![project_license][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
-
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-  </p>
-</div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Top contributors:
-
-<a href="https://github.com/github_username/repo_name/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
-</a>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the project_license. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10846) : warning 202: numbe
