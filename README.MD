@@ -210,7 +210,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## LIST \n
+## LIST
 
 * Easy game mode for SA-MP (0.3.7) https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc
 
