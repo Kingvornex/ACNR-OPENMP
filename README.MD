@@ -26,16 +26,16 @@
     <img src="images/logo 1.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">ACNR-OPENMP</h3>
 
   <p align="center">
-    project_description
+    SAMP ACNR GAME MODE UPDATING TO OPENMP WORK IN PROGRESS
     <br />
-    <a href="https://github.com/Kingvornex/ACNR-OPENMP"><strong>Explore the docs »</strong></a>
+<!--     <a href="https://github.com/Kingvornex/ACNR-OPENMP"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
-    <a href="https://github.com/Kingvornex/ACNR-OPENMP">View Demo</a>
-    ·
+ <!--    <a href="https://github.com/Kingvornex/ACNR-OPENMP">View Demo</a>
+    · -->
     <a href="https://github.com/Kingvornex/ACNR-OPENMP/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/Kingvornex/ACNR-OPENMP/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
@@ -75,9 +75,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/logo%202.png)
 
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
+`Kingvornex`, `ACNR-OPENMP`, `ACNR-OPENMP`, `SAMP ACNR GAME MODE UPDATING TO OPENMP WORK IN PROGRESS`, `project_license`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
