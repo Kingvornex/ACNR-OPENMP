@@ -156,9 +156,16 @@ To get a local copy up and running follow these simple example steps.
 ## Roadmap
 
 - [ ] updating to OPEN.mp
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
+    - [ ] #define NO_TAGS
+    - [ ] #pragma warning disable 213
+    - [ ] #pragma warning disable 219
+    - [ ] #define MIXED_SPELLINGS
+    - [ ] #include <open.mp>
+    - [ ] #pragma warning disable 214
+    - [ ] upgrade tool
+    - [ ] 
+    - [ ] 
+    - [ ] 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
     - [ ] ls_elevator.pwn
