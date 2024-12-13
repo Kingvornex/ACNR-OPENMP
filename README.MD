@@ -107,13 +107,13 @@ https://sampforum.blast.hk/showthread.php?tid=451445
 https://sampforum.blast.hk › showth...
 [Tutorial] PAWN Syntax and Compiler for Visual Studio Code
 * GitHub
-https://github.com › Southclaws › s...
+https://github.com/Southclaws/sampctl
 Southclaws/sampctl: The Swiss Army Knife of SA:MP - vital tools for any ...
 * open.mp forum
-https://forum.open.mp › printthread
-How to use SAMPCTL vscode/sublime. - Printable Version
+https://forum.open.mp/showthread.php?tid=1256
+How to use SAMPCTL vscode/sublime.
 * SA-MP Forums
-https://sampforum.blast.hk › showth...
+https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showthread.php?tid=651240
 [Tutorial] sampctl hello world - learn the sampctl workflow in 10 minutes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -123,48 +123,29 @@ https://sampforum.blast.hk › showth...
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* 
   ```sh
-  npm install npm@latest -g
+  https://github.com/Southclaws/sampctl/?tab=readme-ov-file#installation
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/Kingvornex/ACNR-OPENMP.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin Kingvornex/ACNR-OPENMP
-   git remote -v # confirm the changes
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- youtube video -->
+## youtube video
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,29 +155,56 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [ ] updating to OPEN.mp
+    - [ ] Nested Feature
+    - [ ] Nested Feature
+    - [ ] Nested Feature
 - [ ] adding features from Grand Larceny gamemode
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
+    - [ ] gl_npcs.pwn
+    - [ ] ls_elevator.pwn
+    - [ ] ls_mall.pwn
+    - [ ] maxips.pwn
+    - [ ] netstats.pwn
+    - [ ] pnetstats.pwn
+    - [ ] iradio.pwn
+    - [ ] gl_realtime.pwn
+    - [ ] gl_property.pwn
+    - [ ] gl_mapicon.pwn
+    - [ ] gl_chatbubble.pwn
+    - [ ] cargoship.pwn
+    - [ ]  
 - [ ] adding features from sf-cnr gamemode
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
+    - [ ] Action packed gang wars
+    - [ ] Kidnap players and hold them for ransom
+    - [ ] Blowing up the jail cells to break out criminals from prisons
+    - [ ] Steal furniture and cash them at the Pawn Shop
+    - [ ] Create methamphetamine in RVs and export to Cluckin' Bell
+    - [ ] Bank, drug house and ship hiests
+    - [ ] Rob NPC security trucks
+    - [ ] Blowing up Alcatraz to release the high-risk criminals
+    - [ ] Jacking cars and exporting them in Shipyard containers
+    - [ ] Rob atms
+    - [ ] Gamble the casinos in SA-MP
+    - [ ] Race players
+    - [ ] fireworks
+    - [ ] Play 8-Ball Pool
+    - [ ] Play Poker
+    - [ ] House, vehicle, garage, gate, gang facility, business systems
+    - [ ] Toy/clothes system
+    - [ ] Paintball system
+    - [ ] Battle Royale Minigame
+    - [ ]  
 - [ ] adding features from GTAopen gamemode
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
+    - [ ] Houses with different interiors that can be customised with an array of furnitures
+    - [ ] Be a drug dealer, get the skill to plant cannabis and make cocaine
+    - [ ] Gangs, competitive gang system that competes with other gangs kills, deaths and zone captures
+    - [ ]  
+    - [ ]  
 - [ ] updating Anti-Cheat
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
-    - [ ] Nested Feature
+    - [ ]  
+    - [ ]  
+    - [ ]  
+    - [ ]  
+    - [ ]  
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
 
@@ -204,27 +212,23 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 ## LIST \n
 
-https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc \n
+* Easy game mode for SA-MP (0.3.7) https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc
 
-https://github.com/ZiggyMaes/Everystuff-SAMP/blob/master/Development/2.0/include/gl_common.inc \n
+* https://github.com/ZiggyMaes/Everystuff-SAMP/blob/master/Development/2.0/include/gl_common.inc
 
-https://github.com/WoutProvost/samp-util/tree/master \n 
+* A set of useful utility functions for SA-MP https://github.com/WoutProvost/samp-util/tree/master 
 
-https://github.com/srafay/SAMP-Server/tree/master \n
+* https://github.com/srafay/SAMP-Server/tree/master
 
-\n https://github.com/Cocanuta/SAHeaven/tree/master  \n
+* San Andreas Heaven Role Play Server Gamemode https://github.com/Cocanuta/SAHeaven/tree/master 
 
-https://github.com/PatrickGTR/sf-cnr?tab=readme-ov-file /n
+* San Fierro Cops And Robbers Gamemode for SA-MP (includes Call Of Duty For SA-MP as a bonus gamemode) https://github.com/PatrickGTR/sf-cnr
 
-https://github.com/philip1337/samp-plugin-mapandreas/tree/master /n
+* MapAndreas Plugin to check the min height for x,y coordinates https://github.com/philip1337/samp-plugin-mapandreas/tree/master
 
-https://github.com/Southclaws/samp-plugin-mapandreas /n
+* MapAndreas Plugin to check the min height for x,y coordinates https://github.com/Southclaws/samp-plugin-mapandreas
 
-https://github.com/PatrickGTR/gta-open /n
-\n
-
-
-
+* A gamemode made for open.mp https://github.com/PatrickGTR/gta-open 
 
 
 <!-- CONTRIBUTING -->
@@ -263,21 +267,19 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kingvornex/ACNR-OPENMP)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- ACKNOWLEDGMENTS -->
+<!-- ACKNOWLEDGMENTS 
 ## Acknowledgments
 
 * []()
 * []()
 * []()
-
+-->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
