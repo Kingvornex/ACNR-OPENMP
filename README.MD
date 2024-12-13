@@ -230,8 +230,8 @@ To get a local copy up and running follow these simple example steps.
     - [ ] SAMP-Blake-Island map: https://github.com/HeLiOn--PrImE/SAMP-Blake-Island
     -  [ ] SAMP - Eiffel Tower map: https://forum.open.mp/showthread.php?tid=2421
     -  [ ] Touge Track map: https://forum.open.mp/showthread.php?tid=2071
-    -  [ ]
-    -  [ ]
+    -  [ ] SWAT VS TERRORIST FULL MAP: https://forum.open.mp/showthread.php?tid=2366
+    -  [ ] The Farm Prison map: https://forum.open.mp/showthread.php?tid=1635
     -  [ ]
     -  [ ]
     -  [ ]
