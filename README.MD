@@ -221,8 +221,8 @@ Don't forget to give the project a star! Thanks again!
 
 ### Top contributors:
 
-<a href="https://github.com/github_username/repo_name/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
+<a href="https://github.com/Kingvornex/ACNR-OPENMP/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Kingvornex/ACNR-OPENMP" alt="contrib.rocks image" />
 </a>
 
 
@@ -260,16 +260,16 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Kingvornex/ACNR-OPENMP.svg?style=for-the-badge
+[contributors-url]: https://github.com/Kingvornex/ACNR-OPENMP/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Kingvornex/ACNR-OPENMP.svg?style=for-the-badge
+[forks-url]: https://github.com/Kingvornex/ACNR-OPENMP/network/members
+[stars-shield]: https://img.shields.io/github/stars/Kingvornex/ACNR-OPENMP.svg?style=for-the-badge
+[stars-url]: https://github.com/Kingvornex/ACNR-OPENMP/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Kingvornex/ACNR-OPENMP.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/Kingvornex/ACNR-OPENMP
+[license-shield]: https://img.shields.io/github/license/Kingvornex/ACNR-OPENMP.svg?style=for-the-badge
+[license-url]: https://github.com/Kingvornex/ACNR-OPENMP/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
