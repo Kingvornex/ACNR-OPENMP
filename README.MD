@@ -1,9 +1,11 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 
-<a id="readme-top"></a>
+<a id="readme-top"></a>
+
 
 <!-- PROJECT SHIELDS -->
-<!--
+<!--
+
 *** See the bottom of this document for the declaration of the reference variables
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
@@ -21,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Kingvornex/ACNR-OPENMP">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo 1.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">project_title</h3>
