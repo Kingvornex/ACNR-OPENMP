@@ -1,9 +1,6 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 
-<a id="readme-top"></a>
-
-
-
+<a id="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -23,7 +20,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/Kingvornex/ACNR-OPENMP">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -32,14 +29,14 @@
   <p align="center">
     project_description
     <br />
-    <a href="https://github.com/hello/hello"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Kingvornex/ACNR-OPENMP"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/Kingvornex/ACNR-OPENMP">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/Kingvornex/ACNR-OPENMP/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/Kingvornex/ACNR-OPENMP/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -118,7 +115,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Kingvornex/ACNR-OPENMP.git
    ```
 3. Install NPM packages
    ```sh
@@ -130,7 +127,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 5. Change git remote url to avoid accidental pushes to base project
    ```sh
-   git remote set-url origin github_username/repo_name
+   git remote set-url origin Kingvornex/ACNR-OPENMP
    git remote -v # confirm the changes
    ```
 
@@ -177,7 +174,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Nested Feature
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
