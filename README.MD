@@ -115,6 +115,7 @@ How to use SAMPCTL vscode/sublime.
 * SA-MP Forums
 https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showthread.php?tid=651240
 [Tutorial] sampctl hello world - learn the sampctl workflow in 10 minutes
+* SA:MP Develop, alternative to "Pawno": https://github.com/Gomaink/SAMP-Develop
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,7 +201,7 @@ To get a local copy up and running follow these simple example steps.
     - [ ]  
     - [ ]  
 - [ ] updating Anti-Cheat
-    - [ ]  
+    - [ ] Nex-AC - Anticheat system: https://github.com/NexiusTailer/Nex-AC/tree/master
     - [ ]  
     - [ ]  
     - [ ]  
@@ -215,6 +216,17 @@ To get a local copy up and running follow these simple example steps.
     - [ ] Added icons filter script to the server
     - [ ] Fixed the Gate object's z-coordinates at Market
     - [ ] 
+- [ ] bug fixes scripts:
+    - [ ] MapFix: https://github.com/NexiusTailer/MapFix?tab=readme-ov-file
+    - [ ] new open.mp fixes.inc
+- [ ] optional:
+    - [ ] FilterScript TextDraw-FPS SA:MP: https://github.com/ocalasans/TextDraw-FPS
+    - [ ] Headphones(in-game music player): https://github.com/lunosat/Headphone-Filterscript-SA-MP
+- [ ] features from other's:
+    - [ ] Trucking system: https://github.com/lucian-nk/Romania-Live-Trucking
+    - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
+    - [ ] maps: https://github.com/MacMailler/GWRP-0.3/tree/develop/server/scriptfiles/maps
+    - [ ] Pursuit system: 
 
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
