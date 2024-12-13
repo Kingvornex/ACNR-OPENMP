@@ -227,7 +227,8 @@ To get a local copy up and running follow these simple example steps.
     - [ ] Trucking system: https://github.com/lucian-nk/Romania-Live-Trucking
     - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
     - [ ] maps: https://github.com/MacMailler/GWRP-0.3/tree/develop/server/scriptfiles/maps
-    - [ ] Pursuit system: 
+    - [ ] Apple Valley Speedway map: https://forum.open.mp/showthread.php?tid=2029
+    - -
 
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
