@@ -116,7 +116,6 @@ How to use SAMPCTL vscode/sublime.
 https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showthread.php?tid=651240
 [Tutorial] sampctl hello world - learn the sampctl workflow in 10 minutes
 * SA:MP Develop, alternative to "Pawno": https://github.com/Gomaink/SAMP-Develop
-* pawno: https://github.com/brazucas/samp-pawno
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,7 +227,15 @@ To get a local copy up and running follow these simple example steps.
     - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
     - [ ] maps: https://github.com/MacMailler/GWRP-0.3/tree/develop/server/scriptfiles/maps
     - [ ] Apple Valley Speedway map: https://forum.open.mp/showthread.php?tid=2029
-    - -
+    - [ ] SAMP-Blake-Island map: https://github.com/HeLiOn--PrImE/SAMP-Blake-Island
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
 
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
@@ -254,6 +261,8 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * MapAndreas Plugin to check the min height for x,y coordinates https://github.com/Southclaws/samp-plugin-mapandreas
 
 * A gamemode made for open.mp https://github.com/PatrickGTR/gta-open 
+
+* pawno: https://github.com/brazucas/samp-pawno
 
 
 <!-- CONTRIBUTING -->
