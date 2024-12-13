@@ -75,7 +75,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![product screenshot]](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/logo%202.png)
+![product screenshot](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/logo%202.png)
 
 `Kingvornex`, `ACNR-OPENMP`, `ACNR-OPENMP`, `SAMP ACNR GAME MODE UPDATING TO OPENMP WORK IN PROGRESS`, `project_license`
 
