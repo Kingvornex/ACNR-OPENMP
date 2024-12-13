@@ -228,8 +228,8 @@ To get a local copy up and running follow these simple example steps.
     - [ ] maps: https://github.com/MacMailler/GWRP-0.3/tree/develop/server/scriptfiles/maps
     - [ ] Apple Valley Speedway map: https://forum.open.mp/showthread.php?tid=2029
     - [ ] SAMP-Blake-Island map: https://github.com/HeLiOn--PrImE/SAMP-Blake-Island
-    -  [ ]
-    -  [ ]
+    -  [ ] SAMP - Eiffel Tower map: https://forum.open.mp/showthread.php?tid=2421
+    -  [ ] Touge Track map: https://forum.open.mp/showthread.php?tid=2071
     -  [ ]
     -  [ ]
     -  [ ]
