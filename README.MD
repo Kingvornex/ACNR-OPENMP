@@ -83,7 +83,7 @@ Here's a blank template to get started. To avoid retyping too much info, do a se
 
 ### Built With PAWN
 
-* [![Next][Next.js]][Next-url]
+* [![The Pawn language][https://www.compuphase.com/images/pawnlogo128.png]][https://www.compuphase.com/pawn/pawn.htm]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
