@@ -116,6 +116,7 @@ How to use SAMPCTL vscode/sublime.
 https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showthread.php?tid=651240
 [Tutorial] sampctl hello world - learn the sampctl workflow in 10 minutes
 * SA:MP Develop, alternative to "Pawno": https://github.com/Gomaink/SAMP-Develop
+* pawno: https://github.com/brazucas/samp-pawno
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
