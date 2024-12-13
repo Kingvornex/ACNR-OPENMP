@@ -34,8 +34,8 @@
 <!--     <a href="https://github.com/Kingvornex/ACNR-OPENMP"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
- <!--    <a href="https://github.com/Kingvornex/ACNR-OPENMP">View Demo</a>
-    · -->
+     <a href="https://github.com/Kingvornex/ACNR-OPENMP/commits/main/">Commits</a>
+    · 
     <a href="https://github.com/Kingvornex/ACNR-OPENMP/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/Kingvornex/ACNR-OPENMP/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
