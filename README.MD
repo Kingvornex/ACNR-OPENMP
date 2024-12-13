@@ -205,6 +205,17 @@ To get a local copy up and running follow these simple example steps.
     - [ ]  
     - [ ]  
     - [ ]  
+- [ ] adding features github.com/srafay/SAMP-Server/commits
+    - [ ] Added Discord bot to the server with following features :
+        - [ ] Can send message to Discord channel if someone joins the server
+        - [ ] Admins can send message to discord channel from the game
+        - [ ] Admins can send messages in-game from the discord channel
+    - [ ] Made system for house entering and exit by pressing [F]
+    - [ ] Working with properties, added some houses for test
+    - [ ] Added icons filter script to the server
+    - [ ] Fixed the Gate object's z-coordinates at Market
+    - [ ] 
+
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
 
