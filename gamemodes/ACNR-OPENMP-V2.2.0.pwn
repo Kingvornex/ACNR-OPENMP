@@ -16,6 +16,7 @@
 
 #undef MAX_PLAYERS
 #define MAX_PLAYERS 51
+/*
  //fixes include...
 #define 							FIXES_Single                               0
 #define 							FIX_file_inc                               0
@@ -63,13 +64,13 @@
 #define 							FIX_valstr 								   1
 //
 #include 							<fixes>
- //
+ */ //
 //#include <elc_ac_4.4>
 #include <YSI-Includes\YSI_Storage\y_ini>
 #include <izcmd>
 #include <sscanf2>
 #include <YSI-Includes\YSI_Data\y_iterate>
-//#include <streamer>
+#include <streamer>
 #include <CheckpointManager2>
 //#include <GetVehicleColor>
 #include <YSI-Includes\YSI_Coding\y_timers>
@@ -77,8 +78,9 @@
 #include <mGates>
 #include <fly>
 #include <AutoAFK>
+#include "whirlpool" //dot use whirlpool use bcrypt : https://github.com/Southclaws/samp-whirlpool , https://github.com/Sreyas-Sreelal/samp-bcrypt/
 
-native WP_Hash(buffer[], len, const str[]);
+// native WP_Hash(buffer[], len, const str[]); //whirlpool
 
 #define WHITE 0xFFFFFFAA
 #define RED 0xFF0000FF
@@ -14233,7 +14235,7 @@ public ProxDetectorS(Float:radi, playerid, targetid)
     return 0;
 }
 /*
-public OnPlayerCheat(playerid, cheatid, source[])
+public OnPlayerCheat(playerid, cheatid, source[]) //dont use elec_ac
 {
     switch(cheatid)
     {
