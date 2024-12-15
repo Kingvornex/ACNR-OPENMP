@@ -66,6 +66,9 @@
 #include 							<fixes>
  */ //
 //#include <elc_ac_4.4>
+
+#define CGEN_MEMORY 20000
+
 #include <YSI-Includes\YSI_Storage\y_ini>
 #include <izcmd>
 #include <sscanf2>
