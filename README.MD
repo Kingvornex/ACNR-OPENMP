@@ -73,7 +73,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+# About The Project
 
 ![product screenshot](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/logo%202.png)
 
@@ -83,7 +83,7 @@
 
 
 
-### Built With PAWN
+## Built With PAWN
 
 * CompuPhase
 https://www.compuphase.com/pawn/pawn.htm
@@ -220,29 +220,17 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## CURRENT STATE
-./pawncc -;+ -(+ -\ -Z- "-i
-/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-r
-ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-i
-/ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o
-/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "
-/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2.2.0.pwn"
+### Compiler errors:
+`#define NO_TAGS //#pragma warning disable 213 //tag mismatch
+#define MIXED_SPELLINGS //warning 234: function is deprecated (symbol "TextDrawBackgroundColor") Use TextDrawBackgroundColour`
 
+`#pragma warning disable 213 //tag mismatch
+#pragma warning disable 214 //const
+#pragma warning disable 219 //shadows
+#pragma warning disable 239 //const`
 
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS"; did you mean "ALS"?
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 029: invalid expression, assumed zero
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS_go"
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : fatal error 107: too many error messages on one line
-
-Compilation aborted.
-
-Pawn compiler 3.10.11        Copyright (c) 1997-2006, ITB CompuPhase
-
-
-4 Errors.
+### Server Log:
+**https://github.com/Kingvornex/ACNR-OPENMP/blob/main/log.txt**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -267,6 +255,15 @@ Pawn compiler 3.10.11        Copyright (c) 1997-2006, ITB CompuPhase
 * A gamemode made for open.mp https://github.com/PatrickGTR/gta-open 
 
 * pawno: https://github.com/brazucas/samp-pawno
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Changelog:
+### Old version changelogs:
+* **NVCNR changelog: https://sampforum.blast.hk/showthread.php?tid=463657**
+* **ZCNR changelog: https://sampforum.blast.hk/showthread.php?tid=566923**
+* **Old ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/OLD%20VERSION%20UPDATES.MD**
+* **OPEN.mp ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/CHANGELOG.MD**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -344,15 +341,29 @@ Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kin
 
 
 
-<!-- ACKNOWLEDGMENTS 
-## Acknowledgments
+<!-- ACKNOWLEDGMENTS -->
 
-* []()
-* []()
-* []()
--->
+## Credits:
+
+1. Weponz - Founder
+2. SA:MP - Callbacks and Functions and GetXYPosInFrontOfPlayer
+3. ****** - Whirlpool, sscanf2, y_ini and y_timers
+4. ZeeX - ZCMD
+5. Incognito - Streamer Plugin
+6. Joao Pedro Lopes - Checkpoint Manager
+7. RyDeR` - GetVehicleColor
+8. [HiC]TheKiller - Group chat system
+9. Garsino - Parts of GarHouse v1.0 for NVCNR_house
+10. Donya - Vehicle mod prices array and IsPlayerInInvalidNosVehicle
+11. Mauzen - Anti D-AMX script, IsPlayerSkydiving and IsPlayerUsingParachute stocks
+12. DracoBlue - IsNumeric, PropertySet stock and dprop_PRIVATE_hash
+13. MP2 - Cuff fall over script
+14. DopeX / [ND]xXZeusXx / Ritzy - Updated Gamemode.
+15. JStylezzz - for blood screen include
+16. Threshold - Helping me along the way.
+17. Admigo - A_vshot.inc
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
