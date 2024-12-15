@@ -131,7 +131,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] #pragma warning disable 219/239
     - [x] #define MIXED_SPELLINGS
     - [x] #include <open.mp>
-    - [ ] upgrade tool
+    - [ ] use upgrade tool
     - [ ] 
     - [ ] 
     - [ ] 
@@ -209,7 +209,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] Touge Track map: https://forum.open.mp/showthread.php?tid=2071
     -  [ ] SWAT VS TERRORIST FULL MAP: https://forum.open.mp/showthread.php?tid=2366
     -  [ ] The Farm Prison map: https://forum.open.mp/showthread.php?tid=1635
-    -  [ ]
+    -  [ ] Add other GTA games maps
     -  [ ]
     -  [ ]
     -  [ ]
