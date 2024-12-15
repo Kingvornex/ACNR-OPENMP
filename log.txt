@@ -1,0 +1,184 @@
+Starting open.mp server (1.3.1.2748) from commit ef893c74e10fb67abd9e82b0e266a66327a7e903
+Loading component Actors.dll
+	Successfully loaded component Actors (1.3.1.2748) with UID c81ca021eae2ad5c
+Loading component Checkpoints.dll
+	Successfully loaded component Checkpoints (1.3.1.2748) with UID 44a937350d611dde
+Loading component Classes.dll
+	Successfully loaded component Classes (1.3.1.2748) with UID 8cfb3183976da208
+Loading component Console.dll
+	Successfully loaded component Console (1.3.1.2748) with UID bfa24e49d0c95ee4
+Loading component CustomModels.dll
+	Successfully loaded component CustomModels (1.3.1.2748) with UID 15e3cb1e7c77ffff
+Loading component Databases.dll
+	Successfully loaded component Databases (1.3.1.2748) with UID 80092e7eb5821a96
+Loading component Dialogs.dll
+	Successfully loaded component Dialogs (1.3.1.2748) with UID 44a111350d611dde
+Loading component GangZones.dll
+	Successfully loaded component GangZones (1.3.1.2748) with UID b3351d11ee8d8056
+Loading component LegacyConfig.dll
+	Successfully loaded component LegacyConfig (1.3.1.2748) with UID 24ef6216838f9ffc
+Loading component LegacyNetwork.dll
+	Successfully loaded component RakNetLegacyNetwork (1.3.1.2748) with UID ea9799fd79cf8442
+Loading component Menus.dll
+	Successfully loaded component Menus (1.3.1.2748) with UID 621e219eb97ee0b2
+Loading component Objects.dll
+	Successfully loaded component Objects (1.3.1.2748) with UID 59f8415f72da6160
+Loading component Pawn.dll
+	Successfully loaded component Pawn (1.3.1.2748) with UID 78906cd9f19c36a6
+Loading component Pickups.dll
+	Successfully loaded component Pickups (1.3.1.2748) with UID cf304faa363dd971
+Loading component Recordings.dll
+	Successfully loaded component Recordings (1.3.1.2748) with UID 871144d399f5f613
+Loading component sscanf.dll
+	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
+Loading component TextDraws.dll
+	Successfully loaded component TextDraws (1.3.1.2748) with UID 9b5dc2b1d15c992a
+Loading component TextLabels.dll
+	Successfully loaded component TextLabels (1.3.1.2748) with UID a0c57ea80a009742
+Loading component Timers.dll
+	Successfully loaded component Timers (1.3.1.2748) with UID 2ad8124c5ea257a3
+Loading component Variables.dll
+	Successfully loaded component Variables (1.3.1.2748) with UID 75e121848bc01fa2
+Loading component Vehicles.dll
+	Successfully loaded component Vehicles (1.3.1.2748) with UID 3f1f62ee9e22ab19
+Loaded 21 component(s) from D:\SAMP\ACNR-OPENMP\components
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]  ===============================
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]      sscanf component loaded.   
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]          Version: 2.13.8
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]    (c) 2022 Alex "Y_Less" Cole  
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]  ===============================
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info] Loading plugin: crashdetect
+[2024-12-15T16:31:02+0330] [Info]   CrashDetect plugin 4.22-1-gcd608b6
+[2024-12-15T16:31:02+0330] [Info] Loading plugin: Whirlpool
+[2024-12-15T16:31:02+0330] [Info]  
+[2024-12-15T16:31:02+0330] [Info]  ==================
+[2024-12-15T16:31:02+0330] [Info]  
+[2024-12-15T16:31:02+0330] [Info]   Whirlpool loaded
+[2024-12-15T16:31:02+0330] [Info]  
+[2024-12-15T16:31:02+0330] [Info]  ==================
+[2024-12-15T16:31:02+0330] [Info]  
+[2024-12-15T16:31:02+0330] [Info] Loading plugin: streamer
+[2024-12-15T16:31:02+0330] [Info] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[2024-12-15T16:31:02+0330] [Info] Loading plugin: sscanf
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]  ===============================
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]       sscanf plugin loaded.     
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]          Version: 2.13.8
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]    (c) 2022 Alex "Y_Less" Cole  
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:02+0330] [Info]  ===============================
+[2024-12-15T16:31:02+0330] [Info] 
+[2024-12-15T16:31:03+0330] [Warning] Tried to register native which is already registered: SSCANF_Init
+[2024-12-15T16:31:03+0330] [Warning] Tried to register native which is already registered: SSCANF_IsConnected
+[2024-12-15T16:31:03+0330] [Warning] Tried to register native which is already registered: SSCANF_Join
+[2024-12-15T16:31:03+0330] [Warning] Tried to register native which is already registered: SSCANF_Leave
+[2024-12-15T16:31:03+0330] [Warning] Tried to register native which is already registered: SSCANF_TextSimilarity
+[2024-12-15T16:31:03+0330] [Warning] Tried to register native which is already registered: SSCANF__
+[2024-12-15T16:31:03+0330] [Info] AMX (12700544) loaded
+[2024-12-15T16:31:03+0330] [Info]  
+[2024-12-15T16:31:03+0330] [Info]  
+[2024-12-15T16:31:03+0330] [Info]          ==============================================================
+[2024-12-15T16:31:03+0330] [Info]          |                                                            |
+[2024-12-15T16:31:03+0330] [Info]          |                                                            |
+[2024-12-15T16:31:03+0330] [Info]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[2024-12-15T16:31:03+0330] [Info]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[2024-12-15T16:31:03+0330] [Info]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[2024-12-15T16:31:03+0330] [Info]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[2024-12-15T16:31:03+0330] [Info]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |           Y:::::Y                    S:::::S   I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |           Y:::::Y                    S:::::S   I::::I      |
+[2024-12-15T16:31:03+0330] [Info]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[2024-12-15T16:31:03+0330] [Info]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[2024-12-15T16:31:03+0330] [Info]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[2024-12-15T16:31:03+0330] [Info]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[2024-12-15T16:31:03+0330] [Info]          |                                                            |
+[2024-12-15T16:31:03+0330] [Info]          |                                                            |
+[2024-12-15T16:31:03+0330] [Info]          |                      (c) 2021 MPL v1.1                     |
+[2024-12-15T16:31:03+0330] [Info]          |            Alex "Y_Less" Cole and contributors.            |
+[2024-12-15T16:31:03+0330] [Info]          |                                                            |
+[2024-12-15T16:31:03+0330] [Info]          |                                                            |
+[2024-12-15T16:31:03+0330] [Info]          ==============================================================
+[2024-12-15T16:31:03+0330] [Info]  
+[2024-12-15T16:31:03+0330] [Info]  
+[2024-12-15T16:31:03+0330] [Info]  ========================================== 
+[2024-12-15T16:31:03+0330] [Info]  |                                        | 
+[2024-12-15T16:31:03+0330] [Info]  |   Generating code, this may take a     | 
+[2024-12-15T16:31:03+0330] [Info]  |  little bit of time.  Note that this   | 
+[2024-12-15T16:31:03+0330] [Info]  |  code generation works best with the   | 
+[2024-12-15T16:31:03+0330] [Info]  |     JIT plugin, which you are not      | 
+[2024-12-15T16:31:03+0330] [Info]  |     currently using.  Get it here:     | 
+[2024-12-15T16:31:03+0330] [Info]  |                                        | 
+[2024-12-15T16:31:03+0330] [Info]  |       https://git.io/jit-plugin        | 
+[2024-12-15T16:31:03+0330] [Info]  |                                        | 
+[2024-12-15T16:31:03+0330] [Info]  |             Please wait...             | 
+[2024-12-15T16:31:03+0330] [Info] *** YSI Fatal Error: Out of code generation (CGen) space.  The current value of `CGEN_MEMORY` is `10000`, please recompile with a higher value (approximately 20000).
+[2024-12-15T16:31:03+0330] [Info] [debug] Run time error 42: "(unknown)"
+[2024-12-15T16:31:03+0330] [Info] [debug] AMX backtrace:
+[2024-12-15T16:31:03+0330] [Info] [debug] #0 00004770 in Debug_Kill_ () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Core\y_core\y_debug_impl.inc:595
+[2024-12-15T16:31:03+0330] [Info] [debug] #1 00021508 in ?? (20871964) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\y_cgen\y_cgen_impl.inc:337
+[2024-12-15T16:31:03+0330] [Info] [debug] #2 00012054 in CallFunction (address=136216, 20610056) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\..\..\amx\dynamic_call.inc:251
+[2024-12-15T16:31:03+0330] [Info] [debug] #3 00012150 in AsmError:AsmRaiseError (ctx[AsmContext:21]=@013e7b1c, AsmError:error=3) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\..\..\amx\asm.inc:145
+[2024-12-15T16:31:03+0330] [Info] [debug] #4 000121e8 in AsmError:AsmEmitCell (ctx[AsmContext:21]=@013e7b1c, value=62) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\..\..\amx\asm.inc:154
+[2024-12-15T16:31:03+0330] [Info] [debug] #5 00012e78 in AsmError:AsmEmitOpcode (ctx[AsmContext:21]=@013e7b1c, Opcode:opcode=62) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\..\..\amx\asm.inc:281
+[2024-12-15T16:31:03+0330] [Info] [debug] #6 00012f24 in AsmError:AsmEmitInstruction (ctx[AsmContext:21]=@013e7b1c, Opcode:opcode=62, 20871956) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\..\..\amx\asm.inc:296
+[2024-12-15T16:31:03+0330] [Info] [debug] #7 00013bb8 in AsmError:AsmEmitJsleq (ctx[AsmContext:21]=@013e7b1c, address=95874112) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\..\..\amx\asm.inc:711
+[2024-12-15T16:31:03+0330] [Info] [debug] #8 00021dd8 in Malloc_Finalise ()  at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\y_malloc\y_malloc_heapalloc.inc:210
+[2024-12-15T16:31:03+0330] [Info] [debug] #9 000219ec in CGen_OnCodeInit () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\y_malloc\y_malloc_heapalloc.inc:122
+[2024-12-15T16:31:03+0330] [Info] [debug] #10 000212b0 in VA_OnCodeInit () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\y_cgen\y_cgen_impl.inc:289
+[2024-12-15T16:31:04+0330] [Info] [debug] #11 0001acc0 in Y3I_OnCodeInit () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\y_va\y_va_impl.inc:266
+[2024-12-15T16:31:04+0330] [Info] [debug] #12 0001a9f8 in Y3A_OnCodeInit () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\y3_indirection.inc:114
+[2024-12-15T16:31:04+0330] [Info] [debug] #13 00019e48 in AMX_OnCodeInit () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Coding\y_inline\..\..\YSI_Server\y_thirdpartyinclude\y3_amx_assembly.inc:506
+[2024-12-15T16:31:04+0330] [Info] [debug] #14 000055e4 in ScriptInit_OnCodeInit () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Core\y_core\y_amx_impl.inc:457
+[2024-12-15T16:31:04+0330] [Info] [debug] #15 000024f4 in bool:ScriptInit_CallOnCodeInit (bool:jit=false, bool:fs=false) at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1347
+[2024-12-15T16:31:04+0330] [Info] [debug] #16 0000344c in public OnRuntimeError () at D:\SAMP\ACNR-OPENMP\QAWNO\include\YSI-Includes\YSI_Storage\y_ini\..\..\YSI_Core\y_core\y_scriptinit_impl.inc:1861
+[2024-12-15T16:31:04+0330] [Error] (unknown)
+[2024-12-15T16:31:04+0330] [Info] |--------------------------------------------|
+[2024-12-15T16:31:04+0330] [Info] |---------- Gamemode: ACNR v2.2.0 -----------|
+[2024-12-15T16:31:04+0330] [Info] |-------- Owner/Developer: Abolfazl ---------|
+[2024-12-15T16:31:04+0330] [Info] |----- Copyright: Abolfazl 2015 - 2018 ------|
+[2024-12-15T16:31:04+0330] [Info] |--------- Just-SaMp.RozBlog.COM ------------|
+[2024-12-15T16:31:04+0330] [Info] |--------------------------------------------|
+[2024-12-15T16:31:04+0330] [Info] Legacy Network started on port 7777
+[2024-12-15T16:31:06+0330] [Info] *** YSI Warning: INI_Open could not find or create file ACNR/Accounts.ini
+[2024-12-15T16:31:06+0330] [Info] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]  ===============================
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]      sscanf plugin unloaded.    
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]  ===============================
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]  
+[2024-12-15T16:31:06+0330] [Info]  ====================
+[2024-12-15T16:31:06+0330] [Info]  
+[2024-12-15T16:31:06+0330] [Info]   Whirlpool unloaded
+[2024-12-15T16:31:06+0330] [Info]  
+[2024-12-15T16:31:06+0330] [Info]  ====================
+[2024-12-15T16:31:06+0330] [Info]  
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]  ===============================
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]     sscanf component unloaded.  
+[2024-12-15T16:31:06+0330] [Info] 
+[2024-12-15T16:31:06+0330] [Info]  ===============================
+[2024-12-15T16:31:06+0330] [Info] 
