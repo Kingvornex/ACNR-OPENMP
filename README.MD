@@ -121,36 +121,6 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-* 
-  ```sh
-  https://github.com/Southclaws/sampctl/?tab=readme-ov-file#installation
-  ```
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/Kingvornex/ACNR-OPENMP.git
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- youtube video -->
-## youtube video
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -249,6 +219,33 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## CURRENT STATE
+./pawncc -;+ -(+ -\ -Z- "-i
+/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-r
+ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-i
+/ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o
+/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "
+/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2.2.0.pwn"
+
+
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS"; did you mean "ALS"?
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 029: invalid expression, assumed zero
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS_go"
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : fatal error 107: too many error messages on one line
+
+Compilation aborted.
+
+Pawn compiler 3.10.11        Copyright (c) 1997-2006, ITB CompuPhase
+
+
+4 Errors.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## LIST
 
 * Easy game mode for SA-MP (0.3.7) https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc
@@ -270,6 +267,39 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * A gamemode made for open.mp https://github.com/PatrickGTR/gta-open 
 
 * pawno: https://github.com/brazucas/samp-pawno
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+* 
+  ```sh
+  https://github.com/Southclaws/sampctl/?tab=readme-ov-file#installation
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Kingvornex/ACNR-OPENMP.git
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- youtube video -->
+## youtube video
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- CONTRIBUTING -->
@@ -358,27 +388,3 @@ Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kin
 [JQuery-url]: https://jquery.com 
 
 
-## CURRENT STATE \n
-./pawncc -;+ -(+ -\ -Z- "-i
-/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-r
-ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-i
-/ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o
-/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "
-/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2.2.0.pwn"
-
-
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS"; did you mean "ALS"?
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 029: invalid expression, assumed zero
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS_go"
-
-\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : fatal error 107: too many error messages on one line
-
-Compilation aborted.
-
-Pawn compiler 3.10.11        Copyright (c) 1997-2006, ITB CompuPhase
-
-
-4 Errors.
