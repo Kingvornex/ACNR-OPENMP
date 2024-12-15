@@ -156,12 +156,11 @@ To get a local copy up and running follow these simple example steps.
 ## Roadmap
 
 - [ ] updating to OPEN.mp
-    - [ ] #define NO_TAGS
-    - [ ] #pragma warning disable 213
-    - [ ] #pragma warning disable 219
-    - [ ] #define MIXED_SPELLINGS
-    - [ ] #include <open.mp>
-    - [ ] #pragma warning disable 214
+    - [x] #define NO_TAGS
+    - [x] #pragma warning disable 213/214
+    - [x] #pragma warning disable 219/239
+    - [x] #define MIXED_SPELLINGS
+    - [x] #include <open.mp>
     - [ ] upgrade tool
     - [ ] 
     - [ ] 
@@ -231,7 +230,8 @@ To get a local copy up and running follow these simple example steps.
     - [ ] Headphones(in-game music player): https://github.com/lunosat/Headphone-Filterscript-SA-MP
 - [ ] features from other's:
     - [ ] Trucking system: https://github.com/lucian-nk/Romania-Live-Trucking
-    - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
+    - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
+
     - [ ] maps: https://github.com/MacMailler/GWRP-0.3/tree/develop/server/scriptfiles/maps
     - [ ] Apple Valley Speedway map: https://forum.open.mp/showthread.php?tid=2029
     - [ ] SAMP-Blake-Island map: https://github.com/HeLiOn--PrImE/SAMP-Blake-Island
@@ -359,166 +359,26 @@ Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kin
 
 
 ## CURRENT STATE \n
-./pawncc -;+ -(+ -\ -Z- "-i...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "-r...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "-i...ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2" "...ACNR-OPENMP/gamemodes/AbolfazlsDozdVaPoliceV2.1.5.pwn"
+./pawncc -;+ -(+ -\ -Z- "-i
+/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-r
+ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "-i
+/ACNR-OPENMP/QAWNO/include" -d3 -t4 "-o
+/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2" "
+/ACNR-OPENMP/gamemodes/ACNR-OPENMP-V2.2.0.pwn"
 
 
-ACNR-OPENMP\QAWNO\include\fixes.inc(20251) : warning 219: local variable "engine" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20252) : warning 219: local variable "lights" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20253) : warning 219: local variable "alarm" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20254) : warning 219: local variable "doors" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20255) : warning 219: local variable "bonnet" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20256) : warning 219: local variable "boot" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20470) : warning 219: local variable "engine" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20471) : warning 219: local variable "lights" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20472) : warning 219: local variable "alarm" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20473) : warning 219: local variable "doors" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20474) : warning 219: local variable "bonnet" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(20475) : warning 219: local variable "boot" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24955) : warning 219: local variable "engine" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24955) : warning 219: local variable "lights" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24955) : warning 219: local variable "alarm" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24955) : warning 219: local variable "doors" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24955) : warning 219: local variable "bonnet" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24955) : warning 219: local variable "boot" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24988) : warning 219: local variable "engine" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24988) : warning 219: local variable "lights" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24988) : warning 219: local variable "alarm" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24988) : warning 219: local variable "doors" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24988) : warning 219: local variable "bonnet" shadows a variable at a preceding level
-ACNR-OPENMP\QAWNO\include\fixes.inc(24988) : warning 219: local variable "boot" shadows a variable at a preceding level
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(6003) : warning 214: possibly a "const" array argument was intended: "vname"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(6110) : error 025: function heading differs from prototype
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(6111) : error 021: symbol already defined: "IsNumeric"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(6110) : warning 214: possibly a "const" array argument was intended: "string"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(6142) : warning 214: possibly a "const" array argument was intended: "username"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(7306) : warning 214: possibly a "const" array argument was intended: "message"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(7333) : warning 214: possibly a "const" array argument was intended: "grpname"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(7425) : warning 214: possibly a "const" array argument was intended: "message"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(7819) : warning 214: possibly a "const" array argument was intended: "animlib"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(7824) : warning 214: possibly a "const" array argument was intended: "value"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(7829) : warning 214: possibly a "const" array argument was intended: "buf"
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10547) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10549) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10551) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10553) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10555) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10557) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10559) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10561) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10563) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10565) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10567) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10569) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10571) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10573) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10575) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10577) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10579) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10581) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10583) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10585) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10587) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10589) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10591) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10593) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10595) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10597) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10599) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10601) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10603) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10605) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10607) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10609) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10611) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10613) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10615) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10617) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10620) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10622) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10625) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10628) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10631) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10633) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10635) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10638) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10641) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10644) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10647) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10650) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10653) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10655) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10658) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10661) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10664) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10667) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10670) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10673) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10676) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10679) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10682) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10685) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10688) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10691) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10694) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10697) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10700) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10702) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10704) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10706) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10708) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10711) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10714) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10717) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10720) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10723) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10726) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10729) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10731) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10733) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10736) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10739) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10742) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10745) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10748) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10751) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10753) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10756) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10759) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10762) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10765) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10768) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10771) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10774) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10777) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10780) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10783) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10786) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10789) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10791) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10793) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10795) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10797) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10799) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10801) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10803) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10805) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10807) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10809) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10811) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10813) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10815) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10817) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10820) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10822) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10824) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10826) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10828) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10831) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10832) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10833) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10835) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10837) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10839) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10842) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10844) : warning 202: number of arguments does not match definition
-ACNR-OPENMP\gamemodes\AbolfazlsDozdVaPoliceV2.1.5.pwn(10846) : warning 202: numbe
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS"; did you mean "ALS"?
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 029: invalid expression, assumed zero
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : error 017: undefined symbol "_ALS_go"
+
+\ACNR-OPENMP\gamemodes\ACNR-OPENMP-V2.2.0.pwn(22771) : fatal error 107: too many error messages on one line
+
+Compilation aborted.
+
+Pawn compiler 3.10.11        Copyright (c) 1997-2006, ITB CompuPhase
+
+
+4 Errors.
