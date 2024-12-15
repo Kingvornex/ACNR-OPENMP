@@ -1,3 +1,9 @@
+//New Vegas Cops and Robbers(NVCNR) - v2.3 - by Weponz 2010-2012 : https://github.com/WeponzTV/NVCNR
+//New Vegas Cops and Robbers(NVCNR) - v2.3 - by Weponz 2010-2012 Edit: DopeX aka [ND]xXZeusXx : https://sampforum.blast.hk/showthread.php?tid=566923
+
+//Abolfazl Cops and Robbers(ACNR) - v2.1.5 - by Abolfazl 2015 - 2018 : https://github.com/Kingvornex/ACNR-OPENMP/blob/main/OLD%20VERSION%20UPDATES.MD
+//Abolfazl Cops and Robbers(ACNR) - OPEN.mp - v2.2.0 - by Abolfazl 2024 : https://github.com/Kingvornex/ACNR-OPENMP
+
 # SA-MP version Changelog
 
 ## NVCNR 13.09.2013 version :
