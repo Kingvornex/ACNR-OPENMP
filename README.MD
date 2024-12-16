@@ -133,7 +133,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] #define MIXED_SPELLINGS
     - [x] #include <open.mp>
     - [ ] use upgrade tool
-    - [ ] 
+    - [ ] use y_hooks?
     - [ ] 
     - [ ] 
 - [ ] adding features from Grand Larceny gamemode
