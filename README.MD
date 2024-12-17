@@ -312,6 +312,8 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 * pawno: https://github.com/brazucas/samp-pawno
 
+* ProgressBar: https://github.com/Southclaws/progress2
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Changelog:
