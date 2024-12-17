@@ -260,16 +260,16 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Voting:
-- [ ] clear player wanted level after death
+# Voting and results::
+* Clear player wanted level after death: https://github.com/Kingvornex/ACNR-OPENMP/issues/1
     -  [ ] yes
     -  [ ] no
 
-- [ ] respawn shop vehicles with respawn cars command
+* Respawn shop vehicles with respawn cars command: https://github.com/Kingvornex/ACNR-OPENMP/issues/2
     -  [ ] yes
     -  [ ] no
 
-- [ ] 
+* 
     -  [ ]
     -  [ ]
 
