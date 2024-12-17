@@ -260,7 +260,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Voting and results::
+# Voting and results:
 * Clear player wanted level after death: https://github.com/Kingvornex/ACNR-OPENMP/issues/1
     -  [ ] yes
     -  [ ] no
