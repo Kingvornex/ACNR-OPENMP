@@ -280,6 +280,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * **NVCNR changelog: https://sampforum.blast.hk/showthread.php?tid=463657**
 * **ZCNR changelog: https://sampforum.blast.hk/showthread.php?tid=566923**
 * **Old ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/OLD%20VERSION%20UPDATES.MD**
+## New version changelogs:
 * **OPEN.mp ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/CHANGELOG.md**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
