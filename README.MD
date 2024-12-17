@@ -84,7 +84,7 @@
 
 
 
-## Built With PAWN
+# Built With PAWN
 
 * CompuPhase
 https://www.compuphase.com/pawn/pawn.htm
@@ -124,7 +124,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 
 
 <!-- ROADMAP -->
-## Roadmap
+# Roadmap
 
 - [ ] updating to OPEN.mp
     - [x] #define NO_TAGS
@@ -221,17 +221,23 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Voting:
+# Voting:
 - [ ] clear player wanted level after death
+    -  [ ] yes
+    -  [ ] no
 
 - [ ] respawn shop vehicles with respawn cars command
+    -  [ ] yes
+    -  [ ] no
 
 - [ ] 
+    -  [ ]
+    -  [ ]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## CURRENT STATE
-### Compiler errors:
+# CURRENT STATE
+## Compiler errors:
 `#define NO_TAGS //#pragma warning disable 213 //tag mismatch
 #define MIXED_SPELLINGS //warning 234: function is deprecated (symbol "TextDrawBackgroundColor") Use TextDrawBackgroundColour`
 
@@ -240,12 +246,12 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 #pragma warning disable 219 //shadows
 #pragma warning disable 239 //const`
 
-### Server Log:
+## Server Log:
 **https://github.com/Kingvornex/ACNR-OPENMP/blob/main/log.txt**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## LIST
+# LIST
 
 * Easy game mode for SA-MP (0.3.7) https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc
 
@@ -269,8 +275,8 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Changelog:
-### Old version changelogs:
+# Changelog:
+## Old version changelogs:
 * **NVCNR changelog: https://sampforum.blast.hk/showthread.php?tid=463657**
 * **ZCNR changelog: https://sampforum.blast.hk/showthread.php?tid=566923**
 * **Old ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/OLD%20VERSION%20UPDATES.MD**
@@ -280,18 +286,18 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+# Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+## Prerequisites
 
 * 
   ```sh
   https://github.com/Southclaws/sampctl/?tab=readme-ov-file#installation
   ```
 
-### Installation
+## Installation
 
 1. Clone the repo
    ```sh
@@ -303,7 +309,7 @@ To get a local copy up and running follow these simple example steps.
 
 
 <!-- youtube video -->
-## youtube video
+# youtube video
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -311,7 +317,7 @@ To get a local copy up and running follow these simple example steps.
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+# Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -326,7 +332,7 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Top contributors:
+## Top contributors:
 
 <a href="https://github.com/Kingvornex/ACNR-OPENMP/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Kingvornex/ACNR-OPENMP" alt="contrib.rocks image" />
@@ -335,7 +341,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- LICENSE -->
-## License
+# License
 
 Distributed under the project_license. See `LICENSE.txt` for more information.
 
@@ -344,7 +350,7 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+# Contact
 
 Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kingvornex/ACNR-OPENMP)
 
@@ -354,7 +360,7 @@ Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kin
 
 <!-- ACKNOWLEDGMENTS -->
 
-## Credits:
+# Credits:
 
 1. Weponz - Founder
 2. SA:MP - Callbacks and Functions and GetXYPosInFrontOfPlayer
