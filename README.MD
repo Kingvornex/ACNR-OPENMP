@@ -30,7 +30,7 @@
 
   <p align="center">
     SAMP ACNR GAME MODE UPDATING TO OPENMP WORK IN PROGRESS
-<br />  <a href=https://github.com/Kingvornex/ACNR-OPENMP/blob/main/DevStory.md"><strong>Development Story»</strong></a> 
+<br />  <a href="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/DevStory.md"><strong>Development Story»</strong></a> 
     <br />
      <a href="https://github.com/Kingvornex/ACNR-OPENMP/watchers"><strong>Watchers »</strong></a> 
     <br />
