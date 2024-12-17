@@ -218,6 +218,16 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Voting:
+- [ ] clear player wanted level after death
+
+- [ ] respawn shop vehicles with respawn cars command
+
+- [ ] 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## CURRENT STATE
