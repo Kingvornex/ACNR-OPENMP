@@ -23,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Kingvornex/ACNR-OPENMP">
-    <img src="images/logo 1.png" alt="Logo" width="80" height="80">
+    <img src="images/logo 1.png" alt="Logo" width="200" height="200">
   </a>
 
 <h3 align="center">ACNR-OPENMP</h3>
