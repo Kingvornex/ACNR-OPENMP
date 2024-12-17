@@ -48,29 +48,67 @@
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
-- [ACNR-OPENMP](#acnr-openmp)
-- [About The Project](#about-the-project)
-- [Built With PAWN](#built-with-pawn)
-- [Roadmap](#roadmap)
-- [Voting:](#voting)
-- [CURRENT STATE](#current-state)
-  - [Compiler errors:](#compiler-errors)
-  - [Server Log:](#server-log)
-- [LIST](#list)
-- [Changelog:](#changelog)
-  - [Old version changelogs:](#old-version-changelogs)
-  - [New version changelogs:](#new-version-changelogs)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [youtube video](#youtube-video)
-- [Contributing](#contributing)
-  - [Top contributors:](#top-contributors)
-- [License](#license)
-- [Contact](#contact)
-- [Credits:](#credits)
-
+  <ol>
+    <li>
+      <a href="#acnr-openmp">ACNR-OPENMP</a>
+    </li>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#built-with-pawn">Built With PAWN</a>
+    </li>
+    <li>
+      <a href="#roadmap">Roadmap</a>
+    </li>
+    <li>
+      <a href="#voting">Voting</a>
+    </li>
+    <li>
+      <a href="#current-state">CURRENT STATE</a>
+      <ul>
+        <li><a href="#compiler-errors">Compiler errors</a></li>
+        <li><a href="#server-log">Server Log</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#list">LIST</a>
+    </li>
+    <li>
+      <a href="#changelog">Changelog</a>
+      <ul>
+        <li><a href="#old-version-changelogs">Old version changelogs</a></li>
+        <li><a href="#new-version-changelogs">New version changelogs</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#youtube-video">YouTube Video</a>
+    </li>
+    <li>
+      <a href="#contributing">Contributing</a>
+      <ul>
+        <li><a href="#top-contributors">Top Contributors</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#license">License</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+    <li>
+      <a href="#credits">Credits</a>
+    </li>
+  </ol>
 </details>
+
 
 
 
