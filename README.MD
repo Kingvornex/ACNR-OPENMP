@@ -269,9 +269,10 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
     -  [ ] yes
     -  [ ] no
 
-* 
-    -  [ ]
-    -  [ ]
+* Server Tax System Options: https://github.com/Kingvornex/ACNR-OPENMP/issues/3
+    -  [ ] Get taxes from players
+    -  [ ] Give players bank interest daily
+    -  [ ] None of them
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
