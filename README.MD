@@ -179,7 +179,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (USE Z VELOCITY IF {Z != 0})
-    - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES
+    - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES (maybe https://github.com/Awsomedude/easyDialog)
     - [ ] SEEMS TO HAVE REPEATED CODES UNDER OnVehicleDeath
     - [ ] FIX AUDIO STREAM LINKS (EXPIRED)
     - [ ] 
