@@ -15,7 +15,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
-[![GitHub watchers](https://img.shields.io/github/watchers/Kingvornex/ACNR-OPENMP?style=for-the-badge)][https://github.com/Kingvornex/ACNR-OPENMP/watchers]
+[![GitHub watchers][https://img.shields.io/github/watchers/Kingvornex/ACNR-OPENMP?style=for-the-badge]][https://github.com/Kingvornex/ACNR-OPENMP/watchers]
 
 
 
