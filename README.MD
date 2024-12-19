@@ -185,7 +185,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] FIX AUDIO STREAM LINKS (EXPIRED)
     - [ ] fix << format(zone, len, SACities[i][City_Name], 0); >> to << format(zone, len, "%s", SACities[i][City_Name]); >>
     - [ ] some interiors change player VW, make sure set it back when they come out of interior
-    - [ ] create scripfiles folders and files automatically if the don't exist
+    - [ ] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
     - [ ] 
 
