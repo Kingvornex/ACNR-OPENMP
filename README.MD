@@ -199,6 +199,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] add /setplayerskin for admin
     - [ ] add preloaded houses
     - [ ] add checkpoint to /service areas and automatically open dialog
+    - [ ] mabe add zombies and aliens or animals
     - [ ] 
 
 - [ ] adding features from Grand Larceny gamemode
