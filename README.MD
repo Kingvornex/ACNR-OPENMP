@@ -175,7 +175,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] #include <open.mp>
     - [ ] use upgrade tool
     - [ ] use y_hooks?
-    - [ ] 
+    - [ ] update whirlpool to bcrypt
     - [ ] 
 
 - [ ] CODE BUG FIXES
