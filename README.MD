@@ -189,6 +189,8 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
     - [ ] change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.
+    - [ ] make help and cmd_list dialogs more readable and also make cmds dialog clickable to execute commands form it
+    - [ ] 
 
 - [ ] ADD NEW FEATURES
     - [ ] MAYBE ADD TIMERS TO AFK MASSAGE (HOW MANY SECONDS, MINUTES, HOURS PLAYER WAS AFK)
