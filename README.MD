@@ -175,7 +175,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] #include <open.mp>
     - [ ] use upgrade tool
     - [ ] use y_hooks?
-    - [ ] update whirlpool to bcrypt
+    - [ ] update whirlpool to bcrypt: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md
     - [ ] 
 
 - [ ] CODE BUG FIXES
