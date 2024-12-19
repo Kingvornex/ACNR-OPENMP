@@ -15,7 +15,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
-[![GitHub watchers][https://img.shields.io/github/watchers/Kingvornex/ACNR-OPENMP?style=for-the-badge]][https://github.com/Kingvornex/ACNR-OPENMP/watchers]
+[![GitHub watchers][watchers-shield]][watchers-url]
 
 
 
@@ -493,5 +493,7 @@ Project Link: [https://github.com/Kingvornex/ACNR-OPENMP](https://github.com/Kin
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[watchers-shield]: https://img.shields.io/github/watchers/Kingvornex/ACNR-OPENMP?style=for-the-badge
+[watchers-url]: https://github.com/Kingvornex/ACNR-OPENMP/watchers
 
 
