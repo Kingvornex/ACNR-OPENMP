@@ -203,7 +203,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] add preloaded houses
     - [ ] add checkpoint to /service areas and automatically open dialog
     - [ ] mabe add zombies and aliens or animals
-    - [ ] 
+    - [ ] add /jobs cmd to show jobs list and set a marker to their locations and jobs specific commands 
 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
