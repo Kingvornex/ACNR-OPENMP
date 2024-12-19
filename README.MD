@@ -176,6 +176,29 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] use y_hooks?
     - [ ] 
     - [ ] 
+
+- [ ] CODE BUG FIXES
+    - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (USE Z VELOCITY IF {Z != 0})
+    - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES
+    - [ ] SEEMS TO HAVE REPEATED CODES UNDER OnVehicleDeath
+    - [ ] FIX AUDIO STREAM LINKS (EXPIRED)
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
+
+- [ ] ADD NEW FEATURES
+    - [ ] MAYBE ADD TIMERS TO AFK MASSAGE (HOW MANY SECONDS, MINUTES, HOURS PLAYER WAS AFK)
+    - [ ] ADD "BACK" OPTION TO DIALOGS
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
+
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
     - [ ] ls_elevator.pwn
@@ -190,6 +213,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] gl_chatbubble.pwn
     - [ ] cargoship.pwn
     - [ ]  
+
 - [ ] adding features from sf-cnr gamemode
     - [ ] Action packed gang wars
     - [ ] Kidnap players and hold them for ransom
@@ -211,18 +235,21 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] Paintball system
     - [ ] Battle Royale Minigame
     - [ ]  
+
 - [ ] adding features from GTAopen gamemode
     - [ ] Houses with different interiors that can be customised with an array of furnitures
     - [ ] Be a drug dealer, get the skill to plant cannabis and make cocaine
     - [ ] Gangs, competitive gang system that competes with other gangs kills, deaths and zone captures
     - [ ]  
     - [ ]  
+
 - [ ] updating Anti-Cheat
     - [ ] Nex-AC - Anticheat system: https://github.com/NexiusTailer/Nex-AC/tree/master
     - [ ]  
     - [ ]  
     - [ ]  
     - [ ]  
+
 - [ ] adding features github.com/srafay/SAMP-Server/commits
     - [ ] Added Discord bot to the server with following features :
         - [ ] Can send message to Discord channel if someone joins the server
@@ -233,12 +260,15 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] Added icons filter script to the server
     - [ ] Fixed the Gate object's z-coordinates at Market
     - [ ] 
+
 - [ ] bug fixes scripts:
     - [ ] MapFix: https://github.com/NexiusTailer/MapFix?tab=readme-ov-file
     - [ ] new open.mp fixes.inc
+
 - [ ] optional:
     - [ ] FilterScript TextDraw-FPS SA:MP: https://github.com/ocalasans/TextDraw-FPS
     - [ ] Headphones(in-game music player): https://github.com/lunosat/Headphone-Filterscript-SA-MP
+
 - [ ] features from other's:
     - [ ] Trucking system: https://github.com/lucian-nk/Romania-Live-Trucking
     - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
