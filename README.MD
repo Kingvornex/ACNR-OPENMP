@@ -68,6 +68,7 @@
     <li>
       <a href="#current-state">CURRENT STATE</a>
       <ul>
+        <li><a href="#known-issues">Know issues</a></li>
         <li><a href="#compiler-errors">Compiler errors</a></li>
         <li><a href="#server-log">Server Log</a></li>
       </ul>
