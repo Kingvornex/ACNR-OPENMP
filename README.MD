@@ -30,7 +30,7 @@
 <h3 align="center">ACNR-OPENMP</h3>
 
   <p align="center">
-    SAMP ACNR GAME MODE UPDATING TO OPENMP WORK IN PROGRESS
+    SAMP ACNR GAME MODE UPDATING TO OPEN.MP WORK IN PROGRESS
 <br />  <a href="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/DevStory.md"><strong>Development Story»</strong></a> 
 <!--    <br />
      <a href="https://github.com/Kingvornex/ACNR-OPENMP/watchers"><strong>Watchers »</strong></a> 
@@ -119,7 +119,7 @@
 
 ![product screenshot](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/logo%202.png)
 
-`Kingvornex`, `ACNR-OPENMP`, `ACNR-OPENMP`, `SAMP ACNR GAME MODE UPDATING TO OPENMP WORK IN PROGRESS`, `project_license`
+`Kingvornex`, `ACNR-OPENMP`, `ACNR-OPENMP`, `SAMP ACNR GAME MODE UPDATING TO OPEN.MP WORK IN PROGRESS`, `project_license`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
