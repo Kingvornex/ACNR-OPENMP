@@ -184,10 +184,11 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] SEEMS TO HAVE REPEATED CODES UNDER OnVehicleDeath
     - [ ] FIX AUDIO STREAM LINKS (EXPIRED)
     - [ ] fix << `format(zone, len, SACities[i][City_Name], 0);` >> to << `format(zone, len, "%s", SACities[i][City_Name]);` >>
+    - [ ] same problem with `format` under `GetVehicleName`
     - [ ] some interiors change player VW, make sure set it back when they come out of interior
     - [ ] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
-    - [ ] 
+    - [ ] change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.
 
 - [ ] ADD NEW FEATURES
     - [ ] MAYBE ADD TIMERS TO AFK MASSAGE (HOW MANY SECONDS, MINUTES, HOURS PLAYER WAS AFK)
