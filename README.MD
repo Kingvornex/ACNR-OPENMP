@@ -183,21 +183,22 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES (maybe https://github.com/Awsomedude/easyDialog)
     - [ ] SEEMS TO HAVE REPEATED CODES UNDER OnVehicleDeath
     - [ ] FIX AUDIO STREAM LINKS (EXPIRED)
-    - [ ] 
-    - [ ] 
-    - [ ] 
-    - [ ] 
+    - [ ] fix << format(zone, len, SACities[i][City_Name], 0); >> to << format(zone, len, "%s", SACities[i][City_Name]); >>
+    - [ ] some interiors change player VW, make sure set it back when they come out of interior
+    - [ ] create scripfiles folders and files automatically if the don't exist
+    - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
     - [ ] 
 
 - [ ] ADD NEW FEATURES
     - [ ] MAYBE ADD TIMERS TO AFK MASSAGE (HOW MANY SECONDS, MINUTES, HOURS PLAYER WAS AFK)
     - [ ] ADD "BACK" OPTION TO DIALOGS
-    - [ ] 
-    - [ ] 
-    - [ ] 
-    - [ ] 
-    - [ ] 
-    - [ ] 
+    - [ ] add /run cmd to change running animation
+    - [ ] add /skin cmd to change skin
+    - [ ]  add /tune for car tuning
+    - [ ] add START ROBBERY to shop checkpoints
+    - [ ] add /setplayerskin for admin
+    - [ ] add preloaded houses
+    - [ ] add checkpoint to /service areas and automatically open dialog
     - [ ] 
 
 - [ ] adding features from Grand Larceny gamemode
