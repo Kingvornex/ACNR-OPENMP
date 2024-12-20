@@ -294,8 +294,8 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 
 -  [ ] more features:
     -  [ ] add robbing from safe: https://sampforum.blast.hk/showthread.php?tid=632154
-    -  [ ] 
-    -  [ ]
+    -  [ ] Kill The President minigame: https://sampforum.blast.hk/showthread.php?tid=665076
+    -  [ ] https://freegeoip.io/ GeoIP: https://sampforum.blast.hk/showthread.php?tid=591916
     -  [ ]
     -  [ ]
     -  [ ]
