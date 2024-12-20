@@ -296,11 +296,11 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] add robbing from safe: https://sampforum.blast.hk/showthread.php?tid=632154
     -  [ ] Kill The President minigame: https://sampforum.blast.hk/showthread.php?tid=665076
     -  [ ] https://freegeoip.io/ GeoIP: https://sampforum.blast.hk/showthread.php?tid=591916
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
+    -  [ ] samp-ships: https://sampforum.blast.hk/showthread.php?tid=642692
+    -  [ ] drift-detection: https://sampforum.blast.hk/showthread.php?tid=649800
+    -  [ ] Maze Generator: https://sampforum.blast.hk/showthread.php?tid=645290
+    -  [ ] OnPlayerClickPlayer: https://sampforum.blast.hk/showthread.php?tid=651714
+    -  [ ] textdraw fade effect: https://github.com/Gammix/fader.inc/blob/master/pawno/include/fader.inc
     -  [ ]
     -  [ ]
     -  [ ]
@@ -365,48 +365,28 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 # LIST
 
 * Easy game mode for SA-MP (0.3.7) https://github.com/lexjusto/SA-MP-0.3.7-Simple-Gamemode/blob/master/include/gl_common.inc
-
 * https://github.com/ZiggyMaes/Everystuff-SAMP/blob/master/Development/2.0/include/gl_common.inc
-
 * A set of useful utility functions for SA-MP https://github.com/WoutProvost/samp-util/tree/master 
-
 * https://github.com/srafay/SAMP-Server/tree/master
-
 * San Andreas Heaven Role Play Server Gamemode https://github.com/Cocanuta/SAHeaven/tree/master 
-
 * San Fierro Cops And Robbers Gamemode for SA-MP (includes Call Of Duty For SA-MP as a bonus gamemode) https://github.com/PatrickGTR/sf-cnr
-
 * MapAndreas Plugin to check the min height for x,y coordinates https://github.com/philip1337/samp-plugin-mapandreas/tree/master
-
 * MapAndreas Plugin to check the min height for x,y coordinates https://github.com/Southclaws/samp-plugin-mapandreas
-
 * A gamemode made for open.mp https://github.com/PatrickGTR/gta-open 
-
 * pawno: https://github.com/brazucas/samp-pawno
-
 * ProgressBar: https://github.com/Southclaws/progress2
-
 * RNPC: https://sampforum.blast.hk/showthread.php?tid=355849
-
 * ARNPC: https://github.com/BrianFurious/ARNPC-Include/tree/master
-
 * FCNPC: https://github.com/ziggi/FCNPC
- 
 * GtaV menu:  https://sampforum.blast.hk/showthread.php?tid=574271
-
 * https://github.com/Agneese-Saini/SA-MP/tree/master
-
 * GtaV TP camera effect: https://sampforum.blast.hk/showthread.php?tid=535209
-
 * GtaV death sequence: https://sampforum.blast.hk/showthread.php?tid=653168
-
 * GtaV textdraw menu:  https://sampforum.blast.hk/showthread.php?tid=471939
-
 * Custom city map:  https://sampforum.blast.hk/showthread.php?tid=644493
-
 * Dynamic mission system: https://forum.open.mp/showthread.php?tid=2528&highlight=Npv
-
 * dynamic robberies: https://sampforum.blast.hk/showthread.php?tid=607450
+* Dynamic Actor: https://sampforum.blast.hk/showthread.php?tid=611484
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
