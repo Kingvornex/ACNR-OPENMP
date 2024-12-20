@@ -362,19 +362,17 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 *FCNPC: https://github.com/ziggi/FCNPC
  
-* https://sampforum.blast.hk/showthread.php?tid=574271
+* GtaV menu:  https://sampforum.blast.hk/showthread.php?tid=574271
 
 * https://github.com/Agneese-Saini/SA-MP/tree/master
 
-* https://sampforum.blast.hk/showthread.php?tid=535209
+* GtaV TP camera effect: https://sampforum.blast.hk/showthread.php?tid=535209
 
-* https://sampforum.blast.hk/showthread.php?tid=653168
+* GtaV death sequence: https://sampforum.blast.hk/showthread.php?tid=653168
 
-* https://sampforum.blast.hk/showthread.php?tid=581108
+* GtaV textdraw menu:  https://sampforum.blast.hk/showthread.php?tid=471939
 
-* https://sampforum.blast.hk/showthread.php?tid=471939
-
-* https://sampforum.blast.hk/showthread.php?tid=644493
+* Custom city map:  https://sampforum.blast.hk/showthread.php?tid=644493
 
 * Dynamic mission system: https://forum.open.mp/showthread.php?tid=2528&highlight=Npv
 
