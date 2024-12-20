@@ -291,6 +291,35 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ]
     -  [ ]
 
+-  [ ] more features:
+    -  [ ] add robbing from safe: https://sampforum.blast.hk/showthread.php?tid=632154
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+    -  [ ]
+
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
 
