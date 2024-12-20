@@ -182,9 +182,9 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
     - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES (maybe https://github.com/Awsomedude/easyDialog)
     - [ ] SEEMS TO HAVE REPEATED CODES UNDER OnVehicleDeath
-    - [ ] FIX AUDIO STREAM LINKS (EXPIRED)
-    - [ ] fix << `format(zone, len, SACities[i][City_Name], 0);` >> to << `format(zone, len, "%s", SACities[i][City_Name]);` >>
-    - [ ] same problem with `format` under `GetVehicleName` code:
+    - [x] FIX AUDIO STREAM LINKS (EXPIRED)
+    - [x] fix << `format(zone, len, SACities[i][City_Name], 0);` >> to << `format(zone, len, "%s", SACities[i][City_Name]);` >>
+    - [x] same problem with `format` under `GetVehicleName` code:
 ```ruby
 stock GetVehicleName(vehicleid, model[], len) 
 {
@@ -204,7 +204,7 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] some interiors change player VW, make sure set it back when they come out of interior
     - [ ] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
-    - [ ] **change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.**
+    - [x] **change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.**
     - [ ] make help and cmd_list dialogs more readable and also make cmds dialog clickable to execute commands form it
     - [ ] 
 
