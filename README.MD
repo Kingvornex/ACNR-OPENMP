@@ -387,6 +387,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * Dynamic mission system: https://forum.open.mp/showthread.php?tid=2528&highlight=Npv
 * dynamic robberies: https://sampforum.blast.hk/showthread.php?tid=607450
 * Dynamic Actor: https://sampforum.blast.hk/showthread.php?tid=611484
+* samp-map-zones: https://github.com/kristoisberg/samp-map-zones
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
