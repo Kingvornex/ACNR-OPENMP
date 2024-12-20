@@ -206,7 +206,6 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
     - [x] **change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.**
     - [ ] make help and cmd_list dialogs more readable and also make cmds dialog clickable to execute commands form it
-    - [ ] 
 
 - [ ] ADD NEW FEATURES
     - [ ] MAYBE ADD TIMERS TO AFK MASSAGE (HOW MANY SECONDS, MINUTES, HOURS PLAYER WAS AFK)
@@ -221,6 +220,7 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] mabe add zombies and aliens or animals
     - [ ] add /jobs cmd to show jobs list and set a marker to their locations and jobs specific commands 
     - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.** https://github.com/Kiiruuu/GPSBullet
+    - [ ] add hidden admin and make cmd for it (make sure make admin hidden in all chat commands such as /n /new etc.)
 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
@@ -235,7 +235,6 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] gl_mapicon.pwn
     - [ ] gl_chatbubble.pwn
     - [ ] cargoship.pwn
-    - [ ]  
 
 - [ ] adding features from sf-cnr gamemode
     - [ ] Action packed gang wars
@@ -263,15 +262,9 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] Houses with different interiors that can be customised with an array of furnitures
     - [ ] Be a drug dealer, get the skill to plant cannabis and make cocaine
     - [ ] Gangs, competitive gang system that competes with other gangs kills, deaths and zone captures
-    - [ ]  
-    - [ ]  
 
 - [ ] updating Anti-Cheat
     - [ ] Nex-AC - Anticheat system: https://github.com/NexiusTailer/Nex-AC/tree/master
-    - [ ]  
-    - [ ]  
-    - [ ]  
-    - [ ]  
 
 - [ ] adding features github.com/srafay/SAMP-Server/commits
     - [ ] Added Discord bot to the server with following features :
@@ -282,7 +275,6 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] Working with properties, added some houses for test
     - [ ] Added icons filter script to the server
     - [ ] Fixed the Gate object's z-coordinates at Market
-    - [ ] 
 
 - [ ] bug fixes scripts:
     - [ ] MapFix: https://github.com/NexiusTailer/MapFix?tab=readme-ov-file
@@ -295,7 +287,6 @@ stock GetVehicleName(vehicleid, model[], len)
 - [ ] features from other's:
     - [ ] Trucking system: https://github.com/lucian-nk/Romania-Live-Trucking
     - [ ] Pursuit system: https://github.com/NCMohit/Pursuit-Gamemode-SAMP
-
     - [ ] maps: https://github.com/MacMailler/GWRP-0.3/tree/develop/server/scriptfiles/maps
     - [ ] Apple Valley Speedway map: https://forum.open.mp/showthread.php?tid=2029
     - [ ] SAMP-Blake-Island map: https://github.com/HeLiOn--PrImE/SAMP-Blake-Island
@@ -304,9 +295,6 @@ stock GetVehicleName(vehicleid, model[], len)
     -  [ ] SWAT VS TERRORIST FULL MAP: https://forum.open.mp/showthread.php?tid=2366
     -  [ ] The Farm Prison map: https://forum.open.mp/showthread.php?tid=1635
     -  [ ] Add other GTA games maps
-    -  [ ]
-    -  [ ]
-    -  [ ]
 
 -  [ ] more features:
     -  [ ] add robbing from safe: https://sampforum.blast.hk/showthread.php?tid=632154
