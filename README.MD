@@ -301,10 +301,10 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] Maze Generator: https://sampforum.blast.hk/showthread.php?tid=645290
     -  [ ] OnPlayerClickPlayer: https://sampforum.blast.hk/showthread.php?tid=651714
     -  [ ] textdraw fade effect: https://github.com/Gammix/fader.inc/blob/master/pawno/include/fader.inc
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
+    -  [ ] **actor_plus: https://github.com/Dayrion/actor_plus/tree/master **
+    -  [ ] samp-map-zones: 
+    -  [ ] ai cop npc: (fcnpc not supported by open.mp) https://sampforum.blast.hk/showthread.php?tid=663155
+    -  [ ] 3D Speedometer: https://github.com/markski1/SAMP-3dspeed
     -  [ ]
     -  [ ]
     -  [ ]
