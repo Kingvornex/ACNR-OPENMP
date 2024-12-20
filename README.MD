@@ -204,7 +204,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] add checkpoint to /service areas and automatically open dialog
     - [ ] mabe add zombies and aliens or animals
     - [ ] add /jobs cmd to show jobs list and set a marker to their locations and jobs specific commands 
-    - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and inventory they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.**
+    - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.**
 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
