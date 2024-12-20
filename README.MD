@@ -302,11 +302,18 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] OnPlayerClickPlayer: https://sampforum.blast.hk/showthread.php?tid=651714
     -  [ ] textdraw fade effect: https://github.com/Gammix/fader.inc/blob/master/pawno/include/fader.inc
     -  [ ] **zmessage: https://github.com/Open-GTO/zmessage
-    -  [ ] 
+    -  [ ] Ranking system: Code:
+    '''if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(player, sizeof(player), "Newbie");
+    else if(GetPlayerScore(playerid) >= 100 && GetPlayerScore(playerid) < 500) format(player, sizeof(player), "Junior Player");
+    else if(GetPlayerScore(playerid) >= 500 && GetPlayerScore(playerid) < 5000) format(player, sizeof(player), "Regular Player");
+    else if(GetPlayerScore(playerid) >= 5000 && GetPlayerScore(playerid) < 10000) format(player, sizeof(player), "Senior Player");
+    else if(GetPlayerScore(playerid) >= 10000 && GetPlayerScore(playerid) < 50000) format(player, sizeof(player), "Loyal Player");
+    else if(GetPlayerScore(playerid) >= 50000 && GetPlayerScore(playerid) < 100000) format(player, sizeof(player), "Hero");
+    else if(GetPlayerScore(playerid) >= 100000) format(player, sizeof(player), "Godlike");'''
     -  [ ] ai cop cpus: (fcnpc not supported by open.mp) https://sampforum.blast.hk/showthread.php?tid=663155
     -  [ ] 3D Speedometer: https://github.com/markski1/SAMP-3dspeed
-    -  [ ]
-    -  [ ]
+    -  [ ] radar blip: https://sampforum.blast.hk/showthread.php?tid=550990
+    -  [ ] Player Location Display: https://github.com/alextwothousand/pld
     -  [ ]
     -  [ ]
     -  [ ]
