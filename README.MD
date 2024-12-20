@@ -361,6 +361,20 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 *ARNPC: https://github.com/BrianFurious/ARNPC-Include/tree/master
 
 *FCNPC: https://github.com/ziggi/FCNPC
+ 
+* https://sampforum.blast.hk/showthread.php?tid=574271
+
+* https://github.com/Agneese-Saini/SA-MP/tree/master
+
+* https://sampforum.blast.hk/showthread.php?tid=535209
+
+* https://sampforum.blast.hk/showthread.php?tid=653168
+
+* https://sampforum.blast.hk/showthread.php?tid=581108
+
+* https://sampforum.blast.hk/showthread.php?tid=471939
+
+* https://sampforum.blast.hk/showthread.php?tid=644493
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
