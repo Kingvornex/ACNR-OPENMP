@@ -293,7 +293,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 
 -  [ ] more features:
     -  [ ] add robbing from safe: https://sampforum.blast.hk/showthread.php?tid=632154
-    -  [ ]
+    -  [ ] 
     -  [ ]
     -  [ ]
     -  [ ]
@@ -404,6 +404,8 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * Custom city map:  https://sampforum.blast.hk/showthread.php?tid=644493
 
 * Dynamic mission system: https://forum.open.mp/showthread.php?tid=2528&highlight=Npv
+
+* dynamic robberies: https://sampforum.blast.hk/showthread.php?tid=607450
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
