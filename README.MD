@@ -322,8 +322,8 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] Player Location Display: https://github.com/alextwothousand/pld
     -  [ ] Gps bullet: https://sampforum.blast.hk/showthread.php?tid=665533
     -  [ ] **Weapons on body: https://sampforum.blast.hk/showthread.php?tid=618148** https://pastebin.com/XhhFS8NF
-    -  [ ]
-    -  [ ]
+    -  [ ] tba https://sampforum.blast.hk/forumdisplay.php?fid=17&page=12
+    -  [ ] tba https://sampforum.blast.hk/forumdisplay.php?fid=83&page=25
     -  [ ]
     -  [ ]
     -  [ ]
