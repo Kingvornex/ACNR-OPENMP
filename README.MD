@@ -349,7 +349,8 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * because of ignoring warning 219 in 2.2.0 a lot of bugs happening in game.
 
 ## Compiler errors:
-`#define NO_TAGS` `//#pragma warning disable 213 //tag mismatch`
+`#define NO_TAGS` 
+`//#pragma warning disable 213 //tag mismatch`
 `#define MIXED_SPELLINGS //warning 234: function is deprecated (symbol "TextDrawBackgroundColor") Use TextDrawBackgroundColour`
 
 `#pragma warning disable 213 //tag mismatch`
@@ -388,6 +389,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * dynamic robberies: https://sampforum.blast.hk/showthread.php?tid=607450
 * Dynamic Actor: https://sampforum.blast.hk/showthread.php?tid=611484
 * samp-map-zones: https://github.com/kristoisberg/samp-map-zones
+* **actor_plus: https://github.com/Dayrion/actor_plus/tree/master**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
