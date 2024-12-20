@@ -303,6 +303,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] textdraw fade effect: https://github.com/Gammix/fader.inc/blob/master/pawno/include/fader.inc
     -  [ ] **zmessage: https://github.com/Open-GTO/zmessage
     -  [ ] Ranking system: Code:
+
 ```ruby
 if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(player, sizeof(player), "Newbie");
     else if(GetPlayerScore(playerid) >= 100 && GetPlayerScore(playerid) < 500) format(player, sizeof(player), "Junior Player");
@@ -312,6 +313,7 @@ if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(playe
     else if(GetPlayerScore(playerid) >= 50000 && GetPlayerScore(playerid) < 100000) format(player, sizeof(player), "Hero");
     else if(GetPlayerScore(playerid) >= 100000) format(player, sizeof(player), "Godlike");
 ```
+
     -  [ ] ai cop cpus: (fcnpc not supported by open.mp) https://sampforum.blast.hk/showthread.php?tid=663155
     -  [ ] 3D Speedometer: https://github.com/markski1/SAMP-3dspeed
     -  [ ] radar blip: https://sampforum.blast.hk/showthread.php?tid=550990
