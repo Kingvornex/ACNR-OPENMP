@@ -376,6 +376,8 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 * https://sampforum.blast.hk/showthread.php?tid=644493
 
+* Dynamic mission system: https://forum.open.mp/showthread.php?tid=2528&highlight=Npv
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Changelog:
