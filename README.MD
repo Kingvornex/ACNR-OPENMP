@@ -303,7 +303,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] textdraw fade effect: https://github.com/Gammix/fader.inc/blob/master/pawno/include/fader.inc
     -  [ ] **zmessage: https://github.com/Open-GTO/zmessage
     -  [ ] Ranking system: Code:
-    ```sh
+    ```
 if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(player, sizeof(player), "Newbie");
     else if(GetPlayerScore(playerid) >= 100 && GetPlayerScore(playerid) < 500) format(player, sizeof(player), "Junior Player");
     else if(GetPlayerScore(playerid) >= 500 && GetPlayerScore(playerid) < 5000) format(player, sizeof(player), "Regular Player");
