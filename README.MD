@@ -204,7 +204,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] add checkpoint to /service areas and automatically open dialog
     - [ ] mabe add zombies and aliens or animals
     - [ ] add /jobs cmd to show jobs list and set a marker to their locations and jobs specific commands 
-    - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.**
+    - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.** https://github.com/Kiiruuu/GPSBullet
 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
@@ -305,7 +305,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] Ranking system: Code:
 
 ```ruby
-if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(player, sizeof(player), "Newbie");
+    if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(player, sizeof(player), "Newbie");
     else if(GetPlayerScore(playerid) >= 100 && GetPlayerScore(playerid) < 500) format(player, sizeof(player), "Junior Player");
     else if(GetPlayerScore(playerid) >= 500 && GetPlayerScore(playerid) < 5000) format(player, sizeof(player), "Regular Player");
     else if(GetPlayerScore(playerid) >= 5000 && GetPlayerScore(playerid) < 10000) format(player, sizeof(player), "Senior Player");
@@ -314,11 +314,13 @@ if(GetPlayerScore(playerid) >= 0 && GetPlayerScore(playerid) < 100) format(playe
     else if(GetPlayerScore(playerid) >= 100000) format(player, sizeof(player), "Godlike");
 ```
 <br/>
+
+- [ ] more:
     -  [ ] ai cop cpus: (fcnpc not supported by open.mp) https://sampforum.blast.hk/showthread.php?tid=663155
     -  [ ] 3D Speedometer: https://github.com/markski1/SAMP-3dspeed
     -  [ ] radar blip: https://sampforum.blast.hk/showthread.php?tid=550990
     -  [ ] Player Location Display: https://github.com/alextwothousand/pld
-    -  [ ]
+    -  [ ] Gps bullet: https://sampforum.blast.hk/showthread.php?tid=665533
     -  [ ]
     -  [ ]
     -  [ ]
