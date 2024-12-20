@@ -1,5 +1,5 @@
 
-#include <a_samp>
+#include <open.mp>
 
 WasteDeAMXersTime()
 {
@@ -21,21 +21,21 @@ public OnFilterScriptInit()
 
 public Name1()
 {
-	SendRconCommand("hostname .::Abolfazl's CNR:(ACNR)::Dozd va Police::.[0.3DL]");
+	SendRconCommand("hostname .::(>NIGHT(__()__)LIFE<)::Cops_and_Robbers::.[Open.mp]");
 	SetTimer("Name2",1000,false);
 	return 1;
 }
 
 public Name2()
 {
-	SendRconCommand("hostname .:Night Life Gaming:Dozd va Police:.(ACNR).[0.3DL]");
+	SendRconCommand("hostname .::(>NIGHT(__()__)LIFE<)::Dozd__va__Police::.[Open.mp]");
 	SetTimer("Name3",1000,false);
 	return 1;
 }
 
 public Name3()
 {
-	SendRconCommand("hostname .:Las Vegas Gaming:Dozd va Police:.(ACNR).[0.3 DL]");
+	SendRconCommand("hostname .::(>NIGHT(__()__)LIFE<)::_En_/_Fa_Gaming_::.[Open.mp]");
 	SetTimer("Name1",1000,false);
 	return 1;
 }

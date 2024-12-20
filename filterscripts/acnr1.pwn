@@ -7,11 +7,15 @@ Version: 1.0
 ADRI1 FilterScript
 
 */
+#define NO_TAGS //#pragma warning disable 213 //tag mismatch
+#define MIXED_SPELLINGS //warning 234: function is deprecated (symbol "TextDrawBackgroundColor") Use `TextDrawBackgroundColour` 
+#pragma warning disable 213 //tag mismatch
+#pragma warning disable 219 //shadows
 
-#include <a_samp>
-#include <zcmd>
+#include <open.mp>
+#include <izcmd>
 #include <sscanf2>
-#include <foreach>
+#include <YSI-Includes\YSI_Data\y_iterate>
 
 #define WHITE 0xFFFFFFAA
 #define RED 0xFF0000FF
@@ -465,7 +469,7 @@ public OnGameModeInit()
 	print("|--SAMSUNG-GALAXY-SIII-FOR-SA-MP--|");
 	print("|--VERSION-1.2--------------------|");
 	print("|--COMMAND:--/myphone-------------|");
-	print("|--CREATED-BY:-----Abolfazl-------|");
+	print("|--CREATED-BY:-------adri1--------|");
 	print("|--Just-SAMP.RozBlog.COM----------|");
 	print("|---------------------------------|");
 	SetTimer("UpdateTime",1000,1);
@@ -667,7 +671,7 @@ public OnGameModeInit()
 	TextDrawSetShadow(Galaxy3Start[0], 0);
 	TextDrawSetSelectable(Galaxy3Start[0], 0);
 
-	Galaxy3Start[1] = TextDrawCreate(553.000000, 322.000000, "Samsung Galaxy SIII~n~designed for humans~n~By Abolfazl~n~Just-SaMp.RozBlog.COM~n~~n~LOADING");
+	Galaxy3Start[1] = TextDrawCreate(553.000000, 322.000000, "Samsung Galaxy SIII~n~designed for humans~n~~n~LOADING");
 	TextDrawAlignment(Galaxy3Start[1], 2);
 	TextDrawBackgroundColor(Galaxy3Start[1], 255);
 	TextDrawFont(Galaxy3Start[1], 1);
@@ -2526,7 +2530,7 @@ public OnPlayerConnect(playerid)
             fclose(handle2);
         }
 	}
-	SendClientMessage(playerid, YELLOW, "Baraye bahremandi az system mobile Abolfazl cmd /myphone ra vared konid.");
+	SendClientMessage(playerid, YELLOW, "Baraye estefade az system mobile cmd   /myphone   ra vared konid.");
 	return 1;
 }
 public OnPlayerDisconnect(playerid, reason)
@@ -2716,7 +2720,7 @@ TextDrawDestroy(Galaxy3SlotMachine[0]);
 TextDrawDestroy(Galaxy3MusicPlayer[1]);
 //TextDrawDestroy(Galaxy3MusicPlayer[2]);
 
-foreach(Player, p)
+foreach(new p : Player)
 {
 PlayerTextDrawDestroy(p,Galaxy3StartMenu2);
 PlayerTextDrawDestroy(p,CalculatorTD2);
@@ -3527,7 +3531,7 @@ new const BadWords[][] =
 
 stock SendAdminMessage(color,const astring[])
 {
-	foreach(Player, i)
+	foreach(new i : Player)
 	{
 		if(GetPlayerState(i) != PLAYER_STATE_NONE)
 		{
@@ -4663,7 +4667,7 @@ stock GetYearFormat00(Year)
 stock ActualizarTiempo()
 {
  	new weather[64],idwea;
-	GetServerVarAsString("weather", weather, sizeof(weather));
+	GetConsoleVarAsString("weather", weather, sizeof(weather));
 	idwea = strval(weather);
 	if(idwea >= 0 && idwea <= 7) TextDrawSetString(Galaxy3Weather[2],"SUNNY");
 	else if(idwea == 8) TextDrawSetString(Galaxy3Weather[2],"STORMY");

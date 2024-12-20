@@ -8,7 +8,7 @@
 // - Kye 2011
 //
 
-#include <a_samp>
+#include <open.mp>
 #include "../include/gl_common.inc" // for PlaySoundForPlayersInRange()
 
 #define NUM_SHIP_ROUTE_POINTS   25
@@ -106,7 +106,7 @@ public OnFilterScriptInit()
 	gShipLinesAttachment = CreateObject(SHIP_LINES_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipLinesAttachment, gMainShipObjectId, -0.5468, -6.1875, -0.4375, 0.0, 0.0, 0.0);
 
-	SetTimer("StartMovingTimer",30*1000,0); // pause at route 0 for 30 seconds
+	SetTimer("StartMovingTimer",30*1000,false); // pause at route 0 for 30 seconds
 
 	return 1;
 }
@@ -161,7 +161,7 @@ public OnObjectMoved(objectid)
 	
  	if(gShipCurrentPoint == 1) {
 	    // Before heading to the first route we should wait a bit
-	    SetTimer("StartMovingTimer",30*1000,0); // pause at route 0 for 30 seconds
+	    SetTimer("StartMovingTimer",30*1000,false); // pause at route 0 for 30 seconds
 		return 1;
 	}
 	

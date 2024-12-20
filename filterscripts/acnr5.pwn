@@ -1,5 +1,5 @@
 //=========================[Includes]=========================//
-#include <a_samp>
+#include <open.mp>
 //==========================[Colors]=========================//
 #define blue 0x00D7FFFF
 //=========================[Forwards]========================//
@@ -23,7 +23,7 @@ public OnFilterScriptInit()
     WasteDeAMXersTime();
 	ufo1 = CreateObject(13607, -1460.199829, -943.961182, 219.348648, 0.0000, 0.0000, 0.0000);
 	ufo2 = CreateObject(13607, -1460.167114, -944.012512, 206.879150, 179.6226, 0.0000, 0.0000);
-	SetTimer("MoveUfo",1,1);
+	SetTimer("MoveUfo",1,true);
 	return 1;
 }
 

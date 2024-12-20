@@ -1,5 +1,5 @@
 
-#include <a_samp>
+#include <open.mp>
 #include "../include/gl_common.inc"
 
 new total_vehicles_from_files=0;

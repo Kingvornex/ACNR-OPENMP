@@ -1,5 +1,5 @@
-#include 	<a_samp>
-native      IsValidVehicle(vehicleid);
+#include 	<open.mp>
+//native      IsValidVehicle(vehicleid);
 
 new
 	ShipObject[MAX_VEHICLES] = {INVALID_OBJECT_ID, ...};
