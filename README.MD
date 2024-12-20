@@ -356,6 +356,12 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 * ProgressBar: https://github.com/Southclaws/progress2
 
+* RNPC: https://sampforum.blast.hk/showthread.php?tid=355849
+
+*ARNPC: https://github.com/BrianFurious/ARNPC-Include/tree/master
+
+*FCNPC: https://github.com/ziggi/FCNPC
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Changelog:
