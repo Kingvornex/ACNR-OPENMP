@@ -321,7 +321,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     -  [ ] radar blip: https://sampforum.blast.hk/showthread.php?tid=550990
     -  [ ] Player Location Display: https://github.com/alextwothousand/pld
     -  [ ] Gps bullet: https://sampforum.blast.hk/showthread.php?tid=665533
-    -  [ ]
+    -  [ ] **Weapons on body: https://sampforum.blast.hk/showthread.php?tid=618148** https://pastebin.com/XhhFS8NF
     -  [ ]
     -  [ ]
     -  [ ]
