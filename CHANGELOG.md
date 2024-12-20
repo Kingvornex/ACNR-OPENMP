@@ -202,3 +202,11 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Updated foreach
 - Removed fixes.inc //because of compiler erros: error 017: undefined symbol "_ALS" & "_ALS_go", error 029: invalid expression, assumed zero
 - Removed OnPlayerCheat //because of SAMP_AC_v2 NOT SUPPORTED OR MAINTAINED
+
+## ACNR-OPENMP-v2.2.1 :
+- Enabled UsePlayerPedAnims
+- Enabled AllowInteriorWeapons
+- Fixed Insufficient specifiers given to `format`: "Las Venturas"
+- Fixed GetVehicleName
+- Updated 6 filterscripts
+
