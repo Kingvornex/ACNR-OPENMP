@@ -222,11 +222,13 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.** https://github.com/Kiiruuu/GPSBullet
     - [ ] add hidden admin and make cmd for it (make sure make admin hidden in all chat commands such as /n /new etc.)
     - [ ] add client cmds to cmd list
-    - s s add dancing actors close to player skin selector
-    - s s change car shop and akin shop menus to textdraws with previews
-    - s s add dancing actors in street
-    - s s check player VW in skin selector menu
-    - s s add ranged streaming music for casino and disco entrance
+    - [ ] add dancing actors close to player skin selector
+    - [ ] change car shop and akin shop menus to textdraws with previews
+    - [ ] add dancing actors in street
+    - [ ] check player VW in skin selector menu
+    - [ ] add ranged streaming music for casino and disco entrance
+    - [ ] a way for players to reset password
+
 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
