@@ -39733,7 +39733,7 @@ CMD:todolist(playerid, params[])
     strcat(UPS, "{FFFFFF}  check speedometer text km/h kmph /km/h?.\n");
     strcat(UPS, "{FFFFFF}  fix login password.\n");
     strcat(UPS, "{FFFFFF}  update changelog.md.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  fix death onplayer first spawn.\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
