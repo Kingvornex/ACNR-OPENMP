@@ -472,6 +472,17 @@ public OnGameModeInit()
 	print("|--CREATED-BY:-------adri1--------|");
 	print("|--Just-SAMP.RozBlog.COM----------|");
 	print("|---------------------------------|");
+	
+	if (fcreatedir("phones"))
+	{
+    	printf("The directory \"phones\" created successfully.");
+	}
+	else
+	{
+    	print("Failed to create the directory \"phones\"");
+	}
+	
+	
 	SetTimer("UpdateTime",1000,1);
 	Galaxy3[0] = TextDrawCreate(493.000000, 156.000000, "hud:radardisc");
 	TextDrawBackgroundColor(Galaxy3[0], 255);

@@ -14,7 +14,7 @@ WasteDeAMXersTime()
 public OnGameModeInit()
 {
 WasteDeAMXersTime();
-print("|----UFO Vehicle By Abolfazl , CMD : /ufo & /removeufo----|");
+print("|+-*/=/*-+ UFO Vehicle By Abolfazl , RCON CMD : /ufo & /removeufo +-*/=/*-+|");
 return 1;
 }
 public OnGameModeExit()
