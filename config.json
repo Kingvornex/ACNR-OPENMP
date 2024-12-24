@@ -57,7 +57,7 @@
         "log_connection_messages": true,
         "log_cookies": true,
         "log_deaths": true,
-        "log_queries": true,
+        "log_queries": false,
         "log_sqlite": true,
         "log_sqlite_queries": true,
         "timestamp_format": "[%Y-%m-%dT%H:%M:%S%z]",
@@ -94,11 +94,11 @@
     },
     "password": "",
     "pawn": {
-        "legacy_plugins": ["crashdetect", "Whirlpool", "streamer", "sscanf"],
+        "legacy_plugins": ["crashdetect", "streamer", "sscanf"],
         "main_scripts": [
             "ACNR-OPENMP-V2 1"
         ],
-        "side_scripts": ["filterscripts/acnr1","filterscripts/acnr2","filterscripts/acnr3","filterscripts/acnr4","filterscripts/acnr5","filterscripts/acnr6"]
+        "side_scripts": ["filterscripts/acnr1","filterscripts/acnr2","filterscripts/acnr3","filterscripts/acnr5","filterscripts/acnr6"]
     },
     "rcon": {
         "allow_teleport": false,
