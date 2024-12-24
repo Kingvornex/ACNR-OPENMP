@@ -370,18 +370,18 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 
 # CURRENT STATE
 ## known issues:
-* there is a bug with open.mp that in old version (2.1.5 compile with sa-mp) player cant hold gun in interiors.
-* because of ignoring warning 219 in 2.2.0 a lot of bugs happening in game.
+* script cant read from user ini file and update PlayerInfo.
+* because of ignoring "warning 213/214/219/234/239" a lot of bugs happening in game.
 
 ## Compiler errors:
-`#define NO_TAGS` 
-`//#pragma warning disable 213 //tag mismatch`
-`#define MIXED_SPELLINGS //warning 234: function is deprecated (symbol "TextDrawBackgroundColor") Use TextDrawBackgroundColour`
+* `#define NO_TAGS` 
+* `//#pragma warning disable 213 //tag mismatch`
+* `#define MIXED_SPELLINGS //warning 234: function is deprecated (symbol "TextDrawBackgroundColor") Use TextDrawBackgroundColour`
 
-`#pragma warning disable 213 //tag mismatch`
-`#pragma warning disable 214 //const`
-`#pragma warning disable 219 //shadows`
-`#pragma warning disable 239 //const`
+* `#pragma warning disable 213 //tag mismatch`
+* `#pragma warning disable 214 //const`
+* `#pragma warning disable 219 //shadows`
+* `#pragma warning disable 239 //const`
 
 ## Server Log:
 **https://github.com/Kingvornex/ACNR-OPENMP/blob/main/log.txt**
