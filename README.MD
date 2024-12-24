@@ -178,6 +178,12 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] update whirlpool to bcrypt: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md
     - [ ] 
 
+- [ ] TODO
+    - [ ] fix unusual speed numbers
+    - [ ] fix speedometer text km/h kmph /km/h
+    - [ ] fix script cant read login password from ini file after restarting server bug
+    - [ ] #define MIXED_SPELLINGS
+
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
     - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES (maybe https://github.com/Awsomedude/easyDialog)
@@ -371,7 +377,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 # CURRENT STATE
 ## known issues:
 * script cant read from user ini file and update PlayerInfo.
-* because of ignoring "warning 213/214/219/234/239" a lot of bugs happening in game.
+* because of ignoring `warning 213/214/219/234/239` a lot of bugs happening in game.
 
 ## Compiler errors:
 * `#define NO_TAGS` 
