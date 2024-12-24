@@ -39903,13 +39903,10 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Fixed a Loop problem under GamemodeInit.\n");
     strcat(UPS, "{FFFFFF}  Fixed speed numbers.\n");
     strcat(UPS, "{FFFFFF}  Added /todolist cmd.\n");
-    strcat(UPS, "{FFFFFF}  Login dialog bug fix.\n"); //beta
-    strcat(UPS, "{FFFFFF}  Creates scriptfiles directories.\n");
 
     strcat(UPS, "{FFFFFF}Version 2.2.2 BETA UPDATES : \n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Login dialog bug fix.\n"); //beta
+    strcat(UPS, "{FFFFFF}  Creates scriptfiles directories.\n"); //beta
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}Version 2.2.2 ALFA UPDATES : \n");
