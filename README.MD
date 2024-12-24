@@ -182,7 +182,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] fix unusual speed numbers
     - [ ] fix speedometer text km/h kmph /km/h
     - [ ] fix script cant read login password from ini file after restarting server bug
-    - [ ] #define MIXED_SPELLINGS
+    - [ ] 
 
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
