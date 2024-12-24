@@ -210,3 +210,20 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Fixed GetVehicleName
 - Updated 6 filterscripts
 
+## ACNR-OPENMP-v2.2.2 :
+- Fixed a Loop problem under GamemodeInit.
+- Fixed speed numbers.
+- Added /todolist cmd
+
+## ACNR-OPENMP-v2.2.2 BETA :
+- Login dialog bug fix
+- Creates scriptfiles directories
+
+## ACNR-OPENMP-v2.2.2 ALFA :
+- Added some DEBUG massages
+- Fixed IsPlayersFirstSpawn
+- Fixed Player health on SaveUserStats
+- Fixed /savestats cmd
+- Removed hashing password
+- Fixed SavePosStats
+
