@@ -16,8 +16,8 @@ public OnGameModeInit()
 	WasteDeAMXersTime();
     
 	// SPECIAL
-	total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/trains.txt");
-	total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/pilots.txt");
+//	total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/trains.txt");
+//	total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/pilots.txt");
 
    	// LAS VENTURAS
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/lv_law.txt");
@@ -29,7 +29,7 @@ public OnGameModeInit()
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/sf_law.txt");
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/sf_airport.txt");
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/sf_gen.txt");
-    total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/sf_train.txt");
+//    total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/sf_train.txt");
 
     // LOS SANTOS
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/ls_law.txt");
@@ -45,7 +45,7 @@ public OnGameModeInit()
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/tierra.txt");
     total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/red_county.txt");
     
-    total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/trains_platform.txt");
+//    total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/trains_platform.txt");
 
     printf("Total vehicles from files: %d",total_vehicles_from_files);
     
