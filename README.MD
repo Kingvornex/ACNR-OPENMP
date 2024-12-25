@@ -182,7 +182,14 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] fix unusual speed numbers
     - [ ] fix speedometer text km/h kmph /km/h
     - [ ] fix script cant read login password from ini file after restarting server bug
-    - [ ] 
+    - [ ] Teta ToDo List:
+* save in user files when the data is being edited
+* login dialog (!response) button only works if it has text in it
+* hide car name textdraw on player state change
+* now car speed number has 0.00000 zeroes, fix it
+* Player that used /kill , it's respawn in reconnect is bug
+* Create teleport portals: big checkpoints in map that entering them will teleport imidietly
+
 
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
