@@ -227,3 +227,7 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Removed hashing password
 - Fixed SavePosStats
 
+## ACNR-OPENMP-v2.2.2 TETA :
+- Fixed loading user file bug : it won't load LoadUser_%s it will load LoadUser_data
+- Disabled debug massages
+- etc
