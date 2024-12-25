@@ -378,6 +378,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 ## known issues:
 * script cant read from user ini file and update PlayerInfo.
 * because of ignoring `warning 213/214/219/234/239` a lot of bugs happening in game.
+* UPGRADER TOOL NOT WORKING ./upgrade --scans const ../../GAMEMODES
 
 ## Compiler errors:
 * `#define NO_TAGS` 
