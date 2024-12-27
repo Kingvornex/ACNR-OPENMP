@@ -235,7 +235,7 @@ stock GetVehicleName(vehicleid, model[], len)
 
 - [ ] more CODE BUG FIXES
     - [ ] some interiors change player VW, make sure set it back when they come out of interior
-    - [ ] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
+    - [x] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
     - [x] **change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.**
     - [ ] make help and cmd_list dialogs more readable and also make cmds dialog clickable to execute commands form it
