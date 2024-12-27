@@ -6,25 +6,7 @@
 
 /*
 BETA > ALFA > TETA // i know order is wrong but it is what it is
-Beta:
-1.Login dialog bug fix
-2.Creates scriptfiles directories
-
-Alfa:
-1. removed hashing
-2. added ACNR_DEBUG
-3. see cmd:updates
-4. Fixed IsPlayersFirstSpawn
-5. Fixed Player health on SaveUserStats
-6. Fixed /savestats cmd
-7. Removed hashing password
-8. Fixed SavePosStats
-
-Teta: 
-1. fixed load user file : it wont load LoadUser_%s it will load LoadUser_data
-2. fixed login_menu bug 
-3. disabled debug massages
-
+see :updates or https://github.com/Kingvornex/ACNR-OPENMP/blob/main/CHANGELOG.md for changelog
 ToDo:
 1.save in user files when the data being edited
 
@@ -22437,13 +22419,19 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	    format(userfile9, sizeof(userfile9), USER_FILE, GetName(playerid));
         INI_ParseFile(userfile9, "LoadUser_data", .bExtra = true, .extra = playerid);
 //beta
+        if(!response)
+		{
+			SendClientMessage(playerid, RED, "Ghabl az spawn bayad login shavid. Bye.");
+			KickPlayer(playerid);
+			return 1;
+		}
         if(!strlen(inputtext))
 		{
 			format(fstr2,sizeof(fstr2),"{FFFFFF}Khosh Amadi %s [%d].\n\nIn Esm ghablan sabtenam shode.\n\nBaraye vorod ramze obore khod ra vared konid:", GetName(playerid),playerid);
       		ShowPlayerDialog(playerid, LOGIN_MENU, DIALOG_STYLE_INPUT, "{FFFFFF}ACNR Account Login", fstr2, "Login", "Ban");
- 			return SendClientMessage(playerid, RED, "Shoma bayad yek ramze obor vared konid.");
+ 			SendClientMessage(playerid, RED, "Shoma bayad yek ramze obor vared konid.");
+			return 1;
 		}
-        if(!response) { return SendClientMessage(playerid, RED, "Ghabl az spawn bayad login shavid. Bye.") && KickPlayer(playerid); }
         {
         	new buf123[300];
     		WP_Hash(buf123, sizeof (buf123), inputtext);
@@ -40058,7 +40046,7 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Enabled UsePlayerPedAnims.\n");
     strcat(UPS, "{FFFFFF}  Enabled AllowInteriorWeapons.\n");
     strcat(UPS, "{FFFFFF}  Kinda fixed some VEHICLE SPEED CODES.\n");
-    strcat(UPS, "{FFFFFF}  Fiexed expired audio stream links.\n");
+    strcat(UPS, "{FFFFFF}  Fixed expired audio stream links.\n");
     strcat(UPS, "{FFFFFF}  Fixed format(zone, len, SACities[i][City_Name], 0);.\n");
     strcat(UPS, "{FFFFFF}  Fixed GetVehicleName.\n");
     strcat(UPS, "{FFFFFF}  Updated 6 filterscripts.\n");
