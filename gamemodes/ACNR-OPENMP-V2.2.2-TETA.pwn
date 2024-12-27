@@ -108,7 +108,6 @@ ToDo:
 #include <mGates>
 #include <fly>
 #include <AutoAFK>
-#include <ACNR3DSpeedo>
 //#include <samp_bcrypt> //dont know how to use it
 //#include "whirlpool" //dont use whirlpool use bcrypt : https://github.com/Southclaws/samp-whirlpool , https://github.com/Sreyas-Sreelal/samp-bcrypt/
 
@@ -155,7 +154,7 @@ stock WP_Hash(buffer[], len, const str[])
 
 #define ACNR_ACCS "ACNR/Accounts.ini"
 
-#define MAX_VEHICLE_SPEED 198
+#define MAX_VEHICLE_SPEED 300
 #define MAX_ON_FOOT_SPEED 300
 
 #define MAX_GROUPS 20
@@ -1257,6 +1256,17 @@ enum GetPlayersPos
 };
 new pPos[GetPlayersPos];
 
+enum SpeedometerComponents {
+	Namev,
+	Status,
+	Speedr,
+	Enabled
+}
+
+static tds_Player[MAX_PLAYERS][SpeedometerComponents];
+
+new is3don[MAX_PLAYERS];
+
 new GlobalVehicleNames[212][] =
 {
 	{"Landstalker"},
@@ -1472,6 +1482,81 @@ new GlobalVehicleNames[212][] =
 	{"Farm Plow"},
 	{"Utility Trailer"}
 };
+
+stock Update3DSpeedometer(playerid, speedr, fuel=-1, vhp)
+{
+	if (!tds_Player[playerid][Enabled]) return 1;
+	if (!IsPlayerInAnyVehicle(playerid))
+	{
+		tdSpeedo_Toggle(playerid, 0);
+		return 1;
+	}
+	else if (!IsPlayerNPC(playerid)) 
+	{
+		new vehid = GetPlayerVehicleID(playerid);
+//		new Float:pvX, Float:pvY, Float:pvZ, 
+//		new Float:vhp;
+//		GetVehicleHealth(vehid, vhp);
+//		vhp = (((vhp - 250.0) / 750.0) * 100.0);
+		new speedText[48];
+		new statusText[48];
+		if (fuel > -1)
+		{
+				format(statusText, 48, "Fuel: %i%%, Health: %.0f%%", fuel, vhp);
+		}
+		else
+		{
+				format(statusText, 48, "Health: %.0f%%", vhp);
+		}
+		format(speedText, 48, "%0.f KMH", speedr);
+		new modelid = GetVehicleModel(vehid);
+		SetDynamicObjectMaterialText(tds_Player[playerid][Namev], 0, GlobalVehicleNames[modelid-400], OBJECT_MATERIAL_SIZE_512x256, "Arial", 30, true, 0xFFFFFFFF, 0, OBJECT_MATERIAL_TEXT_ALIGN_RIGHT);
+		SetDynamicObjectMaterialText(tds_Player[playerid][Status], 0, statusText, OBJECT_MATERIAL_SIZE_512x256, "Arial", 30, false, 0xFFFFFFFF, 0, OBJECT_MATERIAL_TEXT_ALIGN_RIGHT);
+		SetDynamicObjectMaterialText(tds_Player[playerid][Speedr], 0, speedText, OBJECT_MATERIAL_SIZE_512x256, "Arial", 30, false, 0xFFFFFFFF, 0, OBJECT_MATERIAL_TEXT_ALIGN_RIGHT);
+	}
+	return 1;
+}
+
+static tdSpeedo_Toggle(playerid, activate)
+{
+	if (activate)
+	{
+		if (tds_Player[playerid][Enabled])
+		{
+			return 1;
+		}
+		new vid = GetPlayerVehicleID(playerid);
+		new vmod = GetVehicleModel(vid);
+		tds_Player[playerid][Namev] = CreateDynamicObject(19482, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1, -1, playerid, 200.0);
+		tds_Player[playerid][Status] = CreateDynamicObject(19482, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1, -1, playerid, 200.0);
+		tds_Player[playerid][Speedr] = CreateDynamicObject(19482, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1, -1, playerid, 200.0);
+		new Float:vX,Float:vY,Float:vZ;
+		GetVehicleModelInfo(vmod, VEHICLE_MODEL_INFO_SIZE, vX, vY, vZ);
+		if (vX < 1.5)
+		{
+			vX = 1.5;
+		}
+		AttachDynamicObjectToVehicle(tds_Player[playerid][Namev], vid, -vX-1.75, -1.0, 0.0, 0.0, 0.0, 290.0);
+		AttachDynamicObjectToVehicle(tds_Player[playerid][Status], vid, -vX-1.75, -1.0, -0.3, 0.0, 0.0, 290.0);
+		AttachDynamicObjectToVehicle(tds_Player[playerid][Speedr], vid, -vX-1.75, -1.0, -0.6, 0.0, 0.0, 290.0);
+		Streamer_Update(playerid);
+		tds_Player[playerid][Enabled] = 1;
+	}
+	else
+	{
+		if (tds_Player[playerid][Status] != INVALID_OBJECT_ID)
+		{
+			DestroyDynamicObject(tds_Player[playerid][Namev]);
+			tds_Player[playerid][Namev] = INVALID_OBJECT_ID;
+			DestroyDynamicObject(tds_Player[playerid][Status]);
+			tds_Player[playerid][Status] = INVALID_OBJECT_ID;
+			DestroyDynamicObject(tds_Player[playerid][Speedr]);
+			tds_Player[playerid][Speedr] = INVALID_OBJECT_ID;
+		}
+		tds_Player[playerid][Enabled] = 0;
+	}
+	return 1;
+}
 
 new AVehicleModPrices[] =
 {
@@ -7752,7 +7837,7 @@ public OnGameModeInit()
     
 //------------------------------------------------------------------------------//
     SendRconCommand("maxnpc 20");
-	SendRconCommand("hostname .::Cops and Robbers:(>NIGHT(__()__)LIFE<)::Dozd va Police::.O.MP");
+	SendRconCommand("hostname .::Cops and Robbers:(>NIGHT(__()__)LIFE<)::Dozd va Police::.");
 	SendRconCommand("mapname Night Life City");
     SetGameModeText("NightLifeDOZDvaPOLICE(CnR)V2.2.2");
     SendRconCommand("rcon_password 174");
@@ -7760,6 +7845,7 @@ public OnGameModeInit()
     SendRconCommand("maxplayers 51");
     SendRconCommand("lanmode 1");
     SendRconCommand("announce 1");
+    SendRconCommand("query 1");
     SendRconCommand("language Persian");
 //------------------------------------------------------------------------------//
 	if (fcreatedir("ACNR") == true)
@@ -8110,6 +8196,8 @@ public OnGameModeInit()
 		pGroupInfo[r][invited] = -1;
 		pGroupInfo[r][attemptjoin] = -1;
 
+		is3don[r] = 0;		
+		
 		KillTimer(biztimer{r});
     	KillTimer(attimer{r});
     	KillTimer(isletimer{r});
@@ -12888,7 +12976,7 @@ public OnPlayerUpdate(playerid)
             GetVehicleHealth(veh, GetVehicleCurrentHealth[veh]);
             GetVehicleCurrentHealth[veh] = GetVehicleCurrentHealth[veh]/10;
 
-			Update3DSpeedometer(playerid, GetPlayerSpeed(playerid), GetVehicleFuel[veh]);
+			Update3DSpeedometer(playerid, GetPlayerSpeed(playerid), GetVehicleFuel[veh], GetVehicleCurrentHealth[veh]);
  
 			if(GetVehicleFuel[veh] < 1)
 			{
@@ -12902,7 +12990,7 @@ public OnPlayerUpdate(playerid)
             current_zone = Player_Zone[playerid];
 		    new zone[50];
             GetPlayerCity(playerid, zone, sizeof(zone));
-		  	format(string, sizeof(string), "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.2 - ~g~Forum/site~w~: just-samp.rozblog.com - ~y~Speed~w~: ~r~%.0f~b~Km/h ~w~- ~p~health~w~: ~r~%.0f~w~%%% ~w~- ~b~~h~~h~Benzin~w~: ~r~%d~w~%%% ~w~- ~g~Location~w~: ~r~~h~%s ~w~- ~g~~h~City~w~: ~r~~h~%s", GetPlayerSpeed(playerid), GetVehicleCurrentHealth[veh], GetVehicleFuel[veh], ZoneNames[current_zone][zone_name], zone);
+		  	format(string, sizeof(string), "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.2 - ~g~Forum/site~w~: just-samp.rozblog.com - ~y~Speed~w~: ~r~%.0f~b~Km/h ~w~- ~b~~h~~h~Benzin~w~: ~r~%d~w~%%% ~w~- ~p~health~w~: ~r~%.0f~w~%%% ~w~- ~g~Location~w~: ~r~~h~%s ~w~- ~g~~h~City~w~: ~r~~h~%s", GetPlayerSpeed(playerid), GetVehicleFuel[veh], GetVehicleCurrentHealth[veh], ZoneNames[current_zone][zone_name], zone);
 		    TextDrawSetString(ACNRInfo[playerid], string);
 		}
 		else
@@ -13155,6 +13243,13 @@ stock FlyMode(playerid)
 
 public OnPlayerDisconnect(playerid, reason)
 {	
+	if(tds_Player[playerid][Status] != INVALID_OBJECT_ID)
+	{
+		DestroyDynamicObject(tds_Player[playerid][Namev]);
+		DestroyDynamicObject(tds_Player[playerid][Status]);
+		DestroyDynamicObject(tds_Player[playerid][Speedr]);
+	}
+		
 	if(HasEventStarted == 1 && HasMadeEvent{playerid} == 1)
     {
     foreach(new i : Player)
@@ -13453,7 +13548,14 @@ public OnPlayerConnect(playerid)
 {
     SendClientMessage(playerid, PURPLE, "|--------------------------------------------------------------------------------------------------------------------------------------------|");
 
-	SetPlayerHealth(playerid, 100);
+//	SetPlayerHealth(playerid, 100);
+	
+	for (new i = 0; i < _:SpeedometerComponents-1; i++)
+	{
+		tds_Player[playerid][SpeedometerComponents:i] = INVALID_OBJECT_ID;
+	}
+	tds_Player[playerid][Enabled] = 0;
+	is3don[playerid] = 0;
 
 /*    {
 	    pGroupInfo[playerid][gid] = -1;
@@ -28249,6 +28351,10 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
         new mmm = GetVehicleModel(ccar);
         format(stringgg, sizeof(stringgg), "%s", GlobalVehicleNames[mmm - 400]);
 	    TextDrawSetString(esmmashin[playerid],stringgg);
+		if(is3don[playerid] == 1)
+		{
+			tdSpeedo_Toggle(playerid, 1);
+		}
     }
     if(newstate != PLAYER_STATE_DRIVER && newstate != PLAYER_STATE_PASSENGER)
     {
@@ -28256,6 +28362,9 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 //		format(newnewnew,sizeof(newnewnew),"%s (%d)", GetName(playerid), playerid);
 //	    TextDrawSetString(esmmashin[playerid],newnewnew);
 		TextDrawHideForPlayer(playerid , esmmashin[playerid]);
+		
+		tdSpeedo_Toggle(playerid, 0); //3D speedo
+		
 	} // disabled on 2.2.2 TETA update // textdraw was amassive
 	//
 	if(newstate==PLAYER_STATE_DRIVER && GetVehicleModel(GetPlayerVehicleID(playerid)) == 525)
@@ -37318,11 +37427,13 @@ CMD:tdspeedo(playerid,params[])
 	if(is3don[playerid] == 1)
 	{
 		is3don[playerid] = 0;
+		tdSpeedo_Toggle(playerid, 0);
 		return SendClientMessage(playerid, RED, "3D speedo meter Disabled.");
 	}
 	else if(is3don[playerid] == 0)
 	{
 	    is3don[playerid] = 1;
+		tdSpeedo_Toggle(playerid, 1);
 		return SendClientMessage(playerid, RED, "3D speedo meter Enabled.");
 	}
 	else
