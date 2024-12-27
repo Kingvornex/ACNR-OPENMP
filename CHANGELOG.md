@@ -233,6 +233,5 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Fixed Login_menu bug
 - Hide car name textdraw on player state change
 - Fixed vehicle speed numbers
-
-- add 3d speedo
-- add client cmds
+- Added 3D speedo meter /tdspeedo
+- Added Client Commands to cmd list
