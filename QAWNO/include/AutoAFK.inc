@@ -14,7 +14,7 @@ ______________________________________________________________________________*/
 
 #define _included_autoafk
 
-#tryinclude <a_samp>
+#tryinclude <open.mp>
 
 /*
 native bool:IsPlayerPaused(playerid);
@@ -113,7 +113,7 @@ forward L_AFK_OPS(playerid);
 
 #define OnPlayerSpawn L_AFK_OPS
 
-public OnPlayerDeath(playerid, killerid, reason)
+public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
  L_pisSpawned[playerid] = 0;
  CallLocalFunction("L_AFK_OPD", "iii", playerid, killerid, reason);
@@ -140,7 +140,7 @@ public L_AFKDETECT()
   if(L_pisSpawned[i] != 1) continue;
   if((tick - L_pTicks[i]) >= 4500)
   {
-   if(GetPlayerState(i) >= 1 && GetPlayerState(i) <= 3)
+   if(GetPlayerState(i) >= t_PLAYER_STATE:1 && GetPlayerState(i) <= t_PLAYER_STATE:3)
    {
 	L_pAFK[i] = 1;
 	CallLocalFunction("OnPlayerPause", "i", i);
