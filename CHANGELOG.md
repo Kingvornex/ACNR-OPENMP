@@ -230,4 +230,9 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 ## ACNR-OPENMP-v2.2.2 TETA :
 - Fixed loading user file bug : it won't load LoadUser_%s it will load LoadUser_data
 - Disabled debug massages
-- etc
+- Fixed Login_menu bug
+- Hide car name textdraw on player state change
+- Fixed vehicle speed numbers
+
+- add 3d speedo
+- add client cmds
