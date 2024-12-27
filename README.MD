@@ -190,7 +190,26 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] now car speed number has 0.00000 zeroes, fix it
     - [ ] Player that used /kill , it's respawn in reconnect is bug
     - [ ] Create teleport portals: big checkpoints in map that entering them will teleport imidietly
-
+    - [ ] animation bug
+    - [ ] animation /sleep cmd bug
+    - [ ] cmd to disable animation
+    - [ ] one shop interior bug
+    - [ ] vehicle tune menu bug
+    - [ ] one map building higher than ground bug
+    - [ ] add /getplayer cmd for admin
+    - [ ] add guide for skin selection section under right and left options ("press left to access civilian class faster")
+    - [ ] /drag cmd range is very low
+    - [ ] remove chat anti bad word filter
+    - [ ] police cmds range is low (/ar /tk /tz /cf)
+    - [ ] police staion gate from inside doesn't open automatically 
+    - [ ] add requests bribe to police to request wanted level an amount of money
+    - [ ] add list of shop vehicles cmd commands list
+    - [ ] add my vehicles to /gps
+    - [ ] add points of intrest locutions to /gps
+    - [ ] add /teleport menu for admin
+    - [ ] add playerid to their chat messages
+    - [ ] car deleted with /dcar wont respawn
+    - [ ] add music playlist
 
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
