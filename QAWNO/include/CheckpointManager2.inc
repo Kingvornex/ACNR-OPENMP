@@ -26,7 +26,7 @@ forward public OnCheckpointEnter(playerid, checkpointid);
 #define _CHECKPOINT_MANAGER_INCLUDED
 #pragma library CheckpointManager
 
-#include <a_samp>
+#include <open.mp>
 
 #define MAX_CHECKPOINTS 300
 #define CHECKPOINT_SEEKER_DELAY 300
@@ -63,7 +63,8 @@ new _totalCheckpoints;
 
 // --------------------------------------------------------------------------------------------------------
 // Creates a new checkpoint with some initial data
-stock CreateCheckpoint(__ownerid, __chpid, Float:__posX, Float:__posY, Float:__posZ, Float:__size){
+stock CreateCheckpoint(__ownerid, __chpid, Float:__posX, Float:__posY, Float:__posZ, Float:__size)
+{
 	// Max checkpoint reached?
 	if(_totalCheckpoints == MAX_CHECKPOINTS) return 0;
 	
@@ -75,7 +76,7 @@ stock CreateCheckpoint(__ownerid, __chpid, Float:__posX, Float:__posY, Float:__p
 		}
 		
 		// Sending the Initialization Info
-		printf("[Checkpoint Manager : Version 0.1.1b] System Initialized...", __chpid);
+		printf("[Checkpoint Manager : Version 0.1.1b] System Initialized... (%d)", __chpid);
 	}
 	
 	// Getting the first open slot
