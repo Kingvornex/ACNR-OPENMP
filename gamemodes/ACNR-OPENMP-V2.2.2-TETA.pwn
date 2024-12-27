@@ -11102,6 +11102,11 @@ public OnPlayerRequestClass(playerid, classid)
 
 new const BadWords[][] =
 {
+"fuck"
+};
+/* //disabled anti bad words
+new const BadWords[][] =
+{
 "fuck",
 "f u c k",
 "0.",
@@ -11892,6 +11897,7 @@ new const BadWords[][] =
 "gamehack",
 "game hack"
 };
+*/
 
 public OnPlayerText(playerid, text[])
 {
@@ -12635,7 +12641,7 @@ public Antifakekill(playerid,killerid)
     return 1;
 }
 
-public OnPlayerDeath(playerid, killerid, reason)
+public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
     TextDrawHideForPlayer(playerid,esmmashin[playerid]);
 	
@@ -27014,7 +27020,7 @@ public SkydiveInteriorChanger(playerid)
 	return 1;
 }
 
-public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
     if(newkeys & KEY_JUMP && !(oldkeys & KEY_JUMP) && GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_CUFFED) ApplyAnimation(playerid, "GYMNASIUM", "gym_jog_falloff",4.1,0,1,1,0,0);//
 	if(GetPlayerAnimationIndex(playerid) == 1660 || GetPlayerAnimationIndex(playerid) == 1661) return GivePlayerCash(playerid, -1); //Drink machines
@@ -28340,7 +28346,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 	return 1;
 }
 
-public OnPlayerStateChange(playerid, newstate, oldstate)
+public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
 	//show vehicle name by abolfazl
     if(newstate == PLAYER_STATE_DRIVER || newstate == PLAYER_STATE_PASSENGER)
@@ -28775,7 +28781,10 @@ public ProxDetector(Float:radi, playerid, string[],col1,col2,col3,col4,col5)
 
 public SetVehicleParamsForAll(carid,objective,doorslocked)
 {
-	foreach(new i : Player) { SetVehicleParamsForPlayer(carid,i,objective,doorslocked); }
+	foreach(new i : Player)
+	{
+		SetVehicleParamsForPlayer(carid,i,objective,doorslocked);
+	}
 }
 
 public OnVehicleStreamIn(vehicleid, forplayerid)
@@ -29055,8 +29064,8 @@ stock KickPlayer(plyid)
 public SRCFB(cmd[]) { SendRconCommand(cmd); }
 stock SRBC(cmd[])
 {
-SetTimerEx("SRCFB",2000,false,"s",cmd);
-return 1;
+	SetTimerEx("SRCFB",2000,false,"s",cmd);
+	return 1;
 }
 
 public ExBanExe(plyid,reason[]) { BanEx(plyid,reason); }
@@ -30124,7 +30133,7 @@ public AmmuRob(playerid)
     return 1;
 }
 
-public OnPlayerGiveDamage(playerid, damagedid, Float: amount, weaponid)
+public OnPlayerGiveDamage(playerid, damagedid, Float:amount, WEAPON:weaponid, bodypart)
 {
 	if(GetTeam{playerid} == CLASS_CIV && IsPlayerHoldingAGun(playerid) == 1)
 	{
@@ -40082,6 +40091,8 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Fixed vehicle speed numbers.\n");
     strcat(UPS, "{FFFFFF}  Added 3D speedo meter /tdspeedo.\n");
     strcat(UPS, "{FFFFFF}  Added Client Commands to cmd list (/cmds).\n");
+    strcat(UPS, "{FFFFFF}  Disabled Anti Bad Words.\n");
+    strcat(UPS, "{FFFFFF}  Updated some callbacks.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
@@ -40097,14 +40108,14 @@ CMD:todolist(playerid, params[])
 {
     new UPS[2000];
     strcat(UPS, "{FFFFFF}Version 2.2.2 ToDo List : \n");
-    strcat(UPS, "{FFFFFF}  fix unusual speed numbers.\n");
-    strcat(UPS, "{FFFFFF}  check speedometer text km/h kmph /km/h?.\n");
+    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  fix login password.\n");
-    strcat(UPS, "{FFFFFF}  update changelog.md.\n");
-    strcat(UPS, "{FFFFFF}  fix death onplayer first spawn.\n");
+    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  save in user files when the data being edited.\n");
-    strcat(UPS, "{FFFFFF}  massive speed numbers.\n");
-    strcat(UPS, "{FFFFFF}  fix login_menu bug.\n");
+    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
