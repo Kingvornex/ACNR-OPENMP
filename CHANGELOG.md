@@ -235,3 +235,5 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Fixed vehicle speed numbers
 - Added 3D speedo meter /tdspeedo
 - Added Client Commands to cmd list
+- Updated some callbacks
+- Disabled Anti Bad Words
