@@ -235,7 +235,7 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] add /jobs cmd to show jobs list and set a marker to their locations and jobs specific commands 
     - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.** https://github.com/Kiiruuu/GPSBullet
     - [ ] add hidden admin and make cmd for it (make sure make admin hidden in all chat commands such as /n /new etc.)
-    - [ ] add client cmds to cmd list
+    - [x] add client cmds to cmd list
     - [ ] add dancing actors close to player skin selector
     - [ ] change car shop and akin shop menus to textdraws with previews
     - [ ] add dancing actors in street
@@ -343,7 +343,7 @@ stock GetVehicleName(vehicleid, model[], len)
 
 - [ ] more:
     -  [ ] ai cop cpus: (fcnpc not supported by open.mp) https://sampforum.blast.hk/showthread.php?tid=663155
-    -  [ ] 3D Speedometer: https://github.com/markski1/SAMP-3dspeed
+    -  [x] 3D Speedometer: https://github.com/markski1/SAMP-3dspeed
     -  [ ] radar blip: https://sampforum.blast.hk/showthread.php?tid=550990
     -  [ ] Player Location Display: https://github.com/alextwothousand/pld
     -  [ ] Gps bullet: https://sampforum.blast.hk/showthread.php?tid=665533
