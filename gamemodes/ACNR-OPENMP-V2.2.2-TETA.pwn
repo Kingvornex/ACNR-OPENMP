@@ -95,6 +95,7 @@ ToDo:
 
 #define CGEN_MEMORY 20000
 
+#include <crashdetect>
 #include <YSI-Includes\YSI_Storage\y_ini>
 #include <izcmd>
 #include <sscanf2>
@@ -107,6 +108,7 @@ ToDo:
 #include <mGates>
 #include <fly>
 #include <AutoAFK>
+#include <ACNR3DSpeedo>
 //#include <samp_bcrypt> //dont know how to use it
 //#include "whirlpool" //dont use whirlpool use bcrypt : https://github.com/Southclaws/samp-whirlpool , https://github.com/Sreyas-Sreelal/samp-bcrypt/
 
@@ -7750,7 +7752,7 @@ public OnGameModeInit()
     
 //------------------------------------------------------------------------------//
     SendRconCommand("maxnpc 20");
-	SendRconCommand("hostname .::Cops and Robbers:(>NIGHT(__()__)LIFE<)::Dozd va Police::.[Open.mp]");
+	SendRconCommand("hostname .::Cops and Robbers:(>NIGHT(__()__)LIFE<)::Dozd va Police::.O.MP");
 	SendRconCommand("mapname Night Life City");
     SetGameModeText("NightLifeDOZDvaPOLICE(CnR)V2.2.2");
     SendRconCommand("rcon_password 174");
@@ -8054,7 +8056,7 @@ public OnGameModeInit()
 
     if(fexist(ACNR_ACCS))
 	{
-        INI_ParseFile(ACNR_ACCS,"loadaccs");
+        INI_ParseFile(ACNR_ACCS, "loadaccs", .bExtra = false);
     }
 	else
 	{
@@ -12885,6 +12887,8 @@ public OnPlayerUpdate(playerid)
 */
             GetVehicleHealth(veh, GetVehicleCurrentHealth[veh]);
             GetVehicleCurrentHealth[veh] = GetVehicleCurrentHealth[veh]/10;
+
+			Update3DSpeedometer(playerid, GetPlayerSpeed(playerid), GetVehicleFuel[veh]);
  
 			if(GetVehicleFuel[veh] < 1)
 			{
@@ -12898,7 +12902,7 @@ public OnPlayerUpdate(playerid)
             current_zone = Player_Zone[playerid];
 		    new zone[50];
             GetPlayerCity(playerid, zone, sizeof(zone));
-		  	format(string, sizeof(string), "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.2 - ~g~Forum/site~w~: just-samp.rozblog.com - ~y~Speed~w~: ~r~%f~b~Km/h ~w~- ~p~health~w~: ~r~%.0f~w~%%% ~w~- ~b~~h~~h~Benzin~w~: ~r~%d~w~%%% ~w~- ~g~Location~w~: ~r~~h~%s ~w~- ~g~~h~City~w~: ~r~~h~%s", GetPlayerSpeed(playerid), GetVehicleCurrentHealth[veh], GetVehicleFuel[veh], ZoneNames[current_zone][zone_name], zone);
+		  	format(string, sizeof(string), "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.2 - ~g~Forum/site~w~: just-samp.rozblog.com - ~y~Speed~w~: ~r~%.0f~b~Km/h ~w~- ~p~health~w~: ~r~%.0f~w~%%% ~w~- ~b~~h~~h~Benzin~w~: ~r~%d~w~%%% ~w~- ~g~Location~w~: ~r~~h~%s ~w~- ~g~~h~City~w~: ~r~~h~%s", GetPlayerSpeed(playerid), GetVehicleCurrentHealth[veh], GetVehicleFuel[veh], ZoneNames[current_zone][zone_name], zone);
 		    TextDrawSetString(ACNRInfo[playerid], string);
 		}
 		else
@@ -13712,8 +13716,9 @@ public OnPlayerConnect(playerid)
     esmmashin[playerid] = TextDrawCreate(500.000000, 350.00000, "VehicleName");
 	TextDrawAlignment(esmmashin[playerid], 2);
 	TextDrawBackgroundColor(esmmashin[playerid], 255);
-	TextDrawFont(esmmashin[playerid], 1);
+	TextDrawFont(esmmashin[playerid], 3);
 	TextDrawLetterSize(esmmashin[playerid], 1.0, 2.5);
+	TextDrawTextSize(esmmashin[playerid], 375.0, 150.0);
 	TextDrawColour(esmmashin[playerid], GREEN);
 	TextDrawSetOutline(esmmashin[playerid], 0);
 	TextDrawSetProportional(esmmashin[playerid], 1);
@@ -13798,7 +13803,7 @@ public OnPlayerConnect(playerid)
     
     if(fexist(ACNR_ACCS))
 	{
-        INI_ParseFile(ACNR_ACCS,"loadaccs");
+        INI_ParseFile(ACNR_ACCS, "loadaccs", .bExtra = false);
     }
 	else
 	{
@@ -22330,7 +22335,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       		ShowPlayerDialog(playerid, LOGIN_MENU, DIALOG_STYLE_INPUT, "{FFFFFF}ACNR Account Login", fstr2, "Login", "Ban");
  			return SendClientMessage(playerid, RED, "Shoma bayad yek ramze obor vared konid.");
 		}
-        else if(!response) return SendClientMessage(playerid, RED, "Ghabl az spawn bayad login shavid.") && KickPlayer(playerid);
+        if(!response) { return SendClientMessage(playerid, RED, "Ghabl az spawn bayad login shavid. Bye.") && KickPlayer(playerid); }
         {
         	new buf123[300];
     		WP_Hash(buf123, sizeof (buf123), inputtext);
@@ -28245,12 +28250,13 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
         format(stringgg, sizeof(stringgg), "%s", GlobalVehicleNames[mmm - 400]);
 	    TextDrawSetString(esmmashin[playerid],stringgg);
     }
-/*    if(newstate != PLAYER_STATE_DRIVER && newstate != PLAYER_STATE_PASSENGER)
+    if(newstate != PLAYER_STATE_DRIVER && newstate != PLAYER_STATE_PASSENGER)
     {
-		new newnewnew[40];
-		format(newnewnew,sizeof(newnewnew),"%s (%d)", GetName(playerid), playerid);
-	    TextDrawSetString(esmmashin[playerid],newnewnew);
-	}*/ // disabled on 2.2.2 TETA update // textdraw was amassive
+//		new newnewnew[40];
+//		format(newnewnew,sizeof(newnewnew),"%s (%d)", GetName(playerid), playerid);
+//	    TextDrawSetString(esmmashin[playerid],newnewnew);
+		TextDrawHideForPlayer(playerid , esmmashin[playerid]);
+	} // disabled on 2.2.2 TETA update // textdraw was amassive
 	//
 	if(newstate==PLAYER_STATE_DRIVER && GetVehicleModel(GetPlayerVehicleID(playerid)) == 525)
 	{
@@ -32495,32 +32501,32 @@ CMD:cmds(playerid, params[])
     if(GetTeam{playerid} == CLASS_COPS)
    	{
         ShowPlayerDialog(playerid, CMDS_LIST1, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Cop Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}Cop Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_CIA)
    	{
   		ShowPlayerDialog(playerid, CMDS_LIST2, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}CIA Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}CIA Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_ARMY)
    	{
   		ShowPlayerDialog(playerid, CMDS_LIST3, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Army Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}Army Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_FBI)
    	{
   		ShowPlayerDialog(playerid, CMDS_LIST6, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}FBI Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}FBI Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_CIV)
    	{
     	ShowPlayerDialog(playerid, CMDS_LIST4, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Civilian Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/roblist /esc /(un)tie /(cancel)hit /hits /(break)out/cuffs /bribe /mask /blowbomb /breakin", "Ok", "");
+"{FFFFFF}Civilian Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/roblist /esc /(un)tie /(cancel)hit /hits /(break)out/cuffs /bribe /mask /blowbomb /breakin /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix", "Ok", "");
    	}
     else if(GetTeam{playerid} == CLASS_MEDIC)
    	{
     	ShowPlayerDialog(playerid, CMDS_LIST5, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Medic Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n/medic /m", "Ok", "");
+"{FFFFFF}Medic Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n/medic /m /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix", "Ok", "");
    	}
     return true;
 }
@@ -32530,32 +32536,32 @@ CMD:commands(playerid, params[])
     if(GetTeam{playerid} == CLASS_COPS)
    	{
         ShowPlayerDialog(playerid, CMDS_LIST1, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Cop Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}Cop Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_CIA)
    	{
   		ShowPlayerDialog(playerid, CMDS_LIST2, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}CIA Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}CIA Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_ARMY)
    	{
   		ShowPlayerDialog(playerid, CMDS_LIST3, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Army Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}Army Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_FBI)
    	{
   		ShowPlayerDialog(playerid, CMDS_LIST6, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}FBI Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup ", "Ok", "");
+"{FFFFFF}FBI Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
     }
     else if(GetTeam{playerid} == CLASS_CIV)
    	{
     	ShowPlayerDialog(playerid, CMDS_LIST4, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Civilian Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/roblist /esc /(un)tie /(cancel)hit /hits /(break)out/cuffs /bribe /mask /blowbomb /breakin", "Ok", "");
+"{FFFFFF}Civilian Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/roblist /esc /(un)tie /(cancel)hit /hits /(break)out/cuffs /bribe /mask /blowbomb /breakin /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix", "Ok", "");
    	}
     else if(GetTeam{playerid} == CLASS_MEDIC)
    	{
     	ShowPlayerDialog(playerid, CMDS_LIST5, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Medic Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n/medic /m", "Ok", "");
+"{FFFFFF}Medic Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n/medic /m /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix", "Ok", "");
    	}
     return true;
 }
@@ -37307,6 +37313,25 @@ CMD:startfly(playerid,params[])
 	return 1;
 }
 
+CMD:tdspeedo(playerid,params[])
+{
+	if(is3don[playerid] == 1)
+	{
+		is3don[playerid] = 0;
+		return SendClientMessage(playerid, RED, "3D speedo meter Disabled.");
+	}
+	else if(is3don[playerid] == 0)
+	{
+	    is3don[playerid] = 1;
+		return SendClientMessage(playerid, RED, "3D speedo meter Enabled.");
+	}
+	else
+	{
+        SendClientMessage(playerid, RED, "WUT :| you found bug.");
+    }
+	return 1;
+}
+
 CMD:stopfly(playerid,params[])
 {
 	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, RED, "Nabayad savare mashin bashi!.");
@@ -39941,6 +39966,11 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Fixed load user file after server restart.\n");
     strcat(UPS, "{FFFFFF}  fixed login_menu bug.\n");
     strcat(UPS, "{FFFFFF}  Disabled player name text on screen after exiting vehicle.\n");
+    strcat(UPS, "{FFFFFF}  Fixed Login_menu bug.\n");
+    strcat(UPS, "{FFFFFF}  Hide car name textdraw on player state change.\n");
+    strcat(UPS, "{FFFFFF}  Fixed vehicle speed numbers.\n");
+    strcat(UPS, "{FFFFFF}  Added 3D speedo meter /tdspeedo.\n");
+    strcat(UPS, "{FFFFFF}  Added Client Commands to cmd list (/cmds).\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
