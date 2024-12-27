@@ -182,13 +182,14 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] fix unusual speed numbers
     - [ ] fix speedometer text km/h kmph /km/h
     - [ ] fix script cant read login password from ini file after restarting server bug
-    - [ ] Teta ToDo List:
-* save in user files when the data is being edited
-* login dialog (!response) button only works if it has text in it
-* hide car name textdraw on player state change
-* now car speed number has 0.00000 zeroes, fix it
-* Player that used /kill , it's respawn in reconnect is bug
-* Create teleport portals: big checkpoints in map that entering them will teleport imidietly
+
+- [ ] Teta ToDo List:
+    - [ ] save in user files when the data is being edited
+    - [x] login dialog (!response) button only works if it has text in it
+    - [x] hide car name textdraw on player state change
+    - [x] now car speed number has 0.00000 zeroes, fix it
+    - [ ] Player that used /kill , it's respawn in reconnect is bug
+    - [ ] Create teleport portals: big checkpoints in map that entering them will teleport imidietly
 
 
 - [ ] CODE BUG FIXES
