@@ -1,5 +1,8 @@
 //
-// Used for testing interpolated rotations with MoveObject
+
+// ACNR Pirate Ship
+
+// Used for testing interpolated rotations with MoveDynamicObject
 // Also used to test AttachObjectToObject
 // A pirate ship goes around and visits some route points
 //
@@ -9,7 +12,7 @@
 //
 
 #include <open.mp>
-#include "../include/gl_common.inc" // for PlaySoundForPlayersInRange()
+#include <streamer>
 
 #define NUM_SHIP_ROUTE_POINTS   25
 #define SHIP_OBJECT_ID          8493 // pirate ship
@@ -57,20 +60,24 @@ new gShipSkullAttachment[4];
 new gShipRailsAttachment;
 new gShipLinesAttachment;
 
-forward StartMovingTimer();
-
-WasteDeAMXersTime()
+stock PlaySoundForPlayersInRange(soundid, Float:range, Float:x, Float:y, Float:z)
 {
-    new b;
-    #emit load.pri b
-    #emit stor.pri b
+	for(new i=0; i<MAX_PLAYERS; i++)
+	{
+	    if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i,range,x,y,z))
+	    {
+		    PlayerPlaySound(i, soundid, x, y, z);
+	    }
+	}
 }
+
+forward StartMovingTimer();
 
 //-------------------------------------------------
 
 public StartMovingTimer()
 {
-	MoveObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
+	MoveDynamicObject(gMainShipObjectId, gShipRoutePoints[gShipCurrentPoint][0],
 	                           gShipRoutePoints[gShipCurrentPoint][1],
 							   gShipRoutePoints[gShipCurrentPoint][2],
 							   SHIP_MOVE_SPEED / 4.0, // bit slower for the first point
@@ -82,28 +89,26 @@ public StartMovingTimer()
 //-------------------------------------------------
 
 public OnFilterScriptInit()
-{
-    WasteDeAMXersTime();
-    
-	gMainShipObjectId = CreateObject(SHIP_OBJECT_ID, gShipRoutePoints[0][0], gShipRoutePoints[0][1], gShipRoutePoints[0][2],
-									gShipRoutePoints[0][3], gShipRoutePoints[0][4], gShipRoutePoints[0][5], SHIP_DRAW_DISTANCE);
+{    
+	gMainShipObjectId = CreateDynamicObject(SHIP_OBJECT_ID, gShipRoutePoints[0][0], gShipRoutePoints[0][1], gShipRoutePoints[0][2],
+									gShipRoutePoints[0][3], gShipRoutePoints[0][4], gShipRoutePoints[0][5], .drawdistance = SHIP_DRAW_DISTANCE);
 
-	gShipSkullAttachment[0] = CreateObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
+	gShipSkullAttachment[0] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipSkullAttachment[0], gMainShipObjectId, 4.11, -5.53, -9.78, 0.0, 0.0, 90.0);
 
-	gShipSkullAttachment[1] = CreateObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
+	gShipSkullAttachment[1] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipSkullAttachment[1], gMainShipObjectId, -4.11, -5.53, -9.78, 0.0, 0.0, -90.0);
 	
-	gShipSkullAttachment[2] = CreateObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
+	gShipSkullAttachment[2] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipSkullAttachment[2], gMainShipObjectId, -4.3378, -15.2887, -9.7863, 0.0, 0.0, -90.0);
 	
-	gShipSkullAttachment[3] = CreateObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
+	gShipSkullAttachment[3] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipSkullAttachment[3], gMainShipObjectId, 4.3378, -15.2887, -9.7863, 0.0, 0.0, 90.0);
 	
-	gShipRailsAttachment = CreateObject(SHIP_RAILS_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
+	gShipRailsAttachment = CreateDynamicObject(SHIP_RAILS_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipRailsAttachment, gMainShipObjectId, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 	
-	gShipLinesAttachment = CreateObject(SHIP_LINES_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
+	gShipLinesAttachment = CreateDynamicObject(SHIP_LINES_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
 	AttachObjectToObject(gShipLinesAttachment, gMainShipObjectId, -0.5468, -6.1875, -0.4375, 0.0, 0.0, 0.0);
 
 	SetTimer("StartMovingTimer",30*1000,false); // pause at route 0 for 30 seconds
@@ -117,23 +122,23 @@ public OnFilterScriptExit()
 {
 	new x=0;
 	
-    DestroyObject(gMainShipObjectId);
+    DestroyDynamicObject(gMainShipObjectId);
 
 	x=0;
 	while(x != 4) {
-	    DestroyObject(gShipSkullAttachment[x]);
+	    DestroyDynamicObject(gShipSkullAttachment[x]);
 		x++;
 	}
 	
-	DestroyObject(gShipRailsAttachment);
-	DestroyObject(gShipLinesAttachment);
+	DestroyDynamicObject(gShipRailsAttachment);
+	DestroyDynamicObject(gShipLinesAttachment);
 	
 	return 1;
 }
 
 //-------------------------------------------------
 
-public OnObjectMoved(objectid)
+public OnDynamicObjectMoved(objectid)
 {
     if(objectid != gMainShipObjectId) return 0;
     
@@ -149,7 +154,7 @@ public OnObjectMoved(objectid)
     if(gShipCurrentPoint == NUM_SHIP_ROUTE_POINTS) {
 		gShipCurrentPoint = 0;
 
-   		MoveObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
+   		MoveDynamicObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
 	                           gShipRoutePoints[gShipCurrentPoint][1],
 							   gShipRoutePoints[gShipCurrentPoint][2],
 							   SHIP_MOVE_SPEED / 4.0, // slower for the last route
@@ -170,7 +175,7 @@ public OnObjectMoved(objectid)
     format(tempdebug,256,"The ship is at route: %d", gShipCurrentPoint);
     SendClientMessageToAll(0xFFFFFFFF,tempdebug);*/
     
-    MoveObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
+    MoveDynamicObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
 	                           gShipRoutePoints[gShipCurrentPoint][1],
 							   gShipRoutePoints[gShipCurrentPoint][2],
 							   SHIP_MOVE_SPEED,

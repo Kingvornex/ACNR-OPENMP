@@ -1,30 +1,25 @@
-#include 	<open.mp>
-//native      IsValidVehicle(vehicleid);
 
-new
-	ShipObject[MAX_VEHICLES] = {INVALID_OBJECT_ID, ...};
+// ACNR Dynamic UFO
 
-WasteDeAMXersTime()
+#include <open.mp>
+#include <streamer>
+#include <izcmd>
+
+new ShipObject[MAX_VEHICLES];
+
+public OnFilterScriptInit()
 {
-    new b;
-    #emit load.pri b
-    #emit stor.pri b
+	print("|==================== UFO Vehicle By Abolfazl , RCON CMD : /ufo & /removeufo ====================|");
+	return 1;
 }
-
-public OnGameModeInit()
-{
-WasteDeAMXersTime();
-print("|+-*/=/*-+ UFO Vehicle By Abolfazl , RCON CMD : /ufo & /removeufo +-*/=/*-+|");
-return 1;
-}
-public OnGameModeExit()
+public OnFilterScriptExit()
 {
 	for(new i; i < MAX_VEHICLES; ++i)
 	{
 	    if(IsValidVehicle(i) && IsValidObject(ShipObject[i]))
 	    {
 	        DestroyVehicle(i);
-	        DestroyObject(ShipObject[i]);
+	        DestroyDynamicObject(ShipObject[i]);
 	        ShipObject[i] = INVALID_OBJECT_ID;
 	    }
 	}
@@ -32,37 +27,32 @@ public OnGameModeExit()
 	return 1;
 }
 
-public OnPlayerCommandText(playerid, cmdtext[])
+CMD:ufo(playerid, params[])
 {
-	if(!strcmp(cmdtext, "/ufo"))
-	{
-	    if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}Only RCON admins can use this command.");
-		if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You can't use this command if you're in a vehicle.");
-		if(GetPlayerInterior(playerid) > 0) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You can't use this command if you're in an interior.");
-		new Float: x, Float: y, Float: z, Float: a;
-		GetPlayerPos(playerid, x, y, z);
-		GetPlayerFacingAngle(playerid, a);
-		new id = CreateVehicle(501, x, y, z, a, 1, 1, -1);
-  		LinkVehicleToInterior(id, 1);
-		ShipObject[id] = CreateObject(18846, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-		AttachObjectToVehicle(ShipObject[id], id, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-		PutPlayerInVehicle(playerid, id, 0);
-		return 1;
-	}
+	if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}Only RCON admins can use this command.");
+	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You can't use this command if you're in a vehicle.");
+	if(GetPlayerInterior(playerid) > 0) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You can't use this command if you're in an interior.");
+	new Float:xxx, Float:yyy, Float:zzz, Float:aaa;
+	GetPlayerPos(playerid, xxx, yyy, zzz);
+	GetPlayerFacingAngle(playerid, aaa);
+	new vvid = CreateVehicle(501, xxx, yyy, zzz, aaa, -1, -1, -1, true);
+  	LinkVehicleToInterior(vvid, 1);
+	ShipObject[vvid] = CreateDynamicObject(18846, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+	AttachDynamicObjectToVehicle(ShipObject[vvid], vvid, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+	PutPlayerInVehicle(playerid, vvid, 0);
+	return true;
+}
 
-	if(!strcmp(cmdtext, "/removeufo"))
-	{
-	    if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}Only RCON admins can use this command.");
-		if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You can't use this command if you're not in a vehicle.");
-		if(!IsValidObject(ShipObject[ GetPlayerVehicleID(playerid) ])) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You're not flying a UFO.");
-		new id = GetPlayerVehicleID(playerid);
-		DestroyVehicle(id);
-		DestroyObject(ShipObject[id]);
-		ShipObject[id] = INVALID_OBJECT_ID;
-		return 1;
-	}
-
-	return 0;
+CMD:removeufo(playerid, params[])
+{
+	if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}Only RCON admins can use this command.");
+	if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You can't use this command if you're not in a vehicle.");
+	if(!IsValidObject(ShipObject[ GetPlayerVehicleID(playerid) ])) return SendClientMessage(playerid, 0xC0392BFF, "ERROR: {FFFFFF}You're not flying a UFO.");
+	new vvid = GetPlayerVehicleID(playerid);
+	DestroyVehicle(vvid);
+	DestroyDynamicObject(ShipObject[vvid]);
+	ShipObject[vvid] = INVALID_OBJECT_ID;
+	return true;
 }
 
 public OnVehicleDeath(vehicleid, killerid)
@@ -70,7 +60,7 @@ public OnVehicleDeath(vehicleid, killerid)
 	if(IsValidObject(ShipObject[vehicleid]))
 	{
 	    DestroyVehicle(vehicleid);
-	    DestroyObject(ShipObject[vehicleid]);
+	    DestroyDynamicObject(ShipObject[vehicleid]);
 	    ShipObject[vehicleid] = INVALID_OBJECT_ID;
 	}
 
