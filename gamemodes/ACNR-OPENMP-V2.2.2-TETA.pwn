@@ -9,7 +9,6 @@ BETA > ALFA > TETA // i know order is wrong but it is what it is
 see :updates or https://github.com/Kingvornex/ACNR-OPENMP/blob/main/CHANGELOG.md for changelog
 ToDo:
 1.save in user files when the data being edited
-
 */
 
 #define NO_TAGS //#pragma warning disable 213 //tag mismatch
@@ -7808,6 +7807,7 @@ main()
 	print("|---------- Gamemode: ACNR v2.2.2 -----------|");
 	print("|-------- Owner/Developer: Abolfazl ---------|");
 	print("|----- Copyright: Abolfazl 2015 - 2018 ------|");
+	print("|-------- Copyright: Abolfazl  2024 ---------|");
 	print("|--------- Just-SaMp.RozBlog.COM ------------|");
     print("|--------------------------------------------|");
 	WasteDeAMXersTime();//
@@ -7815,7 +7815,7 @@ main()
 
 public OnGameModeInit()
 {
-    //print("|-------------------------Loading Gamemode (ACNR)-------------------------|");
+    print("|-------------------------Loading Gamemode (ACNR)-------------------------|");
     
 //------------------------------------------------------------------------------//
     SendRconCommand("maxnpc 20");
@@ -10963,13 +10963,15 @@ public OnGameModeInit()
 	SetCheckpointInterior(CP6, 0);
 
 	StartCheckpointSeeking();
-	
-	//print("|--------------------------Gamemode (ACNR) Loaded--------------------------|");
+		
+	print("|--------------------------Gamemode (ACNR) Loaded--------------------------|");
 	return 1;
 }
 
 public OnGameModeExit()
 {
+	print("|--------------------------Gamemode Exit (ACNR)--------------------------|");
+
     DestroyPickup(NVPD_pickup_gun);
     DestroyPickup(NVPD_pickup_arm);
 
@@ -11048,6 +11050,9 @@ public OnGameModeExit()
 	{
 		if(noclipdata[x][cameramode] == CAMERA_MODE_FLY) CancelFlyMode(x);
 	}
+	
+	print("|--------------------------Gamemode (ACNR) Exited--------------------------|");
+
 	return 1;
 }
 
@@ -13231,6 +13236,8 @@ stock FlyMode(playerid)
 
 public OnPlayerDisconnect(playerid, reason)
 {	
+	printf("|--------------------------Player Disconnecting (%d) (ACNR)--------------------------|", playerid);
+
 	if(tds_Player[playerid][Status] != INVALID_OBJECT_ID)
 	{
 		DestroyDynamicObject(tds_Player[playerid][Namev]);
@@ -13456,7 +13463,7 @@ public OnPlayerDisconnect(playerid, reason)
     {
     	case 0:
     	{
-        	format(fstr2,sizeof(fstr2), "[PART]: %s [%d] has left the server [Crash/Timeout]",GetName(playerid),playerid);
+        	format(fstr2,sizeof(fstr2), "[PART]: %s [%d] has left the server [Timeout/Crash]",GetName(playerid),playerid);
         	SendMessageToAll(GREY, fstr2);
     	}
     	case 1:
@@ -13467,6 +13474,16 @@ public OnPlayerDisconnect(playerid, reason)
     	case 2:
     	{
         	format(fstr2,sizeof(fstr2), "[PART]: %s [%d] has left the server [Kick/Ban]",GetName(playerid),playerid);
+        	SendMessageToAll(GREY, fstr2);
+    	}
+    	case 3:
+    	{
+        	format(fstr2,sizeof(fstr2), "[PART]: %s [%d] has left the server [Custom]",GetName(playerid),playerid);
+        	SendMessageToAll(GREY, fstr2);
+    	}
+    	case 4:
+    	{
+        	format(fstr2,sizeof(fstr2), "[PART]: %s [%d] has left the server [Mode End]",GetName(playerid),playerid);
         	SendMessageToAll(GREY, fstr2);
     	}
     }
@@ -13504,6 +13521,8 @@ public OnPlayerDisconnect(playerid, reason)
     	GetSetObjects[playerid][o] = -1;
     	GetSetObjectsCount[playerid]--;
     }
+
+	printf("|--------------------------Player Disconnected (%d) (ACNR)--------------------------|", playerid);
 	return 1;
 }
 //
@@ -13534,7 +13553,9 @@ public OnIncomingConnection(playerid, ip_address[], port)
 
 public OnPlayerConnect(playerid)
 {
-    SendClientMessage(playerid, PURPLE, "|--------------------------------------------------------------------------------------------------------------------------------------------|");
+	printf("|--------------------------Player Connecting (%d) (ACNR)--------------------------|", playerid);
+    
+	SendClientMessage(playerid, PURPLE, "|--------------------------------------------------------------------------------------------------------------------------------------------|");
 
 //	SetPlayerHealth(playerid, 100);
 	
@@ -14363,14 +14384,17 @@ public OnPlayerConnect(playerid)
 	format(stringg, sizeof(stringg),"[IP]: %s [%d] - %s", GetName(playerid), playerid, ip);
 	SendAdminMessage(GREY, stringg);
 
-    SendClientMessage(playerid, WHITE, "Elvis: Welcome to ACNR v2.2.2 | Powered by Abolfazl 2015 - 2018");
+    SendClientMessage(playerid, WHITE, "Elvis: Welcome to ACNR v2.2.2 | Powered by Abolfazl 2015 - 2018 , 2024");
 	SendClientMessage(playerid, RED, "in server deathmatch nist, lotfan    /rules    ra ghabl az bazi kardan bekhanid!");
 	SendClientMessage(playerid, LIGHTBLUE, "Ba estefade az cmd  /updates  mitavanid akharin updatehaye server ra bebinid.");
-	SendClientMessage(playerid, ORANGE, "az   /help va /faqs   baraye komak gereftan va az   /n va /askadmin   baraye soal porsidan estefade kon.");
+	SendClientMessage(playerid, ORANGE, "az    /help    va    /faqs    baraye komak gereftan va az    /n    va    /askadmin    baraye soal porsidan estefade kon.");
 	SendClientMessage(playerid, YELLOW, "Baraye gheire faal kardan AudioStream ha az    /stopaudio    estefade konid.");
 	SendClientMessage(playerid, GREEN, "Baraye estefade az system vote az    /votecmds    mitavanid estefade konid.");
 
 	SendClientMessage(playerid, PURPLE, "|--------------------------------------------------------------------------------------------------------------------------------------------|");
+	
+	printf("|--------------------------Player Connected (%d) (ACNR)--------------------------|", playerid);
+
 	return 1;
 }
 
@@ -14378,7 +14402,7 @@ public OnRconLoginAttempt(ip[], password[], success)
 {
 	if(!success)
 	{
-        format(fstr,sizeof(fstr),"Player [IP: %s] Is On Rcon Login Attempt: Bad Rcon Password: %s",ip,password);
+        format(fstr,sizeof(fstr),"[ACNR] [WARNING] Player [IP: %s] Is On Rcon Login Attempt: Bad Rcon Password: %s",ip ,password);
         SendOwnerMessage(ORANGE,fstr);
         format(fstr2, sizeof(fstr2), "banip %s",ip);
 		SendRconCommand(fstr2);
@@ -19935,7 +19959,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	        	SetPlayerInterior(playerid, 9);
             	SetPlayerPos(playerid, 315.745086, 984.969299, 1958.919067);
             	GivePlayerWeapon(playerid, 46, 1);
-            	skytimer{playerid} = SetTimerEx("SkydiveInteriorChanger", 5000, true, "d", playerid);
+            	skytimer{playerid} = SetTimerEx("SkydiveInteriorChanger", 5000, true, "i", playerid);
             	GivePlayerCash(playerid, - 5000);
 	    	}
 	    }
@@ -34987,7 +35011,7 @@ CMD:pc(playerid, params[])
 
 CMD:anims(playerid, params[])
 {
-    ShowPlayerDialog(playerid, ANIM_LIST, DIALOG_STYLE_MSGBOX , "{FFFFFF}Animations List", "{FFFFFF}/dance /laugh /piss /chat /fucku /vomit /slapass /wave /box  /jerking\n/drunk /handsup /deal /crack /gsit /sit /taichi /lay /cry /smoke /sex /heeey", "Ok", "");
+    ShowPlayerDialog(playerid, ANIM_LIST, DIALOG_STYLE_MSGBOX , "{FFFFFF}Animations List", "{FFFFFF}/dance /laugh /piss /chat /fucku /vomit /slapass /wave /box  /jerking\n/drunk /handsup /deal /crack /gsit /sit /taichi /lay /cry /smoke /sex /heeey /stopanim", "Ok", "");
     return true;
 }
 
@@ -35595,6 +35619,54 @@ CMD:sit(playerid, params[])
 	SendMessageToAll(WHITE, string);
 	SetPlayerChatBubble(playerid, string, WHITE, 50, 5000);
 	IsPlayerUsingAnim{playerid} = true;
+	return true;
+}
+
+CMD:sleep(playerid, params[])
+{
+	new string[50], style;
+    if(HasBeenCuffed{playerid} == true) return SendClientMessage(playerid, RED, "You cant use animations when you have been cuffed/tazered.");
+   	if(HasBeenTied{playerid} == true) return SendClientMessage(playerid, RED, "You cant use animations when your tied up.");
+	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, RED, "You cant use animations in vehicles.");
+	if(GetPlayerState(playerid) == PLAYER_STATE_NONE) return SendClientMessage(playerid, RED, "You must be spawned to use this command.");
+	if(sscanf(params, "d", style)) return SendClientMessage(playerid, RED, "[USAGE]: /sleep [1-2]");
+	if(style < 1 || style > 2) return SendClientMessage(playerid, RED, "Invalid style. Styles: 1-2");
+	if((gettime() - 5) < TimerInfo[playerid][CMD_timer29]) return SendClientMessage(playerid, RED, "[Timer]: 5 sanie sabr kon.");
+    TimerInfo[playerid][CMD_timer29] = gettime();
+	IsPlayerUsingAnim{playerid} = true;
+	if(style == 1)
+	{
+		ApplyAnimation(playerid, "INT_HOUSE", "BED_Loop_L", 4.1, true, false, false, false, 0, SYNC_ALL);
+		format(string, sizeof(string), "%s sleeps...", GetName(playerid));
+		SendMessageToAll(WHITE, string);
+		SetPlayerChatBubble(playerid, string, WHITE, 50, 5000);
+		return true;
+	}
+	else if(style == 2)
+	{
+		ApplyAnimation(playerid, "INT_HOUSE", "BED_Loop_R", 4.1, true, false, false, false, 0, SYNC_ALL);
+		format(string, sizeof(string), "%s sleeps...", GetName(playerid));
+		SendMessageToAll(WHITE, string);
+		SetPlayerChatBubble(playerid, string, WHITE, 50, 5000);
+		return true;
+	}
+	return true;
+}
+
+CMD:stopanim(playerid, params[])
+{
+	new string[50];
+    if(HasBeenCuffed{playerid} == true) return SendClientMessage(playerid, RED, "You can't stop animations when you have been cuffed/tazered.");
+   	if(HasBeenTied{playerid} == true) return SendClientMessage(playerid, RED, "You can't stop animations when your tied up.");
+	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, RED, "You can't stop animations in vehicles.");
+	if(GetPlayerState(playerid) == PLAYER_STATE_NONE) return SendClientMessage(playerid, RED, "You must be spawned to use this command.");
+    if((gettime() - 5) < TimerInfo[playerid][CMD_timer29]) return SendClientMessage(playerid, RED, "[Timer]: 5 sanie sabr kon.");
+    TimerInfo[playerid][CMD_timer29] = gettime();
+	ClearAnimations(playerid);
+	format(string, sizeof(string), "%s stopped acting...", GetName(playerid));
+	SendMessageToAll(WHITE, string);
+	SetPlayerChatBubble(playerid, string, WHITE, 50, 5000);
+	IsPlayerUsingAnim{playerid} = false;
 	return true;
 }
 
@@ -39951,7 +40023,7 @@ CMD:ej(playerid, params[])
 
 CMD:credits(playerid, params[])
 {
-    ShowPlayerDialog(playerid, CREDITS_LIST, DIALOG_STYLE_MSGBOX , "{FFFFFF}Sazandegan ACNR", "{FFFFFF}New Vegas Cops and Robbers(NVCNR) - v2.3 - by Weponz 2010-2012\nNew Vegas Cops and Robbers(NVCNR) - v2.3 - by Weponz 2010-2012 Edit: DopeX aka [ND]xXZeusXx\nAbolfazl Cops and Robbers(ACNR) - v2.2.2 - by Abolfazl 2015 - 2018\nNigh Life Cops and Robbers(ACNR) - OPEN.mp - v2.2.2 - by Abolfazl 2024\nShoma mitavanid list kamele sazandegan ACNR ra dar \n{bf0000}Just-Samp.RozBlog.COM {ffffff}\nbebinid.", "Ok", "");
+    ShowPlayerDialog(playerid, CREDITS_LIST, DIALOG_STYLE_MSGBOX , "{FFFFFF}Sazandegan ACNR", "{FFFFFF}New Vegas Cops and Robbers(NVCNR) - v2.3 - by Weponz 2010-2012\nNew Vegas Cops and Robbers(NVCNR) - v2.3 - by Weponz 2010-2012 Edit: DopeX aka [ND]xXZeusXx\nAbolfazl Cops and Robbers(ACNR) - v2.2.2 - by Abolfazl 2015 - 2018 , 2024\nNigh Life Cops and Robbers(ACNR) - OPEN.mp - v2.2.2 - by Abolfazl 2024\nShoma mitavanid list kamele sazandegan ACNR ra dar \n{bf0000}Just-Samp.RozBlog.COM {ffffff}\nbebinid.", "Ok", "");
     new astring[100];
     format(astring,sizeof(astring),"%s [%d] typed: /credits", GetName(playerid), playerid);
     //SendAdminMessage(GREY,astring);
@@ -40081,6 +40153,9 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Added Client Commands to cmd list (/cmds).\n");
     strcat(UPS, "{FFFFFF}  Disabled Anti Bad Words.\n");
     strcat(UPS, "{FFFFFF}  Updated some callbacks.\n");
+    strcat(UPS, "{FFFFFF}  Fixed /sleep cmd.\n");
+    strcat(UPS, "{FFFFFF}  Added /stopanim cmd.\n");
+    strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
