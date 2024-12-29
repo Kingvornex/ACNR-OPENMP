@@ -1,20 +1,97 @@
 
+// ACNR CARS from file
+
 #include <open.mp>
-#include "../include/gl_common.inc"
 
 new total_vehicles_from_files=0;
 
-WasteDeAMXersTime()
+stock LoadStaticVehiclesFromFile(const filename[])
 {
-    new b;
-    #emit load.pri b
-    #emit stor.pri b
+	new File:file_ptr;
+	new line[256];
+	new var_from_line[64];
+	new vehicletype;
+	new Float:SpawnX;
+	new Float:SpawnY;
+	new Float:SpawnZ;
+	new Float:SpawnRot;
+    new Color1, Color2;
+	new index;
+	new vehicles_loaded;
+
+	file_ptr = fopen(filename,filemode:io_read);
+	if(!file_ptr) return 0;
+
+	vehicles_loaded = 0;
+
+	while(fread(file_ptr,line,256) > 0)
+	{
+	    index = 0;
+
+	    // Read type
+  		index = token_by_delim(line,var_from_line,',',index);
+  		if(index == (-1)) continue;
+  		vehicletype = strval(var_from_line);
+   		if(vehicletype < 400 || vehicletype > 611) continue;
+
+  		// Read X, Y, Z, Rotation
+  		index = token_by_delim(line,var_from_line,',',index+1);
+  		if(index == (-1)) continue;
+  		SpawnX = floatstr(var_from_line);
+
+  		index = token_by_delim(line,var_from_line,',',index+1);
+  		if(index == (-1)) continue;
+  		SpawnY = floatstr(var_from_line);
+
+  		index = token_by_delim(line,var_from_line,',',index+1);
+  		if(index == (-1)) continue;
+  		SpawnZ = floatstr(var_from_line);
+
+  		index = token_by_delim(line,var_from_line,',',index+1);
+  		if(index == (-1)) continue;
+  		SpawnRot = floatstr(var_from_line);
+
+  		// Read Color1, Color2
+  		index = token_by_delim(line,var_from_line,',',index+1);
+  		if(index == (-1)) continue;
+  		Color1 = strval(var_from_line);
+
+  		index = token_by_delim(line,var_from_line,';',index+1);
+  		Color2 = strval(var_from_line);
+  		
+  		//printf("%d,%.2f,%.2f,%.2f,%.4f,%d,%d",vehicletype,SpawnX,SpawnY,SpawnZ,SpawnRot,Color1,Color2);
+  		
+  		CreateVehicle(vehicletype, SpawnX, SpawnY, SpawnZ, SpawnRot, Color1, Color2, (30*60), true); // respawn 30 minutes
+//		printf("AddStaticVehicleEX(%d, %f, %f, %f, %f, %d, %d, %d)", vehicletype,SpawnX,SpawnY,SpawnZ,SpawnRot,Color1,Color2,(30*60));
+		
+		/*new numplate_test[32+1];
+		format(numplate_test,32,"GRLC{44AA33}%d",vid);
+		SetVehicleNumberPlate(vid, numplate_test);*/
+		
+		vehicles_loaded++;
+	}
+
+	fclose(file_ptr);
+	printf("Loaded %d vehicles from: %s", vehicles_loaded, filename);
+	return vehicles_loaded;
 }
 
-public OnGameModeInit()
+stock token_by_delim(const string[], return_str[], delim, start_index)
 {
-	WasteDeAMXersTime();
-    
+	new x=0;
+	while(string[start_index] != EOS && string[start_index] != delim) {
+	    return_str[x] = string[start_index];
+	    x++;
+	    start_index++;
+	}
+	return_str[x] = EOS;
+	if(string[start_index] == EOS) start_index = (-1);
+	return start_index;
+}
+
+public OnFilterScriptInit()
+{    
+//	gl_common vehicles (grand larceny)
 	// SPECIAL
 //	total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/trains.txt");
 //	total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/pilots.txt");
@@ -47,7 +124,7 @@ public OnGameModeInit()
     
 //    total_vehicles_from_files += LoadStaticVehiclesFromFile("vehicles/trains_platform.txt");
 
-    printf("Total vehicles from files: %d",total_vehicles_from_files);
+    printf("Total vehicles from files: %d", total_vehicles_from_files);
     
 	return 1;
 }
