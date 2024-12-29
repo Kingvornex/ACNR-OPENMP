@@ -89,6 +89,7 @@ ToDo:
 #include <mGates>
 #include <fly>
 #include <AutoAFK>
+#include <easyDialog>
 //#include <samp_bcrypt> //dont know how to use it
 //#include "whirlpool" //dont use whirlpool use bcrypt : https://github.com/Southclaws/samp-whirlpool , https://github.com/Sreyas-Sreelal/samp-bcrypt/
 
@@ -105,6 +106,7 @@ stock WP_Hash(buffer[], len, const str[])
 #define RED 0xFF0000FF
 #define BLUE 0x0000FFFF
 #define GREEN 0x33AA33AA
+#define COLOR_GREEN 0x33AA33AA
 #define LIGHTGREEN 0x24FF0AB9
 #define YELLOW 0xFFFF00FF
 #define PINK 0xFF80C0FF
@@ -115,6 +117,7 @@ stock WP_Hash(buffer[], len, const str[])
 #define BEGE 0xFFA97F99
 #define LIGHTRED 0xFF8080FF
 #define DER 0xAA3333AA
+#define COLOR_GRAD1 0xff00bbAA
 
 #define CLASS_CIV 1
 #define CLASS_COPS 2
@@ -2144,7 +2147,7 @@ CreateDynamicObject(19425, 287.71506, 1416.44116, 9.38120,   0.00000, 0.00000, 9
 CreateDynamicObject(19425, 287.71439, 1413.19543, 9.38120,   0.00000, 0.00000, 90.00000);
 CreateDynamicObject(19425, 287.74060, 1410.00330, 9.38120,   0.00000, 0.00000, 90.00000);
 CreateDynamicObject(4835, 182.66777, 1411.35840, 13.69385,   0.00000, 0.00000, 0.00000);
-CreateDynamicObject(4828, 191.11623, 1411.37891, 24.79349,   0.00000, 0.00000, 180.00000);
+CreateDynamicObject(4828, 191.1162, 1411.3789, 23.6814,   0.00000, 0.00000, 180.00000);
 CreateDynamicObject(4985, 247.67999, 1410.83411, 6.11392,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(4985, 110.23038, 1412.71228, 13.19891,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(18650, 287.72049, 1406.76233, 9.38120,   0.00000, 0.00000, 0.00000);
@@ -9229,9 +9232,9 @@ public OnGameModeInit()
     hanger3 = CreateObject(971,2151.81958008,2417.00878906,78.44499207,90.00000000,0.00000000,0.00000000); //object(subwaygate) (8)//Hanger gate 3 a
     hanger4 = CreateObject(971,2160.73437500,2417.00878906,78.44499207,90.00000000,0.00000000,0.00000000); //object(subwaygate) (9)//Hanger gate 4 b
 
-	FBIGate = CreateAutomaticGate(971 , 2517.08227539,2346.28271484,13.30023003 , 0.00000000,0.00000000,90 ,2517.082275,2346.282714,05.300230, 0.00000000,0.00000000,90 , 2517.08227539,2346.28271484,13.30023003 , 10 , 4.0 , 1);
-	PDGate1 = CreateAutomaticGate(971 , 2335.01538086,2444.08398438,7.29924774 , 0.00000000,0.00000000,60.00000000 ,2335.01538086, 2444.08398438, -1.29924774,  0.00000000,0.00000000,60.00000000  , 2335.01538086,2444.08398438,7.29924774 , 10 , 4.0 , 1);
-	PDGate2 = CreateAutomaticGate(971 , 2293.96020508,2499.41804688,5.58859539 , 0.00000000,0.00000000,270.00000000 ,2293.96020508, 2499.24804688, 13.58859539,  0.00000000,0.00000000,270.00000000  , 2293.96020508, 2499.24804688, 5.58859539 , 10 , 4.0 , 1);
+	FBIGate = CreateAutomaticGate(971 , 2517.08227539,2346.28271484,13.30023003 , 0.00000000,0.00000000,90 ,2517.082275,2346.282714,05.300230, 0.00000000,0.00000000,90 , 2517.08227539,2346.28271484,13.30023003 , 20 , 4.0 , 1);
+	PDGate1 = CreateAutomaticGate(971 , 2335.01538086,2444.08398438,7.29924774 , 0.00000000,0.00000000,60.00000000 ,2335.01538086, 2444.08398438, -1.29924774,  0.00000000,0.00000000,60.00000000  , 2335.01538086,2444.08398438,7.29924774 , 20 , 4.0 , 1);
+	PDGate2 = CreateAutomaticGate(971 , 2293.96020508,2499.41804688,5.58859539 , 0.00000000,0.00000000,270.00000000 ,2293.96020508, 2499.24804688, 13.58859539,  0.00000000,0.00000000,270.00000000  , 2293.96020508, 2499.24804688, 5.58859539 , 20 , 4.0 , 1);
 
     //NVPD (Inside) Elevator door/jail cell map bug fix/es
     CreateObject(18758,193.92813110,168.20587158,1003.91552734,0.00000000,0.00000000,180.00000000); //object(thebolla04) (1)
@@ -14385,11 +14388,11 @@ public OnPlayerConnect(playerid)
 	SendAdminMessage(GREY, stringg);
 
     SendClientMessage(playerid, WHITE, "Elvis: Welcome to ACNR v2.2.2 | Powered by Abolfazl 2015 - 2018 , 2024");
-	SendClientMessage(playerid, RED, "in server deathmatch nist, lotfan    /rules    ra ghabl az bazi kardan bekhanid!");
-	SendClientMessage(playerid, LIGHTBLUE, "Ba estefade az cmd  /updates  mitavanid akharin updatehaye server ra bebinid.");
-	SendClientMessage(playerid, ORANGE, "az    /help    va    /faqs    baraye komak gereftan va az    /n    va    /askadmin    baraye soal porsidan estefade kon.");
-	SendClientMessage(playerid, YELLOW, "Baraye gheire faal kardan AudioStream ha az    /stopaudio    estefade konid.");
-	SendClientMessage(playerid, GREEN, "Baraye estefade az system vote az    /votecmds    mitavanid estefade konid.");
+	SendClientMessage(playerid, RED, "in server deathmatch nist, lotfan  [  /rules  ]  ra ghabl az bazi kardan bekhanid!");
+	SendClientMessage(playerid, LIGHTBLUE, "Ba estefade az cmd  [  /updates  ]  mitavanid akharin updatehaye server ra bebinid.");
+	SendClientMessage(playerid, ORANGE, "az  [  /help  ]  va  [  /faqs  ]  baraye komak gereftan va az  [  /n  ]  va  [  /askadmin  ]  baraye soal porsidan estefade kon.");
+	SendClientMessage(playerid, YELLOW, "Baraye gheire faal kardan AudioStream ha az  [  /stopaudio  ]  estefade konid.");
+	SendClientMessage(playerid, GREEN, "Baraye estefade az system vote az  [  /votecmds  ]  mitavanid estefade konid.");
 
 	SendClientMessage(playerid, PURPLE, "|--------------------------------------------------------------------------------------------------------------------------------------------|");
 	
@@ -31359,7 +31362,7 @@ CMD:cuff(playerid, params[])
     	new Float:hp;
     	GetPlayerHealth(i, hp);
     	if(hp > 0.0)
-    	if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
+    	if(IsPlayerInRangeOfPoint(playerid, 10.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
     	{
     	 	rangepass++;
 			if(GetPlayerWantedLevel(i) >= 4)
@@ -31421,81 +31424,7 @@ CMD:cuff(playerid, params[])
 	return true;
 }
 
-CMD:cf(playerid, params[])
-{
-	new rangepass = 0, vehiclepass = 0, wantedpass = 0, dutypass = 0, eventpass = 0, cuffedpass = 0;
-    if(GetTeam{playerid} == CLASS_CIV || GetTeam{playerid} == CLASS_MEDIC) return SendClientMessage(playerid, RED, "Only law enforcement can cuff players.");
-	if(HasBeenTied{playerid} == true) return SendClientMessage(playerid, RED, "You cant cuff players while your tied up.");
-	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, RED, "You cant cuff players from a vehicle.");
-	foreach(new i : Player)
-	{
-	    if(i == playerid) continue;
-	    new Float:x, Float:y, Float:z;
-    	GetPlayerPos(i, x, y, z);
-    	new Float:hp;
-    	GetPlayerHealth(i, hp);
-    	if(hp > 0.0)
-    	if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
-    	{
-    	 	rangepass++;
-			if(GetPlayerWantedLevel(i) >= 4)
-			{
-				wantedpass++;
-				if(!IsPlayerInAnyVehicle(i))
-				{
-			    	vehiclepass++;
-					if(IsOnduty{i} == 0)
-					{
-					    dutypass++;
-						if(IsAtEvent{i} == 0)
-						{
-                            eventpass++;
-							if(HasBeenCuffed{i} == false)
-							{
-							    cuffedpass++;
-								GameTextForPlayer(i, "~r~Cuffed", 3000, 5);
-								SendClientMessage(i, RED, "You have been cuffed, use /breakcuffs to try break free.");
-								GameTextForPlayer(playerid, "~g~Suspect Cuffed", 3000, 5);
-								SetPlayerSpecialAction(i, SPECIAL_ACTION_CUFFED);
-								HasBeenCuffed{i} = true;
-								break;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	if(rangepass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(wantedpass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(vehiclepass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(dutypass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(eventpass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(cuffedpass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	new astring[100];
-	format(astring, sizeof(astring),"%s [%d] typed: /cf", GetName(playerid), playerid);
-	SendAdminMessage(GREY, astring);
-	SetPlayerChatBubble(playerid, astring, GREY, 50, 5000);
-	return true;
-}
+CMD:cf(playerid, params[]) return cmd_cuff(playerid, params);
 
 CMD:taze(playerid, params[])
 {
@@ -31511,7 +31440,7 @@ CMD:taze(playerid, params[])
     	new Float:hp;
     	GetPlayerHealth(i, hp);
     	if(hp > 0.0)
-    	if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
+    	if(IsPlayerInRangeOfPoint(playerid, 10.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
     	{
     	 	rangepass++;
 			if(GetPlayerWantedLevel(i) >= 4)
@@ -31575,83 +31504,7 @@ CMD:taze(playerid, params[])
 	return true;
 }
 
-CMD:tz(playerid, params[])
-{
-	new rangepass = 0, vehiclepass = 0, wantedpass = 0, dutypass = 0, eventpass = 0, tazepass = 0;
-    if(GetTeam{playerid} == CLASS_CIV || GetTeam{playerid} == CLASS_MEDIC) return SendClientMessage(playerid, RED, "Only law enforcement can taze players.");
-	if(HasBeenTied{playerid} == true) return SendClientMessage(playerid, RED, "You cant taze players while your tied up.");
-	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, RED, "You cant taze players from a vehicle.");
-	foreach(new i : Player)
-	{
-	    if(i == playerid) continue;
-	    new Float:x, Float:y, Float:z;
-    	GetPlayerPos(i, x, y, z);
-    	new Float:hp;
-    	GetPlayerHealth(i, hp);
-    	if(hp > 0.0)
-    	if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
-    	{
-    	 	rangepass++;
-			if(GetPlayerWantedLevel(i) >= 4)
-			{
-				wantedpass++;
-				if(!IsPlayerInAnyVehicle(i))
-				{
-			    	vehiclepass++;
-					if(IsOnduty{i} == 0)
-					{
-					    dutypass++;
-						if(IsAtEvent{i} == 0)
-						{
-                            eventpass++;
-							if(HasBeenCuffed{i} == false)
-							{
-							    tazepass++;
-								GameTextForPlayer(i, "~r~Tazered!~n~Your Now Stunned", 3000, 5);
-								SetTimerEx("TazerTimer", 60000, false, "d", i);
-								SendClientMessage(i, RED, "You have been tazered, your now stunned.");
-								GameTextForPlayer(playerid, "~g~Suspect Tazered", 3000, 5);
-								HasBeenCuffed{i} = true;
-								TogglePlayerControllable(i, false);
-								ApplyAnimation(i, "CRACK", "crckdeth2", 4.0, 1, 0, 0, 0, 0);
-								break;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	if(rangepass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(wantedpass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(vehiclepass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(dutypass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(eventpass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	else if(tazepass == 0)
-	{
-		return SendClientMessage(playerid, RED, "No wanted players in range.");
-	}
-	new astring[100];
-	format(astring, sizeof(astring),"%s [%d] typed: /tz", GetName(playerid), playerid);
-	SendAdminMessage(GREY, astring);
-	SetPlayerChatBubble(playerid, astring, GREY, 50, 5000);
-	return true;
-}
+CMD:tz(playerid, params[]) return cmd_taze(playerid, params);
 
 CMD:paytk(playerid, params[])
 {
@@ -31704,7 +31557,7 @@ CMD:tk(playerid, params[])
     	new Float:hp;
     	GetPlayerHealth(i, hp);
     	if(hp > 0.0)
-    	if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
+    	if(IsPlayerInRangeOfPoint(playerid, 15.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
     	{
     	 	rangepass++;
 			if(GetPlayerWantedLevel(i) >= 1 && GetPlayerWantedLevel(i) <= 3)
@@ -31779,7 +31632,7 @@ CMD:ar(playerid, params[])
     	new Float:hp;
     	GetPlayerHealth(i, hp);
     	if(hp > 0.0)
-    	if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
+    	if(IsPlayerInRangeOfPoint(playerid, 10.0, x, y, z) && GetPlayerInterior(playerid) == GetPlayerInterior(i) && GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i))
     	{
     	 	rangepass++;
 			if(GetPlayerWantedLevel(i) >= 4)
@@ -32014,48 +31867,7 @@ CMD:escape(playerid, params[])
     return true;
 }
 
-CMD:esc(playerid, params[])
-{
-    if(GetTeam{playerid} != CLASS_CIV) return SendClientMessage(playerid, RED, "Only civilians can use this command.");
-    if(IsJailed{playerid} == false) return SendClientMessage(playerid, RED, "Your not in jail.");
-    if(CanESC{playerid} == false) return SendClientMessage(playerid, RED, "[Time]: 60 sanie sabr konid.");//
-	new escrand = random(5);
-	switch(escrand)
-	{
-		case 0:
-		{
-        	SetPlayerHealth(playerid, 100.0);
-    		SetPlayerInterior(playerid, 3);
-    		SetPlayerPos(playerid, 200.6972, 168.2653, 1003.0234);
-    		SetPlayerFacingAngle(playerid, 89.0391);
-        	SetPlayerWantedLevel(playerid, GetPlayerWantedLevel(playerid) + 6);
-        	PlayerInfo[playerid][pCrimes] ++;
-        	format(fstr, sizeof(fstr),"[DISPATCH]: Suspect %s [%d] has just escaped jail at PD.", GetName(playerid), playerid);
-        	CopRadio(BLUE, fstr);
-        	SendClientMessage(playerid, LIGHTGREEN, "You have escaped jail!");
-			format(fstr2, sizeof(fstr2), "%s [%d] has just escaped jail at PD.", GetName(playerid), playerid);
-       		SendMessageToAll(RED, fstr2);
-        	SendClientMessage(playerid, RED, "County jail escape. [WANTED LEVEL INCREASED]");
-			IsJailed{playerid} = false;
-			KillTimer(JailTimer[playerid]);
-			JailTime[playerid] = 0;
-			PlayerInfo[playerid][jTime] = 0;
-			if(IsPlayerConnected(playerid) && IsLoggedIn{playerid} == 1)
-			{
-			    SaveUserStats(playerid);
-			}
-        }
-        case 1..4:
-		{
-	    	CanESC{playerid} = false;
-        	SetTimerEx("WaitToTryEscape", 60000, false, "d", playerid);
-        	format(fstr, sizeof(fstr),"[DISPATCH]: Suspect %s [%d] has just attempted to escape jail at PD.", GetName(playerid), playerid);
-        	CopRadio(BLUE, fstr);
-        	SendClientMessage(playerid, RED, "You have failed to escape.");
-		}
-	}
-    return true;
-}
+CMD:esc(playerid, params[]) return cmd_escape(playerid, params);
 
 CMD:lotto(playerid, params[])
 {
@@ -32387,7 +32199,7 @@ CMD:gps(playerid, params[])
 
 CMD:climbsign(playerid, params[])
 {
-	if(!IsPlayerInRangeOfPoint(playerid, 2.0, 2304.0759, 2382.6260, 14.9083)) return SendClientMessage(playerid, RED, "You are not at the  Bar sign.");
+	if(!IsPlayerInRangeOfPoint(playerid, 5.0, 2304.0759, 2382.6260, 14.9083)) return SendClientMessage(playerid, RED, "You are not at the  Bar sign.");
 	SetPlayerPos(playerid, 2304.0908, 2381.2251, 45.7953);
 	SetPlayerFacingAngle(playerid, 178.3792);
 	GivePlayerWeapon(playerid, 46, 1);
@@ -32396,7 +32208,7 @@ CMD:climbsign(playerid, params[])
 
 CMD:elevator(playerid, params[])
 {
-	if(IsPlayerInRangeOfPoint(playerid, 2.0, 1728.4685,-1671.1666,27.1953) || IsPlayerInRangeOfPoint(playerid, 2.0, 1731.1501,-1668.5820,27.1953) || IsPlayerInRangeOfPoint(playerid, 2.0, 1710.7915,-1643.9325,27.2035) || IsPlayerInRangeOfPoint(playerid, 2.0, 1713.5035,-1641.3409,27.2124) || IsPlayerInRangeOfPoint(playerid, 2.0, 1710.8021,-1643.9214,23.6797) || IsPlayerInRangeOfPoint(playerid, 2.0, 1713.5140,-1641.3318,23.6797))
+	if(IsPlayerInRangeOfPoint(playerid, 5.0, 1728.4685,-1671.1666,27.1953) || IsPlayerInRangeOfPoint(playerid, 5.0, 1731.1501,-1668.5820,27.1953) || IsPlayerInRangeOfPoint(playerid, 5.0, 1710.7915,-1643.9325,27.2035) || IsPlayerInRangeOfPoint(playerid, 5.0, 1713.5035,-1641.3409,27.2124) || IsPlayerInRangeOfPoint(playerid, 5.0, 1710.8021,-1643.9214,23.6797) || IsPlayerInRangeOfPoint(playerid, 5.0, 1713.5140,-1641.3318,23.6797))
 	{
 		ShowPlayerDialog(playerid, APARTMENTS_ELEVATOR, DIALOG_STYLE_LIST, "{FFFFFF} Apartments - Elevator", "{FFFFFF}Ground Level\nLevel 1\nLevel 2\nLevel 3\nLevel 4\nLevel 5\nLevel 6\nLevel 7\nLevel 8\nLevel 9\nLevel 10\nRoof", "Select", "Cancel");
 		return true;
@@ -32410,7 +32222,7 @@ CMD:elevator(playerid, params[])
 
 CMD:pickup(playerid, params[])
 {
-	if(IsPlayerInRangeOfPoint(playerid, 1.0, 2293.1216, 2455.5334, 10.8203))//NVPD Weapon Pickup
+	if(IsPlayerInRangeOfPoint(playerid, 2.0, 2293.1216, 2455.5334, 10.8203))//NVPD Weapon Pickup
 	{
         if(GetTeam{playerid} == CLASS_CIA)
         {
@@ -32462,7 +32274,7 @@ CMD:pickup(playerid, params[])
 	    }
 	    return true;
     }
-    else if(IsPlayerInRangeOfPoint(playerid, 1.0, 2493.1833, 2394.5808, 10.8203))//FBI Weapon Pickup
+    else if(IsPlayerInRangeOfPoint(playerid, 2.0, 2493.1833, 2394.5808, 10.8203))//FBI Weapon Pickup
 	{
         if(GetTeam{playerid} == CLASS_CIA)
         {
@@ -32514,7 +32326,7 @@ CMD:pickup(playerid, params[])
 	    }
 	    return true;
     }
-    else if(IsPlayerInRangeOfPoint(playerid, 1.0, 946.9702, 1730.2723, 8.8516))//CIA Weapon Pickup
+    else if(IsPlayerInRangeOfPoint(playerid, 2.0, 946.9702, 1730.2723, 8.8516))//CIA Weapon Pickup
 	{
         if(GetTeam{playerid} == CLASS_CIA)
         {
@@ -32566,7 +32378,7 @@ CMD:pickup(playerid, params[])
 	    }
 	    return true;
     }
-    else if(IsPlayerInRangeOfPoint(playerid, 1.0, 2293.1194, 2447.1709, 10.8203))//NVPD Armour Pickup
+    else if(IsPlayerInRangeOfPoint(playerid, 2.0, 2293.1194, 2447.1709, 10.8203))//NVPD Armour Pickup
 	{
 		if(GetTeam{playerid} == CLASS_COPS || GetTeam{playerid} == CLASS_FBI || GetTeam{playerid} == CLASS_CIA || GetTeam{playerid} == CLASS_ARMY)
         {
@@ -32580,7 +32392,7 @@ CMD:pickup(playerid, params[])
 	    }
 	    return true;
 	}
-    else if(IsPlayerInRangeOfPoint(playerid, 1.0, 2493.1838, 2400.7966, 10.8203))//FBI Armour Pickup
+    else if(IsPlayerInRangeOfPoint(playerid, 2.0, 2493.1838, 2400.7966, 10.8203))//FBI Armour Pickup
 	{
 		if(GetTeam{playerid} == CLASS_COPS || GetTeam{playerid} == CLASS_FBI || GetTeam{playerid} == CLASS_CIA || GetTeam{playerid} == CLASS_ARMY)
         {
@@ -32594,7 +32406,7 @@ CMD:pickup(playerid, params[])
 	    }
 	    return true;
 	}
-    else if(IsPlayerInRangeOfPoint(playerid, 1.0, 946.9492, 1736.2869, 8.8516))//CIA Armour Pickup
+    else if(IsPlayerInRangeOfPoint(playerid, 2.0, 946.9492, 1736.2869, 8.8516))//CIA Armour Pickup
 	{
 		if(GetTeam{playerid} == CLASS_COPS || GetTeam{playerid} == CLASS_FBI || GetTeam{playerid} == CLASS_CIA || GetTeam{playerid} == CLASS_ARMY)
         {
@@ -32624,41 +32436,6 @@ CMD:kill(playerid, params[])
 	SetPlayerHealth(playerid, 0.0);
 	ForceClassSelection(playerid);
 	return true;
-}
-
-CMD:cmds(playerid, params[])
-{
-    if(GetTeam{playerid} == CLASS_COPS)
-   	{
-        ShowPlayerDialog(playerid, CMDS_LIST1, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Cop Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
-    }
-    else if(GetTeam{playerid} == CLASS_CIA)
-   	{
-  		ShowPlayerDialog(playerid, CMDS_LIST2, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}CIA Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
-    }
-    else if(GetTeam{playerid} == CLASS_ARMY)
-   	{
-  		ShowPlayerDialog(playerid, CMDS_LIST3, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Army Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
-    }
-    else if(GetTeam{playerid} == CLASS_FBI)
-   	{
-  		ShowPlayerDialog(playerid, CMDS_LIST6, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}FBI Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/ar /tk /cuff(/cf) /uncuff /c /taze(/tz) /(acc/dec)bribe /bail /shield /raid /pickup /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix ", "Ok", "");
-    }
-    else if(GetTeam{playerid} == CLASS_CIV)
-   	{
-    	ShowPlayerDialog(playerid, CMDS_LIST4, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Civilian Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n\n/roblist /esc /(un)tie /(cancel)hit /hits /(break)out/cuffs /bribe /mask /blowbomb /breakin /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix", "Ok", "");
-   	}
-    else if(GetTeam{playerid} == CLASS_MEDIC)
-   	{
-    	ShowPlayerDialog(playerid, CMDS_LIST5, DIALOG_STYLE_MSGBOX ,
-"{FFFFFF}Medic Commands", "{FFFFFF}/w(hisper) /gps /rules /help /faqs /pc /n /cp /vehcmds /pm /ad /gcmds /loc /(biz/house)menu /join /vcmds /me /do\n/healme /cutrope /call(911/medic/mechanic/dealer) /anims /(save)stats /report /fail /paint /lotto\n/vlock(/lk) /pay /lotto /viplist /acnr /nopm /votecmds /debit /credit /sazandegan /askadmin /dinfo /wealth /kill\n\nClass commands:\n/medic /m /tdspeedo \n\n Client Commands:\n\n /quit (/q) /fpslimit 90 /pagesize 15 /headmove /timestamp /dl /mem /fontsize [-3 to 5] /ctd /hudscalefix", "Ok", "");
-   	}
-    return true;
 }
 
 CMD:commands(playerid, params[])
@@ -32696,6 +32473,60 @@ CMD:commands(playerid, params[])
     return true;
 }
 
+CMD:cmds(playerid, params[]) return cmd_commands(playerid, params);
+
+CMD:classhelp(playerid, params[])
+{
+//    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+//	SendClientMessage(playerid, COLOR_GRAD1, "Class Help");
+//	return 1;
+	return cmd_help(playerid, params);
+}
+
+CMD:jailhelp(playerid, params[])
+{
+    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+	SendClientMessage(playerid, COLOR_GRAD1, "Jail/Prison Help");
+	return 1;
+}
+
+CMD:grouphelp(playerid, params[])
+{
+    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+	SendClientMessage(playerid, COLOR_GRAD1, "Group Help: /gcmds");
+	return 1;
+}
+
+CMD:genhelp(playerid, params[])
+{
+    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+	SendClientMessage(playerid, COLOR_GRAD1, "General Help");
+	return 1;
+}
+
+CMD:infohelp(playerid, params[])
+{
+    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+	SendClientMessage(playerid, COLOR_GRAD1, "Informational Help");
+	return 1;
+}
+
+CMD:msghelp(playerid, params[])
+{
+    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+	SendClientMessage(playerid, COLOR_GRAD1, "Messaging Help");
+	return 1;
+}
+
+CMD:vehhelp(playerid, params[])
+{
+    SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+	SendClientMessage(playerid, COLOR_GRAD1, "Vehicle Help");
+	SendClientMessage(playerid, -1, "/myvehs /service /setplate /boot /bonnet /deleteveh");
+	SendClientMessage(playerid, -1, "/alarm /lights /lock(/lk) /park /(decline/accept)veh /sellvehto");
+	return 1;
+}
+
 CMD:housemenu(playerid, params[])
 {
 	if(IsInHouse[playerid] == 0) return SendClientMessage(playerid, RED, "You need to be in a house to use this command.");
@@ -32706,15 +32537,7 @@ CMD:housemenu(playerid, params[])
 	return true;
 }
 
-CMD:hm(playerid, params[])
-{
-	if(IsInHouse[playerid] == 0) return SendClientMessage(playerid, RED, "You need to be in a house to use this command.");
-	if(strcmp(GetHouseOwner(LastHouseCP[playerid]), GetName(playerid), false)) return SendClientMessage(playerid, RED, "You dont own this house.");
-	{
-	    ShowPlayerDialog(playerid, HOUSE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}House Menu - Main Menu", "{FFFFFF}Set House Name\nGive/Take House Keys\nSell House", "Select", "Cancel");
-	}
-	return true;
-}
+CMD:hm(playerid, params[]) return cmd_housemenu(playerid, params);
 
 CMD:createhouse(playerid, params[])
 {
@@ -36842,6 +36665,8 @@ CMD:get(playerid, params[])
     return true;
 }
 
+CMD:getplayer(playerid, params[]) return cmd_get(playerid,params); 
+
 CMD:explode(playerid, params[])
 {
     if(PlayerInfo[playerid][aLevel] < 2) return SendClientMessage(playerid, RED, "Only admin level 2+ can use this command.");
@@ -37077,6 +36902,13 @@ CMD:godcar(playerid, params[])
     return true;
 }
 
+forward MoveVehToZero(vid);
+public MoveVehToZero(vid)
+{
+    SetVehiclePos(vid, 0.0, 0.0, 3.0);
+	return 1;
+}
+
 CMD:dcar(playerid, params[])
 {
 	if(PlayerInfo[playerid][aLevel] < 3) return SendClientMessage(playerid, RED, "Only admin level 3+ can use this command.");
@@ -37086,7 +36918,10 @@ CMD:dcar(playerid, params[])
     {
 	        vipvehicle[GetPlayerVehicleID(playerid)] = 0;
     }
-	DestroyVehicle(GetPlayerVehicleID(playerid));
+	new theveh = GetPlayerVehicleID(playerid);
+	PlayerAzMashinBironKon(playerid);
+//	DestroyVehicle(GetPlayerVehicleID(playerid)); //destroyed vehicle wont respawn even with server reset
+	SetTimerEx("MoveVehToZero", 2000, false, "u", theveh);
 	SendClientMessage(playerid, RED, "Mashin hazf shod.");
 	return true;
 }
@@ -38327,7 +38162,7 @@ CMD:drag(playerid, params[])
 		if(targetid == playerid) return SendClientMessage(playerid, RED, "Shoma nemitavanid khod ra drag konid.");
 		{
             GetPlayerPos(playerid,x,y,z);
-            if(IsPlayerInRangeOfPoint(targetid, 5.0, x, y, z))
+            if(IsPlayerInRangeOfPoint(targetid, 20.0, x, y, z))
 	    	{
 	    	    new carid = GetPlayerVehicleID(playerid);
            	    PutPlayerInVehicle(targetid,carid,1);
@@ -38494,59 +38329,7 @@ CMD:w(playerid, params[])
 		return 1;
 }
 
-CMD:whisper(playerid, params[])
-{
-	    if(IsPlayerConnected(playerid))
-	    {
-		    new giveplayerid, result[64];
-			if(sscanf(params, "us[64]", giveplayerid, result)) return SendClientMessage(playerid, RED, "[USAGE]: /w(hisper) [player id] [text]");
-		    if(giveplayerid == playerid) return SendClientMessage(playerid,RED,"You cant Whisper yourself");
-            if(GetPlayerScore(playerid) < 5) return SendClientMessage(playerid, RED, "score shoma kamtar az 5 ast!");
-			if(IsPlayerConnected(giveplayerid))
-			{
-			    if(giveplayerid != INVALID_PLAYER_ID)
-			    {
-			        new Float:x, Float:y, Float:z;
-           			GetPlayerPos(giveplayerid,x,y,z);
-			        if(IsPlayerInRangeOfPoint(playerid, 5.0, x, y, z))
-			        {
-                        new placeholder;
-	                    for(new i = 0; i < sizeof(BadWords); i++)
-	                    {
-                            placeholder = strfind(result,BadWords[i],true);
-	                        if(placeholder != -1)
-                            {
-	                            for(new r = placeholder; r < placeholder + strlen(BadWords[i]); r++)
-                                {
-	                                result[r] = '*';
-	                            }
-	                        }
-	                    }
-						new string[150];
-						format(string, sizeof(string), "Whispers from %s: %s",GetName(playerid), result);
-						SendClientMessage(giveplayerid, YELLOW, string);
-	                    PlayerPlaySound(giveplayerid, 1085, 0.0, 0.0, 0.0);
-						format(string, sizeof(string), "Whispers to %s: %s",GetName(giveplayerid), result);
-						SendClientMessage(playerid, YELLOW, string);
-						format(string, sizeof(string), "Whisper From %s to %s: %s",GetName(playerid), GetName(giveplayerid), result);
-                        SendOwnerMessage(GREY, string);
-                        SetPlayerChatBubble(playerid, result, YELLOW, 50, 5000);
-						return 1;
-					}
-					else
-					{
-					    SendClientMessage(playerid,  RED, "Player is not near you !");
-					    return 1;
-					}
-				}
-			}
-			else
-			{
-					SendClientMessage(playerid, RED, "that player is offline.");
-			}
-		}
-		return 1;
-}
+CMD:whisper(playerid, params[]) return cmd_w(playerid, params);
 
 CMD:fsay(playerid, params[])
 {
@@ -39781,7 +39564,7 @@ CMD:acmds(playerid, params[])
     	if(PlayerInfo[playerid][aLevel] >= 3)
 		{
             strcat(ACMDS, "{009E00}Lvl 3: {FFFFFF}/restart  /get  /unban  /blockip  /unblockip  /respawncars  /gg  /settime  /setweather  /sethelper\n");
-            strcat(ACMDS, "{009E00}Lvl 3: {FFFFFF}/banip  /setwanted  /sethp  /sethealth  /setarm  /setarmour  /setcash  /setskin  /vslap  /dcar\n");
+            strcat(ACMDS, "{009E00}Lvl 3: {FFFFFF}/banip  /setwanted  /sethp  /sethealth  /setarm  /setarmour  /setcash  /setskin  /vslap  /dcar /getplayer\n");
             strcat(ACMDS, "{009E00}Lvl 3: {FFFFFF}( + admin lvl 1-2 cmds )\n\n");
     	}
     	if(PlayerInfo[playerid][aLevel] >= 4)
@@ -40003,23 +39786,7 @@ CMD:eject(playerid, params[])
     return true;
 }
 
-CMD:ej(playerid, params[])
-{
-    new VehID, ejectid;
-    VehID = GetPlayerVehicleID(playerid);
-    if(sscanf(params, "u", ejectid)) return SendClientMessage(playerid, RED, "[USAGE]: /(ej)ect [name/id]");
-    if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return SendClientMessage(playerid, RED, "Only the driver can eject passengers.");
-    if(!IsPlayerConnected(ejectid)) return SendClientMessage(playerid, RED, "Player not found.");
-    if(!IsPlayerInVehicle(ejectid, VehID)) return SendClientMessage(playerid, RED, "The player must be in your vehicle, to eject them.");
-	{
-        PlayerAzMashinBironKon(ejectid);
-        format(fstr, sizeof(fstr), "You have ejected %s [%d] from your vehicle.", GetName(ejectid), ejectid);
-        SendClientMessage(playerid, YELLOW, fstr);
-        format(fstr, sizeof(fstr), "%s [%d] has ejected you from their vehicle.", GetName(playerid), playerid);
-        SendClientMessage(ejectid, RED, fstr);
-    }
-    return true;
-}
+CMD:ej(playerid, params[]) return cmd_eject(playerid, params);
 
 CMD:credits(playerid, params[])
 {
@@ -40155,7 +39922,12 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Updated some callbacks.\n");
     strcat(UPS, "{FFFFFF}  Fixed /sleep cmd.\n");
     strcat(UPS, "{FFFFFF}  Added /stopanim cmd.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Added /getplayer cmd to Admin+3.\n");
+    strcat(UPS, "{FFFFFF}  Added /vehhelp cmd.\n");
+    strcat(UPS, "{FFFFFF}  Now /dcar will change vehiclepos to 0,0,3.\n");
+    strcat(UPS, "{FFFFFF}  Increased police station gates range.\n");
+    strcat(UPS, "{FFFFFF}  Increased police cmds range.\n");
+    strcat(UPS, "{FFFFFF}  Added /helpme cmd.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
@@ -40171,7 +39943,7 @@ CMD:todolist(playerid, params[])
 {
     new UPS[2000];
     strcat(UPS, "{FFFFFF}Version 2.2.2 ToDo List : \n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Add easyDialog.\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  fix login password.\n");
     strcat(UPS, "{FFFFFF}  .\n");
@@ -40195,6 +39967,69 @@ CMD:todolist(playerid, params[])
     //SendAdminMessage(GREY,astring);
     SetPlayerChatBubble(playerid, astring, GREY, 50, 5000);
     return true;
+}
+
+CMD:helpme(playerid, params[]) {
+    Dialog_Show(playerid, HelpMe, DIALOG_STYLE_TABLIST_HEADERS, "Help Menu", "CMD\tCommand\tDescription\n\
+		/cmds\t/commands\tCommands List\n\
+		/acmds\t-\tAdmin Commands List\n\
+		/gcmds\t-\tGroup Commands\n\
+		/vehcmds\t/vehhelp\tVehicle Commands\n\
+		/help\t/classhelp\tClass Help\n\
+		/cp\t-\tControl Panel\n\
+		/faqs\t-\tFrequently Asked Questions\n\
+		/w\t/whisper\t-\n\
+		/vcmds\t-\tVIP Commands", "OK", "Close");
+    return 1;
+}
+
+Dialog:HelpMe(playerid, response, listitem, inputtext[]) {
+    if(response)
+	{
+		new str[64];
+        format(str, 64, "You have selected the '%s'.", inputtext);
+        SendClientMessage(playerid, -1, str);
+        /*switch (listitem)
+			{
+				case 0:
+				{
+					return cmd_cmds((playerid, params);
+				}
+				case 1:
+				{
+					return cmd_acmds((playerid, params);
+				}
+				case 2:
+				{
+					return cmd_gmds((playerid, params);
+				}
+				case 3:
+				{
+					return cmd_vehmds((playerid, params);
+				}
+				case 4:
+				{
+					return cmd_vcmds((playerid, params);
+				}
+				case 5:
+				{
+					return cmd_help((playerid, params);
+				}
+				case 6:
+				{
+					return cmd_cp((playerid, params);
+				}
+				case 7:
+				{
+					return cmd_faqs((playerid, params);
+				}
+				case 8:
+				{
+					return cmd_w((playerid, params);
+				}
+			}*/
+    }
+    return 1;
 }
 
 CMD:votecmds(playerid, params[])
