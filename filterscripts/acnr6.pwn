@@ -70,7 +70,7 @@ public OnVehicleDeath(vehicleid, killerid)
 	if(IsValidObject(ShipObject[vehicleid]))
 	{
 		DestroyDynamicObject(ShipObject[vehicleid]);
-	        ShipObject[vehicleid] = INVALID_OBJECT_ID;
+	    ShipObject[vehicleid] = INVALID_OBJECT_ID;
 	}
 	if(isufoveh[vehicleid] == 1)
 	{

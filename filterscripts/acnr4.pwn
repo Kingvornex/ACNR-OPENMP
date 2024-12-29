@@ -1,12 +1,7 @@
 
-#include <open.mp>
+// ACNR server name changer
 
-WasteDeAMXersTime()
-{
-    new b;
-    #emit load.pri b
-    #emit stor.pri b
-}
+#include <open.mp>
 
 forward Name1();
 forward Name2();
@@ -14,7 +9,6 @@ forward Name3();
 
 public OnFilterScriptInit()
 {
-   WasteDeAMXersTime();
    SetTimer("Name1",1000,false);
    return 1;
 }
