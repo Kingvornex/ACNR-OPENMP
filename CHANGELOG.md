@@ -237,3 +237,5 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Added Client Commands to cmd list
 - Updated some callbacks
 - Disabled Anti Bad Words
+- Fixed /sleep cmd
+- Added /stopanim cmd
