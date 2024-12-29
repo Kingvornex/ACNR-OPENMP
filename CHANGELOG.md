@@ -239,3 +239,9 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Disabled Anti Bad Words
 - Fixed /sleep cmd
 - Added /stopanim cmd
+- Added /getplayer cmd to Admin+3
+- Added /vehhelp cmd
+- Now /dcar will change vehiclepos to 0,0,3
+- Increased police station gates range
+- Increased police cmds range
+- Added /helpme cmd
