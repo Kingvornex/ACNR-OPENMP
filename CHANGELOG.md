@@ -245,3 +245,9 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Increased police station gates range
 - Increased police cmds range
 - Added /helpme cmd
+
+# Updated FilterScripts :
+- Updated FilterScripts to Open.MP
+- Change AddStaticVehicleEx to CreateVehicle in acnr2.pwn
+- Used izcmd in acnr6.pwn
+- Changed Objects to streamer DynamicObjects
