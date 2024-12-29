@@ -2541,7 +2541,7 @@ public OnPlayerConnect(playerid)
             fclose(handle2);
         }
 	}
-	SendClientMessage(playerid, YELLOW, "Baraye estefade az system mobile cmd   /myphone   ra vared konid.");
+	SendClientMessage(playerid, YELLOW, "Baraye estefade az system mobile cmd  [  /myphone  ]  ra vared konid.");
 	return 1;
 }
 public OnPlayerDisconnect(playerid, reason)
