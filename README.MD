@@ -179,9 +179,9 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] 
 
 - [ ] TODO
-    - [ ] fix unusual speed numbers
-    - [ ] fix speedometer text km/h kmph /km/h
-    - [ ] fix script cant read login password from ini file after restarting server bug
+    - [x] fix unusual speed numbers
+    - [x] fix speedometer text km/h kmph /km/h
+    - [x] fix script cant read login password from ini file after restarting server bug
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
@@ -191,24 +191,24 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] Player that used /kill , it's respawn in reconnect is bug
     - [ ] Create teleport portals: big checkpoints in map that entering them will teleport imidietly
     - [ ] animation bug
-    - [ ] animation /sleep cmd bug
-    - [ ] cmd to disable animation
+    - [x] animation /sleep cmd bug
+    - [x] cmd to disable animation
     - [ ] one shop interior bug
     - [ ] vehicle tune menu bug
-    - [ ] one map building higher than ground bug
-    - [ ] add /getplayer cmd for admin
+    - [x] one map building higher than ground bug
+    - [x] add /getplayer cmd for admin
     - [ ] add guide for skin selection section under right and left options ("press left to access civilian class faster")
     - [ ] /drag cmd range is very low
-    - [ ] remove chat anti bad word filter
-    - [ ] police cmds range is low (/ar /tk /tz /cf)
-    - [ ] police staion gate from inside doesn't open automatically 
+    - [x] remove chat anti bad word filter
+    - [x] police cmds range is low (/ar /tk /tz /cf)
+    - [x] police staion gate from inside doesn't open automatically 
     - [ ] add requests bribe to police to request wanted level an amount of money
-    - [ ] add list of shop vehicles cmd commands list
+    - [x] add list of shop vehicles cmd commands list (/vehhelp)
     - [ ] add my vehicles to /gps
     - [ ] add points of intrest locutions to /gps
     - [ ] add /teleport menu for admin
     - [ ] add playerid to their chat messages
-    - [ ] car deleted with /dcar wont respawn
+    - [x] car deleted with /dcar wont respawn
     - [ ] add music playlist
 
 - [ ] CODE BUG FIXES
