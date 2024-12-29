@@ -6,24 +6,32 @@
 #include <izcmd>
 
 new ShipObject[MAX_VEHICLES];
+new isufoveh[MAX_VEHICLES];
 
 public OnFilterScriptInit()
 {
 	print("|==================== UFO Vehicle By Abolfazl , RCON CMD : /ufo & /removeufo ====================|");
+	for(new i; i < MAX_VEHICLES; ++i)
+	{
+		ShipObject[i] = INVALID_OBJECT_ID;
+		isufoveh[i] = -1;
+	}
 	return 1;
 }
 public OnFilterScriptExit()
 {
 	for(new i; i < MAX_VEHICLES; ++i)
 	{
-	    if(IsValidVehicle(i) && IsValidObject(ShipObject[i]))
+	    if(IsValidObject(ShipObject[i]))
 	    {
-	        DestroyVehicle(i);
 	        DestroyDynamicObject(ShipObject[i]);
 	        ShipObject[i] = INVALID_OBJECT_ID;
 	    }
+	    if(isufoveh[i] == 1)
+	    {
+	        DestroyVehicle(i);
+	    }
 	}
-
 	return 1;
 }
 
@@ -40,6 +48,7 @@ CMD:ufo(playerid, params[])
 	ShipObject[vvid] = CreateDynamicObject(18846, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 	AttachDynamicObjectToVehicle(ShipObject[vvid], vvid, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 	PutPlayerInVehicle(playerid, vvid, 0);
+	isufoveh[vvid] = 1;
 	return true;
 }
 
@@ -52,6 +61,7 @@ CMD:removeufo(playerid, params[])
 	DestroyVehicle(vvid);
 	DestroyDynamicObject(ShipObject[vvid]);
 	ShipObject[vvid] = INVALID_OBJECT_ID;
+	isufoveh[vvid] = -1;
 	return true;
 }
 
@@ -59,10 +69,12 @@ public OnVehicleDeath(vehicleid, killerid)
 {
 	if(IsValidObject(ShipObject[vehicleid]))
 	{
-	    DestroyVehicle(vehicleid);
-	    DestroyDynamicObject(ShipObject[vehicleid]);
-	    ShipObject[vehicleid] = INVALID_OBJECT_ID;
+		DestroyDynamicObject(ShipObject[vehicleid]);
+	        ShipObject[vehicleid] = INVALID_OBJECT_ID;
 	}
-
+	if(isufoveh[vehicleid] == 1)
+	{
+		DestroyVehicle(vehicleid);
+	}
 	return 1;
 }
