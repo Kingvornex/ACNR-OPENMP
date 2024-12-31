@@ -5901,10 +5901,10 @@ stock DestroyNeons(vehicleid)
 	DestroyObject(pinkneons2[vehicleid]);
 	DestroyObject(whiteneons[vehicleid]);
 	DestroyObject(whiteneons2[vehicleid]);
-	if(IsShopVehicle[vehicleid] != -1)
+/*	if(IsShopVehicle[vehicleid] != -1)
 	{
 		VehicleInfo[IsShopVehicle[vehicleid]][vNeons] = NO_NEONS;
-	}
+	}*/
 	return 1;
 }
 
@@ -6171,43 +6171,43 @@ stock LoadPlayerVehicles(playerid)
 
 				if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == BLUE_NEONS)
 				{
-				    blueneons[newveh] = CreateObject(18648,0,0,0,0,0,0);
-            		blueneons2[newveh] = CreateObject(18648,0,0,0,0,0,0);
+				    blueneons[newveh] = CreateDynamicObject(18648,0,0,0,0,0,0);
+            		blueneons2[newveh] = CreateDynamicObject(18648,0,0,0,0,0,0);
             		AttachObjectToVehicle(blueneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             		AttachObjectToVehicle(blueneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				}
 				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == RED_NEONS)
 				{
-				    redneons[newveh] = CreateObject(18647,0,0,0,0,0,0);
-            		redneons2[newveh] = CreateObject(18647,0,0,0,0,0,0);
+				    redneons[newveh] = CreateDynamicObject(18647,0,0,0,0,0,0);
+            		redneons2[newveh] = CreateDynamicObject(18647,0,0,0,0,0,0);
             		AttachObjectToVehicle(redneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             		AttachObjectToVehicle(redneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				}
 				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == GREEN_NEONS)
 				{
-				    greenneons[newveh] = CreateObject(18649,0,0,0,0,0,0);
-            		greenneons2[newveh] = CreateObject(18649,0,0,0,0,0,0);
+				    greenneons[newveh] = CreateDynamicObject(18649,0,0,0,0,0,0);
+            		greenneons2[newveh] = CreateDynamicObject(18649,0,0,0,0,0,0);
             		AttachObjectToVehicle(greenneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             		AttachObjectToVehicle(greenneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				}
 				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == YELLOW_NEONS)
 				{
-				    yellowneons[newveh] = CreateObject(18650,0,0,0,0,0,0);
-            		yellowneons2[newveh] = CreateObject(18650,0,0,0,0,0,0);
+				    yellowneons[newveh] = CreateDynamicObject(18650,0,0,0,0,0,0);
+            		yellowneons2[newveh] = CreateDynamicObject(18650,0,0,0,0,0,0);
             		AttachObjectToVehicle(yellowneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             		AttachObjectToVehicle(yellowneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				}
 				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == PINK_NEONS)
 				{
-				    pinkneons[newveh] = CreateObject(18651,0,0,0,0,0,0);
-            		pinkneons2[newveh] = CreateObject(18651,0,0,0,0,0,0);
+				    pinkneons[newveh] = CreateDynamicObject(18651,0,0,0,0,0,0);
+            		pinkneons2[newveh] = CreateDynamicObject(18651,0,0,0,0,0,0);
             		AttachObjectToVehicle(pinkneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             		AttachObjectToVehicle(pinkneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				}
 				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == WHITE_NEONS)
 				{
-				    whiteneons[newveh] = CreateObject(18652,0,0,0,0,0,0);
-            		whiteneons2[newveh] = CreateObject(18652,0,0,0,0,0,0);
+				    whiteneons[newveh] = CreateDynamicObject(18652,0,0,0,0,0,0);
+            		whiteneons2[newveh] = CreateDynamicObject(18652,0,0,0,0,0,0);
             		AttachObjectToVehicle(whiteneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             		AttachObjectToVehicle(whiteneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				}
@@ -8823,7 +8823,7 @@ public OnGameModeInit()
     AddStaticVehicleEx(513,1435.86621094,1211.45214844,11.60506916,0.00000000,-1,1,300); //Stunt
     AddStaticVehicleEx(513,1423.86303711,1211.59655762,11.60506916,0.00000000,-1,1,300); //Stunt
     AddStaticVehicleEx(513,1411.95837402,1211.67211914,11.60506916,0.00000000,-1,1,300); //Stunt
-    AddStaticVehicleEx(577,1584.68713379,1188.54150391,9.81250000,180.00000000,-1,1,300); //AT-400
+    AddStaticVehicleEx(577, 1585.5671, 1188.4814, 9.8125, 180.00000000, -1, 1, 300); //AT-400
     AddStaticVehicleEx(592,1567.93286133,1448.33728027,12.32543945,90.00000000,-1,1,300); //Andromada
     AddStaticVehicleEx(519,1340.08496094,1606.63916016,11.74180031,270.00000000,-1,-1,300); //Shamal
     AddStaticVehicleEx(519,1338.94812012,1578.35620117,11.82038498,270.00000000,-1,-1,300); //Shamal
@@ -12591,6 +12591,7 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
 	return 1;
 }
 */
+/*
 forward Antifakekill(playerid,killerid);
 public Antifakekill(playerid,killerid)
 {
@@ -12630,10 +12631,10 @@ public Antifakekill(playerid,killerid)
     }
     return 1;
 }
-
+*/
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
-    TextDrawHideForPlayer(playerid,esmmashin[playerid]);
+    TextDrawHideForPlayer(playerid, esmmashin[playerid]);
 	
     TextDrawSetString(ACNRInfo[playerid], "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.2 - ~g~Forum/site~w~: just-samp.rozblog.com");
 
@@ -12716,7 +12717,7 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 
 	SendDeathMessage(killerid, playerid, reason);//Below this must ONLY be killerid kills(no INVALID_PLAYER_ID's)
 
-	SetTimerEx("Antifakekill",10,false,"uu",playerid,killerid);
+//	SetTimerEx("Antifakekill",10,false,"uu",playerid,killerid);
 
     if(PlayerInfo[playerid][vLevel] < 1)
 	{
@@ -26065,8 +26066,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(GetPlayerCash(playerid) >= 5000)
 			{
 			    DestroyNeons(GetPlayerVehicleID(playerid));
-		    	blueneons[GetPlayerVehicleID(playerid)] = CreateObject(18648,0,0,0,0,0,0);
-            	blueneons2[GetPlayerVehicleID(playerid)] = CreateObject(18648,0,0,0,0,0,0);
+		    	blueneons[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18648,0,0,0,0,0,0);
+            	blueneons2[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18648,0,0,0,0,0,0);
             	AttachObjectToVehicle(blueneons[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(blueneons2[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = BLUE_NEONS;
@@ -26087,8 +26088,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(GetPlayerCash(playerid) >= 5000)
 			{
 			    DestroyNeons(GetPlayerVehicleID(playerid));
-		    	redneons[GetPlayerVehicleID(playerid)] = CreateObject(18647,0,0,0,0,0,0);
-            	redneons2[GetPlayerVehicleID(playerid)] = CreateObject(18647,0,0,0,0,0,0);
+		    	redneons[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18647,0,0,0,0,0,0);
+            	redneons2[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18647,0,0,0,0,0,0);
             	AttachObjectToVehicle(redneons[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(redneons2[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = RED_NEONS;
@@ -26109,8 +26110,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(GetPlayerCash(playerid) >= 5000)
 			{
 			    DestroyNeons(GetPlayerVehicleID(playerid));
-		    	greenneons[GetPlayerVehicleID(playerid)] = CreateObject(18649,0,0,0,0,0,0);
-      			greenneons2[GetPlayerVehicleID(playerid)] = CreateObject(18649,0,0,0,0,0,0);
+		    	greenneons[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18649,0,0,0,0,0,0);
+      			greenneons2[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18649,0,0,0,0,0,0);
             	AttachObjectToVehicle(greenneons[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(greenneons2[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = GREEN_NEONS;
@@ -26131,8 +26132,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(GetPlayerCash(playerid) >= 5000)
 			{
 			    DestroyNeons(GetPlayerVehicleID(playerid));
-		    	yellowneons[GetPlayerVehicleID(playerid)] = CreateObject(18650,0,0,0,0,0,0);
-       			yellowneons2[GetPlayerVehicleID(playerid)] = CreateObject(18650,0,0,0,0,0,0);
+		    	yellowneons[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18650,0,0,0,0,0,0);
+       			yellowneons2[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18650,0,0,0,0,0,0);
             	AttachObjectToVehicle(yellowneons[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(yellowneons2[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = YELLOW_NEONS;
@@ -26153,8 +26154,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(GetPlayerCash(playerid) >= 5000)
 			{
 			    DestroyNeons(GetPlayerVehicleID(playerid));
-		    	pinkneons[GetPlayerVehicleID(playerid)] = CreateObject(18651,0,0,0,0,0,0);
-          		pinkneons2[GetPlayerVehicleID(playerid)] = CreateObject(18651,0,0,0,0,0,0);
+		    	pinkneons[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18651,0,0,0,0,0,0);
+          		pinkneons2[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18651,0,0,0,0,0,0);
             	AttachObjectToVehicle(pinkneons[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(pinkneons2[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = PINK_NEONS;
@@ -26175,8 +26176,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(GetPlayerCash(playerid) >= 5000)
 			{
 			    DestroyNeons(GetPlayerVehicleID(playerid));
-		    	whiteneons[GetPlayerVehicleID(playerid)] = CreateObject(18652,0,0,0,0,0,0);
-          		whiteneons2[GetPlayerVehicleID(playerid)] = CreateObject(18652,0,0,0,0,0,0);
+		    	whiteneons[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18652,0,0,0,0,0,0);
+          		whiteneons2[GetPlayerVehicleID(playerid)] = CreateDynamicObject(18652,0,0,0,0,0,0);
             	AttachObjectToVehicle(whiteneons[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(whiteneons2[GetPlayerVehicleID(playerid)], GetPlayerVehicleID(playerid), 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = WHITE_NEONS;
@@ -26196,6 +26197,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				if(IsPlayerInOwnedVehicle(playerid, GetPlayerVehicleID(playerid)) == 0) return SendClientMessage(playerid, RED, "You can only remove neons from owned vehicles.");
 			    DestroyNeons(GetPlayerVehicleID(playerid));
 				SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vNeons] = NO_NEONS;
 			    SendClientMessage(playerid, YELLOW, "Neons Removed.");
 				ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
 			}
@@ -28696,43 +28698,43 @@ public OnVehicleDeath(vehicleid)
 
 		if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == BLUE_NEONS)
 		{
-				blueneons[newveh] = CreateObject(18648,0,0,0,0,0,0);
-            	blueneons2[newveh] = CreateObject(18648,0,0,0,0,0,0);
+				blueneons[newveh] = CreateDynamicObject(18648,0,0,0,0,0,0);
+            	blueneons2[newveh] = CreateDynamicObject(18648,0,0,0,0,0,0);
             	AttachObjectToVehicle(blueneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(blueneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 		}
 		else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == RED_NEONS)
 		{
-				redneons[newveh] = CreateObject(18647,0,0,0,0,0,0);
-            	redneons2[newveh] = CreateObject(18647,0,0,0,0,0,0);
+				redneons[newveh] = CreateDynamicObject(18647,0,0,0,0,0,0);
+            	redneons2[newveh] = CreateDynamicObject(18647,0,0,0,0,0,0);
             	AttachObjectToVehicle(redneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
             	AttachObjectToVehicle(redneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 		}
 		else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == GREEN_NEONS)
 		{
-			greenneons[newveh] = CreateObject(18649,0,0,0,0,0,0);
-          	greenneons2[newveh] = CreateObject(18649,0,0,0,0,0,0);
+			greenneons[newveh] = CreateDynamicObject(18649,0,0,0,0,0,0);
+          	greenneons2[newveh] = CreateDynamicObject(18649,0,0,0,0,0,0);
            	AttachObjectToVehicle(greenneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
          	AttachObjectToVehicle(greenneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 		}
 		else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == YELLOW_NEONS)
 		{
-			yellowneons[v] = CreateObject(18650,0,0,0,0,0,0);
-           	yellowneons2[v] = CreateObject(18650,0,0,0,0,0,0);
+			yellowneons[v] = CreateDynamicObject(18650,0,0,0,0,0,0);
+           	yellowneons2[v] = CreateDynamicObject(18650,0,0,0,0,0,0);
            	AttachObjectToVehicle(yellowneons[v], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
            	AttachObjectToVehicle(yellowneons2[v], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 		}
 		else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == PINK_NEONS)
 		{
-			pinkneons[newveh] = CreateObject(18651,0,0,0,0,0,0);
-          	pinkneons2[newveh] = CreateObject(18651,0,0,0,0,0,0);
+			pinkneons[newveh] = CreateDynamicObject(18651,0,0,0,0,0,0);
+          	pinkneons2[newveh] = CreateDynamicObject(18651,0,0,0,0,0,0);
          	AttachObjectToVehicle(pinkneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
         	AttachObjectToVehicle(pinkneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 		}
 		else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == WHITE_NEONS)
 		{
-			whiteneons[newveh] = CreateObject(18652,0,0,0,0,0,0);
-          	whiteneons2[newveh] = CreateObject(18652,0,0,0,0,0,0);
+			whiteneons[newveh] = CreateDynamicObject(18652,0,0,0,0,0,0);
+          	whiteneons2[newveh] = CreateDynamicObject(18652,0,0,0,0,0,0);
          	AttachObjectToVehicle(whiteneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
         	AttachObjectToVehicle(whiteneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
 		}
@@ -36510,6 +36512,7 @@ CMD:goto(playerid, params[])
 		    SetVehiclePos(GetPlayerVehicleID(playerid), gX+2, gY+2, gZ);
 		    SetVehicleVirtualWorld(vID, pID);
 		    SetPlayerInterior(playerid, Int);
+			LinkVehicleToInterior(vID, Int);
 		    if(IsPlayerInArena{gotoplayerid} == true)
 		    {
 			IsPlayerInArena{playerid} = true;
@@ -36564,6 +36567,7 @@ CMD:goto(playerid, params[])
 		    SetVehiclePos(GetPlayerVehicleID(playerid), gX+2, gY+2, gZ);
 		    SetVehicleVirtualWorld(vID, pID);
 		    SetPlayerInterior(playerid, Int);
+			LinkVehicleToInterior(vID, Int);
 		    if(IsPlayerInArena{gotoplayerid} == true)
 		    {
 			IsPlayerInArena{playerid} = true;
@@ -36626,6 +36630,7 @@ CMD:get(playerid, params[])
 		    SetVehiclePos(GetPlayerVehicleID(getplayerid), gX+2, gY+2, gZ);
 		    SetVehicleVirtualWorld(vID, pID);
 		    SetPlayerInterior(getplayerid, Int);
+			LinkVehicleToInterior(vID, Int);
 		    if(IsPlayerInArena{playerid} == true)
 		    {
 			IsPlayerInArena{getplayerid} = true;
@@ -36906,6 +36911,7 @@ forward MoveVehToZero(vid);
 public MoveVehToZero(vid)
 {
     SetVehiclePos(vid, 0.0, 0.0, 3.0);
+	LinkVehicleToInterior(vid, 0);
 	return 1;
 }
 
@@ -39945,10 +39951,10 @@ CMD:todolist(playerid, params[])
     new UPS[2000];
     strcat(UPS, "{FFFFFF}Version 2.2.2 ToDo List : \n");
     strcat(UPS, "{FFFFFF}  Add easyDialog.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Fix Anti Fake Kill.\n");
     strcat(UPS, "{FFFFFF}  fix login password.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Save Vehicle Color with TUNE_MENU2 Purchases.\n");
+    strcat(UPS, "{FFFFFF}  Fix texdraws and loading screen after /restart.\n");
     strcat(UPS, "{FFFFFF}  save in user files when the data being edited.\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
