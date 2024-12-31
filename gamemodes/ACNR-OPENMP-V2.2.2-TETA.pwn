@@ -86,7 +86,7 @@ ToDo:
 //#include <GetVehicleColor> // GetVehicleColor is added to open.mp by default
 #include <YSI-Includes\YSI_Coding\y_timers>
 #include <a_actor>
-#include <mGates>
+#include <mGates2>
 #include <fly>
 #include <AutoAFK>
 #include <easyDialog>
@@ -9232,9 +9232,9 @@ public OnGameModeInit()
     hanger3 = CreateObject(971,2151.81958008,2417.00878906,78.44499207,90.00000000,0.00000000,0.00000000); //object(subwaygate) (8)//Hanger gate 3 a
     hanger4 = CreateObject(971,2160.73437500,2417.00878906,78.44499207,90.00000000,0.00000000,0.00000000); //object(subwaygate) (9)//Hanger gate 4 b
 
-	FBIGate = CreateAutomaticGate(971, 2517.08227539, 2346.28271484, 13.30023003, 0.00000000, 0.00000000, 90.000000000, 2517.08227500, 2346.28271400, 05.30023000, 0.00000000, 0.00000000, 90.00000000, 2517.08230000, 2346.28270000, 11.05370000, 50 , 4.0 , 1);
-	PDGate1 = CreateAutomaticGate(971, 2335.01538086, 2444.08398438, 7.299247740, 0.00000000, 0.00000000, 60.000000000, 2335.01538086, 2444.08398438, -1.29924774, 0.00000000, 0.00000000, 60.00000000, 2335.01540000, 2444.08400000, 5.516100000, 50 , 4.0 , 1);
-	PDGate2 = CreateAutomaticGate(971, 2293.96020508, 2499.41804688, 5.588595390, 0.00000000, 0.00000000, 270.00000000, 2293.96020508, 2499.24804688, 13.58859539, 0.00000000, 0.00000000, 270.0000000, 2293.97050000, 2498.52660000, 3.357600000, 50 , 4.0 , 1);
+	FBIGate = CreateAutomaticGate(971, 2517.08227539, 2346.28271484, 13.30023003, 0.00000000, 0.00000000, 90.000000000, 2517.08227500, 2346.28271400, 05.30023000, 0.00000000, 0.00000000, 90.00000000, 2517.2830, 2346.2686, 10.2335, 20 , 4.0 , 1);
+	PDGate1 = CreateAutomaticGate(971, 2335.01538086, 2444.08398438, 7.299247740, 0.00000000, 0.00000000, 60.000000000, 2335.01538086, 2444.08398438, -1.29924774, 0.00000000, 0.00000000, 60.00000000, 2334.7754, 2443.3240, 4.60810, 20 , 4.0 , 1);
+	PDGate2 = CreateAutomaticGate(971, 2293.96020508, 2499.41804688, 5.588595390, 0.00000000, 0.00000000, 270.00000000, 2293.96020508, 2499.24804688, 13.58859539, 0.00000000, 0.00000000, 270.0000000, 2293.9705, 2498.5266, 2.34050, 20 , 4.0 , 1);
 
     //NVPD (Inside) Elevator door/jail cell map bug fix/es
     CreateObject(18758,193.92813110,168.20587158,1003.91552734,0.00000000,0.00000000,180.00000000); //object(thebolla04) (1)
@@ -36379,8 +36379,8 @@ CMD:setwanted(playerid, params[])
 	new targetid, level;
     if(sscanf(params, "ud", targetid, level)) return SendClientMessage(playerid, RED, "[USAGE]: /setwanted [name/id] [level]");
     if(PlayerInfo[playerid][aLevel] < 3) return SendClientMessage(playerid, RED, "Only admin level 3+ can use this command.");
-    if(GetTeam{targetid} != CLASS_CIV) return SendClientMessage(playerid,RED,"shoma nemitavanid be cia/police/doctor/fbi/army wanted bedahid.");
-	if(targetid == INVALID_PLAYER_ID) return SendClientMessage(playerid, RED, "Player not found.");
+    if(targetid == INVALID_PLAYER_ID) return SendClientMessage(playerid, RED, "Player not found.");
+	if(GetTeam{targetid} != CLASS_CIV) return SendClientMessage(playerid,RED,"shoma nemitavanid be cia/police/doctor/fbi/army wanted bedahid.");
     {
         format(fstr, sizeof(fstr), "Admin %s [%d] has set your wanted level to %d.", GetName(playerid), playerid, level);
         SendClientMessage(targetid, LIGHTGREEN, fstr);
@@ -39928,6 +39928,7 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Increased police station gates range.\n");
     strcat(UPS, "{FFFFFF}  Increased police cmds range.\n");
     strcat(UPS, "{FFFFFF}  Added /helpme cmd.\n");
+    strcat(UPS, "{FFFFFF}  Added /helpadmin cmd.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
@@ -39969,6 +39970,46 @@ CMD:todolist(playerid, params[])
     return true;
 }
 
+CMD:helpadmin(playerid, params[]) {
+Dialog_Show(playerid, HELP_ADMIN, DIALOG_STYLE_TABLIST_HEADERS, "ADMIN Help Menu", "Command\tparameters\tAdmin Level\n\
+/objlist\t[-]\t+1\n\
+/createobject\t[objectid]\t+1\n\
+/cancelobject\t[-]\t+1\n\
+/setobject\t[-]\t+1\n\
+/deletesetobjects\t[-]\t+1\n\
+/attachobject\t[-]\t+1\n\
+/detachobject\t[-]\t+1\n\
+/moveobject\t[symbol] [coord] [distance] [seconds]\t+1\n\
+/moveup\t[coord]\t+1\n\
+/movedown\t[coord]\t+1\n\
+/movenorth\t[coord]\t+1\n\
+/movesouth\t[coord]\t+1\n\
+/movewest\t[coord]\t+1\n\
+/moveeast\t[coord]\t+1\n\
+/rotatex\t[rotation]\t+1\n\
+/rotatey\t[rotation]\t+1\n\
+/rotatez\t[rotation]\t+1\n\
+/createhouse\t[type]\t4\n\
+/removehouse\t[house id]\t4\n\
+/removeallhouses\t[-]\t4\n\
+/resethouseprices\t[-]\t4\n\
+/sellhouse\t[house id]\t4\n\
+/sellallhouses\t[-]\t4\n\
+/...\t[...]\t...", "OK", "Close");
+return 1;
+}
+
+Dialog:HELP_ADMIN(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		new str[64];
+        format(str, 64, "You have selected the '%s'.", inputtext);
+        SendClientMessage(playerid, -1, str);
+	}
+	return 1;
+}
+
 CMD:helpme(playerid, params[]) {
     Dialog_Show(playerid, HelpMe, DIALOG_STYLE_TABLIST_HEADERS, "Help Menu", "CMD\tCommand\tDescription\n\
 		/cmds\t/commands\tCommands List\n\
@@ -39983,51 +40024,52 @@ CMD:helpme(playerid, params[]) {
     return 1;
 }
 
-Dialog:HelpMe(playerid, response, listitem, inputtext[]) {
+Dialog:HelpMe(playerid, response, listitem, inputtext[])
+{
     if(response)
 	{
-		new str[64];
-        format(str, 64, "You have selected the '%s'.", inputtext);
-        SendClientMessage(playerid, -1, str);
-        /*switch (listitem)
+//		new str[64];
+//        format(str, 64, "You have selected the '%s'.", inputtext);
+//        SendClientMessage(playerid, -1, str);
+        switch (listitem)
 			{
 				case 0:
 				{
-					return cmd_cmds((playerid, params);
+					return cmd_cmds(playerid, "");
 				}
 				case 1:
 				{
-					return cmd_acmds((playerid, params);
+					return cmd_acmds(playerid, "");
 				}
 				case 2:
 				{
-					return cmd_gmds((playerid, params);
+					return cmd_gcmds(playerid, "");
 				}
 				case 3:
 				{
-					return cmd_vehmds((playerid, params);
+					return cmd_vehcmds(playerid, "");
 				}
 				case 4:
 				{
-					return cmd_vcmds((playerid, params);
+					return cmd_vcmds(playerid, "");
 				}
 				case 5:
 				{
-					return cmd_help((playerid, params);
+					return cmd_help(playerid, "");
 				}
 				case 6:
 				{
-					return cmd_cp((playerid, params);
+					return cmd_cp(playerid, "");
 				}
 				case 7:
 				{
-					return cmd_faqs((playerid, params);
+					return cmd_faqs(playerid, "");
 				}
 				case 8:
 				{
-					return cmd_w((playerid, params);
+					return cmd_w(playerid, "");
 				}
-			}*/
+			}
     }
     return 1;
 }
