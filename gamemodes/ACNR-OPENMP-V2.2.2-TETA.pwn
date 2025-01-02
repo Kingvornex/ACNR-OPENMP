@@ -8594,7 +8594,7 @@ public OnGameModeInit()
 	CountStatus = 0;
 
     EnableStuntBonusForAll(false);
-    ShowPlayerMarkers(2);
+    ShowPlayerMarkers(PLAYER_MARKERS_MODE_GLOBAL);
     ShowNameTags(true);
     DisableInteriorEnterExits();
     AllowInteriorWeapons(true);
@@ -39936,6 +39936,7 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Added /helpme cmd.\n");
     strcat(UPS, "{FFFFFF}  Added /helpadmin cmd.\n");
     strcat(UPS, "{FFFFFF}  Changed Vehicle Neons to Streamer Dynamic Objects.\n");
+    strcat(UPS, "{FFFFFF}  Changed to PLAYER_MARKERS_MODE_GLOBAL.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
