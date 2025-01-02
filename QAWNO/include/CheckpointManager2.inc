@@ -26,7 +26,7 @@ forward public OnCheckpointEnter(playerid, checkpointid);
 #define _CHECKPOINT_MANAGER_INCLUDED
 #pragma library CheckpointManager
 
-#include <open.mp>
+//#include <open.mp>
 
 #define MAX_CHECKPOINTS 300
 #define CHECKPOINT_SEEKER_DELAY 300
@@ -35,7 +35,8 @@ forward public OnCheckpointEnter(playerid, checkpointid);
 
 
 // CHECKPOINT ENUMERATION
-enum _checkpointEnum{
+enum _checkpointEnum
+{
 	_chp_populated,			// Is this slot of the memory populated?
 	
 	_chp_id,				// The ID of the checkpoint
@@ -69,20 +70,24 @@ stock CreateCheckpoint(__ownerid, __chpid, Float:__posX, Float:__posY, Float:__p
 	if(_totalCheckpoints == MAX_CHECKPOINTS) return 0;
 	
 	// First checkpoint? Setting everything to unpopulated
-	if(!_totalCheckpoints){
+	if(!_totalCheckpoints)
+	{
 		for(new i; i < MAX_PLAYERS; i++) _p_VisibleCheckpoint[i] = -1;
-		for(new i; i < MAX_CHECKPOINTS; i++){
+		for(new i; i < MAX_CHECKPOINTS; i++)
+		{
 			_checkpoints[i][_chp_populated] = false;
 		}
 		
 		// Sending the Initialization Info
-		printf("[Checkpoint Manager : Version 0.1.1b] System Initialized... (%d)", __chpid);
+		//printf("[Checkpoint Manager : Version 0.1.1b] System Initialized... (%d)", __chpid);
 	}
 	
 	// Getting the first open slot
 	new _slot;
-	for(new i = 0; i < MAX_CHECKPOINTS; i++){
-		if(!_checkpoints[i][_chp_populated]){
+	for(new i = 0; i < MAX_CHECKPOINTS; i++)
+	{
+		if(!_checkpoints[i][_chp_populated])
+		{
 			_slot = i;
 			break;
 		}
@@ -101,17 +106,19 @@ stock CreateCheckpoint(__ownerid, __chpid, Float:__posX, Float:__posY, Float:__p
 	_checkpoints[_slot][_chp_interior_id] = 0;
 	_checkpoints[_slot][_chp_world_id] = 0;
 	
-	printf("[Checkpoint Manager] Checkpoint created (%d) at slot %d", __chpid, _slot);
-	printf("Checkpoint Position: { %f, %f, %f }", _checkpoints[_slot][_chp_posX], _checkpoints[_slot][_chp_posY], _checkpoints[_slot][_chp_posZ]);
+	//printf("[Checkpoint Manager] Checkpoint created (%d) at slot %d", __chpid, _slot);
+	//printf("Checkpoint Position: { %f, %f, %f }", _checkpoints[_slot][_chp_posX], _checkpoints[_slot][_chp_posY], _checkpoints[_slot][_chp_posZ]);
 	
 	_totalCheckpoints++;
 	return 1;
 }
 
 //---------------------------------------------------------------------------------------------
-stock SetCheckpointInterior(__chpid, __interiorid){
+stock SetCheckpointInterior(__chpid, __interiorid)
+{
 	new _slot = __ChpSlotByID(__chpid);
-	if(_slot > -1){
+	if(_slot > -1)
+	{
 		// Valid slot?
 		_checkpoints[_slot][_chp_interior_id] = __interiorid;
 		return 1;
@@ -120,36 +127,44 @@ stock SetCheckpointInterior(__chpid, __interiorid){
 }
 
 //---------------------------------------------------------------------------------------------
-stock SetCheckpointVirtualWorld(__chpid, __virtual_world_id){
+stock SetCheckpointVirtualWorld(__chpid, __virtual_world_id)
+{
 	new _slot = __ChpSlotByID(__chpid);
-	if(_slot > -1){
+	if(_slot > -1)
+	{
 		_checkpoints[_slot][_chp_world_id] = __virtual_world_id;
 		return 1;
 	}
 	return 0;
 }
 
-stock ToggleCheckpointActive(__chpid, bool:__active){
+stock ToggleCheckpointActive(__chpid, bool:__active)
+{
 	new _slot = __ChpSlotByID(__chpid);
-	if(_slot > -1){
+	if(_slot > -1)
+	{
 		_checkpoints[_slot][_chp_active] = __active;
 		return 1;
 	}
 	return 0;
 }
 
-stock ChangeCheckpointOwner(__chpid, __owner){
+stock ChangeCheckpointOwner(__chpid, __owner)
+{
 	new _slot = __ChpSlotByID(__chpid);
-	if(_slot > -1){
+	if(_slot > -1)
+	{
 		_checkpoints[_slot][_chp_owner] = __owner;
 		return 1;
 	}
 	return 0;
 }
 
-stock RemoveCheckpoint(__chpid){
+stock RemoveCheckpoint(__chpid)
+{
 	new _slot = __ChpSlotByID(__chpid);
-	if(_slot > -1){
+	if(_slot > -1)
+	{
 		// Deleting the checkpoint
 		_checkpoints[_slot][_chp_populated] = false;
 		_checkpoints[_slot][_chp_id] = -1;
@@ -163,7 +178,7 @@ stock RemoveCheckpoint(__chpid){
 		_checkpoints[_slot][_chp_interior_id] = -1;
 		_checkpoints[_slot][_chp_world_id] = -1;
 		_totalCheckpoints--;
-		printf("\n[Checkpoint Manager] Checkpoint removed (ID: %d)", __chpid);
+		//printf("\n[Checkpoint Manager] Checkpoint removed (ID: %d)", __chpid);
 		return 1;
 	}
 	return 0;
@@ -171,8 +186,10 @@ stock RemoveCheckpoint(__chpid){
 
 //---------------------------------------------------------------------------------------------
 // Gets the checkpoint slot by id
-stock __ChpSlotByID(__chpid){
-	for(new i; i < MAX_CHECKPOINTS; i++){
+stock __ChpSlotByID(__chpid)
+{
+	for(new i; i < MAX_CHECKPOINTS; i++)
+	{
 		if(_checkpoints[i][_chp_id] == __chpid) return i;
 	}
 	return -1;
@@ -180,17 +197,20 @@ stock __ChpSlotByID(__chpid){
 
 
 forward CheckpointSeeker();
-stock StartCheckpointSeeking(){
+stock StartCheckpointSeeking()
+{
 	_chp_manager_timer_id = SetTimer("CheckpointSeeker", CHECKPOINT_SEEKER_DELAY, 1);
 	return 1;
 }
 
-stock StopCheckpointSeeking(){
+stock StopCheckpointSeeking()
+{
 	KillTimer(_chp_manager_timer_id);
 	return 1;
 }
 
-public CheckpointSeeker(){
+public CheckpointSeeker()
+{
 	new Float:__posX, Float:__posY, Float:__posZ;
 	new __interior;
 	new __virtualWorld;
@@ -221,7 +241,8 @@ public CheckpointSeeker(){
 			__virtualWorld = GetPlayerVirtualWorld(i);
 			
 			// Looking for a new checkpoint
-			for(new j = 0; j < MAX_CHECKPOINTS; j++){
+			for(new j = 0; j < MAX_CHECKPOINTS; j++)
+			{
 				if(!_checkpoints[j][_chp_populated]) continue;
 				if((_checkpoints[j][_chp_owner] != i) && (_checkpoints[j][_chp_owner] != -1)) continue;
 				if(_checkpoints[j][_chp_interior_id] != __interior) continue;
@@ -232,7 +253,8 @@ public CheckpointSeeker(){
 				&& __posY > (_checkpoints[j][_chp_posY] - _checkpoints[j][_chp_viewDistance])
 				&& __posY < (_checkpoints[j][_chp_posY] + _checkpoints[j][_chp_viewDistance])
 				&& __posZ > (_checkpoints[j][_chp_posZ] - _checkpoints[j][_chp_viewDistance])
-				&& __posZ < (_checkpoints[j][_chp_posZ] + _checkpoints[j][_chp_viewDistance])){
+				&& __posZ < (_checkpoints[j][_chp_posZ] + _checkpoints[j][_chp_viewDistance]))
+				{
 					SetPlayerCheckpoint(i, _checkpoints[j][_chp_posX], _checkpoints[j][_chp_posY], _checkpoints[j][_chp_posZ], _checkpoints[j][_chp_size]);
 					_p_VisibleCheckpoint[i] = j;
 					break;
@@ -243,15 +265,19 @@ public CheckpointSeeker(){
 	return 1;
 }
 
-stock VerifyCheckpoint(__playerid){
-	if(_p_VisibleCheckpoint[__playerid] >= 0){
+stock VerifyCheckpoint(__playerid)
+{
+	if(_p_VisibleCheckpoint[__playerid] >= 0)
+	{
 		OnCheckpointEnter(__playerid, _checkpoints[_p_VisibleCheckpoint[__playerid]][_chp_id]);
 		return 1;
 	}
 	return 0;
 }
-stock VerifyCheckpointe(__playerid){
-	if(_p_VisibleCheckpoint[__playerid] >= 0){
+stock VerifyCheckpointe(__playerid)
+{
+	if(_p_VisibleCheckpoint[__playerid] >= 0)
+	{
 		OnCheckpointEXIT(__playerid, _checkpoints[_p_VisibleCheckpoint[__playerid]][_chp_id]);
 		return 1;
 	}
