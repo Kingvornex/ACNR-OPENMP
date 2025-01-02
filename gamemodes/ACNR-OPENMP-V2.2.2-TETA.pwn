@@ -205,6 +205,7 @@ stock WP_Hash(buffer[], len, const str[])
 
 #define MAX_SHOP_VEHICLES 1000
 
+// DIALOG ID
 #define BANK_MENU 0
 #define WITHDRAW_MENU 1
 #define DEPOSIT_MENU 2
@@ -376,6 +377,7 @@ stock WP_Hash(buffer[], len, const str[])
 
 #define HOUSE_MENU 2000//Dont change id
 
+// CHECKPOINT ID
 #define NVPD_BASE_BOTT_CP 1
 #define NVPD_BASE_TOP_CP 2
 #define NVPD_ENT_1_CP 3
@@ -7671,11 +7673,19 @@ stock SavePosStats(playerid)
 {
 	if(IsLoggedIn{playerid} == 1 && HasSpawned{playerid} == true)
 	{
-		new Float:x, Float:y, Float:z, Float:a, interior, world;
-		GetPlayerPos(playerid, x, y, z);
+		new Float:x, Float:y, Float:z, Float:a, interior, world, Float:oldz;
+		GetPlayerPos(playerid, x, y, oldz);
 		GetPlayerFacingAngle(playerid, a);
 		interior = GetPlayerInterior(playerid);
 		world = GetPlayerVirtualWorld(playerid);
+		if(IsPlayerInAnyVehicle(playerid))
+		{
+			z = oldz + 1;
+		}
+		else
+		{
+			z = oldz;
+		}
 		if(fexist(PosPath(playerid)))
 		{
 			new INI:file = INI_Open(PosPath(playerid));
@@ -22818,11 +22828,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
             {
 		    case 0:
 		    {
-				ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_LIST, "{FFFFFF}Paintjobs List", "{FFFFFF}Item: Paint Job - 1 - Price: $5K\nItem: Paint Job - 2 - Price: $5K\nItem: Paint Job - 3 - Price: $5K\nBack", "Select", "Cancel");
+				ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Paintjobs List", "{FFFFFF}ITEM\tCODE\tPRICE\n1\t Paint Job - 1 \t$5K\n2\t Paint Job - 2 \t$5K\n3\t Paint Job - 3 \t$5K\n4\tRemove Paint Job\t$5K\nBack", "Select", "Cancel");
 			}
 			case 1:
 			{
-				ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+				ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 			}
 			case 2:
 			{
@@ -22908,13 +22918,19 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        {
 
 					ChangeVehiclePaintjob(GetPlayerVehicleID(playerid),0);
-				    OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 0);
-					ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
-		            OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+				    //OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 0);
+					//ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
+		            //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+					//CallRemoteFunction("OnVehicleRespray", "iii", playerid, GetPlayerVehicleID(playerid), 0);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+	    				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vPaintJob] = 0;
+	    				SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 					PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 					GivePlayerCash(playerid,-5000);
 					SendClientMessage(playerid,YELLOW,"You have added Paintjob - 1 to your car for $5K.");
-                    ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_LIST, "{FFFFFF}Paintjobs List", "{FFFFFF}Item: Paint Job - 1 - Price: $5K\nItem: Paint Job - 2 - Price: $5K\nItem: Paint Job - 3 - Price: $5K\nBack", "Select", "Cancel");
+                    ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Paintjobs List", "{FFFFFF}ITEM\tCODE\tPRICE\n1\t Paint Job - 1 \t$5K\n2\t Paint Job - 2 \t$5K\n3\t Paint Job - 3 \t$5K\n4\tRemove Paint Job\t$5K\nBack", "Select", "Cancel");
 
 				}
 				else
@@ -22945,13 +22961,18 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        {
 
 					ChangeVehiclePaintjob(GetPlayerVehicleID(playerid),1);
-					OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 1);
-					ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
-		            OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+					//OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 1);
+					//ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
+		            //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+	    				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vPaintJob] = 1;
+	    				SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 					GivePlayerCash(playerid,-5000);
 					PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 					SendClientMessage(playerid,YELLOW,"You have added Paintjob - 2 to your car for $5K.");
-                    ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_LIST, "{FFFFFF}Paintjobs List", "{FFFFFF}Item: Paint Job - 1 - Price: $5K\nItem: Paint Job - 2 - Price: $5K\nItem: Paint Job - 3 - Price: $5K\nBack", "Select", "Cancel");
+                    ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Paintjobs List", "{FFFFFF}ITEM\tCODE\tPRICE\n1\t Paint Job - 1 \t$5K\n2\t Paint Job - 2 \t$5K\n3\t Paint Job - 3 \t$5K\n4\tRemove Paint Job\t$5K\nBack", "Select", "Cancel");
 
 				}
 				else
@@ -22982,13 +23003,18 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        {
 
                    ChangeVehiclePaintjob(GetPlayerVehicleID(playerid),2);
-                   OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 2);
-                   ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
-                   OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+                   //OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 2);
+                   //ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
+                   //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+				   if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+				   {
+	    				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vPaintJob] = 2;
+	    				SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+				   }
                    GivePlayerCash(playerid,-5000);
                    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 				   SendClientMessage(playerid,YELLOW,"You have added Paintjob - 3 to your car for $5K.");
-                   ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_LIST, "{FFFFFF}Paintjobs List", "{FFFFFF}Item: Paint Job - 1 - Price: $5K\nItem: Paint Job - 2 - Price: $5K\nItem: Paint Job - 3 - Price: $5K\nBack", "Select", "Cancel");
+                   ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Paintjobs List", "{FFFFFF}ITEM\tCODE\tPRICE\n1\t Paint Job - 1 \t$5K\n2\t Paint Job - 2 \t$5K\n3\t Paint Job - 3 \t$5K\n4\tRemove Paint Job\t$5K\nBack", "Select", "Cancel");
 				}
 				else
 				{
@@ -23001,11 +23027,65 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				}
 			}
 			case 3:
+		    {
+				if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 565 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 559 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 561 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 560 ||
+
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 534 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 567 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 536 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 535 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 576 ||
+				GetVehicleModel(GetPlayerVehicleID(playerid)) == 558)
+				if(GetPlayerCash(playerid) >= 5000)
+		        {
+
+					ChangeVehiclePaintjob(GetPlayerVehicleID(playerid), -1);
+					new Float:vPos[4];
+					GetVehiclePos(GetPlayerVehicleID(playerid), vPos[0], vPos[1], vPos[2]);
+					GetVehicleZAngle(GetPlayerVehicleID(playerid), vPos[3]);
+					SetVehicleToRespawn(GetPlayerVehicleID(playerid));
+					SetVehiclePos(GetPlayerVehicleID(playerid), vPos[0], vPos[1], vPos[2]);
+					SetVehicleZAngle(GetPlayerVehicleID(playerid), vPos[3]);
+					PutPlayerInVehicle(playerid, GetPlayerVehicleID(playerid), 0);
+				    //OnVehiclePaintjob(playerid, GetPlayerVehicleID(playerid), 0);
+					//ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);
+		            //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+					//CallRemoteFunction("OnVehicleRespray", "iii", playerid, GetPlayerVehicleID(playerid), 0);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+	    				VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vPaintJob] = -1;
+	    				SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
+					PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					GivePlayerCash(playerid,-5000);
+					SendClientMessage(playerid,YELLOW,"You have Removed Paintjob for $5K.");
+                    ShowPlayerDialog(playerid, TUNE_MENU1, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Paintjobs List", "{FFFFFF}ITEM\tCODE\tPRICE\n1\t Paint Job - 1 \t$5K\n2\t Paint Job - 2 \t$5K\n3\t Paint Job - 3 \t$5K\n4\tRemove Paint Job\t$5K\nBack", "Select", "Cancel");
+
+				}
+				else
+				{
+				   SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+				}
+				else
+				{
+				   SendClientMessage(playerid,RED,"Paintjobs only work for Wheel Arch Angel and Loco Low Co type cars.");
+			       ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+				}
+			}
+			case 4:
 			{
 				ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
 			}
 			}
-	   }
+	    }
+	    else
+	    {
+	    	ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+	    }
    }
 
    case TUNE_MENU2:
@@ -23021,10 +23101,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		            GivePlayerCash(playerid,-1000);
 		            ChangeVehicleColor(GetPlayerVehicleID(playerid),0,0);//Black
-		            OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 0, 0);
+		            //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 0, 0);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 0;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 0;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 		            PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 		            SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Black for $1K.");
-		            ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+		            ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 
 			}
 			else
@@ -23039,10 +23125,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),1,1);//White
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 1, 1);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 1;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 1;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 			        SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle White for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 
 			}
 			else
@@ -23057,10 +23149,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),3,3);//Red
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 3, 3);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 3, 3);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 3;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 3;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 			        SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Red for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 
 			}
 			else
@@ -23075,10 +23173,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),79,79); //Blue
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 79, 79);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 79, 79);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 79;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 79;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 			        SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Blue for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 
 			}
 			else
@@ -23093,10 +23197,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),86,86);//Green
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 86, 86);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 86, 86);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 86;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 86;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 			        SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Green for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 
 			}
 			else
@@ -23111,10 +23221,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),6,6);//Yellow
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 6, 6);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 6, 6);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 6;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 6;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 			        SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Yellow for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 
 			}
 			else
@@ -23129,10 +23245,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),126,126);//Pink
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 126, 126);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 126, 126);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 126;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 126;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 			        SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Pink for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 			}
 			else
 			{
@@ -23146,10 +23268,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        GivePlayerCash(playerid,-1000);
 			        ChangeVehicleColor(GetPlayerVehicleID(playerid),66,66);//Brown
-			        OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 66, 66);
+			        //OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 66, 66);
+					if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+					{
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = 66;
+						VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = 66;
+						SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+					}
 			        PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
 	          		SendClientMessage(playerid,YELLOW,"You have successfully painted your vehicle Brown for $1K.");
-			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_LIST, "{FFFFFF}Colors List", "{FFFFFF}Item: Black - Price: $1K\nItem: White - Price: $1K\nItem: Red - Price: $1K\nItem: Blue - Price: $1K\nItem: Green - Price: $1K\nItem: Yellow - Price: $1K\nItem: Pink - Price: $1K\nItem: Brown - Price: $1K\nBack", "Select", "Cancel");
+			        ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
             }
             else
 			{
@@ -23158,236 +23286,252 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
             case 8:
 			{
+        		    Dialog_Show(playerid, CUSTOM_COLOR0, DIALOG_STYLE_TABLIST_HEADERS, "Custom Colour", "Item\tColour\tPrice\n\
+					1\tColour 1\t$5K\n\
+					2\tColour 2\t$5K", "OK", "Back");
+            }
+            case 9:
+			{
         		    ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
             }
 			}
 		}
+	    else
+	    {
+	    	ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+	    }
    }
 
    case TUNE_MENU3:
    {
 		if(response)
 		{
+			if(GetPlayerCash(playerid) < 1000)
+			{
+				SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+		        ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+				return 1;
+			}
 			switch(listitem)
             {
-		    case 0:
-		    {
-                if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 565 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 559 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 561 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
-		        {
+		    	case 0:
+		    	{
+                	if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 565 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 559 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 561 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
+		        	{
 
-		            if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562)
-		            {
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-		            	AddVehicleComponent(GetPlayerVehicleID(playerid),1034);
-		            	OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1034);
-		            	GivePlayerCash(playerid,-1000);
-		            	PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-		            	SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Elegy.");
-		            	ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 565)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1046);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1046);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Flash.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 559)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1065);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1065);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Jetser.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 561)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1064);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1064);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Stratum.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1028);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1028);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Sultan.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 558)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1089);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1089);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-				 	    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Uranus.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-	    			}
-                    else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-	  			 	else
-					{
-				    SendClientMessage(playerid,RED,"You can only add this component to Wheel Arch Angels type cars.");
-					ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+		            	if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562)
+		            	{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+		            			AddVehicleComponent(GetPlayerVehicleID(playerid),1034);
+		            			OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1034);
+		            			GivePlayerCash(playerid,-1000);
+		            			PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+		            			SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Elegy.");
+		            			ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 565)
+						{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+					    		AddVehicleComponent(GetPlayerVehicleID(playerid),1046);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1046);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Flash.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 559)
+						{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+					    		AddVehicleComponent(GetPlayerVehicleID(playerid),1065);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1065);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Jetser.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 561)
+						{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+					    		AddVehicleComponent(GetPlayerVehicleID(playerid),1064);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1064);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Stratum.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
+						{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+					    		AddVehicleComponent(GetPlayerVehicleID(playerid),1028);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1028);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Sultan.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 558)
+						{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+							    AddVehicleComponent(GetPlayerVehicleID(playerid),1089);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1089);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+				 	    		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch Alien Exhaust to your Uranus.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+	    					}
+                    		else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+	  			 		else
+						{
+				    		SendClientMessage(playerid,RED,"You can only add this component to Wheel Arch Angels type cars.");
+							ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+                    	}
                     }
-                    }
-            }
-			case 1:
-            {
-                if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 565 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 559 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 561 ||
-				GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
-                {
+            	}
+				case 1:
+            	{
+                	if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 565 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 559 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 561 ||
+					GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
+                	{
 
-			        if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562)
-			        {
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-			            AddVehicleComponent(GetPlayerVehicleID(playerid),1037);
-			            OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1037);
-		            	GivePlayerCash(playerid,-1000);
-			            PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-			            SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Elegy.");
-			            ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 565)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1045);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1045);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Flash.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 559)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1066);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1066);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"ou Have Successfully Added A Wheel Arch X-Flow Exhaust to your Jester.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 561)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1059);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1059);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Stratum.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1029);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1029);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Sultan.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 558)
-					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1092);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1092);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Uranus.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
-					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else
-					{
-				    SendClientMessage(playerid,RED,"You can only add this component to Wheel Arch Angels type cars.");
-					ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
-					}
-					}
+			        	if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 562)
+			        	{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+			            		AddVehicleComponent(GetPlayerVehicleID(playerid),1037);
+			            		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1037);
+		            			GivePlayerCash(playerid,-1000);
+			            		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+			            		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Elegy.");
+			            		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 565)
+						{
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+					    		AddVehicleComponent(GetPlayerVehicleID(playerid),1045);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1045);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    		SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Flash.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 559)
+							{
+                    			if(GetPlayerCash(playerid) >= 1000)
+                    			{
+					    			AddVehicleComponent(GetPlayerVehicleID(playerid),1066);
+					    			OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1066);
+		            				GivePlayerCash(playerid,-1000);
+					    			PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    			SendClientMessage(playerid,YELLOW,"ou Have Successfully Added A Wheel Arch X-Flow Exhaust to your Jester.");
+					    			ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+								}
+								else
+			        			{
+			            			SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        			}
+			        		}
+							else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 561)
+							{	
+                    			if(GetPlayerCash(playerid) >= 1000)
+                    			{
+					    			AddVehicleComponent(GetPlayerVehicleID(playerid),1059);
+					    			OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1059);
+		            				GivePlayerCash(playerid,-1000);
+					    			PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    			SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Stratum.");
+					    			ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+								}
+								else
+			        			{
+			            			SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        			}
+			        		}
+							else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 560)
+							{
+                    			if(GetPlayerCash(playerid) >= 1000)
+                    			{
+					    			AddVehicleComponent(GetPlayerVehicleID(playerid),1029);
+					    			OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1029);
+		            				GivePlayerCash(playerid,-1000);
+					    			PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    			SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Sultan.");
+					    			ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+								}	
+								else
+			        			{
+			        			    SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        			}
+			        		}
+							else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 558)
+							{
+                    			if(GetPlayerCash(playerid) >= 1000)
+                    			{
+								    AddVehicleComponent(GetPlayerVehicleID(playerid),1092);
+								    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1092);
+		            				GivePlayerCash(playerid,-1000);
+								    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+								    SendClientMessage(playerid,YELLOW,"You have added a Wheel Arch X-Flow Exhaust to your Uranus.");
+								    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+								}
+								else
+			        			{
+			        			    SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        			}
+			       			}
+							else
+							{
+				    			SendClientMessage(playerid,RED,"You can only add this component to Wheel Arch Angels type cars.");
+								ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+							}
+						}
 					}
             }
 			case 2:
@@ -23563,31 +23707,31 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			        }
 					else if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 576)
 					{
-                    if(GetPlayerCash(playerid) >= 1000)
-                    {
-					    AddVehicleComponent(GetPlayerVehicleID(playerid),1135);
-					    OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1135);
-		            	GivePlayerCash(playerid,-1000);
-					    PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
-					    SendClientMessage(playerid,YELLOW,"You have added a Locos Low Slamin Exhaust to your Tornado.");
-					    ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+                    		if(GetPlayerCash(playerid) >= 1000)
+                    		{
+					    		AddVehicleComponent(GetPlayerVehicleID(playerid),1135);
+					    		OnVehicleMod(playerid,GetPlayerVehicleID(playerid),1135);
+		            			GivePlayerCash(playerid,-1000);
+					    		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+					    		SendClientMessage(playerid,YELLOW,"You have added a Locos Low Slamin Exhaust to your Tornado.");
+					    		ShowPlayerDialog(playerid, TUNE_MENU3, DIALOG_STYLE_LIST, "{FFFFFF}Exhausts List", "{FFFFFF}Item: Wheel Arch Alien Exhaust - Price: $1K\nItem: Wheel Arch X-Flow Exhaust - Price: $1K\nItem: Locos Low Chromer Exhaust - Price: $1K\nLocos Low Slamin Exhaust - Price: $1K\nBack", "Select", "Cancel");
+							}
+							else
+			        		{
+			            		SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			        		}
+			        	}
+						else
+						{
+				    		SendClientMessage(playerid,RED,"You can only add this component to Locos Low type cars.");
+							ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+						}
 					}
-					else
-			        {
-			            SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
-			        }
-			        }
-					else
-					{
-				    SendClientMessage(playerid,RED,"You can only add this component to Locos Low type cars.");
-					ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
-					}
-					}
-            }
-			case 4:
-            {
-                 ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
-            }
+            	}
+				case 4:
+            	{
+                 	ShowPlayerDialog(playerid, TUNE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}Tune Menu - 1","{FFFFFF}Paint Jobs\nColors\nExhausts\nFront Bumpers\nRear Bumpers\nRoofs\nSpoilers\nSideskirts\nBullbars\nWheels\nCar Stereos\nNext", "Select", "Cancel");
+            	}
             }
 	    }
    }
@@ -28660,6 +28804,104 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 	        DestroyVehicle(vehicleid);
 	        vipvehicle[vehicleid] = 0;
     }
+	else
+	{
+				new v = vehicleid, vehcount = 0;				
+				new newveh = CreateVehicle(VehicleInfo[v][vModel], VehicleInfo[v][vPosX], VehicleInfo[v][vPosY], VehicleInfo[v][vPosZ], VehicleInfo[v][vPosA], VehicleInfo[v][vColor1], VehicleInfo[v][vColor2], 500000);
+				SetVehicleNumberPlate(newveh, VehicleInfo[v][vPlate]);
+				if(VehicleInfo[v][vPaintJob] != NO_PAINT)
+				{
+					ChangeVehiclePaintjob(newveh, VehicleInfo[v][vPaintJob]);
+				}
+
+				if(VehicleInfo[v][vHealth] <= 251.0)
+				{
+					SetVehicleHealth(newveh, 1000.0);
+					VehicleInfo[v][vHealth] = 1000.0;
+				}
+				else
+				{
+					SetVehicleHealth(newveh, VehicleInfo[v][vHealth]);
+				}
+
+				for(new m = 0; m < 12; m++)
+				{
+					if(GetVehicleMods[v][m] > 0)
+					{
+						AddVehicleComponent(newveh, GetVehicleMods[v][m]);
+					}
+				}
+
+				if(VehicleInfo[v][vLocked] == 1)
+				{
+					SetVehicleParamsForAll(newveh, 0, 1);
+        			GetVehicleParamsEx(newveh, engine, lights, alarm, doors, bonnet, boot, vcondition);
+					SetVehicleParamsEx(newveh, engine, lights, alarm, ON, bonnet, boot, vcondition);
+				}
+				else if(VehicleInfo[v][vLocked] == 0)
+				{
+					SetVehicleParamsForAll(newveh, 0, 0);
+        			GetVehicleParamsEx(newveh, engine, lights, alarm, doors, bonnet, boot, vcondition);
+					SetVehicleParamsEx(newveh, engine, lights, alarm, OFF, bonnet, boot, vcondition);
+				}
+
+				if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == BLUE_NEONS)
+				{
+				    blueneons[newveh] = CreateDynamicObject(18648,0,0,0,0,0,0);
+            		blueneons2[newveh] = CreateDynamicObject(18648,0,0,0,0,0,0);
+            		AttachDynamicObjectToVehicle(blueneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+            		AttachDynamicObjectToVehicle(blueneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+				}
+				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == RED_NEONS)
+				{
+				    redneons[newveh] = CreateDynamicObject(18647,0,0,0,0,0,0);
+            		redneons2[newveh] = CreateDynamicObject(18647,0,0,0,0,0,0);
+            		AttachDynamicObjectToVehicle(redneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+            		AttachDynamicObjectToVehicle(redneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+				}
+				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == GREEN_NEONS)
+				{
+				    greenneons[newveh] = CreateDynamicObject(18649,0,0,0,0,0,0);
+            		greenneons2[newveh] = CreateDynamicObject(18649,0,0,0,0,0,0);
+            		AttachDynamicObjectToVehicle(greenneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+            		AttachDynamicObjectToVehicle(greenneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+				}
+				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == YELLOW_NEONS)
+				{
+				    yellowneons[newveh] = CreateDynamicObject(18650,0,0,0,0,0,0);
+            		yellowneons2[newveh] = CreateDynamicObject(18650,0,0,0,0,0,0);
+            		AttachDynamicObjectToVehicle(yellowneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+            		AttachDynamicObjectToVehicle(yellowneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+				}
+				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == PINK_NEONS)
+				{
+				    pinkneons[newveh] = CreateDynamicObject(18651,0,0,0,0,0,0);
+            		pinkneons2[newveh] = CreateDynamicObject(18651,0,0,0,0,0,0);
+            		AttachDynamicObjectToVehicle(pinkneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+            		AttachDynamicObjectToVehicle(pinkneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+				}
+				else if(VehicleInfo[v][vNeons] != NO_NEONS && VehicleInfo[v][vNeons] == WHITE_NEONS)
+				{
+				    whiteneons[newveh] = CreateDynamicObject(18652,0,0,0,0,0,0);
+            		whiteneons2[newveh] = CreateDynamicObject(18652,0,0,0,0,0,0);
+            		AttachDynamicObjectToVehicle(whiteneons[newveh], newveh, -0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+            		AttachDynamicObjectToVehicle(whiteneons2[newveh], newveh, 0.8, 0.0, -0.70, 0.0, 0.0, 0.0);
+				}
+
+	        	IsShopVehicle[newveh] = v;
+	        	GetPlayerVehicles{playerid}++;
+	        	GetServerVehicles++;
+
+				GetVehicleFuel[newveh] = VehicleInfo[v][vFuel];
+				GetVehicleCurrentHealth[newveh] = VehicleInfo[v][vHealth];
+
+				vehcount++;
+
+	        	if(vehcount == MAX_VIP_VEHS)
+				{
+				    return 1;
+				}
+	}
 	return 1;
 }
 
@@ -29166,10 +29408,11 @@ public FPSUP(playerid)
 		}
 	}
 }
-
+/*
+// DISABLED BECAUSE OF BUG
 public OnVehicleRespray(playerid, vehicleid, color1, color2)
 {
-	if(IsShopVehicle[vehicleid] != -1 && !strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], false))
+	if(IsShopVehicle[vehicleid] != -1 && strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], false) == 0)
 	{
 		VehicleInfo[IsShopVehicle[vehicleid]][vColor1] = color1;
 		VehicleInfo[IsShopVehicle[vehicleid]][vColor2] = color2;
@@ -29180,14 +29423,14 @@ public OnVehicleRespray(playerid, vehicleid, color1, color2)
 
 public OnVehiclePaintjob(playerid, vehicleid, paintjobid)
 {
-	if(IsShopVehicle[vehicleid] != -1 && !strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], false))
+	if(IsShopVehicle[vehicleid] != -1 && strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], false) == 0)
 	{
 	    VehicleInfo[IsShopVehicle[vehicleid]][vPaintJob] = paintjobid;
 	    SaveVehicleStats(IsShopVehicle[vehicleid]);
 	}
 	return 1;
 }
-
+*/
 public TazerTimer(playerid)
 {
 	ClearAnimations(playerid);
@@ -39947,6 +40190,8 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Changed Vehicle Neons to Streamer Dynamic Objects.\n");
     strcat(UPS, "{FFFFFF}  Changed to PLAYER_MARKERS_MODE_GLOBAL.\n");
     strcat(UPS, "{FFFFFF}  Added Group names to chat massages.\n");
+    strcat(UPS, "{FFFFFF}  Now Tune Menu Saves Shop Vehicle Paint Job And Colours.\n");
+    strcat(UPS, "{FFFFFF}  Added Custom Colorus to Tune Menu.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
@@ -39968,10 +40213,10 @@ CMD:todolist(playerid, params[])
     strcat(UPS, "{FFFFFF}  Save Vehicle Color with TUNE_MENU2 Purchases.\n");
     strcat(UPS, "{FFFFFF}  Fix texdraws and loading screen after /restart.\n");
     strcat(UPS, "{FFFFFF}  save in user files when the data being edited.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  ADD CUSTOM COLOUR TO TUNE MENU.\n");
+    strcat(UPS, "{FFFFFF}  ADD REMOVE PAINTJOB TO TUNE MENU.\n");
+    strcat(UPS, "{FFFFFF}  ADD WARNING TO ITEMS THAT CANT BE ADDED TO VEHICLES IN TUNING MENU INSTEAD OF JUST CLOSING DIALOG ALSO RETURN BACK TO PREVIOUS DIALOG PAGE.\n");
+    strcat(UPS, "{FFFFFF}  WHEN PLAYER IS IN VEHICLE AND RJOINS BACK TO SERVER AND VEHICLE IS IN PREVIOUS LOCATION PLAYER WILL GET STUCK AT VEHICLE.\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
@@ -40024,6 +40269,122 @@ Dialog:HELP_ADMIN(playerid, response, listitem, inputtext[])
 		new str[64];
         format(str, 64, "You have selected the '%s'.", inputtext);
         SendClientMessage(playerid, -1, str);
+	}
+	return 1;
+}
+/*
+Dialog:CUSTOM_COLOR(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		Dialog_Show(playerid, Custom_COLOR0, DIALOG_STYLE_TABLIST_HEADERS, "Custom Colour", "Item\tColour\tPrice\n\
+		1\tColour 1\t$5K\n\
+		2\tColour 2\t$5K", "OK", "Back");
+	}
+	else
+	{
+		ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+	}
+	return 1;
+}
+*/
+Dialog:CUSTOM_COLOR0(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		switch (listitem)
+		{
+			case 0:
+			{
+				return Dialog_Show(playerid, CUSTOM_COLOR1, DIALOG_STYLE_INPUT, "Custom Colour 1", "Enter Colour Code", "OK", "Back");
+			}
+			case 1:
+			{
+				return Dialog_Show(playerid, CUSTOM_COLOR2, DIALOG_STYLE_INPUT, "Custom Colour 1", "Enter Colour Code", "OK", "Back");
+			}
+		}
+	}
+	else
+	{
+		ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+	}
+	return 1;
+}
+	
+Dialog:CUSTOM_COLOR1(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		if(GetPlayerCash(playerid) < 1000)
+		{
+			SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+			return 1;
+		}
+		new old1, old2;
+		GetVehicleColours(GetPlayerVehicleID(playerid), old1, old2);
+		new new1;
+		if(sscanf(inputtext, "d", new1))
+		{
+			SendClientMessage(playerid, RED, "Colour codes are numbers!");
+			ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+			return 1;
+		}
+		ChangeVehicleColor(GetPlayerVehicleID(playerid), new1, old2);
+		//OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 0, 0);
+		if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+		{
+			VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = new1;
+			//VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = new2;
+			SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+		}
+		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+		SendClientMessage(playerid, YELLOW, "You have successfully painted your vehicle FIRST COLOUR: %d for $1K.", new1);
+		ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+		GivePlayerCash(playerid, -1000);
+	}
+	else
+	{
+		ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+	}
+	return 1;
+}
+
+Dialog:CUSTOM_COLOR2(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		if(GetPlayerCash(playerid) < 1000)
+		{
+			SendClientMessage(playerid,RED,"POOL KAFI NADARI!");
+			ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+			return 1;
+		}
+		new old1, old2;
+		GetVehicleColours(GetPlayerVehicleID(playerid), old1, old2);
+		new new2;
+		if(sscanf(inputtext, "d", new2))
+		{
+			SendClientMessage(playerid, RED, "Colour codes are numbers!");
+			ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+			return 1;
+		}
+		ChangeVehicleColor(GetPlayerVehicleID(playerid), old1, new2);
+		//OnVehicleRespray(playerid, GetPlayerVehicleID(playerid), 0, 0);
+		if(IsShopVehicle[GetPlayerVehicleID(playerid)] != -1)
+		{
+			//VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor1] = new1;
+			//VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vColor2] = new2;
+			SaveVehicleStats(IsShopVehicle[GetPlayerVehicleID(playerid)]);
+		}
+		PlayerPlaySound(playerid, 1133, 0.0, 0.0, 0.0);
+		SendClientMessage(playerid, YELLOW, "You have successfully painted your vehicle FIRST COLOUR: %d for $1K.", new2);
+		ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
+		GivePlayerCash(playerid, -1000);
+	}
+	else
+	{
+		ShowPlayerDialog(playerid, TUNE_MENU2, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Colors List", "{FFFFFF}ITEM\tCOLOUR\tPRICE\nItem:\t Black - \tPrice: $1K\nItem:\t White - \tPrice: $1K\nItem:\t Red - \tPrice: $1K\nItem:\t Blue - \tPrice: $1K\nItem:\t Green - \tPrice: $1K\nItem:\t Yellow - \tPrice: $1K\nItem:\t Pink - \tPrice: $1K\nItem:\t Brown - \tPrice: $1K\nItem:\t CUSTOM COLOR - \tPrice: $1K\nBack", "Select", "Cancel");
 	}
 	return 1;
 }
@@ -43143,4 +43504,3 @@ task SendElvisMSG[240000]() // fekonam 4 min
 	SendMessageToAll(WHITE, ACNR_Elvis_Mainchat_Messages[RandMSG]);
 	return 1;
 }
-
