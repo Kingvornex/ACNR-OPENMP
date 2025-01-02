@@ -245,6 +245,9 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Increased police station gates range
 - Increased police cmds range
 - Added /helpme cmd
+- Added/helpadmin cmd
+- Changed Vehicle Neons to Streamer Dynamic Objects.
+- Changed to PLAYER_MARKERS_MODE_GLOBAL
 
 # Updated FilterScripts :
 - Updated FilterScripts to Open.MP
