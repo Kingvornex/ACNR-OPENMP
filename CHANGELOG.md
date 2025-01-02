@@ -248,9 +248,11 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Added/helpadmin cmd
 - Changed Vehicle Neons to Streamer Dynamic Objects.
 - Changed to PLAYER_MARKERS_MODE_GLOBAL
+- Added Group names to chat massages
 
 # Updated FilterScripts :
 - Updated FilterScripts to Open.MP
 - Change AddStaticVehicleEx to CreateVehicle in acnr2.pwn
 - Used izcmd in acnr6.pwn
 - Changed Objects to streamer DynamicObjects
+- Change Vehicles loading from filterscript to Streamed Vehicles
