@@ -11064,6 +11064,8 @@ public OnPlayerRequestClass(playerid, classid)
     if(IsPlayerNPC(playerid)) return 1;
     HasSpawned{playerid} = false;
     SetPlayerTeamFromClass(playerid, classid);
+	SetPlayerInterior(playerid, 0);
+	SetPlayerVirtualWorld(playerid, 0);
     SetPlayerPos(playerid, 2116.0205, 2143.3225, 10.8203);
     SetPlayerFacingAngle(playerid, 89.6528);
     SetPlayerCameraLookAt(playerid, 2116.0205, 2143.3225, 10.8203);
@@ -11906,7 +11908,7 @@ public OnPlayerText(playerid, text[])
 
 	if(GetPlayerScore(playerid) < 15)
 	{
-        SendClientMessage(playerid, RED, "Elvis: score shoma kamtar az 15 ast! Baraye chat dar global az cmd   /n   ya   /new   estefade konid.");
+        SendClientMessage(playerid, RED, "Elvis: score shoma kamtar az 15 ast! Baraye chat dar global az cmd  [ /n ]  ya  [ /new ]  estefade konid.");
         return 0;
     }
 	
@@ -11917,30 +11919,37 @@ public OnPlayerText(playerid, text[])
         return 0;
     }
 
+	new groupid = pGroupInfo[playerid][gid];
+	new pgnamee[75] = "";
+	if (groupid != -1)
+	{
+		format(pgnamee, sizeof(pgnamee), "%s", GroupInfo[groupid][grname]);
+	}
+
     if(PlayerInfo[playerid][aLevel] == 1 && IsOnduty{playerid} == 1)
     {
-        format(fstr, sizeof(fstr), "Trial Admin %s{FFFFFF}: %s", GetName(playerid), text);
+        format(fstr, sizeof(fstr), "%s [Trial Admin] %s{FFFFFF} [%d]: %s",pgnamee, GetName(playerid), playerid, text);
         SendMessageToAll(PURPLE, fstr);
         SetPlayerChatBubble(playerid, text, WHITE, 50, 5000);
         return 0;
     }
 	else if(PlayerInfo[playerid][aLevel] == 2 && IsOnduty{playerid} == 1)
     {
-        format(fstr, sizeof(fstr), "Server Admin %s{FFFFFF}: %s", GetName(playerid), text);
+        format(fstr, sizeof(fstr), "%s [Server Admin] %s{FFFFFF} [%d]: %s",pgnamee, GetName(playerid), playerid, text);
         SendMessageToAll(PURPLE, fstr);
         SetPlayerChatBubble(playerid, text, WHITE, 50, 5000);
         return 0;
     }
     else if(PlayerInfo[playerid][aLevel] == 3 && IsOnduty{playerid} == 1)
     {
-        format(fstr, sizeof(fstr), "Head Admin %s{FFFFFF}: %s", GetName(playerid), text);
+        format(fstr, sizeof(fstr), "%s [Head Admin] %s{FFFFFF} [%d]: %s",pgnamee, GetName(playerid), playerid, text);
         SendMessageToAll(PURPLE, fstr);
         SetPlayerChatBubble(playerid, text, WHITE, 50, 5000);
         return 0;
     }
     else if(PlayerInfo[playerid][aLevel] == 4 && IsOnduty{playerid} == 1)
     {
-        format(fstr, sizeof(fstr), "Owner %s{FFFFFF}: %s", GetName(playerid), text);
+        format(fstr, sizeof(fstr), "%s [Owner] %s{FFFFFF} [%d]: %s",pgnamee, GetName(playerid), playerid, text);
         SendMessageToAll(PURPLE, fstr);
         SetPlayerChatBubble(playerid, text, WHITE, 50, 5000);
         return 0;
@@ -11969,7 +11978,7 @@ public OnPlayerText(playerid, text[])
 	else
 	{
 	    new tstr[300];
-	    format(tstr, sizeof(tstr), "%s{FFFFFF}: %s", GetName(playerid), text);
+	    format(tstr, sizeof(tstr), "%s [%s]{FFFFFF} [%d]: %s",pgnamee, GetName(playerid), playerid, text);
         SendMessageToAll(GetPlayerColor(playerid), tstr);
 		SetPlayerChatBubble(playerid, text, WHITE, 50, 5000);
     }
@@ -39937,6 +39946,7 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Added /helpadmin cmd.\n");
     strcat(UPS, "{FFFFFF}  Changed Vehicle Neons to Streamer Dynamic Objects.\n");
     strcat(UPS, "{FFFFFF}  Changed to PLAYER_MARKERS_MODE_GLOBAL.\n");
+    strcat(UPS, "{FFFFFF}  Added Group names to chat massages.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
