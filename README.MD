@@ -176,7 +176,12 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] use upgrade tool
     - [ ] use y_hooks?
     - [ ] update whirlpool to bcrypt: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md
-    - [ ] 
+    - [ ] Add easyDialog
+    - [ ] Fix Anti Fake Kill
+    - [ ] (fix login password) Add bcrypt
+    - [ ] Save Vehicle Color with TUNE_MENU2 Purchases
+    - [ ] Fix texdraws and loading screen after /restart
+    - [ ] save in user files when the data being edited
 
 - [ ] TODO
     - [x] fix unusual speed numbers
