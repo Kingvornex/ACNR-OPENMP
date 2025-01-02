@@ -182,6 +182,10 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] Save Vehicle Color with TUNE_MENU2 Purchases
     - [ ] Fix texdraws and loading screen after /restart
     - [ ] save in user files when the data being edited
+    - [ ] Decrease robbery cool down 
+    - [ ] Dont set robbery cool down if it failed
+    - [ ] activate tdspeedo when player joins arena
+    - [ ] Player marker mode global : 1 is still not active
 
 - [ ] TODO
     - [x] fix unusual speed numbers
