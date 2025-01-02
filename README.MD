@@ -168,11 +168,6 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 # Roadmap
 
 - [ ] updating to OPEN.mp
-    - [x] #define NO_TAGS
-    - [x] #pragma warning disable 213/214
-    - [x] #pragma warning disable 219/239
-    - [x] #define MIXED_SPELLINGS
-    - [x] #include <open.mp>
     - [ ] use upgrade tool
     - [ ] use y_hooks?
     - [ ] update whirlpool to bcrypt: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md
@@ -188,65 +183,31 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] Player marker mode global : 1 is still not active
 
 - [ ] TODO
-    - [x] fix unusual speed numbers
-    - [x] fix speedometer text km/h kmph /km/h
-    - [x] fix script cant read login password from ini file after restarting server bug
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
-    - [x] login dialog (!response) button only works if it has text in it
-    - [x] hide car name textdraw on player state change
-    - [x] now car speed number has 0.00000 zeroes, fix it
     - [ ] Player that used /kill , it's respawn in reconnect is bug
     - [ ] Create teleport portals: big checkpoints in map that entering them will teleport imidietly
     - [ ] animation bug
-    - [x] animation /sleep cmd bug
-    - [x] cmd to disable animation
     - [ ] one shop interior bug
     - [ ] vehicle tune menu bug
-    - [x] one map building higher than ground bug
-    - [x] add /getplayer cmd for admin
     - [ ] add guide for skin selection section under right and left options ("press left to access civilian class faster")
     - [ ] /drag cmd range is very low
-    - [x] remove chat anti bad word filter
-    - [x] police cmds range is low (/ar /tk /tz /cf)
-    - [x] police staion gate from inside doesn't open automatically 
     - [ ] add requests bribe to police to request wanted level an amount of money
-    - [x] add list of shop vehicles cmd commands list (/vehhelp)
     - [ ] add my vehicles to /gps
     - [ ] add points of intrest locutions to /gps
     - [ ] add /teleport menu for admin
     - [ ] add playerid to their chat messages
-    - [x] car deleted with /dcar wont respawn
     - [ ] add music playlist
 
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
     - [ ] MAKE A WAY TO SHORTEN OnDialogResponse CODES (maybe https://github.com/Awsomedude/easyDialog)
     - [ ] SEEMS TO HAVE REPEATED CODES UNDER OnVehicleDeath
-    - [x] FIX AUDIO STREAM LINKS (EXPIRED)
-    - [x] fix << `format(zone, len, SACities[i][City_Name], 0);` >> to << `format(zone, len, "%s", SACities[i][City_Name]);` >>
-    - [x] same problem with `format` under `GetVehicleName` code:
-```ruby
-stock GetVehicleName(vehicleid, model[], len) 
-{
-    new checking = GetVehicleModel(vehicleid);
-    if (checking >= 400 && checking < 612) 
-    {
-        return format(model, len, GlobalVehicleNames[checking - 400]);
-    } 
-    else 
-    {
-        return format(model, len, "WRONG VEHICLE ID!!!");
-    }
-}
-```
 
 - [ ] more CODE BUG FIXES
     - [ ] some interiors change player VW, make sure set it back when they come out of interior
-    - [x] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
     - [ ] open dialog automaticly when player goes to elevator checkpoint like : case NVPD_ELEV_CP
-    - [x] **change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.**
     - [ ] make help and cmd_list dialogs more readable and also make cmds dialog clickable to execute commands form it
 
 - [ ] ADD NEW FEATURES
@@ -263,7 +224,6 @@ stock GetVehicleName(vehicleid, model[], len)
     - [ ] add /jobs cmd to show jobs list and set a marker to their locations and jobs specific commands 
     - [ ] **police tags wanted players with gps devices so they can see where they are in all over the map even which shop and interior they go, the wanted players that are tagged need to buy another device from shops to use it and remove gps tag from themselves.** https://github.com/Kiiruuu/GPSBullet
     - [ ] add hidden admin and make cmd for it (make sure make admin hidden in all chat commands such as /n /new etc.)
-    - [x] add client cmds to cmd list
     - [ ] add dancing actors close to player skin selector
     - [ ] change car shop and akin shop menus to textdraws with previews
     - [ ] add dancing actors in street
@@ -379,14 +339,49 @@ stock GetVehicleName(vehicleid, model[], len)
     -  [ ] tba https://sampforum.blast.hk/forumdisplay.php?fid=17&page=12
     -  [ ] tba https://sampforum.blast.hk/forumdisplay.php?fid=83&page=25
     -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
-    -  [ ]
+  
+- [ ] DONE
+    - [x] #define NO_TAGS
+    - [x] #pragma warning disable 213/214
+    - [x] #pragma warning disable 219/239
+    - [x] #define MIXED_SPELLINGS
+    - [x] #include <open.mp>
+    - [x] fix unusual speed numbers
+    - [x] fix speedometer text km/h kmph /km/h
+    - [x] fix script cant read login password from ini file after restarting server bug
+    - [x] login dialog (!response) button only works if it has text in it
+    - [x] hide car name textdraw on player state change
+    - [x] now car speed number has 0.00000 zeroes, fix it
+    - [x] animation /sleep cmd bug
+    - [x] cmd to disable animation
+    - [x] one map building higher than ground bug
+    - [x] add /getplayer cmd for admin
+    - [x] remove chat anti bad word filter
+    - [x] police cmds range is low (/ar /tk /tz /cf)
+    - [x] police staion gate from inside doesn't open automatically 
+    - [x] add list of shop vehicles cmd commands list (/vehhelp)
+    - [x] car deleted with /dcar wont respawn
+    - [x] create scripfiles folders and files automatically if the don't exist: https://github.com/JaTochNietDan/SA-MP-FileManager
+    - [x] **change `AllowInteriorWeapons(0);` to `AllowInteriorWeapons(true);` or allow robbing stores without weapons. now players can't rob stores.**
+    - [x] add client cmds to cmd list
+
+    - [x] FIX AUDIO STREAM LINKS (EXPIRED)
+    - [x] fix << `format(zone, len, SACities[i][City_Name], 0);` >> to << `format(zone, len, "%s", SACities[i][City_Name]);` >>
+    - [x] same problem with `format` under `GetVehicleName` code:
+```ruby
+stock GetVehicleName(vehicleid, model[], len) 
+{
+    new checking = GetVehicleModel(vehicleid);
+    if (checking >= 400 && checking < 612) 
+    {
+        return format(model, len, GlobalVehicleNames[checking - 400]);
+    } 
+    else 
+    {
+        return format(model, len, "WRONG VEHICLE ID!!!");
+    }
+}
+```
 
 
 See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a full list of proposed features (and known issues).
