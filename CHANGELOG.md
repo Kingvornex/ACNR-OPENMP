@@ -256,3 +256,8 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Used izcmd in acnr6.pwn
 - Changed Objects to streamer DynamicObjects
 - Change Vehicles loading from filterscript to Streamed Vehicles
+
+## ACNR-OPENMP-v2.2.3:
+- Now Tune Menu Saves Shop Vehicle Paint Job And Colours
+- Added Custom Colorus to Tune Menu
+
