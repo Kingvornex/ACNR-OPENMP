@@ -1,5 +1,5 @@
 
-// ACNR Dynamic UFO
+// ACNR Dynamic UFO vehicle
 
 #include <open.mp>
 #include <streamer>
