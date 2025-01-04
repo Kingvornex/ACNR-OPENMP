@@ -94,7 +94,7 @@
     },
     "password": "",
     "pawn": {
-        "legacy_plugins": ["crashdetect", "streamer", "sscanf"],
+        "legacy_plugins": ["crashdetect", "sscanf", "streamer"],
         "main_scripts": [
             "ACNR-OPENMP-V2 1"
         ],
