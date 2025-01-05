@@ -181,6 +181,9 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] Dont set robbery cool down if it failed
     - [ ] activate tdspeedo when player joins arena
     - [ ] Player marker mode global : 1 is still not active
+    - [ ] SHOP VEHICLE DESTROYS BY ITSELF WONT RESPAWN
+    - [ ] ADD COMMA TO MONEY TEXTDRAW
+    - [ ] UNDER ONPLAYERSTATECHANGE ONLY USE NEWSTATE, USING OLDSTATE WITH IF WILL CAUSE BUG AND NOT EXECUTION SOME TIMES
 
 - [ ] TODO
 
