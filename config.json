@@ -40,7 +40,7 @@
         "use_manual_engine_and_lights": false,
         "use_nametag_los": true,
         "use_nametags": true,
-        "use_player_marker_draw_radius": true,
+        "use_player_marker_draw_radius": false,
         "use_player_ped_anims": false,
         "use_stunt_bonuses": true,
         "use_vehicle_friendly_fire": false,
