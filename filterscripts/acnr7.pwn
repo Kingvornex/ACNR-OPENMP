@@ -2629,7 +2629,7 @@ public OnFilterScriptInit()
      CreateDynamicObject(18787, 3559.56152, -1505.47021, 606.36243,   0.00000, 0.00000, 89.00000);
      CreateDynamicObject(145, 3554.54150, -1518.79614, 609.56543,   88.00000, 35.00000, 47.00000);
      //CreateDynamicObject(16766, 498.03906, 1428.07813, 7.16406,   3.14159, 0.00000, 3.14157); // REDUNT EXTRA
-
+	*/
      // REPEATED CODE !!!
      /*
      CreateDynamicObject(18783, 3045.74414, -1100.11377, 330.54520,   0.00000, 0.00000, 0.00000); // REPEATED CODE !!! // ONLY UP MAP ON AIR
@@ -4987,3 +4987,5 @@ public OnPlayerConnect(playerid)
      //RemoveBuildingForPlayer(playerid, 2422, 368.3672, -4.9922, 1001.8906, 0.25);
      return 1;
 }
+
+// officially maped by Baloch
