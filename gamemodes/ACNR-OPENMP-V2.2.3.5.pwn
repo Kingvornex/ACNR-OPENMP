@@ -28878,8 +28878,24 @@ CMD:carradio(playerid, params[])
 	else if(PlayerRadio[playerid] == 0)
 	{
 	    PlayerRadio[playerid] = 1;
-		PlayRandomAudio(playerid);
-		return SendClientMessage(playerid, RED, "Car Radio Enabled.");
+		if (IsPlayerInAnyVehicle(playerid)) { PlayRandomAudio(playerid); }
+		return SendClientMessage(playerid, RED, "Car Radio Enabled. use /ns for Next Song");
+	}
+	else
+	{
+        SendClientMessage(playerid, RED, "WUT :| you found bug.");
+    }
+	return 1;
+}
+
+CMD:ns(playerid, params[])
+{
+	if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, RED, "You Need to be in a Vehicle.");
+	if(PlayerRadio[playerid] == 0) return SendClientMessage(playerid, RED, "You Need to turn on radio first. use /carradio");
+	if(PlayerRadio[playerid] == 1)
+	{
+		if(IsPlayerInAnyVehicle(playerid)) { PlayRandomAudio(playerid); }
+		return SendClientMessage(playerid, RED, "Playing next random song.");
 	}
 	else
 	{
