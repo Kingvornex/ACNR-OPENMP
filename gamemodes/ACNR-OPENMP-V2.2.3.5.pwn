@@ -28878,6 +28878,7 @@ CMD:carradio(playerid, params[])
 	else if(PlayerRadio[playerid] == 0)
 	{
 	    PlayerRadio[playerid] = 1;
+		PlayRandomAudio(playerid);
 		return SendClientMessage(playerid, RED, "Car Radio Enabled.");
 	}
 	else
