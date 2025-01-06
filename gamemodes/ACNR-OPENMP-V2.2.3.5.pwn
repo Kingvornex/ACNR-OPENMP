@@ -40717,7 +40717,7 @@ CMD:todolist(playerid, params[])
     //strcat(UPS, "{FFFFFF}  WHEN PLAYER IS IN VEHICLE AND RJOINS BACK TO SERVER AND VEHICLE IS IN PREVIOUS LOCATION PLAYER WILL GET STUCK AT VEHICLE.\n");
     strcat(UPS, "{FFFFFF}  SAVE ALL LOGS IN DIFFRET FILES: /BUG, SendAdminMessage(), CHAT, PRINT(F)().\n");
     strcat(UPS, "{FFFFFF}  Add more vehicle Categories to Vehcile Shop.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  vehicle alarm is long and dont turn off automaticlally, add timer tur turn it off.\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
     strcat(UPS, "{FFFFFF}  .\n");
