@@ -3,7 +3,7 @@
 // ACNR Pirate Ship
 
 // Used for testing interpolated rotations with MoveDynamicObject
-// Also used to test AttachObjectToObject
+// Also used to test AttachDynamicObjectToObject
 // A pirate ship goes around and visits some route points
 //
 // SA-MP 0.3d and above
@@ -94,22 +94,22 @@ public OnFilterScriptInit()
 									gShipRoutePoints[0][3], gShipRoutePoints[0][4], gShipRoutePoints[0][5], .drawdistance = SHIP_DRAW_DISTANCE);
 
 	gShipSkullAttachment[0] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
-	AttachObjectToObject(gShipSkullAttachment[0], gMainShipObjectId, 4.11, -5.53, -9.78, 0.0, 0.0, 90.0);
+	AttachDynamicObjectToObject(gShipSkullAttachment[0], gMainShipObjectId, 4.11, -5.53, -9.78, 0.0, 0.0, 90.0);
 
 	gShipSkullAttachment[1] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
-	AttachObjectToObject(gShipSkullAttachment[1], gMainShipObjectId, -4.11, -5.53, -9.78, 0.0, 0.0, -90.0);
+	AttachDynamicObjectToObject(gShipSkullAttachment[1], gMainShipObjectId, -4.11, -5.53, -9.78, 0.0, 0.0, -90.0);
 	
 	gShipSkullAttachment[2] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
-	AttachObjectToObject(gShipSkullAttachment[2], gMainShipObjectId, -4.3378, -15.2887, -9.7863, 0.0, 0.0, -90.0);
+	AttachDynamicObjectToObject(gShipSkullAttachment[2], gMainShipObjectId, -4.3378, -15.2887, -9.7863, 0.0, 0.0, -90.0);
 	
 	gShipSkullAttachment[3] = CreateDynamicObject(SHIP_SKULL_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
-	AttachObjectToObject(gShipSkullAttachment[3], gMainShipObjectId, 4.3378, -15.2887, -9.7863, 0.0, 0.0, 90.0);
+	AttachDynamicObjectToObject(gShipSkullAttachment[3], gMainShipObjectId, 4.3378, -15.2887, -9.7863, 0.0, 0.0, 90.0);
 	
 	gShipRailsAttachment = CreateDynamicObject(SHIP_RAILS_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
-	AttachObjectToObject(gShipRailsAttachment, gMainShipObjectId, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+	AttachDynamicObjectToObject(gShipRailsAttachment, gMainShipObjectId, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 	
 	gShipLinesAttachment = CreateDynamicObject(SHIP_LINES_ATTACH, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
-	AttachObjectToObject(gShipLinesAttachment, gMainShipObjectId, -0.5468, -6.1875, -0.4375, 0.0, 0.0, 0.0);
+	AttachDynamicObjectToObject(gShipLinesAttachment, gMainShipObjectId, -0.5468, -6.1875, -0.4375, 0.0, 0.0, 0.0);
 
 	SetTimer("StartMovingTimer",30*1000,false); // pause at route 0 for 30 seconds
 
