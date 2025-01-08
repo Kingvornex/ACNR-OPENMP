@@ -29285,15 +29285,15 @@ new PlayerRadio[MAX_PLAYERS];
 
 CMD:carradio(playerid, params[])
 {
-	if(PlayerRadio[playerid] == 1)
+	if(PlayerRadio[playerid] == 0)
 	{
-		PlayerRadio[playerid] = 0;
+		PlayerRadio[playerid] = 1;
 		StopAudioStreamForPlayer(playerid);
 		return SendClientMessageACNR(playerid, RED, "Car Radio Disabled.");
 	}
-	else if(PlayerRadio[playerid] == 0)
+	else if(PlayerRadio[playerid] == 1)
 	{
-	    PlayerRadio[playerid] = 1;
+	    PlayerRadio[playerid] = 0;
 		if (IsPlayerInAnyVehicle(playerid)) { PlayRandomAudio(playerid); }
 		return SendClientMessageACNR(playerid, RED, "Car Radio Enabled. use /ns for Next Song");
 	}
@@ -29307,8 +29307,8 @@ CMD:carradio(playerid, params[])
 CMD:ns(playerid, params[])
 {
 	if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessageACNR(playerid, RED, "You Need to be in a Vehicle.");
-	if(PlayerRadio[playerid] == 0) return SendClientMessageACNR(playerid, RED, "You Need to turn on radio first. use /carradio");
-	if(PlayerRadio[playerid] == 1)
+	if(PlayerRadio[playerid] == 1) return SendClientMessageACNR(playerid, RED, "You Need to turn on radio first. use /carradio");
+	if(PlayerRadio[playerid] == 0)
 	{
 		if(IsPlayerInAnyVehicle(playerid)) { PlayRandomAudio(playerid); }
 		return SendClientMessageACNR(playerid, RED, "Playing next random song.");
@@ -29406,7 +29406,7 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 	//show vehicle name by abolfazl
     if(newstate == PLAYER_STATE_DRIVER || newstate == PLAYER_STATE_PASSENGER)
     {
-		if(PlayerRadio[playerid] == 1) { PlayRandomAudio(playerid); }
+		if(PlayerRadio[playerid] == 0) { PlayRandomAudio(playerid); }
 	    TextDrawShowForPlayer(playerid,esmmashin[playerid]);
         new stringgg[200];
         new ccar = GetPlayerVehicleID(playerid);
@@ -29425,7 +29425,7 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
     }
     if(newstate != PLAYER_STATE_DRIVER && newstate != PLAYER_STATE_PASSENGER)
     {
-		if(PlayerRadio[playerid] == 1) { StopAudioStreamForPlayer(playerid); }
+		if(PlayerRadio[playerid] == 0) { StopAudioStreamForPlayer(playerid); }
 //		new newnewnew[40];
 //		format(newnewnew,sizeof(newnewnew),"%s (%d)", GetName(playerid), playerid);
 //	    TextDrawSetString(esmmashin[playerid],newnewnew);
@@ -41065,8 +41065,8 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Fixed REGISTER_MENU bug.\n");
     strcat(UPS, "{FFFFFF}  Give back player guns after /finishevent adn /levent.\n");
     strcat(UPS, "{FFFFFF}  Chaned classes and class spawn weapons.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Enabled Car Radio by default.\n");
+    strcat(UPS, "{FFFFFF}  Fixed some small map bugs.\n");
     strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
