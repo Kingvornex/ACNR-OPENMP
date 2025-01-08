@@ -4,25 +4,35 @@
 //
 //-------------------------------------------------
 
-#pragma tabsize 0
-#include <a_samp>
+//#pragma tabsize 0
+#include <open.mp>
 
 //-------------------------------------------------
 
 public OnFilterScriptInit()
 {
-	ConnectNPC("TrainDriverLV","train_lv");
+	/*
+ ConnectNPC("TrainDriverLV","train_lv");
 	ConnectNPC("TrainDriverLS","train_ls");
 	ConnectNPC("TrainDriverSF","train_sf");
+ */
 	ConnectNPC("PilotLV","at400_lv");
 	ConnectNPC("PilotSF","at400_sf");
 	ConnectNPC("PilotLS","at400_ls");
-	
+ /*
+taxi lv
+taxi sf
+taxi ls
+ /*
+	/*
 	// Testing
 	//ConnectNPC("OnfootTest","onfoot_test");
 	//ConnectNPC("DriverTest","mat_test2");
 	//ConnectNPC("DriverTest2","driver_test2");
-
+ */
+ /*
+need to create vehicles and saves behicle ids
+ */
 	return 1;
 }
 
@@ -31,7 +41,7 @@ public OnFilterScriptInit()
 // an IP address outside this server. If you need
 // to connect NPCs externally you will need to modify
 // the code in this callback.
-
+/*
 public OnPlayerConnect(playerid)
 {
 	if(IsPlayerNPC(playerid)) {
@@ -55,7 +65,7 @@ public OnPlayerConnect(playerid)
 	
 	return 1;
 }
-
+*/
 //-------------------------------------------------
 
 public OnPlayerRequestClass(playerid, classid)
