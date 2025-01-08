@@ -5120,7 +5120,7 @@ CreateDynamicObject(19129, -1990.11292, 130.00481, 26.62260,   0.00000, 0.00000,
 CreateDynamicObject(9482, -2000.28857, 109.17267, 33.13060,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(19076, -1983.46008, 121.66750, 26.68300,   0.00000, 0.00000, 90.00000);
 CreateDynamicObject(19076, -1983.43164, 110.89581, 26.68300,   0.00000, 0.00000, 90.00000);
-CreateDynamicObject(18787, -2047.72021, -97.24905, 35.86020,   0.00000, 0.00000, 180.00000);
+//CreateDynamicObject(18787, -2047.72021, -97.24905, 35.86020,   0.00000, 0.00000, 180.00000);
 CreateDynamicObject(3461, -1981.62012, 99.19992, 26.68156,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(19056, -1981.63843, 99.23560, 27.16150,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(19056, -1983.67859, 99.23353, 27.16150,   0.00000, 0.00000, 0.00000);
@@ -14538,6 +14538,9 @@ public OnPlayerConnect(playerid)
     accssave();
 
     kenararmyremove(playerid);
+
+	RemoveBuildingForPlayer(playerid, 11372, -2076.4375, -107.9297, 36.9688, 0.25);
+	RemoveBuildingForPlayer(playerid, 11014, -2076.4375, -107.9297, 36.9688, 0.25);
     
 	RemoveBuildingForPlayer(playerid, 10145, -1951.7578, 659.2891, 82.8750, 0.25);
 	
