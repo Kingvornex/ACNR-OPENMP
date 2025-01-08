@@ -10124,7 +10124,7 @@ public OnGameModeInit()
     CreateObjectACNR(3306, 955.57, 1876.42, 11.24,   0.00, 0.00, -90.00);
     CreateObjectACNR(3310, 929.88, 1875.68, 11.96,   0.00, 0.00, 90.00);
     CreateObjectACNR(3312, 929.77, 1900.68, 12.87,   0.00, 0.00, 0.00);
-    CreateObjectACNR(3308, 930.17, 1976.52, 11.13,   0.00, 0.00, -180.00);
+    //CreateObjectACNR(3308, 930.17, 1976.52, 11.13,   0.00, 0.00, -180.00); // the same location as acnr9.pwn
     CreateObjectACNR(3317, 978.73, 2240.61, 13.11,   0.00, 0.00, 90.00);
     CreateObjectACNR(3308, 984.76, 2214.86, 11.08,   0.00, 0.00, 0.00);
     CreateObjectACNR(3307, 927.12, 2244.92, 10.92,   0.00, 0.00, -180.00);
