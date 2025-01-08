@@ -260,4 +260,17 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 ## ACNR-OPENMP-v2.2.3:
 - Now Tune Menu Saves Shop Vehicle Paint Job And Colours
 - Added Custom Colorus to Tune Menu
+- Fixing bigs with 0.3DL
+- Fixed /stopanim bug
+- Changed All Objects to Dynamic Objects
+- MAX_PLAYER_BIZ_HOUSE_VEHS 10, MAX_DEGREE_BIZ_HOUSE_VEHS 20, MAX_VIP_BIZ_HOUSE_VEHS 30
+- Added more skins to class selection
+- Updated /myvehs cmd
+- Added /playplaylist to Admin 4
+- Added /CarRadio CMD
+- Now 3D speedo will automatically Enable when player is in Arena
+- Added Debug Files and save reports to them.
+- Fixed REGISTER_MENU bug
+- Give back player guns after /finishevent adn /levent
+- Chaned classes and class spawn weapons
 
