@@ -13,7 +13,7 @@
     },
     "logo": "https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/logo%201.png",
     "discord": {
-        "invite": ""
+        "invite": "https://discord.gg/tcnkKeB7xQ"
     },
     "chat_input_filter": false,
     "enable_query": true,
@@ -98,7 +98,7 @@
         "main_scripts": [
             "ACNR-OPENMP-V2 1"
         ],
-        "side_scripts": ["filterscripts/acnr1", "filterscripts/acnr2", "filterscripts/acnr3", "filterscripts/acnr5", "filterscripts/acnr6", "filterscripts/acnr7", "filterscripts/acnr8"]
+        "side_scripts": ["filterscripts/acnr1", "filterscripts/acnr2", "filterscripts/acnr3", "filterscripts/acnr4" "filterscripts/acnr5", "filterscripts/acnr6", "filterscripts/acnr7", "filterscripts/acnr8", "filterscripts/acnr9"]
     },
     "rcon": {
         "allow_teleport": false,
