@@ -273,4 +273,6 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Fixed REGISTER_MENU bug
 - Give back player guns after /finishevent adn /levent
 - Chaned classes and class spawn weapons
+- Enabled Car Radio by default
+- Fixed some small map bugs
 
