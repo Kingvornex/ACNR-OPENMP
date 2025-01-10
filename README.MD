@@ -201,14 +201,16 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] /respawnshopcars
     - [x] /respawnmycars
     - [x] /vehmenu
-    - [ ] create new veh pos
-    - [ ] /unstuck 
+    - [x] create new veh pos
+    - [x] /unstuck 
     - [x] /getplayer 
     - [ ] neon
-    - [ ] 
-    - [ ] 
-    - [ ] 
-    - [ ] 
+    - [ ] Add /fanim
+    - [ ] Add strip club
+    - [ ] actor in -13, -179, 1
+    - [ ] pirate ship object is still bug and appears in random places
+    - [ ] ufo not moving
+    - [ ] change /playaudio to /playmusic
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
