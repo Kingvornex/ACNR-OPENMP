@@ -19,7 +19,7 @@ public OnFilterScriptInit()
 {
 	ufo1 = CreateDynamicObject(13607, -1460.199829, -943.961182, 219.348648, 0.0000, 0.0000, 0.0000);
 	ufo2 = CreateDynamicObject(13607, -1460.167114, -944.012512, 206.879150, 179.6226, 0.0000, 0.0000);
-	SetTimer("MoveUfo",1,true);
+	SetTimer("MoveUfo", 1, true);
 	return 1;
 }
 
@@ -33,7 +33,7 @@ public OnFilterScriptExit()
 public MoveUfo()
 {
 	new Float:X,Float:Y,Float:Z;
-	GetObjectPos(ufo1,X,Y,Z);
+	GetDynamicObjectPos(ufo1, X, Y, Z);
 	if(X == -1460.199829 && Y == -943.961182 && Z == 219.348648)//1
 	{
 		MoveDynamicObject(ufo1,-1506.5603,-236.6437,41.9595,10);
