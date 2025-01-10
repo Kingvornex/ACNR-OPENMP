@@ -220,7 +220,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] ufo bug at 543, 2424, 29
     - [ ] attach ufo objects togeter so it wont be bug
     - [ ] increase ufo speed?
-    - [ ] 
+    - [ ] move island 1 closer to land
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
