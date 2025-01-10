@@ -194,16 +194,16 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] LET PLAYER MOVE VIEW ANGLE WHEN IN TUNE MENU TO PERVENT OPENING AND CLOSING MENU MULTIPLE TIMES
 
 - [ ] 2.2.3.7 TODO
-    - [ ] /color -1
+    - [x] /color -1
     - [ ] e-c-menu
     - [ ] onvehicledeath
     - [ ] e-c-tune-menu
-    - [ ] /respawnshopcars
-    - [ ] /respawnmycars
-    - [ ] /vehmenu
+    - [x] /respawnshopcars
+    - [x] /respawnmycars
+    - [x] /vehmenu
     - [ ] create new veh pos
     - [ ] /unstuck 
-    - [ ] /get player 
+    - [x] /getplayer 
     - [ ] neon
     - [ ] 
     - [ ] 
