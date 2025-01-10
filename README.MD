@@ -211,6 +211,16 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] pirate ship object is still bug and appears in random places
     - [ ] ufo not moving
     - [ ] change /playaudio to /playmusic
+    - [ ] MOVE ARENA 3
+    - [ ] MOVE ARENA 4
+    - [ ] dynamic actor
+    - [ ] ufo bug at -1622, 2559, 112
+    - [ ] ufo bug at -790, 2663, 100
+    - [ ] ufo bug at 377, 2480, 24
+    - [ ] ufo bug at 543, 2424, 29
+    - [ ] attach ufo objects togeter so it wont be bug
+    - [ ] increase ufo speed?
+    - [ ] 
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
