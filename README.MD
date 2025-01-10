@@ -193,7 +193,22 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] SHOW PREVIEW OF MODE THEN CONFIRM FOR PURCHASE FOR MODE
     - [ ] LET PLAYER MOVE VIEW ANGLE WHEN IN TUNE MENU TO PERVENT OPENING AND CLOSING MENU MULTIPLE TIMES
 
-- [ ] TODO
+- [ ] 2.2.3.7 TODO
+    - [ ] /color -1
+    - [ ] e-c-menu
+    - [ ] onvehicledeath
+    - [ ] e-c-tune-menu
+    - [ ] /respawnshopcars
+    - [ ] /respawnmycars
+    - [ ] /vehmenu
+    - [ ] create new veh pos
+    - [ ] /unstuck 
+    - [ ] /get player 
+    - [ ] neon
+    - [ ] 
+    - [ ] 
+    - [ ] 
+    - [ ] 
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
