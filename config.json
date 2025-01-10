@@ -98,7 +98,7 @@
         "main_scripts": [
             "ACNR-OPENMP-V2 1"
         ],
-        "side_scripts": ["filterscripts/acnr1", "filterscripts/acnr2", "filterscripts/acnr3", "filterscripts/acnr4" "filterscripts/acnr5", "filterscripts/acnr6", "filterscripts/acnr7", "filterscripts/acnr8", "filterscripts/acnr9"]
+        "side_scripts": ["filterscripts/acnr1", "filterscripts/acnr2", "filterscripts/acnr3", "filterscripts/acnr4" "filterscripts/acnr5", "filterscripts/acnr6", "filterscripts/acnr7", "filterscripts/acnr8", "filterscripts/acnr9", "filterscripts/acnr10"]
     },
     "rcon": {
         "allow_teleport": false,
