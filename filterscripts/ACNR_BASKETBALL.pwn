@@ -20,6 +20,7 @@ public OnFilterScriptInit()
 
 public OnFilterScriptExit()
 {
+// destroy the ball
 	return 1;
 }
 
@@ -195,12 +196,12 @@ public OnObjectMoved(objectid)
 	}
     return 1;
 }
-
+/*
 public OnPlayerConnect(playerid)
 {
 	return 1;
 }
-
+*/
 public OnPlayerDisconnect(playerid, reason)
 {
     HavingBall[playerid] = 0;
@@ -209,30 +210,10 @@ public OnPlayerDisconnect(playerid, reason)
 	return 1;
 }
 
-public OnPlayerSpawn(playerid)
-{
-	return 1;
-}
-
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
     HavingBall[playerid] = 0;
     if(HavingBall[playerid]) Baller = 999;
-	return 1;
-}
-
-public OnVehicleSpawn(vehicleid)
-{
-	return 1;
-}
-
-public OnVehicleDeath(vehicleid, killerid)
-{
-	return 1;
-}
-
-public OnPlayerText(playerid, text[])
-{
 	return 1;
 }
 
