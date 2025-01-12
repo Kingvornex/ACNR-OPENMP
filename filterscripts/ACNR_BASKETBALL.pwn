@@ -10,11 +10,30 @@ new Baller = INVALID_PLAYER_ID;
 new ShootingBall;
 new BallBounce;
 
+#define NUM_BALL_LOCATIONS 5 // Number of ball locations
+
+new Float:gBallLocations[NUM_BALL_LOCATIONS][3] = {
+    {2782.3027, -2019.0826, 13.5547},   // Ball Spawn Location
+    {2795.5237, -2019.6152, 13.5547},   // Under team A basket
+    {2794.9612, -2019.5415, 15.5075},   // Team A basket
+    {2768.3669, -2019.6644, 13.5547},   // Under team B basket
+    {2768.6289, -2019.7227, 15.6287},   // Team B basket
+};
+/*
+//LV LOCATIONS
+new Float:gBallLocations[NUM_BALL_LOCATIONS][3] = {
+    {2582.7990, 2447.7505, 12.0100},   // Ball Spawn Location
+    {2565.0580, 2447.6960, 11.0400},   // Under team A basket
+    {2565.0580, 2447.6960, 12.9600},   // Team A basket
+    {2600.5400, 2447.8050, 11.0600},   // Under team B basket
+    {2600.5400, 2447.8050, 12.9800},   // Team B basket
+};
+*/
 public OnFilterScriptInit()
 {
-	Baller = 999; // CHANGE IT TI INVALID_PLAYER_ID
+	Baller = INVALID_PLAYER_ID; // CHANGE IT TI INVALID_PLAYER_ID
 	//DestroyObject(Ball); //on FilterScriptInit Ball is 0 and it will destroy object 0
-	Ball = CreateObject(2114, 2782.3027,-2019.0826,13.5547-0.8, 0, 0, 96); // change 
+	Ball = CreateObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96); // 
 	return 1;
 }
 
@@ -206,14 +225,14 @@ public OnPlayerDisconnect(playerid, reason)
 {
     HavingBall[playerid] = 0;
     Anim[playerid] = 0;
-    if(HavingBall[playerid]) Baller = 999;
+    if(HavingBall[playerid]) Baller = INVALID_PLAYER_ID;
 	return 1;
 }
 
 public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
     HavingBall[playerid] = 0;
-    if(HavingBall[playerid]) Baller = 999;
+    if(HavingBall[playerid]) Baller = INVALID_PLAYER_ID;
 	return 1;
 }
 
@@ -259,7 +278,7 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 			{
 				HavingBall[playerid] = 1;
 				ApplyAnimation(playerid,"BSKTBALL","BBALL_pickup",4.0,0,0,0,0,0);
-				if(Baller != 999)
+				if(Baller != INVALID_PLAYER_ID)
 				{
 					HavingBall[Baller] = 0;
 					ClearAnimations(Baller);
@@ -279,22 +298,22 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 		}
 		else
 		{
-            if(IsPlayerInRangeOfPoint(playerid, 2, 2795.5237,-2019.6152,13.5547))
+            if(IsPlayerInRangeOfPoint(playerid, 2, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]))
 			{
-				MoveObject(Ball, 2794.9612,-2019.5415,15.5075, 7.5);
-				SetPlayerPos(playerid, 2795.5237,-2019.6152,13.5547);
+				MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 7.5);
+				SetPlayerPos(playerid, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]);
 				ApplyAnimation(playerid,"BSKTBALL","BBALL_Dnk",4.0,1,0,0,0,0);
 				HavingBall[playerid] = 0;
 				SetTimerEx("ClearAnim", 1100, 0, "d", playerid);
 				SetTimerEx("BallDown2", 1100, 0, "d", playerid);
 				return 1;
 			}
-            else if(IsPlayerInRangeOfPoint(playerid, 4, 2795.5237,-2019.6152,13.5547) && IsPlayerFacingPoint(playerid, 20, 2795.5237,-2019.6152,13.5547))
+            else if(IsPlayerInRangeOfPoint(playerid, 4, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]))
 			{
 				new rand = random(1);
 				if(rand == 0)
 				{
-					MoveObject(Ball, 2794.9612,-2019.5415,15.5075, 10.5+random(4));
+					MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 10.5+random(4));
 					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 					ShootingBall = 2;
 					HavingBall[playerid] = 0;
@@ -303,12 +322,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				ShootMiss(playerid);
 				return 1;
 			}
-            else if(IsPlayerInRangeOfPoint(playerid, 7, 2795.5237,-2019.6152,13.5547) && IsPlayerFacingPoint(playerid, 20, 2795.5237,-2019.6152,13.5547))
+            else if(IsPlayerInRangeOfPoint(playerid, 7, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]))
 			{
 				new rand = random(2);
 				if(rand == 0)
 				{
-					MoveObject(Ball, 2794.9612,-2019.5415,15.5075, 11.0+random(4));
+					MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 11.0+random(4));
 					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 					ShootingBall = 2;
 					HavingBall[playerid] = 0;
@@ -317,12 +336,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				ShootMiss(playerid);
 				return 1;
 			}
-			else if(IsPlayerInRangeOfPoint(playerid, 10, 2795.5237,-2019.6152,13.5547) && IsPlayerFacingPoint(playerid, 20, 2795.5237,-2019.6152,13.5547))
+			else if(IsPlayerInRangeOfPoint(playerid, 10, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]))
 			{
 				new rand = random(3);
 				if(rand == 0)
 				{
-					MoveObject(Ball, 2794.9612,-2019.5415,15.5075, 11.5+random(4));
+					MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 11.5+random(4));
 					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 					ShootingBall = 2;
 					HavingBall[playerid] = 0;
@@ -331,22 +350,22 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				ShootMiss(playerid);
 				return 1;
 			}
-			else if(IsPlayerInRangeOfPoint(playerid, 2, 2768.3669,-2019.6644,13.5547))
+			else if(IsPlayerInRangeOfPoint(playerid, 2, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]))
 			{
-				MoveObject(Ball, 2768.6289,-2019.7227,15.6287, 7.5);
-				SetPlayerPos(playerid, 2768.3669,-2019.6644,13.5547);
+				MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 7.5);
+				SetPlayerPos(playerid, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]);
 				ApplyAnimation(playerid,"BSKTBALL","BBALL_Dnk",4.0,1,0,0,0,0);
 				HavingBall[playerid] = 0;
 				SetTimerEx("ClearAnim", 800, 0, "d", playerid);
 				SetTimerEx("BallDown3", 1100, 0, "d", playerid);
 				return 1;
 			}
-            else if(IsPlayerInRangeOfPoint(playerid, 4, 2768.3669,-2019.6644,13.5547) && IsPlayerFacingPoint(playerid, 20, 2768.3669,-2019.6644,13.5547))
+            else if(IsPlayerInRangeOfPoint(playerid, 4, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]))
 			{
 				new rand = random(1);
 				if(rand == 0)
 				{
-					MoveObject(Ball, 2768.6289,-2019.7227,15.6287, 10.5+random(4));
+					MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 10.5+random(4));
 					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 					ShootingBall = 3;
 					HavingBall[playerid] = 0;
@@ -355,12 +374,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				ShootMiss2(playerid);
 				return 1;
 			}
-            else if(IsPlayerInRangeOfPoint(playerid, 7, 2768.3669,-2019.6644,13.5547) && IsPlayerFacingPoint(playerid, 20, 2768.3669,-2019.6644,13.5547))
+            else if(IsPlayerInRangeOfPoint(playerid, 7, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]))
 			{
 				new rand = random(2);
 				if(rand == 0)
 				{
-					MoveObject(Ball, 2768.6289,-2019.7227,15.6287, 11.0+random(4));
+					MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 11.0+random(4));
 					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 					ShootingBall = 3;
 					HavingBall[playerid] = 0;
@@ -369,12 +388,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				ShootMiss2(playerid);
 				return 1;
 			}
-			else if(IsPlayerInRangeOfPoint(playerid, 10, 2768.3669,-2019.6644,13.5547) && IsPlayerFacingPoint(playerid, 20, 2768.3669,-2019.6644,13.5547))
+			else if(IsPlayerInRangeOfPoint(playerid, 10, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]))
 			{
 				new rand = random(3);
 				if(rand == 0)
 				{
-					MoveObject(Ball, 2768.6289,-2019.7227,15.6287, 11.5+random(4));
+					MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 11.5+random(4));
 					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 					ShootingBall = 3;
 					HavingBall[playerid] = 0;
@@ -497,7 +516,7 @@ public BallDown(playerid, Float:oldz)
 	x2 += (16 * floatsin(-a, degrees));
 	y2 += (16 * floatcos(-a, degrees));
 	MoveObject(Ball, x2, y2, oldz-0.8, 10.0+random(3));
-	Baller = 999;
+	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	BallBounce = 1;
 	return 1;
@@ -506,8 +525,8 @@ public BallDown(playerid, Float:oldz)
 forward BallDown2(playerid);
 public BallDown2(playerid)
 {
-	MoveObject(Ball, 2795.5237,-2019.6152,13.5547-0.8, 10.0+random(3));
-	Baller = 999;
+	MoveObject(Ball, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]-0.8, 10.0+random(3));
+	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Goal :D!", 3000, 3);
 	BallBounce = 1;
@@ -517,8 +536,8 @@ public BallDown2(playerid)
 forward BallDown3(playerid);
 public BallDown3(playerid)
 {
-	MoveObject(Ball, 2768.3669,-2019.6644,13.5547-0.8, 10.0+random(3));
-	Baller = 999;
+	MoveObject(Ball, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]-0.8, 10.0+random(3));
+	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Goal :D!", 3000, 3);
 	BallBounce = 1;
@@ -528,8 +547,8 @@ public BallDown3(playerid)
 forward BallDown4(playerid);
 public BallDown4(playerid)
 {
-	MoveObject(Ball, 2795.5237+random(5),-2019.6152+random(5),13.5547-0.8, 10.0+random(3));
-	Baller = 999;
+	MoveObject(Ball, gBallLocations[1][0]+random(5),gBallLocations[1][1]+random(5),gBallLocations[1][2]-0.8, 10.0+random(3));
+	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Missed :(!", 3000, 3);
 	BallBounce = 1;
@@ -539,8 +558,8 @@ public BallDown4(playerid)
 forward BallDown5(playerid);
 public BallDown5(playerid)
 {
-	MoveObject(Ball, 2768.3669+random(5),-2019.6644+random(5),13.5547-0.8, 10.0+random(3));
-	Baller = 999;
+	MoveObject(Ball, gBallLocations[3][0] + random(5), gBallLocations[3][1] + random(5), gBallLocations[3][2] - 0.8, 10.0 + random(3));
+	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Missed :(!", 3000, 3);
 	BallBounce = 1;
@@ -550,7 +569,7 @@ public BallDown5(playerid)
 forward ShootMiss(playerid);
 public ShootMiss(playerid)
 {
-	MoveObject(Ball, 2794.9612+random(2), -2019.5415+random(2), 15.5075+random(2), 12.5+random(4));
+	MoveObject(Ball, gBallLocations[2][0] + random(2), gBallLocations[2][1] + random(2), gBallLocations[2][2] + random(2), 12.5 + random(4));
 	ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 	ShootingBall = 4;
 	HavingBall[playerid] = 0;
@@ -560,7 +579,7 @@ public ShootMiss(playerid)
 forward ShootMiss2(playerid);
 public ShootMiss2(playerid)
 {
-	MoveObject(Ball, 2768.6289+random(2),-2019.7227+random(2),15.6287+random(2), 12.5+random(4));
+	MoveObject(Ball, gBallLocations[4][0] + random(2), gBallLocations[4][1] + random(2), gBallLocations[4][2] + random(2), 12.5 + random(4));
 	ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
 	ShootingBall = 5;
 	HavingBall[playerid] = 0;

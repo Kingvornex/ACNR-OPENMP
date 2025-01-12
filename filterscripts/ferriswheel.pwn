@@ -9,7 +9,7 @@
 // - Kye 2011
 //
 
-#include <a_samp>
+#include <open.mp>
 #include "../include/gl_common.inc" // for PlaySoundForPlayersInRange()
 
 #define NUM_FERRIS_CAGES        10
@@ -92,12 +92,12 @@ public OnFilterScriptInit()
 							  gFerrisCageOffsets[x][0],
 							  gFerrisCageOffsets[x][1],
 	  						  gFerrisCageOffsets[x][2],
-							  0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, 0 );
+							  0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, false );
 					
 		x++;
 	}
 	
-	SetTimer("RotateWheel",3*1000,0);
+	SetTimer("RotateWheel", 3*1000, false);
 
 	return 1;
 }
@@ -126,7 +126,7 @@ public OnObjectMoved(objectid)
 {
     if(objectid != gFerrisWheel) return 0;
     
-    SetTimer("RotateWheel",3*1000,0);
+    SetTimer("RotateWheel", 3*1000, false);
     return 1;
 }
 
