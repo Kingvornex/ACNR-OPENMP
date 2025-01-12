@@ -31,7 +31,11 @@ asansoor, 1961.5653, 2376.6826, 9.8070
 dragon house, 2095.5142, 2786.6809, 9.7794
 only up, 2923.3210, 2100.3835, 16.8852
 manstion, 957.7600, 2464.6799, 7.3400
+basketball playground, x, y, z
 
+// todo list
+ferriswheel.pwn + acnr_wheel.pwn
+radio.pwn
 
 
 
