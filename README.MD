@@ -221,6 +221,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] attach ufo objects togeter so it wont be bug
     - [ ] increase ufo speed?
     - [ ] move island 1 closer to land
+    - ( ) save /kojam to file like /bug
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
