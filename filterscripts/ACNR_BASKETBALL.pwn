@@ -14,7 +14,7 @@ public OnFilterScriptInit()
 {
 	Baller = 999; // CHANGE IT TI INVALID_PLAYER_ID
 	//DestroyObject(Ball); //on FilterScriptInit Ball is 0 and it will destroy object 0
-	Ball = CreateObject(2114, 2782.3027,-2019.0826,13.5547-0.8, 0, 0, 96);
+	Ball = CreateObject(2114, 2782.3027,-2019.0826,13.5547-0.8, 0, 0, 96); // change 
 	return 1;
 }
 
