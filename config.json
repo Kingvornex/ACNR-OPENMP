@@ -98,7 +98,11 @@
         "main_scripts": [
             "ACNR-OPENMP-V2 1"
         ],
-        "side_scripts": ["filterscripts/acnr1", "filterscripts/acnr2", "filterscripts/acnr3", "filterscripts/acnr4" "filterscripts/acnr5", "filterscripts/acnr6", "filterscripts/acnr7", "filterscripts/acnr8", "filterscripts/acnr9", "filterscripts/acnr10"]
+        "side_scripts": ["filterscripts/ACNR_ARMY", "filterscripts/ACNR_BASKETBALL", "filterscripts/ACNR_HOUSE", 
+        "filterscripts/ACNR_ISLAND", "filterscripts/ACNR_JAIL", "filterscripts/ACNR_NAME", 
+        "filterscripts/ACNR_PHONE", "filterscripts/ACNR_PRISON", "filterscripts/ACNR_SHIP", 
+        "filterscripts/ACNR_UFO", "filterscripts/ACNR_UFO_CAR", "filterscripts/ACNR_VEH_STREAM", 
+        "filterscripts/ACNR_WHEEL"]
     },
     "rcon": {
         "allow_teleport": false,
