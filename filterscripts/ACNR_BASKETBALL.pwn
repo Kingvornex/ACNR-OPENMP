@@ -4,16 +4,16 @@
 
 new HavingBall[MAX_PLAYERS];
 new Anim[MAX_PLAYERS];
-new Ball;
+new Ball = INVALID_OBJECT_ID;
 new BallStatus;
-new Baller;
+new Baller = INVALID_PLAYER_ID;
 new ShootingBall;
 new BallBounce;
 
 public OnFilterScriptInit()
 {
-	Baller = 999;
-	DestroyObject(Ball);
+	Baller = 999; // CHANGE IT TI INVALID_PLAYER_ID
+	//DestroyObject(Ball); //on FilterScriptInit Ball is 0 and it will destroy object 0
 	Ball = CreateObject(2114, 2782.3027,-2019.0826,13.5547-0.8, 0, 0, 96);
 	return 1;
 }
