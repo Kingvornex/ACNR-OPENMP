@@ -48,7 +48,42 @@ playplayersound,playerid, ding,x,y,z)
 setplayercheckpoint(gpsloc[listitem][0], gpsloc[listitem][1],gpsloc[listitem][2])}
 
 
-
+// Define the names of the locations
+new const gpsnames[30][] = {
+    "army base",
+    "kenar army",
+    "edited village",
+    "favareh",
+    "bridge",
+    "hidden base",
+    "desert air port",
+    "edited village 2",
+    "ufo",
+    "pirateship",
+    "arena 0",
+    "arena 1",
+    "arena 2",
+    "arena 3",
+    "island 0",
+    "island 1",
+    "island 2",
+    "jail",
+    "prison",
+    "house",
+    "ferris wheel",
+    "building",
+    "zir gozar",
+    "sf train station",
+    "base 1",
+    "base 2",
+    "construction site",
+    "meydan asli",
+    "asansoor",
+    "dragon house",
+    "only up",
+    "manstion",
+    "basketball playground"
+};
 
 // Define the locations array
 new Float:gpslocations[30][3] = {
@@ -120,6 +155,72 @@ public GPSdialogID(playerid, listitem)
     SetPlayerCheckpoint(playerid, x, y, z, 5.0); // 5.0 is the size of the checkpoint radius
 }
 
+// GPS Dialog selection handler
+public GPSdialogID(playerid, listitem)
+{
+    new x, y, z;
+
+    // If the player selected UFO or Pirate Ship, run the respective command
+    if (listitem == 8) // UFO (index 8)
+    {
+        // Run the /ufoloc command
+        SendClientMessage(playerid, COLOR_YELLOW, "You selected the UFO location!");
+        CallRemoteFunction("/ufoloc", playerid); // Replace with actual function if needed
+        return;
+    }
+    else if (listitem == 9) // Pirateship (index 9)
+    {
+        // Run the /shiploc command
+        SendClientMessage(playerid, COLOR_YELLOW, "You selected the Pirate Ship location!");
+        CallRemoteFunction("/shiploc", playerid); // Replace with actual function if needed
+        return;
+    }
+
+    // Get the selected location coordinates for other locations
+    x = gpslocations[listitem][0];
+    y = gpslocations[listitem][1];
+    z = gpslocations[listitem][2];
+
+    // Play sound on player selection
+    PlayPlayerSound(playerid, 1014, x, y, z); // Ding sound
+
+    // Set player's checkpoint to the selected location
+    SetPlayerCheckpoint(playerid, x, y, z, 5.0); // 5.0 is the size of the checkpoint radius
+}
+
+
+// GPS Dialog selection handler
+public GPSdialogID(playerid, listitem)
+{
+    new x, y, z;
+
+    // If the player selected UFO or Pirate Ship, run the respective command
+    if (listitem == 8) // UFO (index 8)
+    {
+        // Run the /ufoloc command after a small delay (1ms in this case)
+        SetTimerEx("onplayercommandtext", 1, false, playerid, "/ufoloc");
+        SendClientMessage(playerid, COLOR_YELLOW, "You selected the UFO location!");
+        return;
+    }
+    else if (listitem == 9) // Pirateship (index 9)
+    {
+        // Run the /shiploc command after a small delay (1ms in this case)
+        SetTimerEx("onplayercommandtext", 1, false, playerid, "/shiploc");
+        SendClientMessage(playerid, COLOR_YELLOW, "You selected the Pirate Ship location!");
+        return;
+    }
+
+    // Get the selected location coordinates for other locations
+    x = gpslocations[listitem][0];
+    y = gpslocations[listitem][1];
+    z = gpslocations[listitem][2];
+
+    // Play sound on player selection
+    PlayPlayerSound(playerid, 1014, x, y, z); // Ding sound
+
+    // Set player's checkpoint to the selected location
+    SetPlayerCheckpoint(playerid, x, y, z, 5.0); // 5.0 is the size of the checkpoint radius
+}
 
 
 
