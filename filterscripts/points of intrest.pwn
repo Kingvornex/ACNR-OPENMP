@@ -1,4 +1,4 @@
-name, x, y ,z
+name, x, y ,z, description
 army base, 165.6000, 1792.0000, 21.2000
 kenar army, 266.8027, 1413.4496, 9.4290
 edited village, -193.4547, 1093.7825, 18.5945
@@ -31,16 +31,21 @@ asansoor, 1961.5653, 2376.6826, 9.8070
 dragon house, 2095.5142, 2786.6809, 9.7794
 only up, 2923.3210, 2100.3835, 16.8852
 manstion, 957.7600, 2464.6799, 7.3400
-basketball playground, x, y, z
+basketball playground, 2582.7990, 2447.7505, 12.0100
 
-// todo list
-ferriswheel.pwn + acnr_wheel.pwn
-radio.pwn
+samp pawn
 
-
-
+new Float:gpslocations[gpscount][3] = {
+    {2782.3027, -2019.0826, 13.5547},   // Ball Spawn Location
 
 
+CMD:gps(player id, params)
+{dialog_show(playerid, GPSdialogID, color, dialog_type, dialog text);}
+Dialog:GPSdialogID(player id, listitem)
+{new x,y,z)
+getplayerpos(player id,x,y,z)
+playplayersound,playerid, ding,x,y,z)
+setplayercheckpoint(gpsloc[listitem][0], gpsloc[listitem][1],gpsloc[listitem][2])}
 
 
 
