@@ -498,6 +498,9 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * Dynamic Actor: https://sampforum.blast.hk/showthread.php?tid=611484
 * samp-map-zones: https://github.com/kristoisberg/samp-map-zones
 * **actor_plus: https://github.com/Dayrion/actor_plus/tree/master**
+* useful-samp-stuff: https://github.com/ins1x/useful-samp-stuff/tree/main
+* Gammix's SA-MP Package: https://github.com/Agneese-Saini/SA-MP/tree/master
+* gta samp scripts: https://github.com/bufu1337/GTA-Scripts
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
