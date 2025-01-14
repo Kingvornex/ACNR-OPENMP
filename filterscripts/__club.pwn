@@ -144,3 +144,68 @@ Block: "SEX"
 
 Anims: "SEX_1_P", "SEX_1_W", "SEX_1TO2_P", "SEX_1TO2_W", "SEX_2_P", "SEX_2_W", "SEX_2TO3_P", "SEX_2TO3_W", "SEX_3_P", "SEX_3_W", "SEX_3TO1_P", "SEX_3TO1_W", "SEX_1_P", "SEX_1_W", "SEX_1_CUM_P", "SEX_1_CUM_W"
 
+| no    | BLOWJOBZ     | BJ_Car_End_P           | 248    | 4.13           | Finish getting pumped in car                                  |                      |
+| no    | BLOWJOBZ     | BJ_Car_End_W           | 220    | 3.67           | Finish pumping in car                                         |                      |
+| no    | BLOWJOBZ     | BJ_Car_Loop_P          | 40     | 0.67           | Getting pumped in car                                         |                      |
+| no    | BLOWJOBZ     | BJ_Car_Loop_W          | 40     | 0.67           | Pumping in car                                                |                      |
+| no    | BLOWJOBZ     | BJ_Car_Start_P         | 140    | 2.33           | Start getting pumped in car                                   |                      |
+| no    | BLOWJOBZ     | BJ_Car_Start_W         | 140    | 2.33           | Start pumping in car                                          |                      |
+| no    | BLOWJOBZ     | BJ_Couch_End_P         | 460    | 7.67           | Finish getting pumped on couch                                |                      |
+| no    | BLOWJOBZ     | BJ_Couch_End_W         | 460    | 7.67           | Finish pumping on couch                                       |                      |
+| no    | BLOWJOBZ     | BJ_Couch_Loop_P        | 120    | 2.00           | Getting pumped on couch                                       |                      |
+| no    | BLOWJOBZ     | BJ_Couch_Loop_W        | 120    | 2.00           | Pumping on couch                                              |                      |
+| no    | BLOWJOBZ     | BJ_Couch_Start_P       | 320    | 5.33           | Start getting pumped on couch                                 |                      |
+| no    | BLOWJOBZ     | BJ_Couch_Start_W       | 320    | 5.33           | Start pumping on couch                                        |                      |
+| no    | BLOWJOBZ     | BJ_Stand_End_P         | 292    | 4.87           | Finish getting pumped up                                      |                      |
+| no    | BLOWJOBZ     | BJ_Stand_End_W         | 320    | 5.33           | Finish pumping up                                             |                      |
+| no    | BLOWJOBZ     | BJ_Stand_Loop_P        | 40     | 0.67           | Getting pumped up                                             |                      |
+| no    | BLOWJOBZ     | BJ_Stand_Loop_W        | 40     | 0.67           | Pumping up                                                    |                      |
+| no    | BLOWJOBZ     | BJ_Stand_Start_P       | 120    | 2.00           | Start getting pumped up                                       |                      |
+| no    | BLOWJOBZ     | BJ_Stand_Start_W       | 120    | 2.00           | Start pumping up                                              |                      |
+|   
+
+no    | SEX          | SEX_1to2_P             | 60     | 1.00           | Change position from eagle to butterfly as male               | Blocked in SA-MP     |
+| no    | SEX          | SEX_1to2_W             | 60     | 1.00           | Change position from eagle to butterfly as female             | Blocked in SA-MP     |
+| no    | SEX          | SEX_1_Cum_P            | 400    | 6.67           | Orgasm as male                                                | Blocked in SA-MP     |
+| no    | SEX          | SEX_1_Cum_W            | 400    | 6.67           | Orgasm as female                                              | Blocked in SA-MP     |
+| no    | SEX          | SEX_1_Fail_P           | 320    | 5.33           | Eagle position as male (fail)                                 | Blocked in SA-MP     |
+| no    | SEX          | SEX_1_Fail_W           | 320    | 5.33           | Eagle position as female (fail)                               | Blocked in SA-MP     |
+| no    | SEX          | SEX_1_P                | 20     | 0.33           | Eagle position as male                                        | Blocked in SA-MP     |
+| no    | SEX          | SEX_1_W                | 20     | 0.33           | Eagle position as female                                      | Blocked in SA-MP     |
+| no    | SEX          | SEX_2to3_P             | 90     | 1.50           | Change position from butterfly to doggy as male               | Blocked in SA-MP     |
+| no    | SEX          | SEX_2to3_W             | 90     | 1.50           | Change position from butterfly to doggy as female             | Blocked in SA-MP     |
+| no    | SEX          | SEX_2_Fail_P           | 380    | 6.33           | Butterfly position as male (fail)                             | Blocked in SA-MP     |
+| no    | SEX          | SEX_2_Fail_W           | 380    | 6.33           | Butterfly position as female (fail)                           | Blocked in SA-MP     |
+| no    | SEX          | SEX_2_P                | 20     | 0.33           | Butterfly position as male                                    | Blocked in SA-MP     |
+| no    | SEX          | SEX_2_W                | 20     | 0.33           | Butterfly position as female                                  | Blocked in SA-MP     |
+| no    | SEX          | SEX_3to1_P             | 60     | 1.00           | Change position from doggy to eagle as male                   | Blocked in SA-MP     |
+| no    | SEX          | SEX_3to1_W             | 60     | 1.00           | Change position from doggy to eagle as female                 | Blocked in SA-MP     |
+| no    | SEX          | SEX_3_Fail_P           | 260    | 4.33           | Doggy position as male (fail)                                 | Blocked in SA-MP     |
+| no    | SEX          | SEX_3_Fail_W           | 260    | 4.33           | Doggy position as female (fail)                               | Blocked in SA-MP     |
+| no    | SEX          | SEX_3_P                | 20     | 0.33           | Doggy position as male                                        | Blocked in SA-MP     |
+| no    | SEX          | SEX_3_W                | 20     | 0.33           | Doggy position as female                                      | Blocked in SA-MP     |
+| 
+
+| no    | SnM          | SnM_Caned_Idle_P       | 120    | 2.00           | Bent at 90 degrees ready to be caned as male                  |                      |
+| no    | SnM          | SnM_Caned_Idle_W       | 120    | 2.00           | Position to caning as female                                  |                      |
+| no    | SnM          | SnM_Caned_P            | 80     | 1.33           | Bent at 90 degrees being caned as male                        |                      |
+| no    | SnM          | SnM_Caned_W            | 80     | 1.33           | Caning as female                                              |                      |
+| no    | SnM          | SnM_Cane_Idle_P        | 120    | 2.00           | Position to caning as male                                    |                      |
+| no    | SnM          | SnM_Cane_Idle_W        | 120    | 2.00           | Bent at 90 degrees ready to be caned as female                |                      |
+| no    | SnM          | SnM_Cane_P             | 80     | 1.33           | Caning as male                                                |                      |
+| no    | SnM          | SnM_Cane_W             | 80     | 1.33           | Bent at 90 degrees being caned as female                      |                      |
+| no    | SnM          | SpankedP               | 80     | 1.33           | Bent at 90 degrees being spanked as male                      |                      |
+| no    | SnM          | SpankedW               | 80     | 1.33           | Spanking as female                                            |                      |
+| no    | SnM          | Spanked_IdleP          | 80     | 1.33           | Bent at 90 degrees ready to be spanked as male                |                      |
+| no    | SnM          | Spanked_IdleW          | 80     | 1.33           | Position to spank as female                                   |                      |
+| no    | SnM          | SpankingP              | 80     | 1.33           | Spanking as male                                              |                      |
+| no    | SnM          | SpankingW              | 80     | 1.33           | Bent over 90 degrees being spanked as female                  |                      |
+| no    | SnM          | Spanking_endP          | 400    | 6.67           | Finish spanking as male                                       |                      |
+| no    | SnM          | Spanking_endW          | 400    | 6.67           | Finish being spanked as female                                |                      |
+| no    | SnM          | Spanking_IdleP         | 80     | 1.33           | Position to spank as male                                     |                      |
+| no    | SnM          | Spanking_IdleW         | 80     | 1.33           | Bent over 90 degrees ready to be spanked as female            |                      |
+| no    | SnM          | Spanking_SittingIdleP  | 80     | 1.33           | Sitting position to spank as male                             |                      |
+| no    | SnM          | Spanking_SittingIdleW  | 80     | 1.33           | Kneeling on the floor ready to be spanked as female           |                      |
+| no    | SnM          | Spanking_SittingP      | 60     | 1.00           | Sitting and spanking as male                                  |                      |
+| no    | SnM          | Spanking_SittingW      | 60     | 1.00           | Kneeling on the floor being spanked as female                 |                      |
+| 
