@@ -1,4 +1,6 @@
-NumberOfEntries=73
+[playlist]
+NumberOfEntries=54
+  
 File1=https://dl.goodmusics.ir/foreign-song/the_door_teddy_swims.mp3
 File2=https://dl.goodmusics.ir/foreign-song/Kendrick-Lamar-tv-off.mp3
 File3=https://dl.goodmusics.ir/foreign-song/teddy_swims_bad_dreams.mp3
