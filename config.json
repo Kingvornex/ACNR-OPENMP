@@ -102,7 +102,7 @@
         "filterscripts/ACNR_ISLAND", "filterscripts/ACNR_JAIL", "filterscripts/ACNR_NAME", 
         "filterscripts/ACNR_PHONE", "filterscripts/ACNR_PRISON", "filterscripts/ACNR_SHIP", 
         "filterscripts/ACNR_UFO", "filterscripts/ACNR_UFO_CAR", "filterscripts/ACNR_VEH_STREAM", 
-        "filterscripts/ACNR_WHEEL"]
+        "filterscripts/ACNR_WHEEL", "filterscripts/ANCROID_CHECK", "filterscripts/MAPFIX"]
     },
     "rcon": {
         "allow_teleport": false,
