@@ -1,6 +1,8 @@
-#pragma warning disable 213 //tag mismatch
+//#pragma warning disable 213 //tag mismatch
 
 #include <open.mp>
+#include <streamer>
+#include <izcmd>
 
 new HavingBall[MAX_PLAYERS];
 new Anim[MAX_PLAYERS];
@@ -11,7 +13,7 @@ new ShootingBall;
 new BallBounce;
 
 #define NUM_BALL_LOCATIONS 5 // Number of ball locations
-
+/*
 new Float:gBallLocations[NUM_BALL_LOCATIONS][3] = {
     {2782.3027, -2019.0826, 13.5547},   // Ball Spawn Location
     {2795.5237, -2019.6152, 13.5547},   // Under team A basket
@@ -19,32 +21,33 @@ new Float:gBallLocations[NUM_BALL_LOCATIONS][3] = {
     {2768.3669, -2019.6644, 13.5547},   // Under team B basket
     {2768.6289, -2019.7227, 15.6287},   // Team B basket
 };
-/*
+*/
 //LV LOCATIONS
 new Float:gBallLocations[NUM_BALL_LOCATIONS][3] = {
-    {2582.7990, 2447.7505, 12.0100},   // Ball Spawn Location
+    {2582.7990, 2447.7505, 11.0100},   // Ball Spawn Location
     {2565.0580, 2447.6960, 11.0400},   // Under team A basket
     {2565.0580, 2447.6960, 12.9600},   // Team A basket
     {2600.5400, 2447.8050, 11.0600},   // Under team B basket
-    {2600.5400, 2447.8050, 12.9800},   // Team B basket
+    {2600.5400, 2447.8050, 12.9800}   // Team B basket
 };
-*/
+
 public OnFilterScriptInit()
 {
 	Baller = INVALID_PLAYER_ID; // CHANGE IT TI INVALID_PLAYER_ID
-	//DestroyObject(Ball); //on FilterScriptInit Ball is 0 and it will destroy object 0
-	Ball = CreateObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96); // 
+	//DestroyDynamicObject(Ball); //on FilterScriptInit Ball is 0 and it will destroy DynamicObject 0
+	Ball = CreateDynamicObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96); // 
 	return 1;
 }
 
 public OnFilterScriptExit()
 {
-// destroy the ball
+	DestroyDynamicObject(Ball);// destroy the ball
 	return 1;
 }
 
-public OnObjectMoved(objectid)
+public OnDynamicObjectMoved(objectid)
 {
+	if(Baller == INVALID_PLAYER_ID) return 0;
     new i = Baller;
     if(ShootingBall == 2)
     {
@@ -68,69 +71,69 @@ public OnObjectMoved(objectid)
     }
     else if(ShootingBall == 6)
     {
-        ApplyAnimation(i,"BSKTBALL","BBALL_walk",4.1,1,1,1,1,1);
+        ApplyAnimation(i,"BSKTBALL","BBALL_walk",4.1, true, true, true, true, true);
 		HavingBall[i] = 1;
 		Anim[i] = 0;
     }
     if(BallBounce == 1)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z+1.2, 4);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z+1.2, 4);
 	    BallBounce = 2;
 	}
 	else if(BallBounce == 2)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z-1.2, 4);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z-1.2, 4);
 	    BallBounce = 3;
 	}
 	else if(BallBounce == 3)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z+0.8, 3);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z+0.8, 3);
 	    BallBounce = 4;
 	}
 	else if(BallBounce == 4)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z-0.8, 3);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z-0.8, 3);
 	    BallBounce = 5;
 	}
 	else if(BallBounce == 5)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z+0.5, 2);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z+0.5, 2);
 	    BallBounce = 6;
 	}
 	else if(BallBounce == 6)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z-0.5, 2);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z-0.5, 2);
 	    BallBounce = 7;
 	}
 	else if(BallBounce == 7)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z+0.2, 1);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z+0.2, 1);
 	    BallBounce = 8;
 	}
 	else if(BallBounce == 8)
     {
         new Float:x, Float:y, Float:z;
-	    GetObjectPos(Ball, x, y, z);
-	    MoveObject(Ball, x, y, z-0.2, 1);
+	    GetDynamicObjectPos(Ball, x, y, z);
+	    MoveDynamicObject(Ball, x, y, z-0.2, 1);
 	    BallBounce = 0;
 	}
     if(!HavingBall[i]) return 1;
-	new Keys, ud, lr;
-	GetPlayerKeys(i, Keys, ud, lr);
+	new KEY:keys, ud, lr;
+	GetPlayerKeys(i, keys, ud, lr);
     if(Anim[i])
     {
         switch(BallStatus)
@@ -140,27 +143,29 @@ public OnObjectMoved(objectid)
 				BallStatus = 1;
 				new Float:x, Float:y, Float:z;
 				GetPlayerPos(i, x, y, z);
-				StopObject(Ball);
+				StopDynamicObject(Ball);
 				new Float:x2, Float:y2;
 		 	    GetXYInFrontOfPlayer(i, x2, y2, 0.4);
-				MoveObject(Ball, x2, y2, z+0.1, 5.5);
+				MoveDynamicObject(Ball, x2, y2, z+0.1, 5.5);
+				return 1;
 			}
 			case 1:
 			{
         		BallStatus = 0;
         		new Float:x, Float:y, Float:z;
 				GetPlayerPos(i, x, y, z);
-				StopObject(Ball);
+				StopDynamicObject(Ball);
 				new Float:x2, Float:y2;
 				GetXYInFrontOfPlayer(i, x2, y2, 0.4);
-				MoveObject(Ball, x2, y2, z-0.8, 5.5);
+				MoveDynamicObject(Ball, x2, y2, z-0.8, 5.5);
+				return 1;
 			}
 		}
 		return 1;
     }
-    if(Keys & KEY_SPRINT)
+    if(keys & KEY_SPRINT)
 	{
-        ApplyAnimation(i,"BSKTBALL","BBALL_run",4.1,1,1,1,1,1);
+        ApplyAnimation(i,"BSKTBALL","BBALL_run",4.1, true, true, true, true, true);
         switch(BallStatus)
 		{
 			case 0:
@@ -168,27 +173,29 @@ public OnObjectMoved(objectid)
 				BallStatus = 1;
 				new Float:x, Float:y, Float:z;
 				GetPlayerPos(i, x, y, z);
-				StopObject(Ball);
+				StopDynamicObject(Ball);
 				new Float:x2, Float:y2;
 		        GetXYInFrontOfPlayer(i, x2, y2, 1.5);
-				MoveObject(Ball, x2, y2, z+0.1, 8);
+				MoveDynamicObject(Ball, x2, y2, z+0.1, 8);
+				return 1;
 			}
 			case 1:
 			{
         		BallStatus = 0;
         		new Float:x, Float:y, Float:z;
 				GetPlayerPos(i, x, y, z);
-				StopObject(Ball);
+				StopDynamicObject(Ball);
 				new Float:x2, Float:y2;
 				GetXYInFrontOfPlayer(i, x2, y2, 1.5);
-				MoveObject(Ball, x2, y2, z-0.8, 8);
+				MoveDynamicObject(Ball, x2, y2, z-0.8, 8);
+				return 1;
 			}
 		}
 		return 1;
     }
     else
     {
-        ApplyAnimation(i,"BSKTBALL","BBALL_walk",4.1,1,1,1,1,1);
+        ApplyAnimation(i,"BSKTBALL","BBALL_walk",4.1, true, true, true, true, true);
     }
 	switch(BallStatus)
 	{
@@ -197,20 +204,22 @@ public OnObjectMoved(objectid)
 			BallStatus = 1;
 			new Float:x, Float:y, Float:z;
 			GetPlayerPos(i, x, y, z);
-			StopObject(Ball);
+			StopDynamicObject(Ball);
 			new Float:x2, Float:y2;
 		    GetXYInFrontOfPlayer(i, x2, y2, 1.2);
-			MoveObject(Ball, x2, y2, z+0.1, 5);
+			MoveDynamicObject(Ball, x2, y2, z+0.1, 5);
+			return 1;
 		}
 		case 1:
 		{
         	BallStatus = 0;
         	new Float:x, Float:y, Float:z;
 			GetPlayerPos(i, x, y, z);
-			StopObject(Ball);
+			StopDynamicObject(Ball);
 			new Float:x2, Float:y2;
 			GetXYInFrontOfPlayer(i, x2, y2, 1.2);
-			MoveObject(Ball, x2, y2, z-0.8, 5);
+			MoveDynamicObject(Ball, x2, y2, z-0.8, 5);
+			return 1;
 		}
 	}
     return 1;
@@ -236,30 +245,17 @@ public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 	return 1;
 }
 
-public OnPlayerCommandText(playerid, cmdtext[])
-{
-	if (strcmp("/ball", cmdtext, true, 6) == 0)
-	{
-		new Float:x, Float:y, Float:z;
-		GetPlayerPos(playerid, x, y, z);
-		DestroyObject(Ball);
-		Ball = CreateObject(2114, x+random(3), y+random(3), z-0.8, 0, 0, 96);
-		return 1;
-	}
-	return 0;
-}
-
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
     if ((newkeys & KEY_CROUCH) && !(oldkeys & KEY_CROUCH) && !IsPlayerInAnyVehicle(playerid))
 	{
 		if(HavingBall[playerid])
 		{
-            ApplyAnimation(playerid,"BSKTBALL","BBALL_idleloop",4.1,1,1,1,1,1);
+            ApplyAnimation(playerid,"BSKTBALL","BBALL_idleloop",4.1, true, true, true, true, true);
 		}
 		else
 		{
-            ApplyAnimation(playerid,"BSKTBALL","BBALL_def_loop",4.0,1,0,0,0,0);
+            ApplyAnimation(playerid,"BSKTBALL","BBALL_def_loop",4.0, true, false, false, false, false);
 		}
 		Anim[playerid] = 1;
 	}
@@ -273,25 +269,25 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
         if(!HavingBall[playerid])
 		{
 			new Float:x, Float:y, Float:z;
-			GetObjectPos(Ball, x, y, z);
+			GetDynamicObjectPos(Ball, x, y, z);
 			if(IsPlayerInRangeOfPoint(playerid, 1.5, x, y, z))
 			{
 				HavingBall[playerid] = 1;
-				ApplyAnimation(playerid,"BSKTBALL","BBALL_pickup",4.0,0,0,0,0,0);
+				ApplyAnimation(playerid,"BSKTBALL","BBALL_pickup",4.0, false, false, false, false, false);
 				if(Baller != INVALID_PLAYER_ID)
 				{
 					HavingBall[Baller] = 0;
 					ClearAnimations(Baller);
-					ApplyAnimation(Baller, "CARRY", "crry_prtial", 1.0, 0, 0, 0, 0, 0);
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_walk",4.1,1,1,1,1,1);
+					ApplyAnimation(Baller, "CARRY", "crry_prtial", 1.0, false, false, false, false, false);
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_walk",4.1, true, true, true, true, true);
 				}
 				Baller = playerid;
 				BallStatus = 1;
 				new Float:x2, Float:y2;
 				GetXYInFrontOfPlayer(playerid, x2, y2, 0.8);
 				GetPlayerPos(playerid, x, y, z);
-				StopObject(Ball);
-				MoveObject(Ball, x2, y2, z, 2.5);
+				StopDynamicObject(Ball);
+				MoveDynamicObject(Ball, x2, y2, z, 2.5);
 				Anim[playerid] = 0;
 				BallBounce = 0;
 			}
@@ -300,12 +296,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 		{
             if(IsPlayerInRangeOfPoint(playerid, 2, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]))
 			{
-				MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 7.5);
+				MoveDynamicObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 7.5);
 				SetPlayerPos(playerid, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]);
-				ApplyAnimation(playerid,"BSKTBALL","BBALL_Dnk",4.0,1,0,0,0,0);
+				ApplyAnimation(playerid,"BSKTBALL","BBALL_Dnk",4.0, true, false, false, false, false);
 				HavingBall[playerid] = 0;
-				SetTimerEx("ClearAnim", 1100, 0, "d", playerid);
-				SetTimerEx("BallDown2", 1100, 0, "d", playerid);
+				SetTimerEx("ClearAnim", 1100, false, "d", playerid);
+				SetTimerEx("BallDown2", 1100, false, "d", playerid);
 				return 1;
 			}
             else if(IsPlayerInRangeOfPoint(playerid, 4, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]))
@@ -313,8 +309,8 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				new rand = random(1);
 				if(rand == 0)
 				{
-					MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 10.5+random(4));
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+					MoveDynamicObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 10.5+random(4));
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 					ShootingBall = 2;
 					HavingBall[playerid] = 0;
 					return 1;
@@ -327,8 +323,8 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				new rand = random(2);
 				if(rand == 0)
 				{
-					MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 11.0+random(4));
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+					MoveDynamicObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 11.0+random(4));
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 					ShootingBall = 2;
 					HavingBall[playerid] = 0;
 					return 1;
@@ -341,8 +337,8 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				new rand = random(3);
 				if(rand == 0)
 				{
-					MoveObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 11.5+random(4));
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+					MoveDynamicObject(Ball, gBallLocations[2][0], gBallLocations[2][1], gBallLocations[2][2], 11.5+random(4));
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 					ShootingBall = 2;
 					HavingBall[playerid] = 0;
 					return 1;
@@ -352,12 +348,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 			}
 			else if(IsPlayerInRangeOfPoint(playerid, 2, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]))
 			{
-				MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 7.5);
+				MoveDynamicObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 7.5);
 				SetPlayerPos(playerid, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]);
-				ApplyAnimation(playerid,"BSKTBALL","BBALL_Dnk",4.0,1,0,0,0,0);
+				ApplyAnimation(playerid,"BSKTBALL","BBALL_Dnk",4.0, true, false, false, false, false);
 				HavingBall[playerid] = 0;
-				SetTimerEx("ClearAnim", 800, 0, "d", playerid);
-				SetTimerEx("BallDown3", 1100, 0, "d", playerid);
+				SetTimerEx("ClearAnim", 800, false, "d", playerid);
+				SetTimerEx("BallDown3", 1100, false, "d", playerid);
 				return 1;
 			}
             else if(IsPlayerInRangeOfPoint(playerid, 4, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]) && IsPlayerFacingPoint(playerid, 20, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]))
@@ -365,8 +361,8 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				new rand = random(1);
 				if(rand == 0)
 				{
-					MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 10.5+random(4));
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+					MoveDynamicObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 10.5+random(4));
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 					ShootingBall = 3;
 					HavingBall[playerid] = 0;
 					return 1;
@@ -379,8 +375,8 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				new rand = random(2);
 				if(rand == 0)
 				{
-					MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 11.0+random(4));
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+					MoveDynamicObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 11.0+random(4));
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 					ShootingBall = 3;
 					HavingBall[playerid] = 0;
 					return 1;
@@ -393,8 +389,8 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 				new rand = random(3);
 				if(rand == 0)
 				{
-					MoveObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 11.5+random(4));
-					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+					MoveDynamicObject(Ball, gBallLocations[4][0], gBallLocations[4][1], gBallLocations[4][2], 11.5+random(4));
+					ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 					ShootingBall = 3;
 					HavingBall[playerid] = 0;
 					return 1;
@@ -415,12 +411,12 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 							Baller = i;
 							HavingBall[playerid] = 0;
 							ClearAnimations(playerid);
-							ApplyAnimation(playerid,"BSKTBALL","BBALL_def_loop",4.0,1,0,0,0,0);
-							SetTimerEx("ClearAnim", 700, 0, "d", playerid);
-							MoveObject(Ball, x, y, z, 13+random(4));
+							ApplyAnimation(playerid,"BSKTBALL","BBALL_def_loop",4.0, true, false, false, false, false);
+							SetTimerEx("ClearAnim", 700, false, "d", playerid);
+							MoveDynamicObject(Ball, x, y, z, 13+random(4));
 							Anim[i] = 0;
 							ShootingBall = 6;
-							ApplyAnimation(i,"BSKTBALL","BBALL_def_loop",4.0,1,0,0,0,0);
+							ApplyAnimation(i,"BSKTBALL","BBALL_def_loop",4.0, true, false, false, false, false);
 							return 1;
 						}
 					}
@@ -431,9 +427,9 @@ public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 			HavingBall[playerid] = 0;
 			new Float:x2, Float:y2;
 			GetXYInFrontOfPlayer(playerid, x2, y2, 6.0);
-			SetTimerEx("BallDown", 600, 0, "df", playerid, z);
-			MoveObject(Ball, x2, y2, z+random(8)+3, 10.0+random(4));
-			ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+			SetTimerEx("BallDown", 600, false, "df", playerid, z);
+			MoveDynamicObject(Ball, x2, y2, z+random(8)+3, 10.0+random(4));
+			ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 			ShootingBall = 0;
 		}
 	}
@@ -508,14 +504,14 @@ forward BallDown(playerid, Float:oldz);
 public BallDown(playerid, Float:oldz)
 {
     new Float:x, Float:y, Float:z;
-	GetObjectPos(Ball, x, y, z);
+	GetDynamicObjectPos(Ball, x, y, z);
 	new Float:a;
-	new Float:x2, Float:y2;
-	GetPlayerPos(playerid, x2, y2, a);
+	new Float:x2, Float:y2, Float:z2;
+	GetPlayerPos(playerid, x2, y2, z2);
 	GetPlayerFacingAngle(playerid, a);
 	x2 += (16 * floatsin(-a, degrees));
 	y2 += (16 * floatcos(-a, degrees));
-	MoveObject(Ball, x2, y2, oldz-0.8, 10.0+random(3));
+	MoveDynamicObject(Ball, x2, y2, oldz-0.8, 10.0+random(3));
 	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	BallBounce = 1;
@@ -525,7 +521,7 @@ public BallDown(playerid, Float:oldz)
 forward BallDown2(playerid);
 public BallDown2(playerid)
 {
-	MoveObject(Ball, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]-0.8, 10.0+random(3));
+	MoveDynamicObject(Ball, gBallLocations[1][0], gBallLocations[1][1], gBallLocations[1][2]-0.8, 10.0+random(3));
 	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Goal :D!", 3000, 3);
@@ -536,7 +532,7 @@ public BallDown2(playerid)
 forward BallDown3(playerid);
 public BallDown3(playerid)
 {
-	MoveObject(Ball, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]-0.8, 10.0+random(3));
+	MoveDynamicObject(Ball, gBallLocations[3][0], gBallLocations[3][1], gBallLocations[3][2]-0.8, 10.0+random(3));
 	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Goal :D!", 3000, 3);
@@ -547,7 +543,7 @@ public BallDown3(playerid)
 forward BallDown4(playerid);
 public BallDown4(playerid)
 {
-	MoveObject(Ball, gBallLocations[1][0]+random(5),gBallLocations[1][1]+random(5),gBallLocations[1][2]-0.8, 10.0+random(3));
+	MoveDynamicObject(Ball, gBallLocations[1][0]+random(5),gBallLocations[1][1]+random(5),gBallLocations[1][2]-0.8, 10.0+random(3));
 	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Missed :(!", 3000, 3);
@@ -558,7 +554,7 @@ public BallDown4(playerid)
 forward BallDown5(playerid);
 public BallDown5(playerid)
 {
-	MoveObject(Ball, gBallLocations[3][0] + random(5), gBallLocations[3][1] + random(5), gBallLocations[3][2] - 0.8, 10.0 + random(3));
+	MoveDynamicObject(Ball, gBallLocations[3][0] + random(5), gBallLocations[3][1] + random(5), gBallLocations[3][2] - 0.8, 10.0 + random(3));
 	Baller = INVALID_PLAYER_ID;
 	ShootingBall = 0;
 	GameTextForPlayer(playerid, "Missed :(!", 3000, 3);
@@ -569,8 +565,8 @@ public BallDown5(playerid)
 forward ShootMiss(playerid);
 public ShootMiss(playerid)
 {
-	MoveObject(Ball, gBallLocations[2][0] + random(2), gBallLocations[2][1] + random(2), gBallLocations[2][2] + random(2), 12.5 + random(4));
-	ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+	MoveDynamicObject(Ball, gBallLocations[2][0] + random(2), gBallLocations[2][1] + random(2), gBallLocations[2][2] + random(2), 12.5 + random(4));
+	ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 	ShootingBall = 4;
 	HavingBall[playerid] = 0;
 	return 1;
@@ -579,8 +575,8 @@ public ShootMiss(playerid)
 forward ShootMiss2(playerid);
 public ShootMiss2(playerid)
 {
-	MoveObject(Ball, gBallLocations[4][0] + random(2), gBallLocations[4][1] + random(2), gBallLocations[4][2] + random(2), 12.5 + random(4));
-	ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0,0,0,0,0,0);
+	MoveDynamicObject(Ball, gBallLocations[4][0] + random(2), gBallLocations[4][1] + random(2), gBallLocations[4][2] + random(2), 12.5 + random(4));
+	ApplyAnimation(playerid,"BSKTBALL","BBALL_Jump_Shot",4.0, false, false, false, false, false);
 	ShootingBall = 5;
 	HavingBall[playerid] = 0;
 	return 1;
@@ -593,7 +589,7 @@ public ClearAnim(playerid)
 	return 1;
 }
 
-GetXYInFrontOfPlayer(playerid, &Float:x, &Float:y, Float:distance)
+stock GetXYInFrontOfPlayer(playerid, &Float:x, &Float:y, Float:distance)
 {
 	new Float:a;
 	GetPlayerPos(playerid, x, y, a);
@@ -604,4 +600,35 @@ GetXYInFrontOfPlayer(playerid, &Float:x, &Float:y, Float:distance)
 	}
 	x += (distance * floatsin(-a, degrees));
 	y += (distance * floatcos(-a, degrees));
+}
+/*
+public OnPlayerCommandText(playerid, cmdtext[])
+{
+	if (strcmp("/ball", cmdtext, true, 6) == 0)
+	{
+		new Float:x, Float:y, Float:z;
+		GetPlayerPos(playerid, x, y, z);
+		DestroyDynamicObject(Ball);
+		Ball = CreateDynamicObject(2114, x+random(3), y+random(3), z-0.8, 0, 0, 96);
+		{2582.7990, 2447.7505, 12.0100
+		return 1;
+	}
+	return 0;
+}
+*/
+CMD:ball(playerid, params[])
+{
+	//if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, -1, "Not Admin");
+	new Float:X, Float:Y, Float:Z;
+	GetDynamicObjectPos(Ball, X, Y, Z);
+	DisablePlayerCheckpoint(playerid);
+	new Float:PX, Float:PY, Float:PZ;
+	GetPlayerPos(playerid, PX, PY, PZ);
+	//PlayerPlaySound(playerid, 1149, 0.0, 0.0, 0.0);
+	PlayerPlaySound(playerid, 1149, PX, PY, PZ);
+	SetPlayerCheckpoint(playerid, X, Y, Z, 5.0);
+	DestroyDynamicObject(Ball);
+	Ball = CreateDynamicObject(2114, PX+random(3), PY+random(3), PZ-0.8, 0, 0, 96);
+	//SetPlayerCheckpoint(playerid, X, Y, Z, 10.0);
+	return 1;
 }

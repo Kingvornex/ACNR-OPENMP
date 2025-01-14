@@ -1,6 +1,6 @@
 //
-// Used for testing interpolated rotations with MoveObject
-// Also used to test AttachObjectToObject
+// Used for testing interpolated rotations with MoveDynamicObject
+// Also used to test AttachDynamicObjectToDynamicObject
 // A cargo ship goes around and visits some route points
 //
 // SA-MP 0.3d and above
@@ -10,9 +10,11 @@
 
 #include <open.mp>
 #include "../include/gl_common.inc" // for PlaySoundForPlayersInRange()
+#include <streamer>
+#include <izcmd>
 
 #define NUM_SHIP_ROUTE_POINTS   25
-#define SHIP_HULL_ID          	9585 // massive cargo ship's hull. This is used as the main object
+#define SHIP_HULL_ID          	9585 // massive cargo ship's hull. This is used as the main DynamicObject
 #define SHIP_MOVE_SPEED         10.0
 #define SHIP_DRAW_DISTANCE      300.0
 
@@ -81,8 +83,8 @@ new Float:gShipRoutePoints[NUM_SHIP_ROUTE_POINTS][6] = {
 
 new gShipCurrentPoint = 1; // current route point the ship is at. We start at route 1
 
-// SA-MP objects
-new gMainShipObjectId;
+// SA-MP DynamicObjects
+new gMainShipDynamicObjectId;
 new gShipsAttachments[NUM_SHIP_ROUTE_POINTS];
 
 forward StartMovingTimer();
@@ -91,7 +93,7 @@ forward StartMovingTimer();
 
 public StartMovingTimer()
 {
-	MoveObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
+	MoveDynamicObject(gMainShipDynamicObjectId,gShipRoutePoints[gShipCurrentPoint][0],
 	                           gShipRoutePoints[gShipCurrentPoint][1],
 							   gShipRoutePoints[gShipCurrentPoint][2],
 							   SHIP_MOVE_SPEED / 2.0, // slower for the first route
@@ -104,13 +106,13 @@ public StartMovingTimer()
 
 public OnFilterScriptInit()
 {
-	gMainShipObjectId = CreateObject(SHIP_HULL_ID, gShipRoutePoints[0][0], gShipRoutePoints[0][1], gShipRoutePoints[0][2],
-									gShipRoutePoints[0][3], gShipRoutePoints[0][4], gShipRoutePoints[0][5], SHIP_DRAW_DISTANCE);
+	gMainShipDynamicObjectId = CreateDynamicObject(SHIP_HULL_ID, gShipRoutePoints[0][0], gShipRoutePoints[0][1], gShipRoutePoints[0][2],
+									gShipRoutePoints[0][3], gShipRoutePoints[0][4], gShipRoutePoints[0][5], .drawdistance = SHIP_DRAW_DISTANCE);
 
 	new x=0;
 	while(x != NUM_SHIP_ATTACHMENTS) {
-	    gShipsAttachments[x] = CreateObject(gShipAttachmentModelIds[x], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, SHIP_DRAW_DISTANCE);
-		AttachObjectToObject(gShipsAttachments[x], gMainShipObjectId,
+	    gShipsAttachments[x] = CreateDynamicObject(gShipAttachmentModelIds[x], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, .drawdistance = SHIP_DRAW_DISTANCE);
+		AttachDynamicObjectToObject(gShipsAttachments[x], gMainShipDynamicObjectId,
 					gShipAttachmentPos[x][0] - gShipHullOrigin[0],
 					gShipAttachmentPos[x][1] - gShipHullOrigin[1],
 					gShipAttachmentPos[x][2] - gShipHullOrigin[2],
@@ -127,10 +129,10 @@ public OnFilterScriptInit()
 
 public OnFilterScriptExit()
 {
-    DestroyObject(gMainShipObjectId);
+    DestroyDynamicObject(gMainShipDynamicObjectId);
     new x=0;
 	while(x != NUM_SHIP_ATTACHMENTS) {
-	    DestroyObject(gShipsAttachments[x]);
+	    DestroyDynamicObject(gShipsAttachments[x]);
 		x++;
 	}
 	return 1;
@@ -138,9 +140,9 @@ public OnFilterScriptExit()
 
 //-------------------------------------------------
 
-public OnObjectMoved(objectid)
+public OnDynamicObjectMoved(objectid)
 {
-	if(objectid != gMainShipObjectId) return 0;
+	if(objectid != gMainShipDynamicObjectId) return 0;
 	
 	if(gShipCurrentPoint > 0 && !(gShipCurrentPoint % 5)) {
 	    // play some seagulls audio every 5 points
@@ -154,7 +156,7 @@ public OnObjectMoved(objectid)
     if(gShipCurrentPoint == NUM_SHIP_ROUTE_POINTS) {
 		gShipCurrentPoint = 0;
 
-   		MoveObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
+   		MoveDynamicObject(gMainShipDynamicObjectId,gShipRoutePoints[gShipCurrentPoint][0],
 	                           gShipRoutePoints[gShipCurrentPoint][1],
 							   gShipRoutePoints[gShipCurrentPoint][2],
 							   SHIP_MOVE_SPEED / 2.0, // slower for the last route
@@ -175,7 +177,7 @@ public OnObjectMoved(objectid)
     format(tempdebug,256,"The ship is at route: %d", gShipCurrentPoint);
     SendClientMessageToAll(0xFFFFFFFF,tempdebug);*/
     
-    MoveObject(gMainShipObjectId,gShipRoutePoints[gShipCurrentPoint][0],
+    MoveDynamicObject(gMainShipDynamicObjectId,gShipRoutePoints[gShipCurrentPoint][0],
 	                           gShipRoutePoints[gShipCurrentPoint][1],
 							   gShipRoutePoints[gShipCurrentPoint][2],
 							   SHIP_MOVE_SPEED,
@@ -187,7 +189,7 @@ public OnObjectMoved(objectid)
 }
 
 //-------------------------------------------------
-
+/*
 public OnPlayerCommandText(playerid, cmdtext[])
 {
     new cmd[256];
@@ -204,13 +206,26 @@ public OnPlayerCommandText(playerid, cmdtext[])
 	}
 	
 	if(strcmp(cmd, "/stopship", true) == 0) {
-        StopObject(gMainShipObjectId);
+        StopDynamicObject(gMainShipDynamicObjectId);
 	    return 1;
 	}
 	
 	return 0;
 }
-
+*/
 //-------------------------------------------------
 
-
+CMD:cargo(playerid, params[])
+{
+	//if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, -1, "Not Admin");
+	new Float:X, Float:Y, Float:Z;
+	GetDynamicObjectPos(gMainShipDynamicObjectId, X, Y, Z);
+	DisablePlayerCheckpoint(playerid);
+	new Float:PX, Float:PY, Float:PZ;
+	GetPlayerPos(playerid, PX, PY, PZ);
+	//PlayerPlaySound(playerid, 1149, 0.0, 0.0, 0.0);
+	PlayerPlaySound(playerid, 1149, PX, PY, PZ);
+	SetPlayerRaceCheckpoint(playerid, CP_TYPE_GROUND_NORMAL, X, Y, Z, gShipRoutePoints[gShipCurrentPoint][0], gShipRoutePoints[gShipCurrentPoint][1], gShipRoutePoints[gShipCurrentPoint][2], 10.0);
+	//SetPlayerCheckpoint(playerid, X, Y, Z, 10.0);
+	return 1;
+}

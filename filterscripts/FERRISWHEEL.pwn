@@ -1,6 +1,6 @@
 //
-// Used for testing interpolated rotations with MoveObject
-// Also used to test AttachObjectToObject
+// Used for testing interpolated rotations with MoveDynamicObject
+// Also used to test AttachDynamicObjectToDynamicObject
 // The other ferris wheel (that actually spins!)
 // Located on the opposite peer at LS
 //
@@ -11,6 +11,8 @@
 
 #include <open.mp>
 #include "../include/gl_common.inc" // for PlaySoundForPlayersInRange()
+#include <streamer>
+//#include <izcmd>
 
 #define NUM_FERRIS_CAGES        10
 #define FERRIS_WHEEL_ID         18877
@@ -37,7 +39,7 @@ new Float:gFerrisCageOffsets[NUM_FERRIS_CAGES][3] = {
 {7.0399, -0.0200, 9.3600}
 };
 
-// SA-MP objects
+// SA-MP DynamicObjects
 new gFerrisWheel;
 new gFerrisBase;
 new gFerrisCages[NUM_FERRIS_CAGES];
@@ -47,7 +49,7 @@ forward RotateWheel();
 //-------------------------------------------------
 
 new Float:gCurrentTargetYAngle = 0.0; // Angle of the Y axis of the wheel to rotate to.
-new gWheelTransAlternate = 0; // Since MoveObject requires some translation target to intepolate
+new gWheelTransAlternate = 0; // Since MoveDynamicObject requires some translation target to intepolate
 						    // rotation, the world pos target is alternated by a small amount.
 						    
 UpdateWheelTarget()
@@ -69,7 +71,7 @@ public RotateWheel()
     new Float:fModifyWheelZPos = 0.0;
     if(gWheelTransAlternate) fModifyWheelZPos = 0.05;
     
-    MoveObject( gFerrisWheel, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2]+fModifyWheelZPos,
+    MoveDynamicObject( gFerrisWheel, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2]+fModifyWheelZPos,
 				FERRIS_WHEEL_SPEED, 0.0, gCurrentTargetYAngle, FERRIS_WHEEL_Z_ANGLE );
 }
 
@@ -77,22 +79,22 @@ public RotateWheel()
 
 public OnFilterScriptInit()
 {
-	gFerrisWheel = CreateObject( FERRIS_WHEEL_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
-	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, FERRIS_DRAW_DISTANCE );
+	gFerrisWheel = CreateDynamicObject( FERRIS_WHEEL_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
+	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, .drawdistance = FERRIS_DRAW_DISTANCE );
 
-    gFerrisBase = CreateObject( FERRIS_BASE_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
-	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, FERRIS_DRAW_DISTANCE );
+    gFerrisBase = CreateDynamicObject( FERRIS_BASE_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
+	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, .drawdistance = FERRIS_DRAW_DISTANCE );
 	  							 
 	new x=0;
 	while(x != NUM_FERRIS_CAGES) {
-        gFerrisCages[x] = CreateObject( FERRIS_CAGE_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
-	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, FERRIS_DRAW_DISTANCE );
+        gFerrisCages[x] = CreateDynamicObject( FERRIS_CAGE_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
+	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, .drawdistance = FERRIS_DRAW_DISTANCE );
 	  							 
-        AttachObjectToObject( gFerrisCages[x], gFerrisWheel,
+        AttachDynamicObjectToObject( gFerrisCages[x], gFerrisWheel,
 							  gFerrisCageOffsets[x][0],
 							  gFerrisCageOffsets[x][1],
 	  						  gFerrisCageOffsets[x][2],
-							  0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, false );
+							  0.0, 0.0, FERRIS_WHEEL_Z_ANGLE);
 					
 		x++;
 	}
@@ -108,12 +110,12 @@ public OnFilterScriptExit()
 {
 	new x=0;
 	
-    DestroyObject(gFerrisWheel);
-    DestroyObject(gFerrisBase);
+    DestroyDynamicObject(gFerrisWheel);
+    DestroyDynamicObject(gFerrisBase);
     
 	x=0;
 	while(x != NUM_FERRIS_CAGES) {
-	    DestroyObject(gFerrisCages[x]);
+	    DestroyDynamicObject(gFerrisCages[x]);
 		x++;
 	}
 
@@ -122,7 +124,7 @@ public OnFilterScriptExit()
 
 //-------------------------------------------------
 
-public OnObjectMoved(objectid)
+public OnDynamicObjectMoved(objectid)
 {
     if(objectid != gFerrisWheel) return 0;
     
@@ -132,4 +134,19 @@ public OnObjectMoved(objectid)
 
 //-------------------------------------------------
 
-
+/*
+CMD:wheel(playerid, params[])
+{
+	//if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, -1, "Not Admin");
+	new Float:X, Float:Y, Float:Z;
+	GetDynamicObjectPos(gFerrisWheel, X, Y, Z);
+	DisablePlayerCheckpoint(playerid);
+	new Float:PX, Float:PY, Float:PZ;
+	GetPlayerPos(playerid, PX, PY, PZ);
+	//PlayerPlaySound(playerid, 1149, 0.0, 0.0, 0.0);
+	PlayerPlaySound(playerid, 1149, PX, PY, PZ);
+	SetPlayerRaceCheckpoint(playerid, CP_TYPE_GROUND_NORMAL, 832.8393, -2046.1990, 27.0900, 832.8393, -2046.1990, 27.0900, 10.0);
+	//SetPlayerCheckpoint(playerid, X, Y, Z, 10.0);
+	return 1;
+}
+*/
