@@ -1,5 +1,20 @@
 //club
 
+native STREAMER_TAG_ACTOR:CreateDynamicActor(modelid, Float:x, Float:y, Float:z, Float:r, invulnerable = true, Float:health = 100.0, worldid = 0, interiorid = -1, playerid = -1, Float:streamdistance = STREAMER_ACTOR_SD, STREAMER_TAG_AREA:areaid = STREAMER_TAG_AREA:-1, priority = 0);
+native SetDynamicActorVirtualWorld(STREAMER_TAG_ACTOR:actorid, vworld);
+native ApplyDynamicActorAnimation(STREAMER_TAG_ACTOR:actorid, const animlib[], const animname[], Float:fdelta, loop, lockx, locky, freeze, time);
+native ClearDynamicActorAnimations(STREAMER_TAG_ACTOR:actorid);
+native GetDynamicActorFacingAngle(STREAMER_TAG_ACTOR:actorid, &Float:ang);
+native SetDynamicActorFacingAngle(STREAMER_TAG_ACTOR:actorid, Float:ang);
+native GetDynamicActorPos(STREAMER_TAG_ACTOR:actorid, &Float:x, &Float:y, &Float:z);
+native SetDynamicActorPos(STREAMER_TAG_ACTOR:actorid, Float:x, Float:y, Float:z);
+
+
+native STREAMER_TAG_CP:CreateDynamicCP(Float:x, Float:y, Float:z, Float:size, worldid = -1, interiorid = -1, playerid = -1, Float:streamdistance = STREAMER_CP_SD, STREAMER_TAG_AREA:areaid = STREAMER_TAG_AREA:-1, priority = 0);
+
+forward OnPlayerEnterDynamicCP(playerid, STREAMER_TAG_CP:checkpointid);
+
+
 //chekpoints to get in:
 CreateObject(2000, 693.56561, 1966.47388, 4.53247,   0.00000, 0.00000, 0.00000);
 CreateObject(2000, 2506.83887, 2120.51099, 9.83071,   0.00000, 0.00000, 0.00000);
