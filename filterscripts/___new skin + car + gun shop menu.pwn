@@ -642,6 +642,43 @@ new const BOATS[][E_VEHICLE_SHOP_DATA] = {
     {454, "Tropic", 20000, "Tropic.png"}
 };
 
+const COMPACT_CARS[][E_VEHICLE_SHOP_DATA] = {
+    {400, "Landstalker", 10000},
+    {401, "Bravura", 15000},
+    {402, "Buffalo", 20000}
+};
+CMD:vehicles(playerid) {
+    new subString[128];
+    static string[sizeof(COMPACT_CARS) * sizeof(subString)];
+    
+    if (string[0] == EOS) {
+        for (new i; i < sizeof(COMPACT_CARS); i++) {
+            format(subString, sizeof(subString), "%i(0.0, 0.0, -50.0, 1.0)\t%s~n~~g~~h~$%i\n", COMPACT_CARS[i][VEHICLE_MODELID], COMPACT_CARS[i][VEHICLE_NAME], COMPACT_CARS[i][VEHICLE_PRICE]);
+            strcat(string, subString);
+        }
+    }
+    return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PREVIEW_MODEL, "Vehicle Shop Dialog", string, "Purchase", "Cancel");
+}
+
+CMD:vehicles(playerid) {
+    new subString[128];
+    static string[sizeof(HELICOPTERS) * sizeof(subString) + sizeof(BOATS) * sizeof(subString)];
+    
+    if (string[0] == EOS) {
+        // Helicopters
+        for (new i; i < sizeof(HELICOPTERS); i++) {
+            format(subString, sizeof(subString), "%i(0.0, 0.0, -50.0, 1.0)\t%s~n~~g~~h~$%i\n", HELICOPTERS[i][VEHICLE_MODELID], HELICOPTERS[i][VEHICLE_NAME], HELICOPTERS[i][VEHICLE_PRICE]);
+            strcat(string, subString);
+        }
+
+        // Boats
+        for (new i; i < sizeof(BOATS); i++) {
+            format(subString, sizeof(subString), "%i(0.0, 0.0, -50.0, 1.0)\t%s~n~~g~~h~$%i\n", BOATS[i][VEHICLE_MODELID], BOATS[i][VEHICLE_NAME], BOATS[i][VEHICLE_PRICE]);
+            strcat(string, subString);
+        }
+    }
+    return ShowPlayerDialog(playerid, 1, DIALOG_STYLE_PREVIEW_MODEL, "Vehicle Shop Dialog", string, "Purchase", "Cancel");
+}
 
 
 Vehicle lists:
