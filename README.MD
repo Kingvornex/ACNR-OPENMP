@@ -222,6 +222,10 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] increase ufo speed?
     - [ ] move island 1 closer to land
     - ( ) save /kojam to file like /bug
+    - ( ) add geo ip: https://github.com/Southclaws/SAMP-geoip
+    - ( ) https://github.com/PatrickGTR/actor_robbery
+    - ( ) use https://github.com/alextwothousand/mSelection for vehicles shop menu, also add more categories to car shop menu
+    - ( ) add ships to vehicles shop menu and spawn them in water and after spawn set checkpoint and send massage that vehicle is spawnd in water 
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
