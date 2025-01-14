@@ -138,3 +138,9 @@ ApplyAnimation(playerid, "STRIP", "PLY_CASH", 4.0, 1, 0, 0, 0, 0); // the librar
 ApplyAnimation(playerid, "SCRATCHING", "SCDLDLP", 4.0, 1, 0, 0, 0, 0); // position 
 ApplyAnimation(playerid, "PYTHON", "PYTHON_CROUCHRELOAD", 4.0, 1, 0, 0, 0, 0); // 
 ApplyAnimation(playerid, "POLICE", "COPTRAF_COME", 4.0, 1, 0, 0, 0, 0); // come
+
+
+Block: "SEX"
+
+Anims: "SEX_1_P", "SEX_1_W", "SEX_1TO2_P", "SEX_1TO2_W", "SEX_2_P", "SEX_2_W", "SEX_2TO3_P", "SEX_2TO3_W", "SEX_3_P", "SEX_3_W", "SEX_3TO1_P", "SEX_3TO1_W", "SEX_1_P", "SEX_1_W", "SEX_1_CUM_P", "SEX_1_CUM_W"
+
