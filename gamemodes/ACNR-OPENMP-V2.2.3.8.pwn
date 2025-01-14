@@ -11727,6 +11727,8 @@ public OnGameModeInit()
 	SetCheckpointInterior(CP6, 0);
 
 	StartCheckpointSeeking();
+	
+	
 		
 	printACNR("|--------------------------Gamemode (ACNR) Loaded--------------------------|");
 	return 1;
@@ -29395,8 +29397,14 @@ new const Audio_URLs[][] =
     "https://dl.goodmusics.ir/alien-music/053-jack.mp3",
     "https://dl.goodmusics.ir/alien-music/052-How-long-Charlie-Puth.mp3",
     "https://dl.goodmusics.ir/foreign-song/025-ed_sheeran_celestial.mp3",
-    "https://dl.goodmusics.ir/foreign-song/026-hands-up.mp3"
-	//"http://ramfm.org/ram.pls"
+    "https://dl.goodmusics.ir/foreign-song/026-hands-up.mp3",
+	"http://streams.radiobob.de/deathmetal/mp3-192/",
+	"http://stream.rockantenne.de/modern-rock/stream/mp3",
+	"https://dispatcher.rndfnk.com/swr/dasding/live/mp3/128/stream.mp3",
+	"https://boom-bass.stream.laut.fm/boom-bass",
+	"https://github.com/Pulham/Internet-Radio-HQ-URL-playlists/raw/refs/heads/main/Radio%20Stations.m3u",
+	"http://pulseedm.cdnstream1.com:8124/1373_128.m3u"
+	
 };
 
 stock PlayRandomAudio(playerid)
@@ -41129,10 +41137,10 @@ CMD:stopaudio(playerid,params[])
 
 CMD:playaudio(playerid, params[])
 {
-    new url[100];
+    new url[1000];
     if(PlayerInfo[playerid][aLevel] != 4) return SendClientMessageACNR(playerid, RED, "Only admin level 4 can use this command.");
     {
-        if(sscanf(params,"s[100]",url)) return SendClientMessageACNR(playerid,RED,"[USAGE]: /playaudio [url]");
+        if(sscanf(params,"s[1000]",url)) return SendClientMessageACNR(playerid,RED,"[USAGE]: /playaudio [url]");
         {
 			foreach(new i : Player)
 			{
