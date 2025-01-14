@@ -139,11 +139,11 @@ ApplyAnimation(playerid, "SCRATCHING", "SCDLDLP", 4.0, 1, 0, 0, 0, 0); // positi
 ApplyAnimation(playerid, "PYTHON", "PYTHON_CROUCHRELOAD", 4.0, 1, 0, 0, 0, 0); // 
 ApplyAnimation(playerid, "POLICE", "COPTRAF_COME", 4.0, 1, 0, 0, 0, 0); // come
 
-
+=
 Block: "SEX"
 
 Anims: "SEX_1_P", "SEX_1_W", "SEX_1TO2_P", "SEX_1TO2_W", "SEX_2_P", "SEX_2_W", "SEX_2TO3_P", "SEX_2TO3_W", "SEX_3_P", "SEX_3_W", "SEX_3TO1_P", "SEX_3TO1_W", "SEX_1_P", "SEX_1_W", "SEX_1_CUM_P", "SEX_1_CUM_W"
-
+=
 | no    | BLOWJOBZ     | BJ_Car_End_P           | 248    | 4.13           | Finish getting pumped in car                                  |                      |
 | no    | BLOWJOBZ     | BJ_Car_End_W           | 220    | 3.67           | Finish pumping in car                                         |                      |
 | no    | BLOWJOBZ     | BJ_Car_Loop_P          | 40     | 0.67           | Getting pumped in car                                         |                      |
@@ -163,8 +163,8 @@ Anims: "SEX_1_P", "SEX_1_W", "SEX_1TO2_P", "SEX_1TO2_W", "SEX_2_P", "SEX_2_W", "
 | no    | BLOWJOBZ     | BJ_Stand_Start_P       | 120    | 2.00           | Start getting pumped up                                       |                      |
 | no    | BLOWJOBZ     | BJ_Stand_Start_W       | 120    | 2.00           | Start pumping up                                              |                      |
 |   
-
-no    | SEX          | SEX_1to2_P             | 60     | 1.00           | Change position from eagle to butterfly as male               | Blocked in SA-MP     |
+=
+| no    | SEX          | SEX_1to2_P             | 60     | 1.00           | Change position from eagle to butterfly as male               | Blocked in SA-MP     |
 | no    | SEX          | SEX_1to2_W             | 60     | 1.00           | Change position from eagle to butterfly as female             | Blocked in SA-MP     |
 | no    | SEX          | SEX_1_Cum_P            | 400    | 6.67           | Orgasm as male                                                | Blocked in SA-MP     |
 | no    | SEX          | SEX_1_Cum_W            | 400    | 6.67           | Orgasm as female                                              | Blocked in SA-MP     |
@@ -185,7 +185,7 @@ no    | SEX          | SEX_1to2_P             | 60     | 1.00           | Change
 | no    | SEX          | SEX_3_P                | 20     | 0.33           | Doggy position as male                                        | Blocked in SA-MP     |
 | no    | SEX          | SEX_3_W                | 20     | 0.33           | Doggy position as female                                      | Blocked in SA-MP     |
 | 
-
+=
 | no    | SnM          | SnM_Caned_Idle_P       | 120    | 2.00           | Bent at 90 degrees ready to be caned as male                  |                      |
 | no    | SnM          | SnM_Caned_Idle_W       | 120    | 2.00           | Position to caning as female                                  |                      |
 | no    | SnM          | SnM_Caned_P            | 80     | 1.33           | Bent at 90 degrees being caned as male                        |                      |
