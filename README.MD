@@ -511,6 +511,7 @@ See the [open issues](https://github.com/Kingvornex/ACNR-OPENMP/issues) for a fu
 * **Old ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/OLD%20VERSION%20UPDATES.MD**
 ## New version changelogs:
 * **OPEN.mp ACNR changelog: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/CHANGELOG.md**
+* Dialog style selection menu: https://sampforum.blast.hk/showthread.php?tid=570213
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
