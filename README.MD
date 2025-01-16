@@ -221,19 +221,19 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] attach ufo objects togeter so it wont be bug
     - [ ] increase ufo speed?
     - [ ] move island 1 closer to land
-    - ( ) save /kojam to file like /bug
-    - ( ) add geo ip: https://github.com/Southclaws/SAMP-geoip
-    - ( ) https://github.com/PatrickGTR/actor_robbery
-    - ( ) use https://github.com/alextwothousand/mSelection for vehicles shop menu, also add more categories to car shop menu
-    - ( ) add ships to vehicles shop menu and spawn them in water and after spawn set checkpoint and send massage that vehicle is spawnd in water 
-    - ( ) dcar
-eject all car seats
-get car seats for drag
-get component information 
-get vehicle available vehicle components 
-tune menu generator
-/c in easydialog vs mdialog
-class selection 
+    - [ ] save /kojam to file like /bug
+    - [ ] add geo ip: https://github.com/Southclaws/SAMP-geoip
+    - [ ] https://github.com/PatrickGTR/actor_robbery
+    - [ ] use https://github.com/alextwothousand/mSelection for vehicles shop menu, also add more categories to car shop menu
+    - [ ] add ships to vehicles shop menu and spawn them in water and after spawn set checkpoint and send massage that vehicle is spawnd in water 
+    - [ ] dcar
+    - [ ] eject all car seats
+    - [ ] get car seats for drag
+    - [ ] get component information 
+    - [ ] get vehicle available vehicle components 
+    - [ ] tune menu generator
+    - [ ] /c in easydialog vs mdialog
+    - [ ] class selection 
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
