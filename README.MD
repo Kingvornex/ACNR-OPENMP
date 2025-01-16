@@ -233,6 +233,7 @@ get component information
 get vehicle available vehicle components 
 tune menu generator
 /c in easydialog vs mdialog
+class selection 
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
