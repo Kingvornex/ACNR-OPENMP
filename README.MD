@@ -230,7 +230,8 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
 eject all car seats
 get car seats for drag
 get component information 
-get vehicle available vehicles components 
+get vehicle available vehicle components 
+tune menu generator
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
