@@ -1,6 +1,12 @@
 
 // Stream Vehicles from file
 
+// Don't display the message about caching the code (with `YSI_YES_MODE_CACHE`).
+#define YSI_NO_CACHE_MESSAGE
+
+// Don't display the message about startup optimisation (it still happens, you just aren't told).
+#define YSI_NO_OPTIMISATION_MESSAGE
+
 #include <open.mp>
 #include <crashdetect>
 #include <YSI-Includes\YSI_Data\y_iterate>
@@ -566,6 +572,12 @@ stock token_by_delim(const string[], return_str[], delim, start_index)
 
 public OnFilterScriptInit()
 {    
+    printf("||====================||");
+    printf("||====================||");
+    printf("||= VEHICLE STREAMER =||");
+    printf("||====================||");
+    printf("||====================||");
+
 	// Initialize the iterator.
     //Iter_Init(VehicleIter);
 	//foreach (new vehicleid : VehicleIter)

@@ -6,21 +6,13 @@
 #include <open.mp>
 #include <streamer>
 
-/*
-     ___      _
-    / __| ___| |_ _  _ _ __
-    \__ \/ -_)  _| || | '_ \
-    |___/\___|\__|\_,_| .__/
-                      |_|
-*/
-
 public OnFilterScriptInit()
 {
-printf(" ");
-printf("  -----------------------------------");
-printf("  |=======  Jail/Prison MAP! =======|");
-printf("  -----------------------------------");
-printf(" ");
+printf("||=============||");
+printf("||=============||");
+printf("||= JAIL MAP! =||");
+printf("||=============||");
+printf("||=============||");
 
 new object;
 new worldid;

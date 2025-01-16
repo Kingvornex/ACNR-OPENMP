@@ -17,9 +17,10 @@ forward ClosePrisonGate(gateid);
 public OnFilterScriptInit()
 {
 	print("=====================================");
-	print("     Presidio de segurança máxima    ");
-	print("        Maximum Security Prison      ");
-	print("           By MStyleBR V.Beta        ");
+	print("=====================================");
+	print("     Maximum Security Prison MAP     ");
+	print("         By MStyleBR V.Beta          ");
+	print("=====================================");
 	print("=====================================");
 	
 	CreateDynamicObject(11423, 2936.2, -604.59998, 14.3, 0, 0, 0);

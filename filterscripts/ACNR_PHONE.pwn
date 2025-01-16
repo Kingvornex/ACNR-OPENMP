@@ -12,6 +12,12 @@ ADRI1 FilterScript
 #pragma warning disable 213 //tag mismatch
 #pragma warning disable 219 //shadows
 
+// Don't display the message about caching the code (with `YSI_YES_MODE_CACHE`).
+#define YSI_NO_CACHE_MESSAGE
+
+// Don't display the message about startup optimisation (it still happens, you just aren't told).
+#define YSI_NO_OPTIMISATION_MESSAGE
+
 #include <open.mp>
 #include <izcmd>
 #include <sscanf2>
@@ -454,24 +460,17 @@ new zones[][zoneinfo] = {
 { "Flint County",                -1213.90, -2892.90,  -242.90,    44.60,  -768.00,   900.00},
 { "Whetstone",                   -2997.40, -2892.90,  -242.90, -1213.90, -1115.50,   900.00}};
 
-WasteDeAMXersTime()
-{
-    new b;
-    #emit load.pri b
-    #emit stor.pri b
-}
-
 public OnGameModeInit()
 {
-	WasteDeAMXersTime();
 	
-	print("|---------------------------------|");
-	print("|--SAMSUNG-GALAXY-SIII-FOR-SA-MP--|");
-	print("|--VERSION-1.2--------------------|");
-	print("|--COMMAND:--/myphone-------------|");
-	print("|--CREATED-BY:-------adri1--------|");
-	print("|--Just-SAMP.RozBlog.COM----------|");
-	print("|---------------------------------|");
+	print("|========================||");
+	print("|========================||");
+	print("||= SAMSUNG GALAXY SIII =||");
+	print("||= VERSION-1.2 =========||");
+	print("||= COMMAND:  /myphone ==||");
+	print("||= CREATED-BY: adri1 ===||");
+	print("||=======================||");
+	print("|========================||");
 	
 	if (fcreatedir("phones"))
 	{

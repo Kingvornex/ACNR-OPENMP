@@ -91,6 +91,12 @@ public StartMovingTimer()
 
 public OnFilterScriptInit()
 {    
+    printf("||========================||");
+    printf("||========================||");
+    printf("||= PIRATE SHIP /ShipLoc =||");
+    printf("||========================||");
+    printf("||========================||");
+
 	gMainShipObjectId = CreateDynamicObject(SHIP_OBJECT_ID, gShipRoutePoints[0][0], gShipRoutePoints[0][1], gShipRoutePoints[0][2],
 									gShipRoutePoints[0][3], gShipRoutePoints[0][4], gShipRoutePoints[0][5], .drawdistance = SHIP_DRAW_DISTANCE);
 

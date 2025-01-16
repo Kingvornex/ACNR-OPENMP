@@ -44,6 +44,12 @@ new
 
 public OnFilterScriptInit()
 {
+	printf("||===========||");
+    printf("||===========||");
+    printf("||= MAP FIX =||");
+    printf("||===========||");
+    printf("||===========||");
+
 	#if defined GetSVarInt\
 		&& defined SetSVarInt
 		if(GetSVarInt("MapFixIsEnabled"))

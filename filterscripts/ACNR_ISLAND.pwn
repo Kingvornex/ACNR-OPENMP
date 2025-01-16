@@ -8,11 +8,11 @@
 
 public OnFilterScriptInit()
 {
-	printf(" ");
-	printf("|===========================================|");
-	printf("|=============== ISLAND MAP! ===============|");
-	printf("|===========================================|");
-	printf(" ");
+    printf("||===============||");
+    printf("||===============||");
+    printf("||= ISLAND MAP! =||");
+    printf("||===============||");
+    printf("||===============||");
 	
 	new g_DynamicObject[56];
 	new g_Vehicle[3];

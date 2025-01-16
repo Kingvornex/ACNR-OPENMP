@@ -33,6 +33,12 @@ new Float:gBallLocations[NUM_BALL_LOCATIONS][3] = {
 
 public OnFilterScriptInit()
 {
+	printf("||==========================||");
+    printf("||==========================||");
+    printf("||=== BASKETBALL /ball ! ===||");
+    printf("||==========================||");
+    printf("||==========================||");
+
 	Baller = INVALID_PLAYER_ID; // CHANGE IT TI INVALID_PLAYER_ID
 	//DestroyDynamicObject(Ball); //on FilterScriptInit Ball is 0 and it will destroy DynamicObject 0
 	Ball = CreateDynamicObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96); // 

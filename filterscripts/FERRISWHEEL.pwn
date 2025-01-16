@@ -9,6 +9,12 @@
 // - Kye 2011
 //
 
+// Don't display the message about caching the code (with `YSI_YES_MODE_CACHE`).
+#define YSI_NO_CACHE_MESSAGE
+
+// Don't display the message about startup optimisation (it still happens, you just aren't told).
+#define YSI_NO_OPTIMISATION_MESSAGE
+
 #include <open.mp>
 #include "../include/gl_common.inc" // for PlaySoundForPlayersInRange()
 #include <streamer>
@@ -79,6 +85,12 @@ public RotateWheel()
 
 public OnFilterScriptInit()
 {
+	printf("||================||");
+    printf("||================||");
+    printf("||= FERRIS WHEEL =||");
+    printf("||================||");
+    printf("||================||");
+
 	gFerrisWheel = CreateDynamicObject( FERRIS_WHEEL_ID, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
 	  							 0.0, 0.0, FERRIS_WHEEL_Z_ANGLE, .drawdistance = FERRIS_DRAW_DISTANCE );
 

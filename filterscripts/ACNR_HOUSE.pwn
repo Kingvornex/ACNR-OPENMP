@@ -9,11 +9,11 @@
 
 public OnFilterScriptInit()
 {
-	printf(" ");
-	printf("  -----------------------------------");
-	printf("  |  My first open.mp filterscript! |");
-	printf("  -----------------------------------");
-	printf(" ");
+    printf("||==============||");
+    printf("||==============||");
+    printf("||= HOUSE MAP! =||");
+    printf("||==============||");
+    printf("||==============||");
 	
 	CreateDynamicObject(2233, 927.67999, 1966.78003, 10.57000,   0.00000, 0.00000, 236.00000);
 	CreateDynamicObject(14455, 927.76001, 1968.13000, 11.98000,   0.00000, 0.00000, 90.00000);

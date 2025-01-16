@@ -16,10 +16,12 @@
 */
  public OnFilterScriptInit()
  {
-	 print("\n--------------------------------------");
-	 print(" Redreaper666`s Working Ferris Wheel v 1.0");
-	 print("--------------------------------------\n");
-	
+	 printf("||=============================||");
+     printf("||=============================||");
+     printf("||= Redreaper666 Ferris Wheel =||");
+     printf("||=============================||");
+     printf("||=============================||");
+
 	 //CREATE NEW FERRIS WHEEL
 	 CreateDynamicObject(18878, 390.1633, -2028.6056, 21.9822,   0.0000, 0.0000, 90.0000);//MAINSTAND
 	

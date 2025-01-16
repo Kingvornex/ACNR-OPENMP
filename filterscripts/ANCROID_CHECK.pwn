@@ -10,7 +10,12 @@
 
 public OnFilterScriptInit()
 {
-    print("Android check has been successfully loaded.");
+     printf("||===================||");
+     printf("||===================||");
+     printf("||= ANDROID CHECKER =||");
+     printf("||===================||");
+     printf("||===================||");
+
 }
 
 public OnFilterScriptExit()

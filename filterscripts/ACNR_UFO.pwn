@@ -50,12 +50,17 @@ new nextP;
 //===========================================================//
 
 public OnFilterScriptInit()
-{
+{     
+	printf("||===============||");
+    printf("||===============||");
+    printf("||= UFO /UFOloc =||");
+    printf("||===============||");
+    printf("||===============||");
+
 	ufo1 = CreateDynamicObject(13607, -1460.199829, -943.961182, 219.348648, 0.0000, 0.0000, 0.0000);
 	ufo2 = CreateDynamicObject(13607, -1460.167114, -944.012512, 206.879150, 179.6226, 0.0000, 0.0000);
 	AttachDynamicObjectToObject(ufo2, ufo1, 0.0, 0.0, -13.0, 180.0, 0.0, 0.0, 1);
 	SetTimer("MoveUfo", 1, true);
-	print(" || === ACNR UFO === /UFOloc === ||");
 	return 1;
 }
 

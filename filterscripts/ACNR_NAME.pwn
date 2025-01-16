@@ -1,6 +1,12 @@
 
 // ACNR server name changer
 
+// Don't display the message about caching the code (with `YSI_YES_MODE_CACHE`).
+#define YSI_NO_CACHE_MESSAGE
+
+// Don't display the message about startup optimisation (it still happens, you just aren't told).
+#define YSI_NO_OPTIMISATION_MESSAGE
+
 #include <open.mp>
 
 forward Name1();
@@ -9,6 +15,12 @@ forward Name3();
 
 public OnFilterScriptInit()
 {
+   printf("||=========================||");
+   printf("||=========================||");
+   printf("||= SERVER  NAME  CHANGER =||");
+   printf("||=========================||");
+   printf("||=========================||");
+
    SetTimer("Name1",1000,false);
    return 1;
 }

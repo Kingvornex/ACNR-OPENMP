@@ -12,6 +12,12 @@
 #pragma warning disable 219 //shadows
 #pragma warning disable 239 //const
 
+// Don't display the message about caching the code (with `YSI_YES_MODE_CACHE`).
+#define YSI_NO_CACHE_MESSAGE
+
+// Don't display the message about startup optimisation (it still happens, you just aren't told).
+#define YSI_NO_OPTIMISATION_MESSAGE
+
 #include <open.mp>
 
 #undef MAX_PLAYERS
@@ -580,7 +586,7 @@ new newestname[60];
 new tedadvoro = 0, tedadekick = 0, tedadeban = 0;
 new IsAccseptSong[MAX_PLAYERS];
 new bool:IsFlying[MAX_PLAYERS];
-new Text:LOADSCS[15];
+new Text:LOADSCS[28];
 new bool:Inactive[MAX_PLAYERS];
 new AFKcount;
 new Text:MULTITD;
@@ -8291,13 +8297,13 @@ dprop_PRIVATE_hash(buf[])//
 
 main()
 {
-    printACNR("|--------------------------------------------|");
-	printACNR("|---------- Gamemode: ACNR v2.2.3 -----------|");
-	printACNR("|-------- Owner/Developer: Abolfazl ---------|");
-	printACNR("|----- Copyright: Abolfazl 2015 - 2018 ------|");
-	printACNR("|-------- Copyright: Abolfazl  2024 ---------|");
-	printACNR("|--------- Just-SaMp.RozBlog.COM ------------|");
-    printACNR("|--------------------------------------------|");
+    printACNR("||===================================||");
+	printACNR("||====== Gamemode: ACNR v2.2.3 ======||");
+	printACNR("||==== Owner/Developer: Abolfazl ====||");
+	printACNR("||= Copyright: Abolfazl 2015 - 2018 =||");
+	printACNR("||==== Copyright: Abolfazl  2024 ====||");
+	printACNR("||====== Just-SaMp.RozBlog.COM ======||");
+    printACNR("||===================================|");
 }
 
 public OnGameModeInit()
@@ -8469,6 +8475,71 @@ public OnGameModeInit()
     TextDrawUseBox(LOADSCS[14], 1);
     TextDrawTextSize(LOADSCS[14], 640.0, 448.0);
     
+    LOADSCS[15] = TextDrawCreate(0.0, 0.0, "LD_DUAL:backgnd");
+    TextDrawFont(LOADSCS[15], 4);
+    TextDrawUseBox(LOADSCS[15], 1);
+    TextDrawTextSize(LOADSCS[15], 640.0, 448.0);
+
+    LOADSCS[16] = TextDrawCreate(0.0, 0.0, "LD_SPAC:backgnd");
+    TextDrawFont(LOADSCS[16], 4);
+    TextDrawUseBox(LOADSCS[16], 1);
+    TextDrawTextSize(LOADSCS[16], 640.0, 448.0);
+
+    LOADSCS[17] = TextDrawCreate(0.0, 0.0, "load0uk:load0uk");
+    TextDrawFont(LOADSCS[17], 4);
+    TextDrawUseBox(LOADSCS[17], 1);
+    TextDrawTextSize(LOADSCS[17], 640.0, 448.0);
+
+    LOADSCS[18] = TextDrawCreate(0.0, 0.0, "LOADSCS:eax");
+    TextDrawFont(LOADSCS[18], 4);
+    TextDrawUseBox(LOADSCS[18], 1);
+    TextDrawTextSize(LOADSCS[18], 640.0, 448.0);
+
+    LOADSCS[19] = TextDrawCreate(0.0, 0.0, "LOADSCS:loadsc0");
+    TextDrawFont(LOADSCS[19], 4);
+    TextDrawUseBox(LOADSCS[19], 1);
+    TextDrawTextSize(LOADSCS[19], 640.0, 448.0);
+
+    LOADSCS[20] = TextDrawCreate(0.0, 0.0, "LOADSCS:nvidia");
+    TextDrawFont(LOADSCS[20], 4);
+    TextDrawUseBox(LOADSCS[20], 1);
+    TextDrawTextSize(LOADSCS[20], 640.0, 448.0);
+
+    LOADSCS[21] = TextDrawCreate(0.0, 0.0, "LOADSCS:title_pc_US");
+    TextDrawFont(LOADSCS[21], 4);
+    TextDrawUseBox(LOADSCS[21], 1);
+    TextDrawTextSize(LOADSCS[21], 640.0, 448.0);
+
+    LOADSCS[22] = TextDrawCreate(0.0, 0.0, "fronten2:back2");
+    TextDrawFont(LOADSCS[22], 4);
+    TextDrawUseBox(LOADSCS[22], 1);
+    TextDrawTextSize(LOADSCS[22], 640.0, 448.0);
+
+    LOADSCS[23] = TextDrawCreate(0.0, 0.0, "fronten2:back3");
+    TextDrawFont(LOADSCS[23], 4);
+    TextDrawUseBox(LOADSCS[23], 1);
+    TextDrawTextSize(LOADSCS[23], 640.0, 448.0);
+
+    LOADSCS[24] = TextDrawCreate(0.0, 0.0, "fronten2:back4");
+    TextDrawFont(LOADSCS[24], 4);
+    TextDrawUseBox(LOADSCS[24], 1);
+    TextDrawTextSize(LOADSCS[24], 640.0, 448.0);
+
+    LOADSCS[25] = TextDrawCreate(0.0, 0.0, "fronten2:back5");
+    TextDrawFont(LOADSCS[25], 4);
+    TextDrawUseBox(LOADSCS[25], 1);
+    TextDrawTextSize(LOADSCS[25], 640.0, 448.0);
+
+    LOADSCS[26] = TextDrawCreate(0.0, 0.0, "fronten2:back6");
+    TextDrawFont(LOADSCS[26], 4);
+    TextDrawUseBox(LOADSCS[26], 1);
+    TextDrawTextSize(LOADSCS[26], 640.0, 448.0);
+
+    LOADSCS[27] = TextDrawCreate(0.0, 0.0, "fronten2:back7");
+    TextDrawFont(LOADSCS[27], 4);
+    TextDrawUseBox(LOADSCS[27], 1);
+    TextDrawTextSize(LOADSCS[27], 640.0, 448.0);
+
     MULTITD = TextDrawCreate(322.778076, 261.555450, "MULTIPLAYER");
     TextDrawLetterSize(MULTITD, 0.959445, 5.805204);
     TextDrawAlignment(MULTITD, 2);
@@ -11785,22 +11856,11 @@ public OnGameModeExit()
     
     TextDrawDestroy(txtTimeDisp);
     TextDrawDestroy(txtDateDisp);
-    TextDrawDestroy(LOADSCS[0]);
-    TextDrawDestroy(LOADSCS[1]);
-    TextDrawDestroy(LOADSCS[2]);
-    TextDrawDestroy(LOADSCS[3]);
-    TextDrawDestroy(LOADSCS[4]);
-    TextDrawDestroy(LOADSCS[5]);
-    TextDrawDestroy(LOADSCS[6]);
-    TextDrawDestroy(LOADSCS[7]);
-    TextDrawDestroy(LOADSCS[8]);
-    TextDrawDestroy(LOADSCS[9]);
-    TextDrawDestroy(LOADSCS[10]);
-    TextDrawDestroy(LOADSCS[11]);
-    TextDrawDestroy(LOADSCS[12]);
-    TextDrawDestroy(LOADSCS[13]);
-    TextDrawDestroy(LOADSCS[14]);
-    TextDrawDestroy(MULTITD);
+	Loop(s , sizeof(LOADSCS))
+	{
+    	TextDrawDestroy(LOADSCS[s]);
+	}    
+	TextDrawDestroy(MULTITD);
     TextDrawDestroy(MULTIPLAYER);
     
 	foreach(new p : Player)
@@ -11834,24 +11894,13 @@ public OnPlayerRequestClass(playerid, classid)
     SetPlayerCameraLookAt(playerid, 2116.0205, 2143.3225, 10.8203);
     SetPlayerCameraPos(playerid, 2116.0205 + (5 * floatsin(-89.6528, degrees)), 2143.3225 + (5 * floatcos(-89.6528, degrees)), 10.8203);
 
-    TextDrawHideForPlayer(playerid,LOADSCS[0]);
-	TextDrawHideForPlayer(playerid,LOADSCS[1]);
-	TextDrawHideForPlayer(playerid,LOADSCS[2]);
-	TextDrawHideForPlayer(playerid,LOADSCS[3]);
-	TextDrawHideForPlayer(playerid,LOADSCS[4]);
-	TextDrawHideForPlayer(playerid,LOADSCS[5]);
-	TextDrawHideForPlayer(playerid,LOADSCS[6]);
-	TextDrawHideForPlayer(playerid,LOADSCS[7]);
-	TextDrawHideForPlayer(playerid,LOADSCS[8]);
-	TextDrawHideForPlayer(playerid,LOADSCS[9]);
-	TextDrawHideForPlayer(playerid,LOADSCS[10]);
-	TextDrawHideForPlayer(playerid,LOADSCS[11]);
-	TextDrawHideForPlayer(playerid,LOADSCS[12]);
-	TextDrawHideForPlayer(playerid,LOADSCS[13]);
-	TextDrawHideForPlayer(playerid,LOADSCS[14]);
-    TextDrawHideForPlayer(playerid,MULTITD);
-    TextDrawHideForPlayer(playerid,MULTIPLAYER);
-    TextDrawHideForPlayer(playerid,esmmashin[playerid]);
+	Loop(s , sizeof(LOADSCS))
+	{
+    	TextDrawHideForPlayer(playerid, LOADSCS[s]);
+	}    
+	TextDrawHideForPlayer(playerid, MULTITD);
+    TextDrawHideForPlayer(playerid, MULTIPLAYER);
+    TextDrawHideForPlayer(playerid, esmmashin[playerid]);
 
 	PlayerClassID[playerid] = 1 + classid;
 	return 1;
@@ -14663,7 +14712,7 @@ public OnPlayerConnect(playerid)
 
 	new trand = random(sizeof(LOADSCS));
 	TextDrawShowForPlayer(playerid, LOADSCS[trand]);
-	if(trand == 0)
+	if(trand == 0 || trand == 17 || trand == 19 || trand == 21)
 	{
         TextDrawShowForPlayer(playerid, MULTITD);
 	}
@@ -14671,6 +14720,11 @@ public OnPlayerConnect(playerid)
 	{
         TextDrawShowForPlayer(playerid, MULTIPLAYER);
 	}
+	if(trand == 15 || trand == 16 || trand == 20 || trand == 22 || trand == 23 || trand == 24 || trand == 25 || trand == 26 || trand == 27)
+	{
+		TextDrawHideForPlayer(playerid, MULTITD);
+    	TextDrawHideForPlayer(playerid, MULTIPLAYER);
+	}		
 	
 	PlayAudioStreamForPlayer(playerid, "https://dl.prokerala.com/downloads/ringtones/files/mp3/gtasanandreasthemesongfullyoutube360pextaudio-34356.mp3");
 
@@ -39554,74 +39608,74 @@ CMD:uncage(playerid, params[])
 
 CMD:kojam(playerid, params[])
 {
-if(PlayerInfo[playerid][aLevel] >= 1 || IsPlayerAdmin(playerid))
-{
-new result[100];
-if(sscanf(params, "s[100]", result)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /kojam [description]");
-new Float:angg;
-GetPlayerFacingAngle(playerid,angg);
-new strring[200];
-new Float:x,Float:y,Float:z;
-GetPlayerPos(playerid,x,y,z);
-format(strring,sizeof(strring),"You are in {FFFFFF}( %f,%f,%f )",x,y,z);
-SendClientMessageACNR(playerid,YELLOW,strring);
-new pos1[200], pos2[200];
-format(pos1, sizeof(pos1), " | PosX: %f PosY: %f PosZ: %f | Source: %f,%f,%f | ",x,y,z,x,y,z);
-format(pos2, sizeof(pos2), " | Virtual World: %d | Interior: %i | Angel: %f | Description: %s | ",GetPlayerVirtualWorld(playerid),GetPlayerInterior(playerid),angg,result);
-SendClientMessageACNR(playerid,YELLOW,pos1);
-SendClientMessageACNR(playerid,YELLOW,pos2);
-return 1;
-}
-else
-{
-SendClientMessageACNR(playerid,RED,"You are not an admin.");
-}
-return 1;
+	if(PlayerInfo[playerid][aLevel] >= 1 || IsPlayerAdmin(playerid))
+	{
+		new result[100];
+		if(sscanf(params, "s[100]", result)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /kojam [description]");
+		new Float:angg;
+		GetPlayerFacingAngle(playerid, angg);
+		new strring[200];
+		new Float:x, Float:y, Float:z;
+		GetPlayerPos(playerid, x, y, z);
+		format(strring, sizeof(strring), "You are in {FFFFFF}( %f,%f,%f )", x, y, z);
+		SendClientMessageACNR(playerid,YELLOW,strring);
+		new pos1[200], pos2[200];
+		format(pos1, sizeof(pos1), " | PosX: %f PosY: %f PosZ: %f | Source: %f,%f,%f | ",x,y,z,x,y,z);
+		format(pos2, sizeof(pos2), " | Virtual World: %d | Interior: %i | Angel: %f | Description: %s | ",GetPlayerVirtualWorld(playerid),GetPlayerInterior(playerid),angg,result);
+		SendClientMessageACNR(playerid,YELLOW,pos1);
+		SendClientMessageACNR(playerid,YELLOW,pos2);
+		return 1;
+	}
+	else
+	{
+		SendClientMessageACNR(playerid,RED,"You are not an admin.");
+	}
+	return 1;
 }
 
 CMD:vslap(playerid, params[])
 {
-new playa;
-new Float:slx, Float:sly, Float:slz;
-new string[200];
-if(PlayerInfo[playerid][aLevel] < 3) return SendClientMessageACNR(playerid,RED,"Only admin level 3+ can use this command.");
-if(sscanf(params, "u", playa)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /vslap [name/id]");
-if(!IsPlayerConnected(playa)) return SendClientMessageACNR(playerid, RED, "Player not found.");
-if(!IsPlayerInAnyVehicle(playa)) return SendClientMessageACNR(playerid,RED,"that Player Is not in any vehicle.");
-if(playa != INVALID_PLAYER_ID)
-{
-GetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz);
-SetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz+550);
-PlayerPlaySound(playa, 1130, slx, sly, slz+550);
-format(string, sizeof(string), "Admin %s [%d] has used the vslap for player: %s [%d].", GetName(playerid), playerid, GetName(playa), playa);
-SendAdminMessage(GREY, string);
-SetPlayerChatBubbleACNR(playerid, string, GREY, 50, 5000);
-format(string, sizeof(string), "You have been vehicleslapped by Admin %s [%d]", GetName(playerid), playerid);
-SendClientMessageACNR(playa, RED, string);
-}
-return 1;
+	new playa;
+	new Float:slx, Float:sly, Float:slz;
+	new string[200];
+	if(PlayerInfo[playerid][aLevel] < 3) return SendClientMessageACNR(playerid,RED,"Only admin level 3+ can use this command.");
+	if(sscanf(params, "u", playa)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /vslap [name/id]");
+	if(!IsPlayerConnected(playa)) return SendClientMessageACNR(playerid, RED, "Player not found.");
+	if(!IsPlayerInAnyVehicle(playa)) return SendClientMessageACNR(playerid,RED,"that Player Is not in any vehicle.");
+	if(playa != INVALID_PLAYER_ID)
+	{
+		GetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz);
+		SetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz+550);
+		PlayerPlaySound(playa, 1130, slx, sly, slz+550);
+		format(string, sizeof(string), "Admin %s [%d] has used the vslap for player: %s [%d].", GetName(playerid), playerid, GetName(playa), playa);
+		SendAdminMessage(GREY, string);
+		SetPlayerChatBubbleACNR(playerid, string, GREY, 50, 5000);
+		format(string, sizeof(string), "You have been vehicleslapped by Admin %s [%d]", GetName(playerid), playerid);
+		SendClientMessageACNR(playa, RED, string);
+	}
+	return 1;
 }
 
 CMD:supervslap(playerid, params[])
 {
-new playa, Float:slx, Float:sly, Float:slz;
-new string[200];
-if(PlayerInfo[playerid][aLevel] < 4) return SendClientMessageACNR(playerid,RED,"Only admin level 4 can use this command.");
-if(sscanf(params, "u", playa)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /supervslap [name/id]");
-if(!IsPlayerConnected(playa)) return SendClientMessageACNR(playerid, RED, "Player not found.");
-if(!IsPlayerInAnyVehicle(playa)) return SendClientMessageACNR(playerid,RED,"that Player Is not in any vehicle.");
-if(playa != INVALID_PLAYER_ID)
-{
-GetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz);
-SetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz+1000);
-PlayerPlaySound(playa, 1130, slx, sly, slz+1000);
-format(string, sizeof(string), "Admin %s [%d] has used the vslap for player: %s [%d].", GetName(playerid), playerid, GetName(playa), playa);
-SendAdminMessage(GREY, string);
-SetPlayerChatBubbleACNR(playerid, string, GREY, 50, 5000);
-format(string, sizeof(string), "You have been vehicleslapped by Admin %s [%d]", GetName(playerid), playerid);
-SendClientMessageACNR(playa, RED, string);
-}
-return 1;
+	new playa, Float:slx, Float:sly, Float:slz;
+	new string[200];
+	if(PlayerInfo[playerid][aLevel] < 4) return SendClientMessageACNR(playerid,RED,"Only admin level 4 can use this command.");
+	if(sscanf(params, "u", playa)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /supervslap [name/id]");
+	if(!IsPlayerConnected(playa)) return SendClientMessageACNR(playerid, RED, "Player not found.");
+	if(!IsPlayerInAnyVehicle(playa)) return SendClientMessageACNR(playerid,RED,"that Player Is not in any vehicle.");
+	if(playa != INVALID_PLAYER_ID)
+	{
+		GetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz);
+		SetVehiclePos(GetPlayerVehicleID(playa), slx, sly, slz+1000);
+		PlayerPlaySound(playa, 1130, slx, sly, slz+1000);
+		format(string, sizeof(string), "Admin %s [%d] has used the vslap for player: %s [%d].", GetName(playerid), playerid, GetName(playa), playa);
+		SendAdminMessage(GREY, string);
+		SetPlayerChatBubbleACNR(playerid, string, GREY, 50, 5000);
+		format(string, sizeof(string), "You have been vehicleslapped by Admin %s [%d]", GetName(playerid), playerid);
+		SendClientMessageACNR(playa, RED, string);
+	}
+	return 1;
 }
 
 CMD:slap(playerid, params[])
@@ -41363,7 +41417,7 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Added /unstuck.\n");
     strcat(UPS, "{FFFFFF}  Changed OnPlayerStateChange for exiting vehicle.\n");
     strcat(UPS, "{FFFFFF}  Added Points of intrests to /gps.\n");
-    strcat(UPS, "{FFFFFF}  .\n");
+    strcat(UPS, "{FFFFFF}  Added more LOADING SCREENS.\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
     ShowPlayerDialog(playerid, UPDATES, DIALOG_STYLE_MSGBOX , "{FFFFFF}ACNR Updates", UPS, "Ok", "");
