@@ -226,6 +226,11 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - ( ) https://github.com/PatrickGTR/actor_robbery
     - ( ) use https://github.com/alextwothousand/mSelection for vehicles shop menu, also add more categories to car shop menu
     - ( ) add ships to vehicles shop menu and spawn them in water and after spawn set checkpoint and send massage that vehicle is spawnd in water 
+    - ( ) dcar
+eject all car seats
+get car seats for drag
+get component information 
+get vehicle available vehicles components 
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
