@@ -260,7 +260,7 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 ## ACNR-OPENMP-v2.2.3:
 - Now Tune Menu Saves Shop Vehicle Paint Job And Colours
 - Added Custom Colorus to Tune Menu
-- Fixing bigs with 0.3DL
+- Fixing bugs with 0.3DL
 - Fixed /stopanim bug
 - Changed All Objects to Dynamic Objects
 - MAX_PLAYER_BIZ_HOUSE_VEHS 10, MAX_DEGREE_BIZ_HOUSE_VEHS 20, MAX_VIP_BIZ_HOUSE_VEHS 30
@@ -275,4 +275,12 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Chaned classes and class spawn weapons
 - Enabled Car Radio by default
 - Fixed some small map bugs
+- Added /RespawnShopCars to Admin 3+
+- Adde /vmenu  /vehmenu
+- Added Color -1 to /color and /vcol
+- Added /RespawnMyCars
+- Added /unstuck
+- Changed OnPlayerStateChange for exiting vehicle
+- Added Points of intrests to /gps (Added /gogps)
+- 
 
