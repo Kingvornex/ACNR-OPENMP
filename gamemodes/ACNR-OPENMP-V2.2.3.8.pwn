@@ -586,7 +586,7 @@ new newestname[60];
 new tedadvoro = 0, tedadekick = 0, tedadeban = 0;
 new IsAccseptSong[MAX_PLAYERS];
 new bool:IsFlying[MAX_PLAYERS];
-new Text:LOADSCS[28];
+new Text:LOADSCS[15];
 new bool:Inactive[MAX_PLAYERS];
 new AFKcount;
 new Text:MULTITD;
@@ -8474,7 +8474,7 @@ public OnGameModeInit()
     TextDrawFont(LOADSCS[14], 4);
     TextDrawUseBox(LOADSCS[14], 1);
     TextDrawTextSize(LOADSCS[14], 640.0, 448.0);
-    
+/*    
     LOADSCS[15] = TextDrawCreate(0.0, 0.0, "LD_DUAL:backgnd");
     TextDrawFont(LOADSCS[15], 4);
     TextDrawUseBox(LOADSCS[15], 1);
@@ -8539,7 +8539,7 @@ public OnGameModeInit()
     TextDrawFont(LOADSCS[27], 4);
     TextDrawUseBox(LOADSCS[27], 1);
     TextDrawTextSize(LOADSCS[27], 640.0, 448.0);
-
+*/
     MULTITD = TextDrawCreate(322.778076, 261.555450, "MULTIPLAYER");
     TextDrawLetterSize(MULTITD, 0.959445, 5.805204);
     TextDrawAlignment(MULTITD, 2);
@@ -41395,7 +41395,7 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}Version 2.2.3.8 UPDATES : \n");
     strcat(UPS, "{FFFFFF}  Now Tune Menu Saves Shop Vehicle Paint Job And Colours.\n");
     strcat(UPS, "{FFFFFF}  Added Custom Colorus to Tune Menu.\n");
-    strcat(UPS, "{FFFFFF}  Fixing bigs with 0.3DL.\n");
+    strcat(UPS, "{FFFFFF}  Fixing bugs with 0.3DL.\n");
     strcat(UPS, "{FFFFFF}  Fixed /stopanim bug.\n");
     strcat(UPS, "{FFFFFF}  Changed All Objects to Dynamic Objects.\n");
     strcat(UPS, "{FFFFFF}  MAX_PLAYER_BIZ_HOUSE_VEHS 10, MAX_DEGREE_BIZ_HOUSE_VEHS 20, MAX_VIP_BIZ_HOUSE_VEHS 30.\n");
@@ -41416,8 +41416,10 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Added /RespawnMyCars.\n");
     strcat(UPS, "{FFFFFF}  Added /unstuck.\n");
     strcat(UPS, "{FFFFFF}  Changed OnPlayerStateChange for exiting vehicle.\n");
-    strcat(UPS, "{FFFFFF}  Added Points of intrests to /gps.\n");
-    strcat(UPS, "{FFFFFF}  Added more LOADING SCREENS.\n");
+    strcat(UPS, "{FFFFFF}  Added Points of intrests to /gps (Added /gogps).\n");
+    //strcat(UPS, "{FFFFFF}  Added more LOADING SCREENS.\n"); // loading screens was bug and not showing
+
+    strcat(UPS, "{FFFFFF}  .\n");
 
     strcat(UPS, "{FFFFFF}github.com/Kingvornex/ACNR-OPENMP");
     ShowPlayerDialog(playerid, UPDATES, DIALOG_STYLE_MSGBOX , "{FFFFFF}ACNR Updates", UPS, "Ok", "");
