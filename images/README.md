@@ -1,63 +1,66 @@
 # Image Gallery
 
 ## Server Updates Changelog Images
-| 1.4 | 1.5 | 1.6 | 1.7 |
-| --- | --- | --- | --- |
-| ![1.4](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.4.png) | ![1.5](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.5.png) | ![1.6](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.6.png) | ![1.7](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.7.png) |
 
-| 1.8.5 | 1.9 | 2.0.5 |
-| --- | --- | --- |
-| ![1.8.5](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.8.5.png) | ![1.9](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.9.png) | ![2.0.5](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/2.1.0.png) |
+### Version 1.4 to 2.0.5
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.4.png" width="200" alt="1.4" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.5.png" width="200" alt="1.5" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.6.png" width="200" alt="1.6" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.7.png" width="200" alt="1.7" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.8.5.png" width="200" alt="1.8.5" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/1.9.png" width="200" alt="1.9" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/2.1.0.png" width="200" alt="2.0.5" />
+</div>
 
 ## ACNR Admin CMDs
-![ACNR Admin Commands](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ACNR_ADMIN_CMDs_Just_SAMP_RozBlog_COM_.png)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ACNR_ADMIN_CMDs_Just_SAMP_RozBlog_COM_.png" width="300" alt="ACNR Admin CMDs" />
+</div>
 
 ## ACNR VIP CMDs
-![ACNR VIP Commands](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ACNR_VIP_CMDs_Just_SaMp_RozBlog_COM_.png)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ACNR_VIP_CMDs_Just_SaMp_RozBlog_COM_.png" width="300" alt="ACNR VIP CMDs" />
+</div>
 
 ## Logo Images
-| Logo 1 | Logo 2 | Logo 3 | Logo 4 |
-| --- | --- | --- | --- |
-| ![Logo 1](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(1).png) | ![Logo 2](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(2).png) | ![Logo 3](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(3).png) | ![Logo 4](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(4).png) |
 
-| Logo 5 | Logo 6 | Logo 7 | Logo 8 |
-| --- | --- | --- | --- |
-| ![Logo 5](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(5).png) | ![Logo 6](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(6).png) | ![Logo 7](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(7).png) | ![Logo 8](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(8).png) |
-
-| Logo 9 |
-| --- |
-| ![Logo 9](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(9).png) |
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(1).png" width="150" alt="Logo 1" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(2).png" width="150" alt="Logo 2" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(3).png" width="150" alt="Logo 3" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(4).png" width="150" alt="Logo 4" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(5).png" width="150" alt="Logo 5" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(6).png" width="150" alt="Logo 6" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(7).png" width="150" alt="Logo 7" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(8).png" width="150" alt="Logo 8" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/ai%20(9).png" width="150" alt="Logo 9" />
+</div>
 
 ## Banner Images
-| Banner 1 | Banner 2 | Banner 3 |
-| --- | --- | --- |
-| ![Banner 1](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(1).jpeg) | ![Banner 2](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(1).jpg) | ![Banner 3](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(1).png) |
 
-| Banner 4 | Banner 5 |
-| --- | --- |
-| ![Banner 4](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(2).jpg) | ![Banner 5](https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(2).png) |
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(1).jpeg" width="200" alt="Banner 1" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(1).jpg" width="200" alt="Banner 2" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(1).png" width="200" alt="Banner 3" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(2).jpg" width="200" alt="Banner 4" />
+  <img src="https://raw.githubusercontent.com/Kingvornex/ACNR-OPENMP/refs/heads/main/images/banner%20(2).png" width="200" alt="Banner 5" />
+</div>
 
 ## Version 1.7 In-Game Server Screenshots
-| Screenshot 1 | Screenshot 2 | Screenshot 3 | Screenshot 4 |
-| --- | --- | --- | --- |
-| ![Screenshot 1](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-000.png) | ![Screenshot 2](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0000.png) | ![Screenshot 3](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-001.png) | ![Screenshot 4](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0010.png) |
 
-| Screenshot 5 | Screenshot 6 | Screenshot 7 | Screenshot 8 |
-| --- | --- | --- | --- |
-| ![Screenshot 5](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-002.png) | ![Screenshot 6](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0020.png) | ![Screenshot 7](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-003.png) | ![Screenshot 8](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0030.png) |
-
-| Screenshot 9 | Screenshot 10 | Screenshot 11 | Screenshot 12 |
-| --- | --- | --- | --- |
-| ![Screenshot 9](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-004.png) | ![Screenshot 10](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-005.png) | ![Screenshot 11](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-006.png) | ![Screenshot 12](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-007.png) |
-
-| Screenshot 13 | Screenshot 14 | Screenshot 15 | Screenshot 16 |
-| --- | --- | --- | --- |
-| ![Screenshot 13](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-008.png) | ![Screenshot 14](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-009.png) | ![Screenshot 15](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-010.png) | ![Screenshot 16](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-011.png) |
-
-| Screenshot 17 | Screenshot 18 | Screenshot 19 | Screenshot 20 |
-| --- | --- | --- | --- |
-| ![Screenshot 17](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-012.png) | ![Screenshot 18](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-013.png) | ![Screenshot 19](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-014.png) | ![Screenshot 20](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-015.png) |
-
-| Screenshot 21 | Screenshot 22 | Screenshot 23 | Screenshot 24 |
-| --- | --- | --- | --- |
-| ![Screenshot 21](https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <!-- Add more screenshots here -->
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-000.png?raw=true" width="150" alt="Screenshot 1" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0000.png?raw=true" width="150" alt="Screenshot 2" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-001.png?raw=true" width="150" alt="Screenshot 3" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0010.png?raw=true" width="150" alt="Screenshot 4" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-002.png?raw=true" width="150" alt="Screenshot 5" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0020.png?raw=true" width="150" alt="Screenshot 6" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-003.png?raw=true" width="150" alt="Screenshot 7" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-0030.png?raw=true" width="150" alt="Screenshot 8" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-004.png?raw=true" width="150" alt="Screenshot 9" />
+  <img src="https://github.com/Kingvornex/ACNR-OPENMP/blob/main/images/1.7/sa-mp-005.png?raw=true" width="150" alt="Screenshot 10" />
+  <!-- Continue adding more screenshots if needed -->
+</div>
