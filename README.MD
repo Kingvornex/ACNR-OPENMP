@@ -301,7 +301,137 @@ stock EjectAllPlayers()
     - [ ] add /teleport menu for admin
     - [ ] add playerid to their chat messages
     - [ ] add music playlist
-    - ( ) add https://github.com/samp-incognito/samp-audio-server-plugin
+    - [ ] add https://github.com/samp-incognito/samp-audio-server-plugin
+    - [ ] cmd /drag
+```pawn
+CMD:drag(playerid, params[])
+{
+    new targetid;
+    new Float:x, Float:y, Float:z;
+    
+    // Ensure the player is in a vehicle
+    if(!IsPlayerInAnyVehicle(playerid)) 
+        return SendClientMessageACNR(playerid, RED, "You must be in a vehicle to use this command.");
+
+    // Parse target player ID
+    if(sscanf(params, "u", targetid)) 
+        return SendClientMessageACNR(playerid, RED, "[USAGE]: /drag [PlayerID]");
+    
+    // Validate target player
+    if(!IsPlayerConnected(targetid)) 
+        return SendClientMessageACNR(playerid, RED, "The target player is not connected.");
+    if(targetid == playerid) 
+        return SendClientMessageACNR(playerid, RED, "You cannot drag yourself.");
+    
+    // Check if the player has admin privileges
+    if(PlayerInfo[playerid][aLevel] <= 0) 
+        return SendClientMessageACNR(playerid, RED, "Error: You are not an admin.");
+    
+    // Get position of the player who is in the vehicle
+    GetPlayerPos(playerid, x, y, z);
+    
+    // Check if the target player is within range
+    if(IsPlayerInRangeOfPoint(targetid, 20.0, x, y, z))
+    {
+        // Ensure the target player is not already in a vehicle
+        if(IsPlayerInAnyVehicle(targetid)) 
+            return SendClientMessageACNR(playerid, RED, "The target player is already in a vehicle.");
+
+        // Get the player's vehicle ID
+        new carid = GetPlayerVehicleID(playerid);
+        
+        // Put the target player in the vehicle
+        PutPlayerInVehicle(targetid, carid, 1);
+        
+        // Send messages to both the admin and the target player
+        new sttr[256];
+        format(sttr, 256, "Admin %s has dragged you into their vehicle.", GetName(playerid));
+        SendClientMessageACNR(targetid, RED, sttr);
+        SendClientMessageACNR(playerid, GREEN, "You have successfully dragged the player into your vehicle.");
+    }
+    else
+    {
+        SendClientMessageACNR(playerid, RED, "The target player is not near you.");
+    }
+    
+    return 1;
+}
+```
+```pawn
+CMD:drag(playerid, params[])
+{
+    new targetid;
+    new Float:x, Float:y, Float:z;
+    
+    // Ensure the player is in a vehicle
+    if(!IsPlayerInAnyVehicle(playerid)) 
+        return SendClientMessageACNR(playerid, RED, "You must be in a vehicle to use this command.");
+
+    // Parse target player ID
+    if(sscanf(params, "u", targetid)) 
+        return SendClientMessageACNR(playerid, RED, "[USAGE]: /drag [PlayerID]");
+    
+    // Validate target player
+    if(!IsPlayerConnected(targetid)) 
+        return SendClientMessageACNR(playerid, RED, "The target player is not connected.");
+    if(targetid == playerid) 
+        return SendClientMessageACNR(playerid, RED, "You cannot drag yourself.");
+    
+    // Check if the player has admin privileges
+    if(PlayerInfo[playerid][aLevel] <= 0) 
+        return SendClientMessageACNR(playerid, RED, "Error: You are not an admin.");
+    
+    // Get position of the player who is in the vehicle
+    GetPlayerPos(playerid, x, y, z);
+    
+    // Check if the target player is within range
+    if(IsPlayerInRangeOfPoint(targetid, 20.0, x, y, z))
+    {
+        // Ensure the target player is not already in a vehicle
+        if(IsPlayerInAnyVehicle(targetid)) 
+            return SendClientMessageACNR(playerid, RED, "The target player is already in a vehicle.");
+        
+        // Get the player's vehicle ID
+        new carid = GetPlayerVehicleID(playerid);
+        
+        // Check if the vehicle has passenger seats
+        new maxSeats = GetVehicleMaxPassengers(carid);
+        new seatid;
+        bool seatAvailable = false;
+
+        // Loop through all the seats to find an empty seat
+        for (seatid = 0; seatid < maxSeats; seatid++)
+        {
+            if (GetVehiclePassenger(carid, seatid) == INVALID_PLAYER_ID)
+            {
+                seatAvailable = true;
+                break;
+            }
+        }
+
+        // If no seat is available, notify the player
+        if (!seatAvailable)
+        {
+            return SendClientMessageACNR(playerid, RED, "There are no available seats in the vehicle.");
+        }
+        
+        // Put the target player in the first available seat
+        PutPlayerInVehicle(targetid, carid, seatid);
+
+        // Send messages to both the admin and the target player
+        new sttr[256];
+        format(sttr, 256, "Admin %s has dragged you into their vehicle.", GetName(playerid));
+        SendClientMessageACNR(targetid, RED, sttr);
+        SendClientMessageACNR(playerid, GREEN, "You have successfully dragged the player into your vehicle.");
+    }
+    else
+    {
+        SendClientMessageACNR(playerid, RED, "The target player is not near you.");
+    }
+    
+    return 1;
+}
+```
 
 - [ ] CODE BUG FIXES
     - [ ] FIX VEHICLE SPEED CODES (OnPlayerUpdate, soratbegirs, GetPlayerSpeed, GetVehicleSpeed, ACNR_anticheat) TOO MANY DIFFRENT CODES FOR SPEED, MAKE THEM ONE (SOME DIDN'T USE Z VELOCITY)
