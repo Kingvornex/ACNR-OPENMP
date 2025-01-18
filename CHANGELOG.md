@@ -282,5 +282,9 @@ https://sampforum.blast.hk/showthread.php?tid=566923
 - Added /unstuck
 - Changed OnPlayerStateChange for exiting vehicle
 - Added Points of intrests to /gps (Added /gogps)
-- 
+- Fixed a small /myvehs bug
+- Added Vehicle Health and Fuel to /myvehs
+- Updated Car Sho to easyDialog
+- Added More category and cars to car shop
+- Disabled Case Sensitive of srtcmp for names and password
 
