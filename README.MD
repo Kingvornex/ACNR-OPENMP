@@ -420,7 +420,7 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [x] FIX AUDIO STREAM LINKS (EXPIRED)
     - [x] fix << `format(zone, len, SACities[i][City_Name], 0);` >> to << `format(zone, len, "%s", SACities[i][City_Name]);` >>
     - [x] same problem with `format` under `GetVehicleName` code:
-```ruby
+```pawn
 stock GetVehicleName(vehicleid, model[], len) 
 {
     new checking = GetVehicleModel(vehicleid);
