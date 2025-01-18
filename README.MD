@@ -192,6 +192,25 @@ https://github.com/sampctl/tutorial-helloworld https://sampforum.blast.hk/showth
     - [ ] DONT LET PLAYER BUY DUPLICATE MODES (MODES TAHT ALREADY APPLIED)
     - [ ] SHOW PREVIEW OF MODE THEN CONFIRM FOR PURCHASE FOR MODE
     - [ ] LET PLAYER MOVE VIEW ANGLE WHEN IN TUNE MENU TO PERVENT OPENING AND CLOSING MENU MULTIPLE TIMES
+    - [ ] eject all players in vehicle, usable in /dcar or else
+```pawn
+stock EjectAllPlayers()
+{
+    new playerid;
+    for (playerid = 0; playerid < MAX_PLAYERS; playerid++)
+    {
+        if (IsPlayerConnected(playerid)) 
+        {
+            new vehid = GetPlayerVehicleID(playerid);
+            if (vehid != INVALID_VEHICLE_ID)
+            {
+                RemovePlayerFromVehicle(playerid); // Eject the player from the vehicle
+            }
+        }
+    }
+    return 1;
+}
+```
 
 - [ ] 2.2.3.7 TODO
     - [x] /color -1
