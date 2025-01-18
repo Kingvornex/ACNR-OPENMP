@@ -244,6 +244,7 @@ stock EjectAllPlayers()
     return 1;
 }
 ```
+
 - [ ] 2.2.3.7 TODO
     - [x] /color -1
     - [ ] e-c-menu
@@ -429,6 +430,69 @@ CMD:drag(playerid, params[])
         SendClientMessageACNR(playerid, RED, "The target player is not near you.");
     }
     
+    return 1;
+}
+```
+```pawn
+CMD:drag(playerid, params[])
+{
+    new targetid;
+    new Float:x, Float:y, Float:z;
+    
+    if(!IsPlayerInAnyVehicle(playerid)) 
+        return SendClientMessageACNR(playerid, RED, "Shoma bayad dar mashin bashid");
+
+    if(sscanf(params, "u", targetid)) 
+        return SendClientMessageACNR(playerid, RED, "[USAGE]: /drag [PlayerID]");
+
+    if(targetid == INVALID_PLAYER_ID) 
+        return SendClientMessageACNR(playerid, RED, "Invalid playerid");
+
+    if(!IsPlayerConnected(targetid)) 
+        return SendClientMessageACNR(playerid, RED, "Player is not connected");
+
+    if(targetid == playerid) 
+        return SendClientMessageACNR(playerid, RED, "Shoma nemitavanid khod ra drag konid.");
+
+    if(PlayerInfo[playerid][aLevel] <= 0) 
+        return SendClientMessageACNR(playerid, RED, "Error: You are not admin.");
+
+    GetPlayerPos(playerid, x, y, z);
+
+    if(!IsPlayerInRangeOfPoint(targetid, 20.0, x, y, z)) 
+        return SendClientMessageACNR(playerid, RED, "Player is not near you.");
+
+    new carid = GetPlayerVehicleID(playerid);
+    new seats = GetVehicleSeats(GetVehicleModel(carid));
+    new seatFound = false;
+
+    // Check for available seats
+    for (new i = 1; i < seats; i++) // Starting from 1 as 0 is the driver seat
+    {
+        if (GetPlayerVehicleSeat(targetid) == -1) // If the player is not in a vehicle
+        {
+            // Check if the seat is available
+            if (GetVehicleOccupiedSeats(carid, i) == false)
+            {
+                PutPlayerInVehicle(targetid, carid, i);
+                seatFound = true;
+                new sttr[256];
+                format(sttr, 256, "Admin %s drags you to his/her vehicle.", GetName(playerid));
+                SendClientMessageACNR(targetid, RED, sttr);
+                break;
+            }
+        }
+    }
+
+    if (!seatFound) 
+    {
+        SendClientMessageACNR(playerid, RED, "All passenger seats are full or no seat available.");
+    }
+    else 
+    {
+        SendClientMessageACNR(playerid, GREEN, "Dragged.");
+    }
+
     return 1;
 }
 ```
