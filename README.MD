@@ -211,7 +211,39 @@ stock EjectAllPlayers()
     return 1;
 }
 ```
+```pawn
+stock EjectAllPlayers()
+{
+    new playerid, vehid, seatid;
+    for (playerid = 0; playerid < MAX_PLAYERS; playerid++)
+    {
+        if (IsPlayerConnected(playerid)) 
+        {
+            vehid = GetPlayerVehicleID(playerid);
+            if (vehid != INVALID_VEHICLE_ID)
+            {
+                // Check if the player is in a vehicle and not in a seat already occupied
+                new maxSeats = GetVehicleMaxPassengers(vehid);
+                for (seatid = 0; seatid < maxSeats; seatid++)
+                {
+                    if (GetVehiclePassenger(vehid, seatid) == playerid)
+                    {
+                        // Player is in a seat, break and proceed to next player
+                        break;
+                    }
+                }
 
+                // Eject if the player is seated, but only proceed if all seats are occupied
+                if (seatid == maxSeats || seatid == 0)
+                {
+                    RemovePlayerFromVehicle(playerid); // Eject the player from the vehicle
+                }
+            }
+        }
+    }
+    return 1;
+}
+```
 - [ ] 2.2.3.7 TODO
     - [x] /color -1
     - [ ] e-c-menu
