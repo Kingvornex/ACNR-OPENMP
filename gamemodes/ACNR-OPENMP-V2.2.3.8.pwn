@@ -41985,14 +41985,14 @@ Dialog:NVM_MENU(playerid, response, listitem, inputtext[])
 		if(PlayerInfo[playerid][vLevel] >= 1 && GetPlayerVehicles{playerid} >= MAX_VIP_VEHS)
         {
             	    new string[150];
-            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another.", MAX_VIP_VEHS);
+            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another. or get DEGREE or VIP", MAX_VIP_VEHS);
             	    SendClientMessageACNR(playerid, RED, string);
             	    return 1;
         }
 		else if(PlayerInfo[playerid][vLevel] < 1 && DegreeInfo[playerid][dDealer] >= 1 && GetPlayerVehicles{playerid} >= MAX_DEGREE_VEHS)
         {
             	    new string[150];
-            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another.", MAX_DEGREE_VEHS);
+            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another. or get VIP", MAX_DEGREE_VEHS);
             	    SendClientMessageACNR(playerid, RED, string);
             	    return 1;
         }
@@ -42003,97 +42003,124 @@ Dialog:NVM_MENU(playerid, response, listitem, inputtext[])
             	    SendClientMessageACNR(playerid, RED, string);
             	    return 1;
         }
+		new i = listitem;
 		switch(PactiveCc[playerid])
 		{			
 			case 0:
 			{
 	            if(GetPlayerCash(playerid) < COMPACT_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, COMPACT_CARS[listitem][VEHICLE_MODELID], COMPACT_CARS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", COMPACT_CARS[i][VEHICLE_NAME], COMPACT_CARS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 1:
 			{
 	            if(GetPlayerCash(playerid) < LUXURY_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, LUXURY_CARS[listitem][VEHICLE_MODELID], LUXURY_CARS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", LUXURY_CARS[i][VEHICLE_NAME], LUXURY_CARS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 2:
 			{
 	            if(GetPlayerCash(playerid) < SUVS_WAGONS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, SUVS_WAGONS[listitem][VEHICLE_MODELID], SUVS_WAGONS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", SUVS_WAGONS[i][VEHICLE_NAME], SUVS_WAGONS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 3:
 			{
 	            if(GetPlayerCash(playerid) < LOWRIDERS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, LOWRIDERS[listitem][VEHICLE_MODELID], LOWRIDERS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", LOWRIDERS[i][VEHICLE_NAME], LOWRIDERS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 4:
 			{
 	            if(GetPlayerCash(playerid) < MUSCLE_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, MUSCLE_CARS[listitem][VEHICLE_MODELID], MUSCLE_CARS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", MUSCLE_CARS[i][VEHICLE_NAME], MUSCLE_CARS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 5:
 			{
 	            if(GetPlayerCash(playerid) < STREET_RACERS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, STREET_RACERS[listitem][VEHICLE_MODELID], STREET_RACERS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", STREET_RACERS[i][VEHICLE_NAME], STREET_RACERS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 6:
 			{
 	            if(GetPlayerCash(playerid) < Recreational[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, Recreational[listitem][VEHICLE_MODELID], Recreational[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", Recreational[i][VEHICLE_NAME], Recreational[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 7:
 			{
 	            if(GetPlayerCash(playerid) < SPORTS_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, SPORTS_CARS[listitem][VEHICLE_MODELID], SPORTS_CARS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", SPORTS_CARS[i][VEHICLE_NAME], SPORTS_CARS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 8:
 			{
 	            if(GetPlayerCash(playerid) < SUVs_PICKUP_TRUCKS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, SUVs_PICKUP_TRUCKS[listitem][VEHICLE_MODELID], SUVs_PICKUP_TRUCKS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", SUVs_PICKUP_TRUCKS[i][VEHICLE_NAME], SUVs_PICKUP_TRUCKS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 9:
 			{
 	            if(GetPlayerCash(playerid) < TUNERS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, TUNERS[listitem][VEHICLE_MODELID], TUNERS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", TUNERS[i][VEHICLE_NAME], TUNERS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 10:
 			{
 	            if(GetPlayerCash(playerid) < COUPES_HATCHBACKS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, COUPES_HATCHBACKS[listitem][VEHICLE_MODELID], COUPES_HATCHBACKS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", COUPES_HATCHBACKS[i][VEHICLE_NAME], COUPES_HATCHBACKS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 11:
 			{
 	            if(GetPlayerCash(playerid) < SEDANS_STATION_WAGONS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, SEDANS_STATION_WAGONS[listitem][VEHICLE_MODELID], SEDANS_STATION_WAGONS[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", SEDANS_STATION_WAGONS[i][VEHICLE_NAME], SEDANS_STATION_WAGONS[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 			case 12:
 			{
 	            if(GetPlayerCash(playerid) < BIKES[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
 	            CreateNewPlayerVehicle(playerid, BIKES[listitem][VEHICLE_MODELID], BIKES[listitem][VEHICLE_PRICE]);
-				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				new strings[150];
+            	format(strings, sizeof(strings), "You have successfully purchased a %s for $%d.", BIKES[i][VEHICLE_NAME], BIKES[listitem][VEHICLE_PRICE]);
+            	SendClientMessageACNR(playerid, GREEN, strings);
 				return 1;
 			}
 		}
@@ -43025,6 +43052,7 @@ CMD:myvehs(playerid, params[])
 	strcat(slots, "{FFFFFF}Count\tVehicle Name\tLocation\tHealth - Fuel");
 	for(new v = 0; v < MAX_VEHICLES; v++)
 	{
+		if( v == INVALID_VEHICLE_ID ) continue;
 		if(IsShopVehicle[v] == -1) continue;
 		if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true)) continue;
 		{
@@ -43041,6 +43069,7 @@ CMD:myvehs(playerid, params[])
 			*/
 			new zoneee[100];
 			GetVehicleZone(v, zoneee, sizeof(zoneee));
+	    	GetVehicleHealth(v, GetVehicleCurrentHealth[v]);
 			format(temp, sizeof(temp), "\n%d\t%s\t%s\t%.0f - %d", count + 1, GlobalVehicleNames[Vehicle_Data_Model[playerid][count] - 400], zoneee, GetVehicleCurrentHealth[v] / 10, GetVehicleFuel[v]);
 			strcat(slots, temp);
             count++;
