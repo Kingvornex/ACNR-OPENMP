@@ -385,10 +385,13 @@ stock WP_Hash(buffer[], len, const str[])
 #define HOUSE_KEYS_INPUT9 149
 #define HOUSE_KEYS_INPUT10 150
 #define SERVICE_STATION_MENU 151
+/*
+// updated to easyDialog
 #define NVM_MENU 152
 #define NVM_CARS 153
 #define NVM_BIKES 154
 #define NVM_SPEC 155
+*/
 //#define MY_VEHS_MENU 156 //updated to easyDialog
 #define APARTMENTS_ELEVATOR 157
 #define DEGREES_INFO 158
@@ -1283,6 +1286,265 @@ enum SpeedometerComponents {
 static tds_Player[MAX_PLAYERS][SpeedometerComponents];
 
 new is3don[MAX_PLAYERS];
+
+// Car Shop:
+// Define the vehicle categories with their respective arrays
+new const VEHICLE_CATEGORIES[][2][] = {
+    {"2-Door & Compact cars", 	"19 Cars"},
+    {"4-Door & Luxury cars", 	"20 Cars"},
+    {"SUVs & Wagons", 			"8  Cars"},
+    {"Lowriders", 				"8  Cars"},
+    {"Muscle cars", 			"4  Cars"},
+    {"Street racers", 			"19 Cars"},
+    {"Recreational", 			"14 Cars"},
+    {"Sports Cars", 			"14 Cars"},
+    {"SUVs & Pickup Trucks", 	"15 Cars"},
+    {"Tuners", 					"6  Cars"},
+    {"Coupes & Hatchbacks", 	"18 Cars"},
+    {"Sedans & Station Wagons", "23 Cars"},
+	{"Bikes",					"12 Bikes"}
+};
+
+// Define vehicle shop data
+enum E_VEHICLE_SHOP_DATA {
+    VEHICLE_MODELID,
+    VEHICLE_NAME[35],
+    VEHICLE_PRICE,
+    VEHICLE_Pic[35]
+};
+
+// 2-Door & Compact cars category
+new const COMPACT_CARS[][E_VEHICLE_SHOP_DATA] = {
+    {602, "Alpha", 			12000, "Alpha.png"},
+    {496, "Blista Compact", 6000, "Blistac.png"},
+    {401, "Bravura", 		8000, "Bravura.png"},
+    {518, "Buccaneer", 		15000, "Buccanee.png"},
+    {527, "Cadrona", 		10000, "Cadrona.png"},
+    {589, "Club", 			12000, "Club.png"},
+    {419, "Esperanto", 		7000, "Esperant.png"},
+    {587, "Euros", 			16000, "Euros.png"},
+    {533, "Feltzer", 		18000, "Feltzer.png"},
+    {526, "Fortune", 		14000, "Fortune.png"},
+    {474, "Hermes", 		15000, "Hermes.png"},
+    {545, "Hustler", 		13000, "Hustler.png"},
+    {517, "Majestic", 		14000, "Majestic.png"},
+    {410, "Manana", 		5000, "Manana.png"},
+    {600, "Picador", 		7000, "Picador.png"},
+    {436, "Previon", 		8000, "Previon.png"},
+    {439, "Stallion", 		12000, "Stallion.png"},
+    {549, "Tampa", 			11000, "Tampa.png"},
+    {491, "Virgo", 			9000, "Virgo.png"}
+};
+
+// 4-Door & Luxury cars category
+new const LUXURY_CARS[][E_VEHICLE_SHOP_DATA] = {
+    {445, "Admiral", 15000, "Admiral.png"},
+    {604, "Damaged Glendale", 8000, "Glenshit.png"},
+    {507, "Elegant", 10000, "Elegant.png"},
+    {585, "Emperor", 25000, "Emperor.png"},
+    {466, "Glendale", 12000, "Glendale.png"},
+    {492, "Greenwood", 10000, "Greenwoo.png"},
+    {546, "Intruder", 15000, "Intruder.png"},
+    {551, "Merit", 11000, "Merit.png"},
+    {516, "Nebula", 12000, "Nebula.png"},
+    {467, "Oceanic", 15000, "Oceanic.png"},
+    {426, "Premier", 14000, "Premier.png"},
+    {547, "Primo", 8000, "Primo.png"},
+    {405, "Sentinel", 20000, "Sentinel.png"},
+    {580, "Stafford", 25000, "Stafford.png"},
+    {409, "Stretch", 35000, "Stretch.png"},
+    {550, "Sunrise", 18000, "Sunrise.png"},
+    {566, "Tahoma", 12000, "Tahoma.png"},
+    {540, "Vincent", 20000, "Vincent.png"},
+    {421, "Washington", 22000, "Washing.png"},
+    {529, "Willard", 13000, "Willard.png"}
+};
+
+// SUVs & Wagons category
+new const SUVS_WAGONS[][E_VEHICLE_SHOP_DATA] = {
+    {579, "Huntley", 30000, "Huntley.png"},
+    {400, "Landstalker", 25000, "Landstal.png"},
+    {404, "Perennial", 12000, "Peren.png"},
+    {489, "Rancher", 18000, "Rancher.png"},
+    {505, "Rancher Lure", 20000, "Rnchlure.png"},
+    {479, "Regina", 13000, "Regina.png"},
+    {442, "Romero", 25000, "Romero.png"},
+    {458, "Solair", 10000, "Solair.png"}
+};
+
+// Lowriders category
+new const LOWRIDERS[][E_VEHICLE_SHOP_DATA] = {
+    {536, "Blade", 15000, "Blade.png"},
+    {575, "Broadway", 20000, "Broadway.png"},
+    {534, "Remington", 17000, "Remingtn.png"},
+    {567, "Savanna", 22000, "Savanna.png"},
+    {535, "Slamvan", 18000, "Slamvan.png"},
+    {576, "Tornado", 13000, "Tornado.png"},
+    {412, "Voodoo", 16000, "Voodoo.png"},
+    {566, "Tahoma", 12000, "Tahoma-GTASA-front.png"}
+};
+
+// Muscle cars category
+new const MUSCLE_CARS[][E_VEHICLE_SHOP_DATA] = {
+    {402, "Buffalo", 20000, "Buffalo.png"},
+    {542, "Clover", 22000, "Clover.png"},
+    {603, "Phoenix", 30000, "Phoenix.png"},
+    {475, "Sabre", 25000, "Sabre.png"}
+};
+
+// Street racers category
+new const STREET_RACERS[][E_VEHICLE_SHOP_DATA] = {
+    {429, "Banshee", 35000, "Banshee.png"},
+    {541, "Bullet", 40000, "Bullet.png"},
+    {415, "Cheetah", 50000, "Cheetah.png"},
+    {480, "Comet", 45000, "Comet.png"},
+    {562, "Elegy", 45000, "Elegy.png"},
+    {565, "Flash", 40000, "Flash.png"},
+    {434, "Hotknife", 35000, "Hotknife.png"},
+    {494, "Hotring Racer", 55000, "Hotring.png"},
+    {502, "Hotring Racer 2", 60000, "Hotrina.png"},
+    {503, "Hotring Racer 3", 65000, "Hotrinb.png"},
+    {411, "Infernus", 70000, "411.png"},
+    {559, "Jester", 45000, "Jester.png"},
+    {561, "Stratum", 35000, "Stratum.png"},
+    {560, "Sultan", 50000, "Sultan.png"},
+    {506, "Super GT", 60000, "Supergt.png"},
+    {451, "Turismo", 65000, "Turismo.png"},
+    {558, "Uranus", 50000, "Uranus.png"},
+    {555, "Windsor", 60000, "Windsor.png"},
+    {477, "ZR-350", 55000, "Zr350.png"}
+};
+
+// Recreational category
+new const Recreational[][E_VEHICLE_SHOP_DATA] = {
+    {568, "Bandito", 15000, 1},
+    {424, "BF Injection", 20000, 2},
+    {504, "Bloodring Banger", 25000, 3},
+    {457, "Caddy", 10000, 4},
+    {483, "Camper", 30000, 5},
+    {508, "Journey", 35000, 6},
+    {571, "Kart", 5000, 7},
+    {500, "Mesa", 18000, 8},
+    {444, "Monster", 40000, 9},
+    {556, "Monster 2", 45000, 10},
+    {557, "Monster 3", 50000, 11},
+    {471, "Quadbike", 12000, 12},
+    {495, "Sandking", 28000, 13},
+    {539, "Vortex", 22000, 14}
+};
+
+// Sports Cars category
+new const SPORTS_CARS[][E_VEHICLE_SHOP_DATA] = {
+    {602, "Alpha", 35000, "Alpha-GTASA-front.png"},
+    {429, "Banshee", 45000, "Banshee-GTASA-front.png"},
+    {402, "Buffalo", 40000, "Buffalo-GTASA-front.png"},
+    {541, "Bullet", 50000, "Bullet-GTASA-front.png"},
+    {415, "Cheetah", 55000, "Cheetah-GTASA-front.png"},
+    {480, "Comet", 40000, "Comet-GTASA-front.png"},
+    {587, "Euros", 25000, "Euros-GTASA-front.png"},
+    {434, "Hotknife", 35000, "Hotknife-GTASA-front.png"},
+    {411, "Infernus", 70000, "Infernus-GTASA-front.png"},
+    {603, "Phoenix", 30000, "Phoenix-GTASA-front.png"},
+    {506, "Super GT", 60000, "SuperGT-GTASA-front.png"},
+    {451, "Turismo", 65000, "Turismo-GTASA-front.png"},
+    {555, "Windsor", 55000, "Windsor-GTASA-front.png"},
+    {477, "ZR-350", 55000, "ZR350-GTASA-front.png"}
+};
+
+// SUVs & Pickup Trucks category
+new const SUVs_PICKUP_TRUCKS[][E_VEHICLE_SHOP_DATA] = {
+    {422, "Bobcat", 15000, "Bobcat-GTASA-front.png"},
+    {579, "Huntley", 30000, "Huntley-GTASA-front.png"},
+    {400, "Landstalker", 25000, "Landstalker-GTASA-front.png"},
+    {500, "Mesa", 20000, "Mesa-GTASA-front.png"},
+    {444, "Monster", 50000, "Monster-GTASA-monster-front.png"},
+    {556, "Monster A", 50000, "Monster-GTASA-monstera-front.png"},
+    {557, "Monster B", 50000, "Monster-GTASA-monsterb-front.png"},
+    {470, "Patriot", 35000, "Patriot-GTASA-front.png"},
+    {600, "Picador", 12000, "Picador-GTASA-front.png"},
+    {489, "Rancher", 18000, "Rancher-GTASA-front.png"},
+    {543, "Sadler", 10000, "Sadler-GTASA-front.png"},
+    {495, "Sandking", 30000, "Sandking-GTASA-front.png"},
+    {605, "Sadler (beater)", 8000, "Sadler-GTASA-beater-front.png"},
+    {478, "Walton", 15000, "Walton-GTASA-front.png"},
+    {554, "Yosemite", 20000, "Yosemite-GTASA-front.png"}
+};
+
+// Tuners category
+new const TUNERS[][E_VEHICLE_SHOP_DATA] = {
+    {562, "Elegy", 45000, "Elegy-GTASA-front.png"},
+    {565, "Flash", 40000, "Flash-GTASA-front.png"},
+    {559, "Jester", 45000, "Jester-GTASA-front.png"},
+    {561, "Stratum", 35000, "Stratum-GTASA-front.png"},
+    {560, "Sultan", 50000, "Sultan-GTASA-front.png"},
+    {558, "Uranus", 50000, "Uranus-GTASA-front.png"}
+};
+
+// Coupes & Hatchbacks category
+new const COUPES_HATCHBACKS[][E_VEHICLE_SHOP_DATA] = {
+    {496, "Blista Compact", 6000, "BlistaCompact-GTASA-front.png"},
+    {401, "Bravura", 8000, "Bravura-GTASA-front.png"},
+    {518, "Buccaneer", 15000, "Buccaneer-GTASA-front.png"},
+    {527, "Cadrona", 10000, "Cadrona-GTASA-front.png"},
+    {542, "Clover", 15000, "Clover-GTASA-front.png"},
+    {589, "Club", 12000, "Club-GTASA-front.png"},
+    {419, "Esperanto", 7000, "Esperanto-GTASA-front.png"},
+    {533, "Feltzer", 18000, "Feltzer-GTASA-front.png"},
+    {526, "Fortune", 14000, "Fortune-GTASA-front.png"},
+    {474, "Hermes", 15000, "Hermes-GTASA-front.png"},
+    {545, "Hustler", 13000, "Hustler-GTASA-front.png"},
+    {517, "Majestic", 14000, "Majestic-GTASA-front.png"},
+    {410, "Manana", 5000, "Manana-GTASA-front.png"},
+    {436, "Previon", 8000, "Previon-GTASA-front.png"},
+    {475, "Sabre", 25000, "Sabre-GTASA-front.png"},
+    {439, "Stallion", 12000, "Stallion-GTASA-front.png"},
+    {549, "Tampa", 11000, "Tampa-GTASA-front.png"},
+    {491, "Virgo", 9000, "Virgo-GTASA-front.png"}
+};
+
+// Sedans & Station Wagons category
+new const SEDANS_STATION_WAGONS[][E_VEHICLE_SHOP_DATA] = {
+    {445, "Admiral", 15000, "Admiral-GTASA-front.png"},
+    {507, "Elegant", 10000, "Elegant-GTASA-front.png"},
+    {585, "Emperor", 25000, "Emperor-GTASA-front.png"},
+    {466, "Glendale", 12000, "Glendale-GTASA-front.png"},
+    {604, "Glendale (beater)", 8000, "Glendale-GTASA-beater-front.png"},
+    {492, "Greenwood", 10000, "Greenwood-GTASA-front.png"},
+    {546, "Intruder", 15000, "Intruder-GTASA-front.png"},
+    {551, "Merit", 11000, "Merit-GTASA-front.png"},
+    {516, "Nebula", 12000, "Nebula-GTASA-front.png"},
+    {467, "Oceanic", 15000, "Oceanic-GTASA-front.png"},
+    {404, "Perennial", 12000, "Perennial-GTASA-front.png"},
+    {426, "Premier", 14000, "Premier-GTASA-front.png"},
+    {547, "Primo", 8000, "Primo-GTASA-front.png"},
+    {479, "Regina", 13000, "Regina-GTASA-front.png"},
+    {442, "Romero Hearse", 25000, "Romero-GTASA-front.png"},
+    {405, "Sentinel", 20000, "Sentinel-GTASA-front.png"},
+    {458, "Solair", 10000, "Solair-GTASA-front.png"},
+    {580, "Stafford", 25000, "Stafford-GTASA-front.png"},
+    {409, "Stretch", 35000, "Stretch-GTASA-front.png"},
+    {550, "Sunrise", 18000, "Sunrise-GTASA-front.png"},
+    {540, "Vincent", 20000, "Vincent-GTASA-front.png"},
+    {421, "Washington", 22000, "Washington-GTASA-front.png"},
+    {529, "Willard", 13000, "Willard-GTASA-front.png"}
+};
+
+// Bikes category
+new const BIKES[][E_VEHICLE_SHOP_DATA] = {
+    {581, "BF-400", 5000, "Bf400.png"},
+    {509, "Bike", 1500, "Bike.png"},
+    {481, "BMX", 300, "Bmx.png"},
+    {462, "Faggio", 2500, "Faggio.png"},
+    {521, "FCR-900", 7000, "Fcr900.png"},
+    {463, "Freeway", 4000, "Freeway.png"},
+    {510, "Mountain Bike", 1000, "Mtbike.png"},
+    {522, "NRG-500", 10000, "Nrg500.png"},
+    {461, "PCJ-600", 6000, "Pcj600.png"},
+    {448, "Pizzaboy", 1500, "Pizzaboy.png"},
+    {468, "Sanchez", 4000, "Sanchez.png"},
+    {586, "Wayfarer", 3000, "Wayfarer.png"}
+};
+
 
 new GlobalVehicleNames[212][] =
 {
@@ -6140,7 +6402,7 @@ stock GetID(username[])
 	{
     	if(IsPlayerConnected(i))
     	{
-      		if(strcmp(GetName(i), username, false, strlen(username)) == 0)
+      		if(strcmp(GetName(i), username, true, strlen(username)) == 0)
       		{
         		return i;
       		}
@@ -6202,7 +6464,7 @@ stock LoadPlayerVehicles(playerid)
 		{
         	INI_ParseFile(file, "LoadVeh_data", .bExtra = true, .extra = v);
 
-            if(!strcmp(GetName(playerid), VehicleInfo[v][vOwner], false))
+            if(!strcmp(GetName(playerid), VehicleInfo[v][vOwner], true))
 			{
 				new newveh = CreateVehicle(VehicleInfo[v][vModel], VehicleInfo[v][vPosX], VehicleInfo[v][vPosY], VehicleInfo[v][vPosZ], VehicleInfo[v][vPosA], VehicleInfo[v][vColor1], VehicleInfo[v][vColor2], 500000);
 				SetVehicleNumberPlate(newveh, VehicleInfo[v][vPlate]);
@@ -6311,7 +6573,7 @@ stock UnloadPlayerVehicles(playerid)
 	{
 	    if(IsShopVehicle[v] != -1)
 		{
-		    if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], false))
+		    if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true))
 		    {
 		        new color1, color2;
 		        if(GetVehicleColor(v, color1, color2))
@@ -6350,7 +6612,7 @@ stock GetClosestOwnedVehID(playerid)
     {
 		if(IsShopVehicle[v] != -1)
 		{
-		    if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], false))
+		    if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true))
 		    {
         		GetVehiclePos(v, x2, y2, z2);
         		distance = floatsqroot(floatpower(floatabs(floatsub(x2, x1)), 2) + floatpower(floatabs(floatsub(y2, y1)), 2) + floatpower(floatabs(floatsub(z2, z1)), 2));
@@ -6479,7 +6741,7 @@ stock GetBizOwner(bizid)
 	format(fstr, sizeof(fstr), BIZ_FILE, bizid);
 	if(fexist(fstr))
 	{
-	    if(!strcmp(BizInfo[bizid][bOwner], DEFAULT_BIZ_OWNER_NAME))
+	    if(!strcmp(BizInfo[bizid][bOwner], DEFAULT_BIZ_OWNER_NAME, true))
 	    {
 	    	format(owner, sizeof(owner), "%s", DEFAULT_BIZ_OWNER_NAME);
 	    }
@@ -6791,7 +7053,7 @@ stock UpdateHouseText(houseid)//
 	format(file, sizeof(file), HOUSE_FILE, houseid);
 	if(fexist(file))
 	{
-	    if(!strcmp(HouseInfo[houseid][hOwner], "Nobody", false))
+	    if(!strcmp(HouseInfo[houseid][hOwner], "Nobody", true))
 	    {
 			format(labeltext, sizeof(labeltext), "%s", GetHouseName(houseid));
 			Update3DTextLabelText(HouseLabel[houseid], YELLOW, labeltext);
@@ -7768,7 +8030,7 @@ stock IsGroupTaken(grpname[])
 	{
 	    if(GroupInfo[x][active] == 1)
 	    {
-			if(!strcmp(grpname, GroupInfo[x][grname], false) && strlen(GroupInfo[x][grname]) != 0) return 1;
+			if(!strcmp(grpname, GroupInfo[x][grname], true) && strlen(GroupInfo[x][grname]) != 0) return 1;
 		}
 	}
 	return 0;
@@ -7897,7 +8159,7 @@ stock IsPlayerInOwnedVehicle(playerid, vehicleid)
 {
 	if(IsShopVehicle[vehicleid] != -1)
 	{
-		if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[vehicleid]][vOwner], false))
+		if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[vehicleid]][vOwner], true))
 		{
 		    if(GetPlayerVehicleID(playerid) == vehicleid)
 		    {
@@ -8204,7 +8466,7 @@ stock RemoveOwnedVehs(playerid)
 	{
 		if(IsShopVehicle[v] != -1)
 		{
-	    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], false))
+	    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true))
 	        {
 	            new file[40];
 				format(file, sizeof(file), VEH_FILE, IsShopVehicle[v]);
@@ -11844,7 +12106,7 @@ public OnGameModeExit()
 	{
 	    tmp = LastHouseCP[i];
 		format(hfile, sizeof(hfile), HOUSE_FILE, tmp);
-		if(!strcmp(GetHouseOwner(tmp), pNick(i), false) && IsInHouse[i] == 1 && fexist(hfile))
+		if(!strcmp(GetHouseOwner(tmp), pNick(i), true) && IsInHouse[i] == 1 && fexist(hfile))
 		{
 			HouseInfo[i][hQuit] = 1;
 		}
@@ -13816,7 +14078,7 @@ public OnPlayerUpdate(playerid)
             current_zone = Player_Zone[playerid];
 		    new zone[50];
             GetPlayerCity(playerid, zone, sizeof(zone));
-		  	format(string, sizeof(string), "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.3 - ~g~Forum/site~w~: just-samp.rozblog.com - ~y~Speed~w~: ~r~%.0f~b~Km/h ~w~- ~b~~h~~h~Benzin~w~: ~r~%d~w~%%% ~w~- ~p~health~w~: ~r~%.0f~w~%%% ~w~- ~g~Location~w~: ~r~~h~%s ~w~- ~g~~h~City~w~: ~r~~h~%s", GetPlayerSpeed(playerid), GetVehicleFuel[veh], GetVehicleCurrentHealth[veh], ZoneNames[current_zone][zone_name], zone);
+		  	format(string, sizeof(string), "~w~A~b~~h~C~w~N~r~R ~r~~h~V~w~2.2.3 - ~g~Forum/site~w~: just-samp.rozblog.com - ~y~Speed~w~: ~r~%.0f~b~Km/h ~w~- ~b~~h~~h~Benzin~w~: ~r~%d~w~%%% ~w~- ~p~Health~w~: ~r~%.0f~w~%%% ~w~- ~g~Location~w~: ~r~~h~%s ~w~- ~g~~h~City~w~: ~r~~h~%s", GetPlayerSpeed(playerid), GetVehicleFuel[veh], GetVehicleCurrentHealth[veh], ZoneNames[current_zone][zone_name], zone);
 		    TextDrawSetString(ACNRInfo[playerid], string);
 		}
 		else
@@ -14336,7 +14598,7 @@ public OnPlayerDisconnect(playerid, reason)
 
     new hfile[40];
 	format(hfile, sizeof(hfile), HOUSE_FILE, LastHouseCP[playerid]);
-    if(!strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), false) && IsInHouse[playerid] == 1 && fexist(hfile))
+    if(!strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), true) && IsInHouse[playerid] == 1 && fexist(hfile))
 	{
 	    HouseInfo[playerid][hQuit] = 1;
 	}
@@ -14949,7 +15211,7 @@ public OnPlayerConnect(playerid)
     LastHouseCP[playerid] = -1;
 	IsInHouse[playerid] = 0;
 
-	if(!IsPlayerNPC(playerid) && !strcmp(GetName(playerid), "Elvis", false) /*|| !strcmp(GetName(playerid), "Abolfazl", false)*/ || !strcmp(GetName(playerid), "Nobody", false) || !strcmp(GetName(playerid), "Empty", false) || !strcmp(GetName(playerid), "For-Sale", false) || !strcmp(GetName(playerid), "for-sale", false))
+	if(!IsPlayerNPC(playerid) && !strcmp(GetName(playerid), "Elvis", true) /*|| !strcmp(GetName(playerid), "Abolfazl", true)*/ || !strcmp(GetName(playerid), "Nobody", true) || !strcmp(GetName(playerid), "Empty", true) || !strcmp(GetName(playerid), "For-Sale", true) || !strcmp(GetName(playerid), "for-sale", true))
 	{
         GameTextForPlayer(playerid,"~n~~r~Kicked..~n~Change Your Name..",99999,2);
 		SendClientMessageACNR(playerid, RED, "{FF0000}Error: {FFFFFF}In Esm  {FF0000}Mojaz Nist. {FFFFFF}Lotfan yek esm digar entekhab konid sepas be server biaid.");
@@ -15965,8 +16227,18 @@ public OnCheckpointEnter(playerid, checkpointid)
 	    {
 	        if(GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
 	        {
-	        	ShowPlayerDialog(playerid, NVM_MENU, DIALOG_STYLE_LIST, "{FFFFFF} Car Shop", "{FFFFFF}Sports Cars\nMotor Bikes\nSpecial Vehicles", "Select", "Cancel");
+			    new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Categories\tVehicle Count");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(VEHICLE_CATEGORIES); i++)
+			    {
+			        format(tempe, sizeof(tempe), "\n%s\t%s", VEHICLE_CATEGORIES[i][0], VEHICLE_CATEGORIES[i][1]);
+					strcat(dialogString, tempe);
+			    }
+			
+			    Dialog_Show(playerid, CARMENU, DIALOG_STYLE_TABLIST_HEADERS, "Car Shop", dialogString, "OK", "Close");
 			}
+			return 1;
 		}
 	    case GYM_ENTER_CP:
 		{
@@ -17927,7 +18199,7 @@ public OnPlayerEnterDynamicCP(playerid, checkpointid)
 				BizID[playerid] = i;
 				format(file, sizeof(file), BIZ_FILE, i);
 
- 				if(strcmp(BizInfo[i][bOwner], DEFAULT_BIZ_OWNER_NAME, false) == 0)
+ 				if(strcmp(BizInfo[i][bOwner], DEFAULT_BIZ_OWNER_NAME, true) == 0)
 				{
 			    	format(string, sizeof(string), "{FFFFFF}ID: %d\nDo you want to buy this 24/7 business for $%d?", i, BizInfo[i][bPrice]);
 					ShowPlayerDialog(playerid, BIZ_BUY_DIALOG, DIALOG_STYLE_MSGBOX, "{FFFFFF}Business For-Sale", string, "Buy", "Dont Buy");
@@ -17936,11 +18208,11 @@ public OnPlayerEnterDynamicCP(playerid, checkpointid)
 				{
 			    	format(string, sizeof(string), "%s - Business ID: %d - Business Owner: %s - Business Value: $%d", BizInfo[i][bName], i, BizInfo[i][bOwner], BizInfo[i][bPrice]);
 			    	SendClientMessageACNR(playerid, WHITE, string);
-			    	if(GetTeam{playerid} == CLASS_CIV && strcmp(BizInfo[i][bOwner], GetName(playerid), false) != 0)
+			    	if(GetTeam{playerid} == CLASS_CIV && strcmp(BizInfo[i][bOwner], GetName(playerid), true) != 0)
 			    	{
 			    		SendClientMessageACNR(playerid, LIGHTGREEN, "Use /robbiz to rob this business.");
 			    	}
-					if(!strcmp(BizInfo[i][bOwner], GetName(playerid)))
+					if(!strcmp(BizInfo[i][bOwner], GetName(playerid), true))
 		        	{
 		        	   	SendClientMessageACNR(playerid, YELLOW, "Use /bizmenu(/bm) to access the business menu.");
 		        	}
@@ -17974,42 +18246,42 @@ public OnPlayerEnterDynamicCP(playerid, checkpointid)
 		    {
 		        LastHouseCP[playerid] = h;
 
-		        if(!strcmp(GetHouseOwner(h), pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner1], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner2], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner3], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner4], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner5], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner6], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner7], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner8], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner9], pNick(playerid)) ||
-				!strcmp(HouseInfo[h][hKeyOwner10], pNick(playerid)))
+		        if(!strcmp(GetHouseOwner(h), pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner1], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner2], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner3], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner4], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner5], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner6], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner7], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner8], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner9], pNick(playerid), true) ||
+				!strcmp(HouseInfo[h][hKeyOwner10], pNick(playerid), true))
 				{
 		        	IsInHouse[playerid] = 1;
 		        	SetPlayerHouseInterior(playerid, h);
 		        }
-				if(strcmp(GetHouseOwner(h), "Nobody") &&
-				strcmp(GetHouseOwner(h), pNick(playerid)) &&
-				strcmp(HouseInfo[h][hKeyOwner1], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner2], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner3], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner4], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner5], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner6], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner7], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner8], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner9], pNick(playerid)) ||
-				strcmp(HouseInfo[h][hKeyOwner10], pNick(playerid)))
+				if(strcmp(GetHouseOwner(h), "Nobody", true) &&
+				strcmp(GetHouseOwner(h), pNick(playerid), true) &&
+				strcmp(HouseInfo[h][hKeyOwner1], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner2], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner3], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner4], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner5], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner6], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner7], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner8], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner9], pNick(playerid), true) ||
+				strcmp(HouseInfo[h][hKeyOwner10], pNick(playerid), true))
 		  		{
 		  		    format(string,sizeof(string), "%s - House ID: %d - House Owner: %s - House Value: $%d", HouseInfo[h][hName], h, GetHouseOwner(h), GetHouseValue(h));
 		       		SendClientMessageACNR(playerid, WHITE, string);
-		       		if(!strcmp(GetHouseOwner(h), pNick(playerid)))
+		       		if(!strcmp(GetHouseOwner(h), pNick(playerid), true))
 		        	{
 		        	   	SendClientMessageACNR(playerid, YELLOW, "Use /housemenu(/hm) to access the house menu.");
 		        	}
 		  		}
-		  		if(!strcmp(GetHouseOwner(h), "Nobody"))
+		  		if(!strcmp(GetHouseOwner(h), "Nobody", true))
 				{
 			    	if(HouseInfo[h][hHouseInterior] == 6)
 			    	{
@@ -18057,7 +18329,7 @@ public OnPlayerLeaveDynamicCP(playerid, checkpointid)
 
 	Loop(h, MAX_HOUSES)
 	{
-		if(checkpointid == HouseCPOut[h] && strcmp(GetHouseOwner(h), pNick(playerid)))
+		if(checkpointid == HouseCPOut[h] && strcmp(GetHouseOwner(h), pNick(playerid), true))
 		{
 			IsInHouse[playerid] = 0;
 			LastHouseCP[playerid] = -1;
@@ -19130,7 +19402,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 		}
 	}
-	if(dialogid == NVM_MENU)
+	/*
+	if(dialogid == NVM_MENU) // updated to easy dialog
 	{
 	    if(response)
 	    switch(listitem)
@@ -19152,6 +19425,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	    }
 	    return 1;
 	}
+	*/
+	/*
 	if(dialogid == NVM_CARS)
 	{
 	    if(response)
@@ -20475,6 +20750,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		}
 		return 1;
 	}
+	*/
     if(dialogid == GPS)
 	{
 	    if(response)
@@ -21783,7 +22059,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		{
 			case 0:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner1], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner1], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21798,7 +22074,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 1:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner2], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner2], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT2, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21813,7 +22089,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 2:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner3], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner3], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT3, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21828,7 +22104,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 3:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner4], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner4], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT4, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21843,7 +22119,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 4:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner5], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner5], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT5, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21858,7 +22134,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 5:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner6], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner6], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT6, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21873,7 +22149,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 6:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner7], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner7], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT7, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21888,7 +22164,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 7:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner8], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner8], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT8, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21903,7 +22179,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 8:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner9], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner9], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT9, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21918,7 +22194,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			}
 			case 9:
 			{
-			    if(strcmp("Empty", HouseInfo[h][hKeyOwner10], false) == 0)
+			    if(strcmp("Empty", HouseInfo[h][hKeyOwner10], true) == 0)
 			    {
 			        ShowPlayerDialog(playerid, HOUSE_KEYS_INPUT10, DIALOG_STYLE_INPUT, "{FFFFFF}House Menu - House Keys", "{FFFFFF}Please enter the name of the player you want to give keys to:", "Set", "Cancel");
 			    }
@@ -21989,7 +22265,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 	SendClientMessageACNR(playerid,WHITE,str);
 					return 1;
 				}
-				if(strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), false) && strcmp(GetHouseOwner(h), "Nobody", false)) return SendClientMessageACNR(playerid, RED, "This House Is Already Owned By Someone Else.");
+				if(strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), true) && strcmp(GetHouseOwner(h), "Nobody", true)) return SendClientMessageACNR(playerid, RED, "This House Is Already Owned By Someone Else.");
 				if(GetHouseValue(h) > GetPlayerCash(playerid))
 				{
 			    	SendClientMessageACNR(playerid, RED, "Insufficent funds.");
@@ -22031,7 +22307,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 	SendClientMessageACNR(playerid,WHITE,str);
 					return 1;
 				}
-				if(strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), false) && strcmp(GetHouseOwner(h), "Nobody", false)) return SendClientMessageACNR(playerid, RED, "This House Is Already Owned By Someone Else.");
+				if(strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), true) && strcmp(GetHouseOwner(h), "Nobody", true)) return SendClientMessageACNR(playerid, RED, "This House Is Already Owned By Someone Else.");
 				if(GetHouseValue(h) > GetPlayerCash(playerid))
 				{
                 	SendClientMessageACNR(playerid,RED,"POOL KAFI NADARI!");
@@ -22085,7 +22361,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 	SendClientMessageACNR(playerid,WHITE,str);
 					return 1;
 				}
-				if(strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), false) && strcmp(GetHouseOwner(h), "Nobody", false)) return SendClientMessageACNR(playerid, RED, "This House Is Already Owned By Someone Else.");
+				if(strcmp(GetHouseOwner(LastHouseCP[playerid]), pNick(playerid), true) && strcmp(GetHouseOwner(h), "Nobody", true)) return SendClientMessageACNR(playerid, RED, "This House Is Already Owned By Someone Else.");
 				if(GetHouseValue(h) > GetPlayerCash(playerid))
 				{
 					SendClientMessageACNR(playerid,RED,"POOL KAFI NADARI!");
@@ -22356,7 +22632,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
         {
             new buf[129];
     		WP_Hash(buf, sizeof (buf), inputtext);
-        	if(strcmp(buf, PlayerInfo[playerid][pPass], false) != 0) return SendClientMessageACNR(playerid, RED, "Invalid password.");
+        	if(strcmp(buf, PlayerInfo[playerid][pPass], true) != 0) return SendClientMessageACNR(playerid, RED, "Invalid password.");
 			ShowPlayerDialog(playerid, CONTROL_PANEL2, DIALOG_STYLE_INPUT, "{FFFFFF}Player Control Panel", "{FFFFFF}Please enter your new password below:", "Select", "Cancel");
 			
 //			if(ACNR_DEBUG == 1) { printf("DEBUG: inputtext: %s \n buf: %s \n pPass: %s", inputtext, buf, PlayerInfo[playerid][pPass]); }
@@ -23319,7 +23595,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				SendClientMessageACNR(playerid, RED, dbstr);
 			}*/
 			
-    		if(strcmp(buf123, passtostr, false) != 0 && mohlatincpass{playerid} == 0)
+    		if(strcmp(buf123, passtostr, true) != 0 && mohlatincpass{playerid} == 0)
     		{
     			mohlatincpass{playerid} ++;
     			format(fstr2,sizeof(fstr2),"{FFFFFF}Khosh Amadi %s [%d].\n\nIn Esm ghablan sabtenam shode.\n\nBaraye vorod ramze obore khod ra vared konid:", GetName(playerid),playerid);
@@ -23327,7 +23603,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       		    SendClientMessageACNR(playerid,RED,"   RamzObor ra eshtebah vared kardid (1/3)  ");
       		    //return 1;
       		}
-     	    else if(strcmp(buf123, passtostr, false) != 0 && mohlatincpass{playerid} == 1)
+     	    else if(strcmp(buf123, passtostr, true) != 0 && mohlatincpass{playerid} == 1)
     		{
      			mohlatincpass{playerid} ++;
     			format(fstr2,sizeof(fstr2),"{FFFFFF}Khosh Amadi %s [%d].\n\nIn Esm ghablan sabtenam shode.\n\nBaraye vorod ramze obore khod ra vared konid:", GetName(playerid),playerid);
@@ -23335,7 +23611,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
     	    	SendClientMessageACNR(playerid,RED,"   RamzObor ra eshtebah vared kardid (2/3)  ");
     	    	//return 1;
      	    }
-     	    else if(strcmp(buf123, passtostr, false) != 0 && mohlatincpass{playerid} == 2)
+     	    else if(strcmp(buf123, passtostr, true) != 0 && mohlatincpass{playerid} == 2)
 		    {
 				PlayerInfo[playerid][pKicks]++;
      	        GameTextForPlayer(playerid,"~r~Kicked...~n~kicked..~n~kicked.~n~kicked",9999,2);
@@ -29318,7 +29594,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 	{
 	    if(IsShopVehicle[vehicleid] != -1)
 		{
-		    if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[vehicleid]][vOwner], false))
+		    if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[vehicleid]][vOwner], true))
 		    {
                 GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, vcondition);
 		        format(string, sizeof(string), "This vehicle is owned by %s.", VehicleInfo[IsShopVehicle[vehicleid]][vOwner]);
@@ -29588,7 +29864,7 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 		new string[200];
         if(IsShopVehicle[vehicleid] != -1)
  	    {
-    		if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[vehicleid]][vOwner], false))
+    		if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[vehicleid]][vOwner], true))
     		{
 			    new current_zone;
 	        	current_zone = Player_Zone[playerid];
@@ -29622,7 +29898,7 @@ public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstat
 		new newveh = GetPlayerVehicleID(playerid);
 	    if(IsShopVehicle[newveh] != -1)
 		{
-		    if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[newveh]][vOwner], false))
+		    if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[newveh]][vOwner], true))
 		    {
                 GetVehicleParamsEx(newveh, engine, lights, alarm, doors, bonnet, boot, vcondition);
                 if(doors == ON)
@@ -30372,7 +30648,7 @@ public FPSUP(playerid)
 // DISABLED BECAUSE OF BUG
 public OnVehicleRespray(playerid, vehicleid, color1, color2)
 {
-	if(IsShopVehicle[vehicleid] != -1 && strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], false) == 0)
+	if(IsShopVehicle[vehicleid] != -1 && strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], true) == 0)
 	{
 		VehicleInfo[IsShopVehicle[vehicleid]][vColor1] = color1;
 		VehicleInfo[IsShopVehicle[vehicleid]][vColor2] = color2;
@@ -30383,7 +30659,7 @@ public OnVehicleRespray(playerid, vehicleid, color1, color2)
 
 public OnVehiclePaintjob(playerid, vehicleid, paintjobid)
 {
-	if(IsShopVehicle[vehicleid] != -1 && strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], false) == 0)
+	if(IsShopVehicle[vehicleid] != -1 && strcmp(GetName(playerid), VehicleInfo[vehicleid][vOwner], true) == 0)
 	{
 	    VehicleInfo[IsShopVehicle[vehicleid]][vPaintJob] = paintjobid;
 	    SaveVehicleStats(IsShopVehicle[vehicleid]);
@@ -33781,7 +34057,7 @@ CMD:vehhelp(playerid, params[])
 CMD:housemenu(playerid, params[])
 {
 	if(IsInHouse[playerid] == 0) return SendClientMessageACNR(playerid, RED, "You need to be in a house to use this command.");
-	if(strcmp(GetHouseOwner(LastHouseCP[playerid]), GetName(playerid), false)) return SendClientMessageACNR(playerid, RED, "You dont own this house.");
+	if(strcmp(GetHouseOwner(LastHouseCP[playerid]), GetName(playerid), true)) return SendClientMessageACNR(playerid, RED, "You dont own this house.");
 	{
 	    ShowPlayerDialog(playerid, HOUSE_MENU, DIALOG_STYLE_LIST, "{FFFFFF}House Menu - Main Menu", "{FFFFFF}Set House Name\nGive/Take House Keys\nSell House", "Select", "Cancel");
 	}
@@ -34502,7 +34778,7 @@ CMD:sellhouse(playerid, params[])
 	if(sscanf(params, "d", h)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /sellhouse [house id]");
     format(file, sizeof(file), HOUSE_FILE, h);
 	if(!fexist(file)) return SendClientMessageACNR(playerid, RED, "Invalid house id.");
-	if(!strcmp(GetHouseOwner(h), "Nobody", false)) return SendClientMessageACNR(playerid, RED, "This house has no owner, you cant sell it.");
+	if(!strcmp(GetHouseOwner(h), "Nobody", true)) return SendClientMessageACNR(playerid, RED, "This house has no owner, you cant sell it.");
 	{
 		//GivePlayerCash(playerid, ReturnPercent(GetHouseValue(h), HOUSE_SELLING_PERCENT_RETURN));
 		//HouseInfo[h][hValue] = HouseInfo[h][hValue] - ReturnPercent(GetHouseValue(h), HOUSE_SELLING_PERCENT_RETURN);
@@ -34531,7 +34807,7 @@ CMD:sellallhouses(playerid, params[])
 	    Loop(h, MAX_HOUSES)
 	    {
 	        format(file, sizeof(file), HOUSE_FILE, h);
-	        if(fexist(file) && strcmp(GetHouseOwner(h), "Nobody", false))
+	        if(fexist(file) && strcmp(GetHouseOwner(h), "Nobody", true))
 	        {
 				//GivePlayerCash(playerid, ReturnPercent(GetHouseValue(h), HOUSE_SELLING_PERCENT_RETURN));
 				//HouseInfo[h][hValue] = HouseInfo[h][hValue] - ReturnPercent(GetHouseValue(h), HOUSE_SELLING_PERCENT_RETURN);
@@ -37193,14 +37469,14 @@ CMD:banip(playerid, params[])
 
         for(new h = 0; h < MAX_HOUSES; h++)
         {
-            if(!strcmp(GetHouseOwner(h), GetName(targetid), false))
+            if(!strcmp(GetHouseOwner(h), GetName(targetid), true))
             {
                 SellHouse(h);
             }
         }
         for(new b = 0; b < MAX_BUSINESSES; b++)
         {
-            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), false))
+            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), true))
             {
                 SellBiz(b);
             }
@@ -37234,14 +37510,14 @@ CMD:banip(playerid, params[])
 
         for(new h = 0; h < MAX_HOUSES; h++)
         {
-            if(!strcmp(GetHouseOwner(h), GetName(targetid), false))
+            if(!strcmp(GetHouseOwner(h), GetName(targetid), true))
             {
                 SellHouse(h);
             }
         }
         for(new b = 0; b < MAX_BUSINESSES; b++)
         {
-            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), false))
+            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), true))
             {
                 SellBiz(b);
             }
@@ -37307,14 +37583,14 @@ CMD:ban(playerid, params[])
 		
         for(new h = 0; h < MAX_HOUSES; h++)
         {
-            if(!strcmp(GetHouseOwner(h), GetName(targetid), false))
+            if(!strcmp(GetHouseOwner(h), GetName(targetid), true))
             {
                 SellHouse(h);
             }
         }
         for(new b = 0; b < MAX_BUSINESSES; b++)
         {
-            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), false))
+            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), true))
             {
                 SellBiz(b);
             }
@@ -37346,14 +37622,14 @@ CMD:ban(playerid, params[])
 
         for(new h = 0; h < MAX_HOUSES; h++)
         {
-            if(!strcmp(GetHouseOwner(h), GetName(targetid), false))
+            if(!strcmp(GetHouseOwner(h), GetName(targetid), true))
             {
                 SellHouse(h);
             }
         }
         for(new b = 0; b < MAX_BUSINESSES; b++)
         {
-            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), false))
+            if(!strcmp(BizInfo[b][bOwner], GetName(targetid), true))
             {
                 SellBiz(b);
             }
@@ -40770,7 +41046,7 @@ CMD:respawnmycars(playerid,params[])
 		{
 			if(IsShopVehicle[v] != -1)
 			{
-		    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], false))
+		    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true))
 		        {
 					SetVehicleToRespawn(v);
 		            count++;
@@ -41389,6 +41665,455 @@ Dialog:GPSdialogID(playerid, response, listitem, inputtext[])
 	return 1;
 }
 
+new PactiveCc[MAX_PLAYERS];
+
+Dialog:CARMENU(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		PactiveCc[playerid] = listitem;
+		switch(listitem)
+		{
+			case 0:
+			{
+				new dialogString[3500], tempe[250];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(COMPACT_CARS); i++)
+			    {
+					if(COMPACT_CARS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", COMPACT_CARS[i][VEHICLE_MODELID], COMPACT_CARS[i][VEHICLE_NAME], COMPACT_CARS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", COMPACT_CARS[i][VEHICLE_MODELID], COMPACT_CARS[i][VEHICLE_NAME], COMPACT_CARS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+				
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 1:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(LUXURY_CARS); i++)
+			    {
+					if(LUXURY_CARS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", LUXURY_CARS[i][VEHICLE_MODELID], LUXURY_CARS[i][VEHICLE_NAME], LUXURY_CARS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", LUXURY_CARS[i][VEHICLE_MODELID], LUXURY_CARS[i][VEHICLE_NAME], LUXURY_CARS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 2:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(SUVS_WAGONS); i++)
+			    {
+					if(SUVS_WAGONS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", SUVS_WAGONS[i][VEHICLE_MODELID], SUVS_WAGONS[i][VEHICLE_NAME], SUVS_WAGONS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", SUVS_WAGONS[i][VEHICLE_MODELID], SUVS_WAGONS[i][VEHICLE_NAME], SUVS_WAGONS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 3:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(LOWRIDERS); i++)
+			    {
+					if(LOWRIDERS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", LOWRIDERS[i][VEHICLE_MODELID], LOWRIDERS[i][VEHICLE_NAME], LOWRIDERS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", LOWRIDERS[i][VEHICLE_MODELID], LOWRIDERS[i][VEHICLE_NAME], LOWRIDERS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 4:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(MUSCLE_CARS); i++)
+			    {
+					if(MUSCLE_CARS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", MUSCLE_CARS[i][VEHICLE_MODELID], MUSCLE_CARS[i][VEHICLE_NAME], MUSCLE_CARS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", MUSCLE_CARS[i][VEHICLE_MODELID], MUSCLE_CARS[i][VEHICLE_NAME], MUSCLE_CARS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 5:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(STREET_RACERS); i++)
+			    {
+					if(STREET_RACERS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", STREET_RACERS[i][VEHICLE_MODELID], STREET_RACERS[i][VEHICLE_NAME], STREET_RACERS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", STREET_RACERS[i][VEHICLE_MODELID], STREET_RACERS[i][VEHICLE_NAME], STREET_RACERS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 6:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(Recreational); i++)
+			    {
+					if(Recreational[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", Recreational[i][VEHICLE_MODELID], Recreational[i][VEHICLE_NAME], Recreational[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", Recreational[i][VEHICLE_MODELID], Recreational[i][VEHICLE_NAME], Recreational[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 7:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(SPORTS_CARS); i++)
+			    {
+					if(SPORTS_CARS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", SPORTS_CARS[i][VEHICLE_MODELID], SPORTS_CARS[i][VEHICLE_NAME], SPORTS_CARS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", SPORTS_CARS[i][VEHICLE_MODELID], SPORTS_CARS[i][VEHICLE_NAME], SPORTS_CARS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 8:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(SUVs_PICKUP_TRUCKS); i++)
+			    {
+					if(SUVs_PICKUP_TRUCKS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", SUVs_PICKUP_TRUCKS[i][VEHICLE_MODELID], SUVs_PICKUP_TRUCKS[i][VEHICLE_NAME], SUVs_PICKUP_TRUCKS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", SUVs_PICKUP_TRUCKS[i][VEHICLE_MODELID], SUVs_PICKUP_TRUCKS[i][VEHICLE_NAME], SUVs_PICKUP_TRUCKS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 9:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(TUNERS); i++)
+			    {
+					if(TUNERS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", TUNERS[i][VEHICLE_MODELID], TUNERS[i][VEHICLE_NAME], TUNERS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", TUNERS[i][VEHICLE_MODELID], TUNERS[i][VEHICLE_NAME], TUNERS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 10:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(COUPES_HATCHBACKS); i++)
+			    {
+					if(COUPES_HATCHBACKS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", COUPES_HATCHBACKS[i][VEHICLE_MODELID], COUPES_HATCHBACKS[i][VEHICLE_NAME], COUPES_HATCHBACKS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", COUPES_HATCHBACKS[i][VEHICLE_MODELID], COUPES_HATCHBACKS[i][VEHICLE_NAME], COUPES_HATCHBACKS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 11:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(SEDANS_STATION_WAGONS); i++)
+			    {
+					if(SEDANS_STATION_WAGONS[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", SEDANS_STATION_WAGONS[i][VEHICLE_MODELID], SEDANS_STATION_WAGONS[i][VEHICLE_NAME], SEDANS_STATION_WAGONS[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", SEDANS_STATION_WAGONS[i][VEHICLE_MODELID], SEDANS_STATION_WAGONS[i][VEHICLE_NAME], SEDANS_STATION_WAGONS[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+			case 12:
+			{
+				new dialogString[1024], tempe[1024];
+			    format(tempe, sizeof(tempe), "Model ID\tVehicle Name\tPrice");
+				strcat(dialogString, tempe);
+			    for (new i = 0; i < sizeof(BIKES); i++)
+			    {
+					if(BIKES[i][VEHICLE_PRICE] >= 1000)
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%dK", BIKES[i][VEHICLE_MODELID], BIKES[i][VEHICLE_NAME], BIKES[i][VEHICLE_PRICE] / 1000);
+						strcat(dialogString, tempe);
+					}
+					else
+					{
+				        format(tempe, sizeof(tempe), "\n%d\t%s\t$%d", BIKES[i][VEHICLE_MODELID], BIKES[i][VEHICLE_NAME], BIKES[i][VEHICLE_PRICE]);
+						strcat(dialogString, tempe);
+					}
+						
+			    }
+			
+			    Dialog_Show(playerid, NVM_MENU, DIALOG_STYLE_TABLIST_HEADERS, "2-Door & Compact Car Shop", dialogString, "OK", "Back");
+				return 1;
+			}
+		}
+	}
+	return 1;
+}
+		
+Dialog:NVM_MENU(playerid, response, listitem, inputtext[])
+{
+    if(response)
+	{
+		if(PlayerInfo[playerid][vLevel] >= 1 && GetPlayerVehicles{playerid} >= MAX_VIP_VEHS)
+        {
+            	    new string[150];
+            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another.", MAX_VIP_VEHS);
+            	    SendClientMessageACNR(playerid, RED, string);
+            	    return 1;
+        }
+		else if(PlayerInfo[playerid][vLevel] < 1 && DegreeInfo[playerid][dDealer] >= 1 && GetPlayerVehicles{playerid} >= MAX_DEGREE_VEHS)
+        {
+            	    new string[150];
+            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another.", MAX_DEGREE_VEHS);
+            	    SendClientMessageACNR(playerid, RED, string);
+            	    return 1;
+        }
+            else if(PlayerInfo[playerid][vLevel] < 1 && DegreeInfo[playerid][dDealer] < 1 && GetPlayerVehicles{playerid} >= MAX_BUYABLE_VEHS)//Player
+        {
+            	    new string[150];
+            	    format(string, sizeof(string), "You already own a maximum of %d vehicles, delete/sell one before buying another.", MAX_BUYABLE_VEHS);
+            	    SendClientMessageACNR(playerid, RED, string);
+            	    return 1;
+        }
+		switch(PactiveCc[playerid])
+		{			
+			case 0:
+			{
+	            if(GetPlayerCash(playerid) < COMPACT_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, COMPACT_CARS[listitem][VEHICLE_MODELID], COMPACT_CARS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 1:
+			{
+	            if(GetPlayerCash(playerid) < LUXURY_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, LUXURY_CARS[listitem][VEHICLE_MODELID], LUXURY_CARS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 2:
+			{
+	            if(GetPlayerCash(playerid) < SUVS_WAGONS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, SUVS_WAGONS[listitem][VEHICLE_MODELID], SUVS_WAGONS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 3:
+			{
+	            if(GetPlayerCash(playerid) < LOWRIDERS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, LOWRIDERS[listitem][VEHICLE_MODELID], LOWRIDERS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 4:
+			{
+	            if(GetPlayerCash(playerid) < MUSCLE_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, MUSCLE_CARS[listitem][VEHICLE_MODELID], MUSCLE_CARS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 5:
+			{
+	            if(GetPlayerCash(playerid) < STREET_RACERS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, STREET_RACERS[listitem][VEHICLE_MODELID], STREET_RACERS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 6:
+			{
+	            if(GetPlayerCash(playerid) < Recreational[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, Recreational[listitem][VEHICLE_MODELID], Recreational[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 7:
+			{
+	            if(GetPlayerCash(playerid) < SPORTS_CARS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, SPORTS_CARS[listitem][VEHICLE_MODELID], SPORTS_CARS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 8:
+			{
+	            if(GetPlayerCash(playerid) < SUVs_PICKUP_TRUCKS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, SUVs_PICKUP_TRUCKS[listitem][VEHICLE_MODELID], SUVs_PICKUP_TRUCKS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 9:
+			{
+	            if(GetPlayerCash(playerid) < TUNERS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, TUNERS[listitem][VEHICLE_MODELID], TUNERS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 10:
+			{
+	            if(GetPlayerCash(playerid) < COUPES_HATCHBACKS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, COUPES_HATCHBACKS[listitem][VEHICLE_MODELID], COUPES_HATCHBACKS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 11:
+			{
+	            if(GetPlayerCash(playerid) < SEDANS_STATION_WAGONS[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, SEDANS_STATION_WAGONS[listitem][VEHICLE_MODELID], SEDANS_STATION_WAGONS[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+			case 12:
+			{
+	            if(GetPlayerCash(playerid) < BIKES[listitem][VEHICLE_PRICE]) return SendClientMessageACNR(playerid, RED, "Pool kafi nadari!.");
+	            CreateNewPlayerVehicle(playerid, BIKES[listitem][VEHICLE_MODELID], BIKES[listitem][VEHICLE_PRICE]);
+				SendClientMessageACNR(playerid, WHITE, "You have successfully purchased a Infernus for $2M.");
+				return 1;
+			}
+		}
+	}
+	else
+	{
+	    new dialogString[1024], tempe[1024];
+	    format(tempe, sizeof(tempe), "Categories\tVehicle Count");
+		strcat(dialogString, tempe);
+	    for (new i = 0; i < sizeof(VEHICLE_CATEGORIES); i++)
+	    {
+	        format(tempe, sizeof(tempe), "\n%s\t%s", VEHICLE_CATEGORIES[i][0], VEHICLE_CATEGORIES[i][1]);
+			strcat(dialogString, tempe);
+	    }
+	
+	    Dialog_Show(playerid, CARMENU, DIALOG_STYLE_TABLIST_HEADERS, "Car Shop", dialogString, "OK", "Close");
+	}
+	return 1;
+}
+
 CMD:updates(playerid, params[])
 {
     new UPS[2000];
@@ -41398,7 +42123,9 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Fixing bugs with 0.3DL.\n");
     strcat(UPS, "{FFFFFF}  Fixed /stopanim bug.\n");
     strcat(UPS, "{FFFFFF}  Changed All Objects to Dynamic Objects.\n");
-    strcat(UPS, "{FFFFFF}  MAX_PLAYER_BIZ_HOUSE_VEHS 10, MAX_DEGREE_BIZ_HOUSE_VEHS 20, MAX_VIP_BIZ_HOUSE_VEHS 30.\n");
+    strcat(UPS, "{FFFFFF}  MAX_PLAYER_BIZ_HOUSE_VEHS 10, .\n");
+    strcat(UPS, "{FFFFFF}  MAX_DEGREE_BIZ_HOUSE_VEHS 20, .\n");
+    strcat(UPS, "{FFFFFF}  MAX_VIP_BIZ_HOUSE_VEHS    30  .\n");
     strcat(UPS, "{FFFFFF}  Added more skins to class selection.\n");
     strcat(UPS, "{FFFFFF}  Updated /myvehs cmd.\n");
     strcat(UPS, "{FFFFFF}  Added /playplaylist to Admin 4.\n");
@@ -41417,6 +42144,11 @@ CMD:updates(playerid, params[])
     strcat(UPS, "{FFFFFF}  Added /unstuck.\n");
     strcat(UPS, "{FFFFFF}  Changed OnPlayerStateChange for exiting vehicle.\n");
     strcat(UPS, "{FFFFFF}  Added Points of intrests to /gps (Added /gogps).\n");
+    strcat(UPS, "{FFFFFF}  Fixed a small /myvehs bug.\n");
+    strcat(UPS, "{FFFFFF}  Added Vehicle Health and Fuel to /myvehs.\n");
+    strcat(UPS, "{FFFFFF}  Updated Car Sho to easyDialog.\n");
+    strcat(UPS, "{FFFFFF}  Added More category and cars to car shop.\n");
+    strcat(UPS, "{FFFFFF}  Disabled Case Sensitive of srtcmp for names and password.\n"); // because y_ini dont have case sensitive
     //strcat(UPS, "{FFFFFF}  Added more LOADING SCREENS.\n"); // loading screens was bug and not showing
 
     strcat(UPS, "{FFFFFF}  .\n");
@@ -41891,7 +42623,7 @@ CMD:sellvehto(playerid, params[])
     new playerid2, price, string[150], string2[150], Float:posX, Float:posY, Float:posZ;
     if(DegreeInfo[playerid][dDealer] < 1) return SendClientMessageACNR(playerid, RED, "Shoma baraye estefade az in cmd niaz be Madrak Dealership darid.");
 	if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessageACNR(playerid, RED, "You must be in a owned vehicle to use this command.");
-	if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vOwner], false) != 0) return SendClientMessageACNR(playerid, RED, "You do not own this vehicle.");
+	if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[GetPlayerVehicleID(playerid)]][vOwner], true) != 0) return SendClientMessageACNR(playerid, RED, "You do not own this vehicle.");
 	if(sscanf(params, "ud", playerid2, price)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /sellvehto [name/id] [price]");
 	GetPlayerPos(playerid2, posX, posY, posZ);
 	if(!IsPlayerConnected(playerid2)) return SendClientMessageACNR(playerid, RED, "Player not found.");
@@ -42182,7 +42914,7 @@ CMD:vehmenu(playerid, params[])
 	{
 		if(IsShopVehicle[v] != -1)
 		{
-	    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], false))
+	    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true))
 	        {
 	            Vehicle_Data_Model[playerid][count] = VehicleInfo[IsShopVehicle[v]][vModel];
 	            Vehicle_Data_ID[playerid][count] = v;
@@ -42288,35 +43020,35 @@ Dialog:VEHDIG(playerid, response, listitem, inputtext[])
 //
 CMD:myvehs(playerid, params[])
 {
-	new count = 0, slots[1000];
+	new count = 0, slots[3000];
 	if(GetPlayerVehicles{playerid} == 0) return SendClientMessageACNR(playerid, RED, "Shoma hich mashini nadari!.");
-	strcat(slots, "{FFFFFF}Count\tVehicle Name\tVehicle Location");
-	for(new v = 0; v < MAX_SHOP_VEHICLES; v++)
+	strcat(slots, "{FFFFFF}Count\tVehicle Name\tLocation\tHealth - Fuel");
+	for(new v = 0; v < MAX_VEHICLES; v++)
 	{
-		if(IsShopVehicle[v] != -1)
+		if(IsShopVehicle[v] == -1) continue;
+		if(strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], true)) continue;
 		{
-	    	if(!strcmp(GetName(playerid), VehicleInfo[IsShopVehicle[v]][vOwner], false))
-	        {
-	            Vehicle_Data_Model[playerid][count] = VehicleInfo[IsShopVehicle[v]][vModel];
-	            Vehicle_Data_ID[playerid][count] = v;
-				Vehicle_Data_Count[playerid] = count;
-				new temp[300];/*
-				Update_Vehicle_Zone(v);
-				new current_zone;
-				current_zone = Vehicle_Zone[v];
-		    	new zone[50];
-            	GetVehicleCity(playerid, zone, sizeof(zone));*/
-				new zoneee[300];
-				GetVehicleZone(v, zoneee, sizeof(zoneee));
-	            count++;
-				format(temp, sizeof(temp), "\n%d\t%s\t%s", count, GlobalVehicleNames[Vehicle_Data_Model[playerid][count] - 400], zoneee);
-				strcat(slots, temp);
-	            if(count == MAX_VIP_VEHS)
-	            {
-	                break;
-	            }
-	            else continue;
-	        }
+            Vehicle_Data_Model[playerid][count] = VehicleInfo[IsShopVehicle[v]][vModel];
+            Vehicle_Data_ID[playerid][count] = v;
+			Vehicle_Data_Count[playerid] = count;
+			new temp[180];
+			/*
+			Update_Vehicle_Zone(v);
+			new current_zone;
+			current_zone = Vehicle_Zone[v];
+	    	new zone[50];
+            	GetVehicleCity(playerid, zone, sizeof(zone));
+			*/
+			new zoneee[100];
+			GetVehicleZone(v, zoneee, sizeof(zoneee));
+			format(temp, sizeof(temp), "\n%d\t%s\t%s\t%.0f - %d", count + 1, GlobalVehicleNames[Vehicle_Data_Model[playerid][count] - 400], zoneee, GetVehicleCurrentHealth[v] / 10, GetVehicleFuel[v]);
+			strcat(slots, temp);
+            count++;
+            if(count == MAX_VIP_VEHS)
+            {
+                break;
+            }
+            else continue;
 		}
 	}
 	Dialog_Show(playerid, MY_VEHS_MENU, DIALOG_STYLE_TABLIST_HEADERS, "{FFFFFF}Owned Vehicle List", slots, "Locate", "Cancel");
@@ -42327,20 +43059,16 @@ Dialog:MY_VEHS_MENU(playerid, response, listitem, inputtext[])
 {
     if(response)
 	{
-//		switch (listitem)
-//		{
-//			case 0:
-//			{
-				new Float:x, Float:y, Float:z, string[150];
-	            GetVehiclePos(Vehicle_Data_ID[playerid][listitem], x, y, z);
-	            DisablePlayerCheckpoint(playerid);
-	            PlayerPlaySound(playerid, 1149, 0.0, 0.0, 0.0);
-	    		SetPlayerCheckpoint(playerid, x, y, z, 10.0);
-				HasSetCheckpoint{playerid} = 1;
-	            format(string, sizeof(string), "A checkpoint(red dot on minimap) has been set at your %s's location.", GlobalVehicleNames[Vehicle_Data_Model[playerid][listitem] - 400]);
-	            SendClientMessageACNR(playerid, YELLOW, string);
-	            SendClientMessageACNR(playerid, RED, "WARNING: Entering any other checkpoints, will cancel this checkpoint.");
-	            return 1;
+		new Float:x, Float:y, Float:z, string[150];
+        GetVehiclePos(Vehicle_Data_ID[playerid][listitem], x, y, z);
+        DisablePlayerCheckpoint(playerid);
+        PlayerPlaySound(playerid, 1149, 0.0, 0.0, 0.0);
+    	SetPlayerCheckpoint(playerid, x, y, z, 10.0);
+		HasSetCheckpoint{playerid} = 1;
+        format(string, sizeof(string), "A checkpoint(red dot on minimap) has been set at your %s's location.", GlobalVehicleNames[Vehicle_Data_Model[playerid][listitem] - 400]);
+        SendClientMessageACNR(playerid, YELLOW, string);
+        SendClientMessageACNR(playerid, RED, "WARNING: Entering any other checkpoints, will cancel this checkpoint.");
+        return 1;
 	}
 	return 1;
 }
@@ -42614,7 +43342,7 @@ CMD:sellbiz(playerid, params[])
 	if(sscanf(params, "d", b)) return SendClientMessageACNR(playerid, RED, "[USAGE]: /sellbiz [biz id]");
     format(file, sizeof(file), BIZ_FILE, b);
 	if(!fexist(file)) return SendClientMessageACNR(playerid, RED, "Invalid biz id.");
-	if(!strcmp(BizInfo[b][bOwner], "Nobody", false)) return SendClientMessageACNR(playerid, RED, "This business has no owner, you cant sell it.");
+	if(!strcmp(BizInfo[b][bOwner], "Nobody", true)) return SendClientMessageACNR(playerid, RED, "This business has no owner, you cant sell it.");
 	{
 		//GivePlayerCash(playerid, BizInfo[b][bEarnings]);
 		//GivePlayerCash(playerid, BizInfo[b][bPrice]/2);
@@ -42633,7 +43361,7 @@ CMD:sellallbiz(playerid, params[])
     	format(file, sizeof(file), BIZ_FILE, b);
 		if(fexist(file))
 		{
-			if(strcmp(BizInfo[b][bOwner], "Nobody", false))
+			if(strcmp(BizInfo[b][bOwner], "Nobody", true))
 			{
 				new gname[50], gowner[24];
 				format(gowner, sizeof(gowner), "Nobody");
@@ -42755,7 +43483,7 @@ CMD:sellbizto(playerid, params[])
 	if(!IsPlayerInRangeOfPoint(playerid, 10.0, posX, posY, posZ)) return SendClientMessageACNR(playerid, RED, "You need to be near the player to offer your business to them.");
 	for(new i = 0; i < MAX_BUSINESSES; i++)
 	{
-	    if(!IsPlayerInRangeOfPoint(playerid, 5.0, BizInfo[i][bExtX], BizInfo[i][bExtY], BizInfo[i][bExtZ]) && strcmp(BizInfo[i][bOwner], GetName(playerid), false)) return SendClientMessageACNR(playerid, RED, "You must be outside near the door to sell a business you own to a player.");
+	    if(!IsPlayerInRangeOfPoint(playerid, 5.0, BizInfo[i][bExtX], BizInfo[i][bExtY], BizInfo[i][bExtZ]) && strcmp(BizInfo[i][bOwner], GetName(playerid), true)) return SendClientMessageACNR(playerid, RED, "You must be outside near the door to sell a business you own to a player.");
 	    {
 			offer_price2[playerid2] = price;
 			offerer_id2[playerid2] = playerid;
@@ -42825,7 +43553,7 @@ CMD:declinebiz(playerid, params[])
 CMD:bizmenu(playerid, params[])
 {
 	if(BizID[playerid] == -1) return SendClientMessageACNR(playerid, RED, "You must be in an owned business to use this command.");
-	if(strcmp(BizInfo[BizID[playerid]][bOwner], GetName(playerid), false)) return SendClientMessageACNR(playerid, RED, "You dont own this business.");
+	if(strcmp(BizInfo[BizID[playerid]][bOwner], GetName(playerid), true)) return SendClientMessageACNR(playerid, RED, "You dont own this business.");
 	ShowPlayerDialog(playerid, BIZ_MENU_DIALOG, DIALOG_STYLE_LIST, "{FFFFFF}Business Menu", "{FFFFFF}Change Business Name\nEarnings Balance\nWithdraw Earnings\nSell Business", "Select", "Cancel");
 	return true;
 }
@@ -42833,7 +43561,7 @@ CMD:bizmenu(playerid, params[])
 CMD:bm(playerid, params[])
 {
 	if(BizID[playerid] == -1) return SendClientMessageACNR(playerid, RED, "You must be in an owned business to use this command.");
-	if(strcmp(BizInfo[BizID[playerid]][bOwner], GetName(playerid), false)) return SendClientMessageACNR(playerid, RED, "You dont own this business.");
+	if(strcmp(BizInfo[BizID[playerid]][bOwner], GetName(playerid), true)) return SendClientMessageACNR(playerid, RED, "You dont own this business.");
 	ShowPlayerDialog(playerid, BIZ_MENU_DIALOG, DIALOG_STYLE_LIST, "{FFFFFF}Business Menu", "{FFFFFF}Change Business Name\nEarnings Balance\nWithdraw Earnings\nSell Business", "Select", "Cancel");
 	return true;
 }
@@ -43134,7 +43862,7 @@ CMD:sellhouseto(playerid, params[])
 	    format(file, sizeof(file), HOUSE_FILE, i);
      	if(fexist(file))
 	    if(!IsPlayerInRangeOfPoint(playerid, 5.0, HouseInfo[i][hSPOutX], HouseInfo[i][hSPOutY], HouseInfo[i][hSPOutZ])) return SendClientMessageACNR(playerid, RED, "You must be outside near the door to sell a house you own to a player.");
-		if(strcmp(GetHouseOwner(i), GetName(playerid), false)) return SendClientMessageACNR(playerid, RED, "You must be outside near the door to sell a house you own to a player.");
+		if(strcmp(GetHouseOwner(i), GetName(playerid), true)) return SendClientMessageACNR(playerid, RED, "You must be outside near the door to sell a house you own to a player.");
 	    {
 			offer_price3[playerid2] = price;
 			offerer_id3[playerid2] = playerid;
@@ -43746,7 +44474,7 @@ CMD:viewinterior(playerid, params[])
     if(IsInHouse[playerid] == 1) return SendClientMessageACNR(playerid, RED, "You must be at a for-sale house door to use this command.");
     if(LastHouseCP[playerid] != -1)
     {
-        if(!strcmp(GetHouseOwner(LastHouseCP[playerid]), "Nobody", false))
+        if(!strcmp(GetHouseOwner(LastHouseCP[playerid]), "Nobody", true))
         {
 			IsInHouse[playerid] = 1;
 			SetPlayerHouseInterior(playerid, LastHouseCP[playerid]);
@@ -43774,7 +44502,7 @@ CMD:raid(playerid, params[])
     TimerInfo[playerid][CMD_timer36] = gettime();
     if(LastHouseCP[playerid] != -1)
     {
-        if(strcmp(GetHouseOwner(LastHouseCP[playerid]), "Nobody", false))
+        if(strcmp(GetHouseOwner(LastHouseCP[playerid]), "Nobody", true))
         {
             IsInHouse[playerid] = 1;
 			SetPlayerHouseInterior(playerid, LastHouseCP[playerid]);
@@ -43808,7 +44536,7 @@ CMD:breakin(playerid, params[])
     TimerInfo[playerid][CMD_timer37] = gettime();
     if(LastHouseCP[playerid] != -1)
     {
-        if(strcmp(GetHouseOwner(LastHouseCP[playerid]), "Nobody", false))
+        if(strcmp(GetHouseOwner(LastHouseCP[playerid]), "Nobody", true))
         {
 			new chance = random(5);
 			switch(chance)
