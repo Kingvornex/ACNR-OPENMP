@@ -536,7 +536,47 @@ CMD:drag(playerid, params[])
     - [ ] check player VW in skin selector menu
     - [ ] add ranged streaming music for casino and disco entrance
     - [ ] a way for players to reset password
+    - [ ] Set player money to 0 always then remove white background textdraw and move money textdraw to fit game money numbers ($0 / $000000)
+```pawn
+stock GivePlayerCash(playerid, money)
+{
+    ServerSideCash[playerid] += money;
+    ResetServerCash(playerid);
+    //UpdateServerCash(playerid,ServerSideCash[playerid]);
+  UpdateServerCash(playerid,0);
+    return ServerSideCash[playerid];
+}
 
+stock SetPlayerCash(playerid, money)
+{
+    ServerSideCash[playerid] = money;
+    ResetServerCash(playerid);
+    //UpdateServerCash(playerid,ServerSideCash[playerid]);
+  UpdateServerCash(playerid,0);
+    return ServerSideCash[playerid];
+}
+
+stock ResetPlayerCash(playerid)
+{
+    ServerSideCash[playerid] = 0;
+    ResetServerCash(playerid);
+    //UpdateServerCash(playerid,ServerSideCash[playerid]);
+  UpdateServerCash(playerid,0);
+    return ServerSideCash[playerid];
+}
+
+            //Anti Money Cheat
+            if(GetPlayerCash(playerid) != GetPlayerCash(playerid))
+            {
+                ResetServerCash(playerid);
+                UpdateServerCash(playerid, 0);
+            }
+
+```pawn
+public OnPlayerUpdate(playerid)
+{
+    ResetPlayerMoney(playerid);
+```
 
 - [ ] adding features from Grand Larceny gamemode
     - [ ] gl_npcs.pwn
