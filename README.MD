@@ -285,7 +285,16 @@ stock EjectAllPlayers()
     - [ ] get vehicle available vehicle components 
     - [ ] tune menu generator
     - [ ] /c in easydialog vs mdialog
-    - [ ] class selection 
+    - [ ] class selection
+    - [ ] add pursuit
+```pawn
+public OnPlayerUpdate(playerid)
+{
+    if(IsPlayerNearLawEnforcement(playerid) == 1)
+    {
+        //police chasing msg or timer (pursuit) or textdraw
+    }
+```
 
 - [ ] Teta ToDo List:
     - [ ] save in user files when the data is being edited
