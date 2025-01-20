@@ -571,7 +571,7 @@ stock ResetPlayerCash(playerid)
                 ResetServerCash(playerid);
                 UpdateServerCash(playerid, 0);
             }
-
+```
 ```pawn
 public OnPlayerUpdate(playerid)
 {
