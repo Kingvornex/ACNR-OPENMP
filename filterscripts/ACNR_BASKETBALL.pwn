@@ -624,19 +624,29 @@ public OnPlayerCommandText(playerid, cmdtext[])
 */
 CMD:ball(playerid, params[])
 {
-	//if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, -1, "Not Admin");
-if(Baller != INVALID_PLAYER_IDL return msg(player already using ball)
-	new Float:X, Float:Y, Float:Z;
-	GetDynamicObjectPos(Ball, X, Y, Z);
-	DisablePlayerCheckpoint(playerid);
-	new Float:PX, Float:PY, Float:PZ;
-	GetPlayerPos(playerid, PX, PY, PZ);
-	//PlayerPlaySound(playerid, 1149, 0.0, 0.0, 0.0);
-	PlayerPlaySound(playerid, 1149, PX, PY, PZ);
-	SetPlayerCheckpoint(playerid, X, Y, Z, 5.0);
-	DestroyDynamicObject(Ball);
-Ball = CreateDynamicObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96);
-	//Ball = CreateDynamicObject(2114, PX+random(3), PY+random(3), PZ-0.8, 0, 0, 96);
-	//SetPlayerCheckpoint(playerid, X, Y, Z, 10.0);
-	return 1;
+    if(Baller != INVALID_PLAYER_IDL return return SendClientMessage(playerid, -1, "player already using ball");
+  new Float:X, Float:Y, Float:Z;
+  GetDynamicObjectPos(Ball, X, Y, Z);
+  DisablePlayerCheckpoint(playerid);
+  new Float:PX, Float:PY, Float:PZ;
+  GetPlayerPos(playerid, PX, PY, PZ);
+  PlayerPlaySound(playerid, 1149, PX, PY, PZ);
+  SetPlayerCheckpoint(playerid, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0.5);
+  DestroyDynamicObject(Ball);
+    Ball = CreateDynamicObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96);
+  return 1;
+}
+CMD:respawnball(playerid, params[])
+{
+  if(!IsPlayerAdmin(playerid)) return SendClientMessage(playerid, -1, "Not Admin");
+  new Float:X, Float:Y, Float:Z;
+  GetDynamicObjectPos(Ball, X, Y, Z);
+  DisablePlayerCheckpoint(playerid);
+  new Float:PX, Float:PY, Float:PZ;
+  GetPlayerPos(playerid, PX, PY, PZ);
+  PlayerPlaySound(playerid, 1149, PX, PY, PZ);
+  SetPlayerCheckpoint(playerid, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0.5);
+  DestroyDynamicObject(Ball);
+    Ball = CreateDynamicObject(2114, gBallLocations[0][0], gBallLocations[0][1], gBallLocations[0][2]-0.8, 0, 0, 96);
+  return 1;
 }
