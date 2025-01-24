@@ -5,6 +5,25 @@
 #define MAX_STREAM_VEHICLES 1000
 new GetvMods[MAX_STREAM_VEHICLES][12];
 
+// Slot definitions
+#define CARMODTYPE_NONE -1
+#define CARMODTYPE_SPOILER 0
+#define CARMODTYPE_HOOD 1
+#define CARMODTYPE_ROOF 2
+#define CARMODTYPE_SIDESKIRT 3
+#define CARMODTYPE_LAMPS 4
+#define CARMODTYPE_NITRO 5
+#define CARMODTYPE_EXHAUST 6
+#define CARMODTYPE_WHEELS 7
+#define CARMODTYPE_STEREO 8
+#define CARMODTYPE_HYDRAULICS 9
+#define CARMODTYPE_FRONT_BUMPER 10
+#define CARMODTYPE_REAR_BUMPER 11
+#define CARMODTYPE_VENT_RIGHT 12
+#define CARMODTYPE_VENT_LEFT 13
+#define CARMODTYPE_FRONT_BULLBAR 14
+#define CARMODTYPE_REAR_BULLBAR 15
+
 CMD:addcomponent(playerid, componentid)
 {
     if (!IsPlayerInAnyVehicle(playerid))
@@ -37,9 +56,7 @@ CMD:addcomponent(playerid, componentid)
     }
 
     return 1;
-}
 ```
-
 # add comma to money textdraw
 ```pawn
 #include <a_samp>
