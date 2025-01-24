@@ -1,5 +1,45 @@
 <!-- ROADMAP -->
 # Roadmap
+# save vehicle component mods by component slot
+```pawn
+#define MAX_STREAM_VEHICLES 1000
+new GetvMods[MAX_STREAM_VEHICLES][12];
+
+CMD:addcomponent(playerid, componentid)
+{
+    if (!IsPlayerInAnyVehicle(playerid))
+    {
+        SendClientMessage(playerid, 0xFF0000FF, "You must be in a vehicle to use this command.");
+        return 1;
+    }
+
+    new vehicleid = GetPlayerVehicleID(playerid);
+
+    if (VehicleCanHaveComponent(GetVehicleModel(vehicleid), componentid))
+    {
+        AddVehicleComponent(vehicleid, componentid);
+
+        new CARMODTYPE:componentType = GetVehicleComponentType(componentid);
+
+        if (componentType != CARMODTYPE_NONE)
+        {
+            GetvMods[vehicleid][componentType] = componentid; // Save component based on slot and type
+            SendClientMessage(playerid, 0x00FF00FF, "Component added to your vehicle and saved.");
+        }
+        else
+        {
+            SendClientMessage(playerid, 0xFF0000FF, "The component is invalid.");
+        }
+    }
+    else
+    {
+        SendClientMessage(playerid, 0xFF0000FF, "This component cannot be added to your vehicle.");
+    }
+
+    return 1;
+}
+```
+
 # add comma to money textdraw
 ```pawn
 #include <a_samp>
