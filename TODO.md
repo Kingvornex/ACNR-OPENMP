@@ -75,7 +75,7 @@ forward FormatNumber(buffer[], number) {
     - [ ] DONT LET PLAYER BUY DUPLICATE MODES (MODES TAHT ALREADY APPLIED)
     - [ ] SHOW PREVIEW OF MODE THEN CONFIRM FOR PURCHASE FOR MODE
     - [ ] LET PLAYER MOVE VIEW ANGLE WHEN IN TUNE MENU TO PERVENT OPENING AND CLOSING MENU MULTIPLE TIMES
-    # eject all players in vehicle, usable in /dcar or else
+# eject all players in vehicle, usable in /dcar or else
 ```pawn
 stock EjectAllPlayers()
 {
