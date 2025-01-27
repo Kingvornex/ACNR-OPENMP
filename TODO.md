@@ -125,6 +125,48 @@ on vehicles update if get vehicle health < 2 respawn vehicle
 # eject all players in vehicle, usable in /dcar or else
 
 ```pawn
+#include <open.mp>
+#include <izcmd> // Include izcmd for command processing
+
+// Command to eject all players from the executor's vehicle
+CMD:ejectall(playerid, params[])
+{
+    // Get the player's vehicle ID
+    new vehicleid = GetPlayerVehicleID(playerid);
+
+    // Check if the player is in a vehicle
+    if (vehicleid == INVALID_VEHICLE_ID)
+    {
+        SendClientMessage(playerid, 0xFF0000AA, "You are not in a vehicle.");
+        return 1;
+    }
+
+    // Loop through all players
+    for (new i = 0; i < MAX_PLAYERS; i++)
+    {
+        // Check if the player is connected and in the same vehicle
+        if (IsPlayerConnected(i) && GetPlayerVehicleID(i) == vehicleid && i != playerid)
+        {
+            // Eject the player from the vehicle
+            RemovePlayerFromVehicle(i);
+            SendClientMessage(i, 0xFF0000AA, "You have been ejected from the vehicle by the driver.");
+        }
+    }
+
+    // Notify the executor
+    SendClientMessage(playerid, 0x00FF00AA, "All players have been ejected from your vehicle.");
+    return 1;
+}
+
+// Main function to initialize the script
+public OnGameModeInit()
+{
+    // Register the command
+    Command_AddAltNamed("ejectall");
+    return 1;
+}
+```
+```pawn
 stock EjectAllPlayers()
 {
     new playerid;
