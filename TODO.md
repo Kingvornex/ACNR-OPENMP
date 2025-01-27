@@ -1,6 +1,9 @@
 <!-- ROADMAP -->
+
 # Roadmap
+
 # save vehicle component mods by component slot
+
 ```pawn
 #define MAX_STREAM_VEHICLES 1000
 new GetvMods[MAX_STREAM_VEHICLES][12];
@@ -39,6 +42,7 @@ CMD:addcomponent(playerid, componentid)
     return 1;
 ```
 # add comma to money textdraw
+
 ```pawn
 #include <a_samp>
 
@@ -89,31 +93,37 @@ forward FormatNumber(buffer[], number) {
 ```
 
 # updating to OPEN.mp
+
     - [ ] use upgrade tool
-    - [ ] use y_hooks?
+    - [ ] use y_hooks
     - [ ] update whirlpool to bcrypt: https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md
-    - [ ] Add easyDialog
+    - [ ] Add easyDialog and update all dialogs to easydialog
     - [ ] Fix Anti Fake Kill
-    - [ ] (fix login password) Add bcrypt
-    - [ ] Save Vehicle Color with TUNE_MENU2 Purchases
+    - [ ] (fix login password hash) Add bcrypt
+    - [x] Save Vehicle Color with TUNE_MENU2 Purchases
     - [ ] Fix texdraws and loading screen after /restart
     - [ ] save in user files when the data being edited
     - [ ] Decrease robbery cool down 
     - [ ] Dont set robbery cool down if it failed
-    - [ ] activate tdspeedo when player joins arena
-    - [ ] Player marker mode global : 1 is still not active
+    - [x] activate tdspeedo when player joins arena
+    - [x] Player marker mode global : 1 is still not active
     - [ ] SHOP VEHICLE DESTROYS BY ITSELF WONT RESPAWN
+```pawn
+on vehicles update if get vehicle health < 2 respawn vehicle
+```
     - [ ] ADD COMMA TO MONEY TEXTDRAW
-    - [ ] UNDER ONPLAYERSTATECHANGE ONLY USE NEWSTATE, USING OLDSTATE WITH IF WILL CAUSE BUG AND NOT EXECUTION SOME TIMES
+    - [x] UNDER ONPLAYERSTATECHANGE ONLY USE NEWSTATE, USING OLDSTATE WITH IF WILL CAUSE BUG AND NOT EXECUTION SOME TIMES
     - [ ] CHANGE DEFAULT VEHICLE NUMBERPLATE FROM "ACNR" TO "VEHICLE NAME"
-    - [ ] FIX /MYVEH CMD WITH MORE THAN 7 VEHICLES OWNED
-    - [ ] ADD MORE CATEGORIES TO VEHICLE SHOP (TUNE ABLE VEHICLES)
-    - [ ] ADD MORE SHOP VEHICLES (CHEKPOINTS)
+    - [x] FIX /MYVEH CMD WITH MORE THAN 7 VEHICLES OWNED
+    - [x] ADD MORE CATEGORIES TO VEHICLE SHOP (TUNE ABLE VEHICLES)
+    - [ ] ADD MORE vehicle shops(CHEKPOINTS)
     - [ ] SAVE SHOP VEHICLE MODS IN DIFRENT SLOTS FOR DIFFRENT PARTS
     - [ ] DONT LET PLAYER BUY DUPLICATE MODES (MODES TAHT ALREADY APPLIED)
     - [ ] SHOW PREVIEW OF MODE THEN CONFIRM FOR PURCHASE FOR MODE
     - [ ] LET PLAYER MOVE VIEW ANGLE WHEN IN TUNE MENU TO PERVENT OPENING AND CLOSING MENU MULTIPLE TIMES
+
 # eject all players in vehicle, usable in /dcar or else
+
 ```pawn
 stock EjectAllPlayers()
 {
@@ -178,22 +188,23 @@ stock EjectAllPlayers()
     - [x] /unstuck 
     - [x] /getplayer 
     - [ ] neon
-    - [ ] Add /fanim
+add more neon colors by mixing neons
+    - [ ] Add /fanim to admin 4
     - [ ] Add strip club
     - [ ] actor in -13, -179, 1
-    - [ ] pirate ship object is still bug and appears in random places
-    - [ ] ufo not moving
+    - [x] pirate ship object is still bug and appears in random places
+    - [x] ufo not moving
     - [ ] change /playaudio to /playmusic
-    - [ ] MOVE ARENA 3
-    - [ ] MOVE ARENA 4
+    - [x] MOVE ARENA 3
+    - [x] MOVE ARENA 4
     - [ ] dynamic actor
     - [ ] ufo bug at -1622, 2559, 112
     - [ ] ufo bug at -790, 2663, 100
     - [ ] ufo bug at 377, 2480, 24
     - [ ] ufo bug at 543, 2424, 29
-    - [ ] attach ufo objects togeter so it wont be bug
-    - [ ] increase ufo speed?
-    - [ ] move island 1 closer to land
+    - [x] attach ufo objects togeter so it wont be bug
+    - [x] increase ufo speed?
+    - [x] move island 1 closer to land
     - [ ] save /kojam to file like /bug
     - [ ] add geo ip: https://github.com/Southclaws/SAMP-geoip
     - [ ] https://github.com/PatrickGTR/actor_robbery
@@ -201,7 +212,7 @@ stock EjectAllPlayers()
     - [ ] add ships to vehicles shop menu and spawn them in water and after spawn set checkpoint and send massage that vehicle is spawnd in water 
     - [ ] dcar
     - [ ] eject all car seats
-    - [ ] get car seats for drag
+    - [ ] get car seats for /drag
     - [ ] get component information 
     - [ ] get vehicle available vehicle components 
     - [ ] tune menu generator
