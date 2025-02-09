@@ -1,0 +1,41 @@
+ApplyAnimation(playerid, "AIRPORT", "THRW_BARL_THRW", 4.0, 1, 0, 0, 0, 0); // test
+ApplyAnimation(playerid, "BEACH", "BATHER", 4.0, 1, 0, 0, 0, 0); // lying down looking up
+ApplyAnimation(playerid, "BIKED", "BIKED_BACK", 4.0, 1, 0, 0, 0, 0); // biked shaking
+ApplyAnimation(playerid, "BIKED", "BIKED_FWD", 4.0, 1, 0, 0, 0, 0); // biked up down shaking
+ApplyAnimation(playerid, "BIKES", "BIKES_BACK", 4.0, 1, 0, 0, 0, 0); // best bike shaking anim
+ApplyAnimation(playerid, "BIKES", "BIKES_FWD", 4.0, 1, 0, 0, 0, 0); // bike hard plaps
+ApplyAnimation(playerid, "BIKEH", "BIKEH_FWD", 4.0, 1, 0, 0, 0, 0); // siting on couch on guy face to face bike
+ApplyAnimation(playerid, "BIKEV", "BIKEV_BACK", 4.0, 1, 0, 0, 0, 0); // small shaking
+ApplyAnimation(playerid, "BIKEV", "BIKEV_FWD", 4.0, 1, 0, 0, 0, 0); // maybe for boobjob
+ApplyAnimation(playerid, "BMX", "BMX_BACK", 4.0, 1, 0, 0, 0, 0); // hugging?
+ApplyAnimation(playerid, "BMX", "BMX_FWD", 4.0, 1, 0, 0, 0, 0); // very hard
+ApplyAnimation(playerid, "CAR", "TYD2CAR_BUMP", 4.0, 1, 0, 0, 0, 0); // pushin on back liyed
+ApplyAnimation(playerid, "CHOPPA", "CHOPPA_BACK", 4.0, 1, 0, 0, 0, 0); // similar to bike 1
+ApplyAnimation(playerid, "CHOPPA", "CHOPPA_FWD", 4.0, 1, 0, 0, 0, 0); // similar to bike 2
+ApplyAnimation(playerid, "COP_AMBIENT", "COPBROWSE_LOOP", 4.0, 1, 0, 0, 0, 0); // maybe unzipping
+ApplyAnimation(playerid, "CRIB", "CRIB_CONSOLE_LOOP", 4.0, 1, 0, 0, 0, 0); // sited on couch holdin her head/
+ApplyAnimation(playerid, "CRIB", "PED_CONSOLE_LOOSE", 4.0, 1, 0, 0, 0, 0); // slaping and forcing 
+ApplyAnimation(playerid, "DANCING", "DAN_DOWN_A", 4.0, 1, 0, 0, 0, 0); // shaking ass
+ApplyAnimation(playerid, "DANCING", "DNCE_M_A", 4.0, 1, 0, 0, 0, 0); // shaking boobs leaning forward
+ApplyAnimation(playerid, "FINALE", "FIN_COP1_LOOP", 4.0, 1, 0, 0, 0, 0); // position 
+ApplyAnimation(playerid, "FINALE", "FIN_LEGSUP", 4.0, 1, 0, 0, 0, 0); // legs up while hanging
+ApplyAnimation(playerid, "FINALE", "FIN_LAND_CAR", 4.0, 1, 0, 0, 0, 0); // lynig down facing down
+ApplyAnimation(playerid, "FINALE2", "FIN_COP1_LOOP", 3.0, 1, 0, 0, 0, 0); // leaning forward rubbing a to d
+ApplyAnimation(playerid, "FREEWEIGHTS", "GYM_BARBELL", 3.0, 1, 0, 0, 0, 0); // doing action on liyed
+ApplyAnimation(playerid, "KISSING", "GRLFRD_KISS_01", 3.0, 1, 0, 0, 0, 0); // 01-03
+ApplyAnimation(playerid, "KISSING", "PLAYA_KISS_01", 3.0, 1, 0, 0, 0, 0); // 01-03
+ApplyAnimation(playerid, "LAPDAN1", "LAPDAN_D", 3.0, 1, 0, 0, 0, 0); // actual stripper dance
+ApplyAnimation(playerid, "LAPDAN1", "LAPDAN_P", 3.0, 1, 0, 0, 0, 0); // actual stripper dance Player sitting 
+ApplyAnimation(playerid, "LAPDAN3", "LAPDAN_D", 3.0, 1, 0, 0, 0, 0); // 1-2-3
+ApplyAnimation(playerid, "LOWRIDER", "LRGIRL_L0_BNCE", 3.0, 1, 0, 0, 0, 0); // lowrideing girl bouncing + more
+ApplyAnimation(playerid, "MISC", "BITCHSLAP", 3.0, 1, 0, 0, 0, 0); // 
+ApplyAnimation(playerid, "MTB", "MTB_BACK", 3.0, 1, 0, 0, 0, 0); // similar to bike 
+ApplyAnimation(playerid, "WAYFARER", "WF_BACK", 3.0, 1, 0, 0, 0, 0); // similar to bike 
+ApplyAnimation(playerid, "SWEET", "SWEET_ASS_SLAP", 3.0, 1, 0, 0, 0, 0); // 
+ApplyAnimation(playerid, "SWAT", "SWT_VNT_SHT_LOOP", 4.0, 1, 0, 0, 0, 0); // pole dance upside down
+ApplyAnimation(playerid, "SUNBATHE", "BATHERDOWN", 4.0, 1, 0, 0, 0, 0); // lying down 
+ApplyAnimation(playerid, "SUNBATHE", "PARKSIT_W_IDLEA", 4.0, 1, 0, 0, 0, 0); // 1-2-3
+ApplyAnimation(playerid, "STRIP", "PLY_CASH", 4.0, 1, 0, 0, 0, 0); // the library itself
+ApplyAnimation(playerid, "SCRATCHING", "SCDLDLP", 4.0, 1, 0, 0, 0, 0); // position 
+ApplyAnimation(playerid, "PYTHON", "PYTHON_CROUCHRELOAD", 4.0, 1, 0, 0, 0, 0); // 
+ApplyAnimation(playerid, "POLICE", "COPTRAF_COME", 4.0, 1, 0, 0, 0, 0); // come

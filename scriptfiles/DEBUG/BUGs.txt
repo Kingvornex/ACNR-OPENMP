@@ -1,0 +1,12 @@
+
+1	(( Bug Report: remove robbery cooldown when robbery failed ))
+1	(( Bug Report: car 559, -1934.031, 2377.340, 49.254 change to saved pos ))
+1	(( Bug Report: increase moving ufo stream distance ))
+1	(( Bug Report: increase moving ufo stream distance/sav ))
+1	(( Bug Report: TURN ON CAR RADIO BY DEFAULT ))
+1	(( Bug Report: ADD POINTS OF INTERSTS TO /GPS ))
+1	(( Bug Report: ADD CODES UNDER ONVEHICLEDEATH IN ACNR2.PWN ))
+1	(( Bug Report: actor in -13 -179 1 ))
+1	(( Bug Report: change /playaudio to /playmusic ))
+2	(( Bug Report: move island 1 closer to land ))
+1	(( Bug Report: CREATE BALL WITH /BALL IN BALL SPAWN LOCATION INSTEAD OF PLAYER LOACTION AND SET CHECKPOINT TO BALL ))
