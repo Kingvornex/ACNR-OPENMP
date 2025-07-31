@@ -4,7 +4,7 @@ The code provided for this task looks mostly correct. It's a command /addcompone
 The code assumes vehicleid is a direct index into GetvMods, but this might not be the case if vehicles are created and destroyed dynamically.
 There's no code to load the saved mods when a vehicle is spawned.
 Here's an improved version:
-
+```
 #define MAX_STREAM_VEHICLES 1000
 new GetvMods[MAX_STREAM_VEHICLES][12]; // 12 is the number of component types in SAMP
 
@@ -71,9 +71,10 @@ CMD:addcomponent(playerid, componentid)
     }
     return 1;
 }
-
+```
 2. Add comma to money textdraw
 The provided code for formatting numbers with commas has some issues. Here's a corrected version:
+```
 stock FormatNumber(number, output[], len = sizeof(output)) {
     new temp = number;
     new count = 0;
@@ -132,7 +133,7 @@ CMD:mymoney(playerid, params[]) {
     SendClientMessage(playerid, -1, message);
     return 1;
 }
-
+```
 3. Updating to OPEN.mp
 This section has a list of tasks for updating the gamemode to OPEN.mp. Let's address each one:
 
@@ -141,7 +142,7 @@ The OPEN.mp team provides an upgrade tool to help convert SA:MP scripts to OPEN.
 
 Use y_hooks
 y_hooks is a library that allows for more flexible hooking of callbacks. To use it, you need to include it in your script and modify your callbacks to use the hooking system.
-
+```
 #include <YSI_Coding\y_hooks>
 
 // Example of hooking OnPlayerConnect
@@ -150,7 +151,7 @@ hook OnPlayerConnect(playerid) {
     return 1;
 }
 
-
+```
 Update whirlpool to bcrypt
 The provided link (https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md) should contain instructions on how to update from whirlpool to bcrypt. Generally, this involves:
 
@@ -164,7 +165,7 @@ Include the library in your script
 Replace all ShowPlayerDialog calls with Dialog_Show calls
 Restructure your dialog response handling
 Example:
-
+```
 #include <easyDialog>
 
 // Old way
@@ -182,63 +183,11 @@ Dialog:Login(playerid, response, inputtext[]) {
     // Process login
     return 1;
 }
-
-Fix Anti Fake Kill
-The anti-fake kill system needs to be updated for OPEN.mp. This might involve:
-
-Checking if OPEN.mp has changed how player deaths are handled
-Updating the detection logic to account for any changes
-Testing the system thoroughly
-Fix login password hash and Add bcrypt
-This is related to the whirlpool to bcrypt update mentioned earlier. You need to:
-
-Implement bcrypt hashing for passwords
-Update the login system to use bcrypt for verification
-Handle the migration of existing passwords
-Fix texdraws and loading screen after /restart
-After a restart, textdraws and loading screens might not display correctly. To fix this:
-
-Ensure all textdraws are properly recreated after a restart
-Check if the loading screen is being initialized correctly
-Add debugging to identify what's failing
-Save in user files when the data being edited
-To ensure data is saved when it's being edited:
-
-Implement immediate saving when data is changed
-Add a timer to periodically save data
-Ensure data is saved when a player disconnects
-Decrease robbery cool down
-To decrease the robbery cooldown:
-
-Find the variable or constant that controls the cooldown time
-Decrease its value
-Test to ensure the new cooldown is appropriate
-
-Don't set robbery cool down if it failed
-To avoid setting a cooldown when a robbery fails:
-
-Identify where the cooldown is set
-Add a condition to only set it if the robbery was successful
-Test to ensure it works as expected
-Activate tdspeedo when player joins arena
-To activate the speedometer when a player joins an arena:
-
-Find the code that handles arena joining
-Add code to enable the speedometer textdraw
-Test to ensure it works correctly
-Player marker mode global : 1 is still not active
-To fix the player marker mode:
-
-Check if the global variable is being set correctly
-Ensure the code that handles player markers is using this variable
-Debug to identify why it's not working
-Shop vehicle destroys by itself won't respawn
-To fix shop vehicles not respawning when destroyed:
-
+```
 
 Shop vehicle destroys by itself won't respawn
 To fix shop vehicles not respawning when destroyed
-
+```
 public OnVehicleDeath(vehicleid, killerid) {
     // Check if this is a shop vehicle
     if (IsShopVehicle(vehicleid)) {
@@ -269,10 +218,7 @@ public RespawnShopVehicle(vehicleid) {
     
     return 1;
 }
-
-
-Add comma to money textdraw
-This was already addressed in section 2.
+```
 
 Under OnPlayerStateChange only use newState, using oldState with if will cause bug and not execution some times
 To fix this issue:
@@ -283,7 +229,7 @@ Use only newState for determining player state
 Test thoroughly to ensure everything still works
 Change default vehicle numberplate from "ACNR" to "VEHICLE NAME"
 To change the default number plate:
-
+```
 public OnVehicleSpawn(vehicleid) {
     // Get the vehicle model name
     new model = GetVehicleModel(vehicleid);
@@ -295,9 +241,10 @@ public OnVehicleSpawn(vehicleid) {
     
     return 1;
 }
-
+```
 4. Eject all players in vehicle
 The code provided for ejecting all players from a vehicle has some issues. Here's a corrected version:
+```
 CMD:ejectall(playerid, params[]) {
     // Check if the player is in a vehicle
     new vehicleid = GetPlayerVehicleID(playerid);
@@ -345,10 +292,10 @@ stock EjectAllPlayersFromVehicle(vehicleid, exceptid = INVALID_PLAYER_ID) {
     }
     return ejected;
 }
-
+```
 onvehicledeath
 This seems to be about handling vehicle death events. Here's a basic implementation:
-
+```
 public OnVehicleDeath(vehicleid, killerid) {
     // Check if this is a shop vehicle
     if (IsShopVehicle(vehicleid)) {
@@ -368,9 +315,10 @@ public OnVehicleDeath(vehicleid, killerid) {
     return 1;
 }
 
-
+```
 neon
 To add more neon colors by mixing neons:
+```
 // Define neon colors
 enum {
     NEON_COLOR_BLUE = 0,
@@ -459,10 +407,10 @@ CMD:neon(playerid, params[]) {
     
     return 1;
 }
-
+```
 Add /fanim to admin 4
 To add the /fanim command for admin level 4:
-
+```
 CMD:fanim(playerid, params[]) {
     if (PlayerInfo[playerid][aLevel] < 4) {
         SendClientMessage(playerid, 0xFF0000AA, "You must be an admin level 4 to use this command.");
@@ -491,18 +439,19 @@ CMD:fanim(playerid, params[]) {
     
     return 1;
 }
-
+```
 
 Actor in -13, -179, 1
 To add an actor at the specified coordinates:
 
-
+```
 new actorid;
 actorid = CreateActor(skinid, -13.0, -179.0, 1.0, rotation); // Replace skinid and rotation with appropriate values
-
+```
 
 Attach UFO objects together so it won't be bug
 To attach UFO objects together:
+```pwn
 // Create the main UFO object
 new ufoMain = CreateObject(objectid, x, y, z, rx, ry, rz);
 
@@ -513,11 +462,11 @@ new ufoPart2 = CreateObject(objectid2, x2, y2, z2, rx2, ry2, rz2);
 // Attach the parts to the main UFO
 AttachObjectToObject(ufoPart1, ufoMain, offsetX1, offsetY1, offsetZ1, rotX1, rotY1, rotZ1);
 AttachObjectToObject(ufoPart2, ufoMain, offsetX2, offsetY2, offsetZ2, rotX2, rotY2, rotZ2);
-
+```
 
 Save /kojam to file like /bug
 To save /kojam commands to a file like /bug:
-
+```
 CMD:kojam(playerid, params[]) {
     new text[128];
     if (sscanf(params, "s[128]", text)) {
@@ -549,11 +498,11 @@ stock GetDate() {
     format(date, sizeof(date), "%04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second);
     return date;
 }
-
+```
 
 Get component information
 To get component information:
-
+```
 CMD:getcomponentinfo(playerid, params[]) {
     new componentid;
     if (sscanf(params, "d", componentid)) {
@@ -585,12 +534,12 @@ CMD:getcomponentinfo(playerid, params[]) {
     SendClientMessage(playerid, 0x00FF00AA, info);
     return 1;
 }
-
+```
 
 
 Get vehicle available vehicle components
 To get available vehicle components:
-
+```
 CMD:getavailablecomponents(playerid, params[]) {
     if (!IsPlayerInAnyVehicle(playerid)) {
         SendClientMessage(playerid, 0xFF0000AA, "You must be in a vehicle to use this command.");
@@ -639,11 +588,11 @@ stock IsValidComponentForVehicle(model, componentid) {
     // This is just a placeholder implementation
     return true;
 }
-
+```
 
 Add pursuit
 To add a pursuit system:
-
+```
 new IsInPursuit[MAX_PLAYERS];
 new PursuitTimer[MAX_PLAYERS];
 
@@ -780,7 +729,7 @@ public OnPlayerEnterDynamicCP(playerid, checkpointid) {
     return 1;
 }
 
-
+```
 
 
 
