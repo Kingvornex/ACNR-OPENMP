@@ -1,4 +1,4 @@
-1. Save vehicle component mods by component slot
+#1. Save vehicle component mods by component slot
 The code provided for this task looks mostly correct. It's a command /addcomponent that adds a component to a vehicle and saves it based on the component type. However, there are a few improvements we can make:
 
 The code assumes vehicleid is a direct index into GetvMods, but this might not be the case if vehicles are created and destroyed dynamically.
@@ -72,7 +72,7 @@ CMD:addcomponent(playerid, componentid)
     return 1;
 }
 ```
-2. Add comma to money textdraw
+#2. Add comma to money textdraw
 The provided code for formatting numbers with commas has some issues. Here's a corrected version:
 ```
 stock FormatNumber(number, output[], len = sizeof(output)) {
@@ -134,7 +134,7 @@ CMD:mymoney(playerid, params[]) {
     return 1;
 }
 ```
-3. Updating to OPEN.mp
+#3. Updating to OPEN.mp
 This section has a list of tasks for updating the gamemode to OPEN.mp. Let's address each one:
 
 Use upgrade tool
@@ -152,7 +152,7 @@ hook OnPlayerConnect(playerid) {
 }
 
 ```
-Update whirlpool to bcrypt
+#Update whirlpool to bcrypt
 The provided link (https://github.com/Kingvornex/ACNR-OPENMP/blob/main/How%20to%20update%20to%20bcryp.md) should contain instructions on how to update from whirlpool to bcrypt. Generally, this involves:
 
 Replacing whirlpool hash functions with bcrypt hash functions
@@ -185,7 +185,7 @@ Dialog:Login(playerid, response, inputtext[]) {
 }
 ```
 
-Shop vehicle destroys by itself won't respawn
+#Shop vehicle destroys by itself won't respawn
 To fix shop vehicles not respawning when destroyed
 ```
 public OnVehicleDeath(vehicleid, killerid) {
@@ -220,7 +220,7 @@ public RespawnShopVehicle(vehicleid) {
 }
 ```
 
-Under OnPlayerStateChange only use newState, using oldState with if will cause bug and not execution some times
+#Under OnPlayerStateChange only use newState, using oldState with if will cause bug and not execution some times
 To fix this issue:
 
 Review all code in OnPlayerStateChange
@@ -242,7 +242,7 @@ public OnVehicleSpawn(vehicleid) {
     return 1;
 }
 ```
-4. Eject all players in vehicle
+#4. Eject all players in vehicle
 The code provided for ejecting all players from a vehicle has some issues. Here's a corrected version:
 ```
 CMD:ejectall(playerid, params[]) {
@@ -293,7 +293,7 @@ stock EjectAllPlayersFromVehicle(vehicleid, exceptid = INVALID_PLAYER_ID) {
     return ejected;
 }
 ```
-onvehicledeath
+#onvehicledeath
 This seems to be about handling vehicle death events. Here's a basic implementation:
 ```
 public OnVehicleDeath(vehicleid, killerid) {
@@ -316,7 +316,7 @@ public OnVehicleDeath(vehicleid, killerid) {
 }
 
 ```
-neon
+#neon
 To add more neon colors by mixing neons:
 ```
 // Define neon colors
@@ -408,7 +408,7 @@ CMD:neon(playerid, params[]) {
     return 1;
 }
 ```
-Add /fanim to admin 4
+#Add /fanim to admin 4
 To add the /fanim command for admin level 4:
 ```
 CMD:fanim(playerid, params[]) {
@@ -441,7 +441,7 @@ CMD:fanim(playerid, params[]) {
 }
 ```
 
-Actor in -13, -179, 1
+#Actor in -13, -179, 1
 To add an actor at the specified coordinates:
 
 ```
@@ -449,7 +449,7 @@ new actorid;
 actorid = CreateActor(skinid, -13.0, -179.0, 1.0, rotation); // Replace skinid and rotation with appropriate values
 ```
 
-Attach UFO objects together so it won't be bug
+#Attach UFO objects together so it won't be bug
 To attach UFO objects together:
 ```pwn
 // Create the main UFO object
@@ -464,7 +464,7 @@ AttachObjectToObject(ufoPart1, ufoMain, offsetX1, offsetY1, offsetZ1, rotX1, rot
 AttachObjectToObject(ufoPart2, ufoMain, offsetX2, offsetY2, offsetZ2, rotX2, rotY2, rotZ2);
 ```
 
-Save /kojam to file like /bug
+#Save /kojam to file like /bug
 To save /kojam commands to a file like /bug:
 ```
 CMD:kojam(playerid, params[]) {
@@ -500,7 +500,7 @@ stock GetDate() {
 }
 ```
 
-Get component information
+#Get component information
 To get component information:
 ```
 CMD:getcomponentinfo(playerid, params[]) {
@@ -537,7 +537,7 @@ CMD:getcomponentinfo(playerid, params[]) {
 ```
 
 
-Get vehicle available vehicle components
+#Get vehicle available vehicle components
 To get available vehicle components:
 ```
 CMD:getavailablecomponents(playerid, params[]) {
@@ -590,7 +590,7 @@ stock IsValidComponentForVehicle(model, componentid) {
 }
 ```
 
-Add pursuit
+#Add pursuit
 To add a pursuit system:
 ```
 new IsInPursuit[MAX_PLAYERS];
@@ -731,7 +731,30 @@ public OnPlayerEnterDynamicCP(playerid, checkpointid) {
 
 ```
 
+#vehicle respawn bug
+```pwn
+public OnVehicleUpdate(vehicleid)
+{
+    new Float:health;
+    GetVehicleHealth(vehicleid, health);
+    
+    if (health < 2.0) // Vehicle is "dead"
+    {
+        // Respawn the vehicle after a short delay
+        SetTimerEx("RespawnShopVehicle", 3000, false, "d", vehicleid);
+    }
+    return 1;
+}
 
+forward RespawnShopVehicle(vehicleid);
+public RespawnShopVehicle(vehicleid)
+{
+    // Add logic to respawn the shop vehicle (e.g., reset position, mods, etc.)
+    SetVehicleToRespawn(vehicleid);
+    // Reapply saved mods if needed
+    // ...
+}
+```
 
 
 
