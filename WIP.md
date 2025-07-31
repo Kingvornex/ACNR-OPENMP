@@ -4,7 +4,7 @@ The code provided for this task looks mostly correct. It's a command /addcompone
 The code assumes vehicleid is a direct index into GetvMods, but this might not be the case if vehicles are created and destroyed dynamically.
 There's no code to load the saved mods when a vehicle is spawned.
 Here's an improved version:
-```
+```pwn
 #define MAX_STREAM_VEHICLES 1000
 new GetvMods[MAX_STREAM_VEHICLES][12]; // 12 is the number of component types in SAMP
 
@@ -74,7 +74,7 @@ CMD:addcomponent(playerid, componentid)
 ```
 # 2. Add comma to money textdraw
 The provided code for formatting numbers with commas has some issues. Here's a corrected version:
-```
+```pwn
 stock FormatNumber(number, output[], len = sizeof(output)) {
     new temp = number;
     new count = 0;
@@ -142,7 +142,7 @@ The OPEN.mp team provides an upgrade tool to help convert SA:MP scripts to OPEN.
 
 Use y_hooks
 y_hooks is a library that allows for more flexible hooking of callbacks. To use it, you need to include it in your script and modify your callbacks to use the hooking system.
-```
+```pwn
 #include <YSI_Coding\y_hooks>
 
 // Example of hooking OnPlayerConnect
@@ -165,7 +165,7 @@ Include the library in your script
 Replace all ShowPlayerDialog calls with Dialog_Show calls
 Restructure your dialog response handling
 Example:
-```
+```pwn
 #include <easyDialog>
 
 // Old way
@@ -187,7 +187,7 @@ Dialog:Login(playerid, response, inputtext[]) {
 
 # Shop vehicle destroys by itself won't respawn
 To fix shop vehicles not respawning when destroyed
-```
+```pwn
 public OnVehicleDeath(vehicleid, killerid) {
     // Check if this is a shop vehicle
     if (IsShopVehicle(vehicleid)) {
@@ -229,7 +229,7 @@ Use only newState for determining player state
 Test thoroughly to ensure everything still works
 Change default vehicle numberplate from "ACNR" to "VEHICLE NAME"
 To change the default number plate:
-```
+```pwn
 public OnVehicleSpawn(vehicleid) {
     // Get the vehicle model name
     new model = GetVehicleModel(vehicleid);
@@ -244,7 +244,7 @@ public OnVehicleSpawn(vehicleid) {
 ```
 # 4. Eject all players in vehicle
 The code provided for ejecting all players from a vehicle has some issues. Here's a corrected version:
-```
+```pwn
 CMD:ejectall(playerid, params[]) {
     // Check if the player is in a vehicle
     new vehicleid = GetPlayerVehicleID(playerid);
@@ -295,7 +295,7 @@ stock EjectAllPlayersFromVehicle(vehicleid, exceptid = INVALID_PLAYER_ID) {
 ```
 # onvehicledeath
 This seems to be about handling vehicle death events. Here's a basic implementation:
-```
+```pwn
 public OnVehicleDeath(vehicleid, killerid) {
     // Check if this is a shop vehicle
     if (IsShopVehicle(vehicleid)) {
@@ -318,7 +318,7 @@ public OnVehicleDeath(vehicleid, killerid) {
 ```
 # neon
 To add more neon colors by mixing neons:
-```
+```pwn
 // Define neon colors
 enum {
     NEON_COLOR_BLUE = 0,
@@ -410,7 +410,7 @@ CMD:neon(playerid, params[]) {
 ```
 # Add /fanim to admin 4
 To add the /fanim command for admin level 4:
-```
+```pwn
 CMD:fanim(playerid, params[]) {
     if (PlayerInfo[playerid][aLevel] < 4) {
         SendClientMessage(playerid, 0xFF0000AA, "You must be an admin level 4 to use this command.");
@@ -444,7 +444,7 @@ CMD:fanim(playerid, params[]) {
 # Actor in -13, -179, 1
 To add an actor at the specified coordinates:
 
-```
+```pwn
 new actorid;
 actorid = CreateActor(skinid, -13.0, -179.0, 1.0, rotation); // Replace skinid and rotation with appropriate values
 ```
@@ -502,7 +502,7 @@ stock GetDate() {
 
 # Get component information
 To get component information:
-```
+```pwn
 CMD:getcomponentinfo(playerid, params[]) {
     new componentid;
     if (sscanf(params, "d", componentid)) {
@@ -539,7 +539,7 @@ CMD:getcomponentinfo(playerid, params[]) {
 
 # Get vehicle available vehicle components
 To get available vehicle components:
-```
+```pwn
 CMD:getavailablecomponents(playerid, params[]) {
     if (!IsPlayerInAnyVehicle(playerid)) {
         SendClientMessage(playerid, 0xFF0000AA, "You must be in a vehicle to use this command.");
@@ -592,7 +592,7 @@ stock IsValidComponentForVehicle(model, componentid) {
 
 # Add pursuit
 To add a pursuit system:
-```
+```pwn
 new IsInPursuit[MAX_PLAYERS];
 new PursuitTimer[MAX_PLAYERS];
 
